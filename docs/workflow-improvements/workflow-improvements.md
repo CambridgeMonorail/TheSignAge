@@ -1,4 +1,4 @@
-# Spec: Copilot-first Agent Workflow Improvements for `react-weapons-of-choice`
+# Spec: Copilot-first Agent Workflow Improvements for `TheSignAge`
 
 ## Table of Contents
 
@@ -273,7 +273,7 @@ If your guidance includes words like "first", "then", "before", "after", it prob
 
 ## Context
 
-We want to learn from the workflow ideas in `obra/superpowers` while remaining GitHub Copilot compliant, and apply them to our React SPA boilerplate `CambridgeMonorail/react-weapons-of-choice`. ([GitHub][1])
+We want to learn from the workflow ideas in `obra/superpowers` while remaining GitHub Copilot compliant, and apply them to our React SPA boilerplate `CambridgeMonorail/TheSignAge`. ([GitHub][1])
 
 We are explicitly not adopting TDD as a required practice, but we do want the rest of the workflow structure: planning, systematic debugging, code review discipline, and verification evidence. ([GitHub][2])
 
@@ -710,4 +710,4 @@ When implementing, maintain clear separation:
 [8]: https://github.blog/changelog/2025-12-18-github-copilot-now-supports-agent-skills/?utm_source=chatgpt.com "GitHub Copilot now supports Agent Skills"
 [9]: https://agents.md/?utm_source=chatgpt.com "AGENTS.md"
 [10]: https://github.com/microsoft/vscode/issues/271489?utm_source=chatgpt.com "GitHub Copilot ignores nested AGENTS.md files but ..."
-[11]: https://github.com/CambridgeMonorail/react-weapons-of-choice?utm_source=chatgpt.com "CambridgeMonorail/react-weapons-of-choice"
+[11]: https://github.com/CambridgeMonorail/TheSignAge?utm_source=chatgpt.com "CambridgeMonorail/TheSignAge"

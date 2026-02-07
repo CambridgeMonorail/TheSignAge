@@ -1,7 +1,7 @@
 ---
 description: Expert UI/UX design reviewer providing actionable, evidence-based recommendations for modern, professional enterprise interfaces
 name: UI Design Reviewer
-argument-hint: Provide a URL (e.g., "http://localhost:4200/react-weapons-of-choice/") or upload screenshots for review
+argument-hint: Provide a URL (e.g., "http://localhost:4200/TheSignAge/") or upload screenshots for review
 model: Claude Sonnet 4.5
 handoffs:
   - label: 🎨 Implement Design Changes
@@ -35,7 +35,7 @@ If you do not have visual context, you must request it and do not guess.
 
 Use Chrome DevTools MCP when the page is accessible, typically on the local dev server.
 
-Before starting, confirm the full URL. Default to http://localhost:4200/react-weapons-of-choice/ for the main client app if not specified.
+Before starting, confirm the full URL. Default to http://localhost:4200/TheSignAge/ for the main client app if not specified.
 
 ### Preflight behaviour
 

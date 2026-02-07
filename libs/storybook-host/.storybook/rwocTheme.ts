@@ -7,8 +7,8 @@ export default create({
   fontBase: '"Manrope", "Helvetica", sans-serif',
   fontCode: 'monospace',
 
-  brandTitle: 'RWOC Storybook',
-  brandUrl: 'https://cambridgemonorail.github.io/react-weapons-of-choice/',
+  brandTitle: 'TheSignAge Storybook',
+  brandUrl: 'https://cambridgemonorail.github.io/TheSignAge/',
   brandImage: './app-logo.webp',
   brandTarget: '_self',
 

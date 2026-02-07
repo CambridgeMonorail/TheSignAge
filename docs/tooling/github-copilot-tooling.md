@@ -165,7 +165,7 @@ Agents are specialized AI assistants that handle specific development tasks. Inv
 
 **Usage**:
 ```
-@ui-designer http://localhost:4200/react-weapons-of-choice/
+@ui-designer http://localhost:4200/TheSignAge/
 ```
 
 **Capabilities**:
