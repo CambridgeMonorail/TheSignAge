@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/logos/app-logo.svg" alt="RWOC Logo" width="25%" height="25%">
+  <img src="docs/images/logos/app-logo.svg" alt="TheSignAge Logo" width="25%" height="25%">
 </p>
 
 # TheSignAge
