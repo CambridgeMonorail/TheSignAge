@@ -15,12 +15,11 @@ export default defineConfig({
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
 
-    reporters: ['basic'],
+    reporters: ['default'],
     coverage: {
       reportsDirectory: '../../coverage/libs/storybook-host',
       provider: 'v8',
     },
-    setupFiles: ['../../config/vitest.setup.ts'],
   },
   root: __dirname,
   cacheDir: '../../node_modules/.vite/libs/storybook-host',

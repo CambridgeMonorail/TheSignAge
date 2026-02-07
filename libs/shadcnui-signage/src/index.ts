@@ -8,10 +8,23 @@
 // Primitives
 export { ScreenFrame } from './lib/primitives/ScreenFrame';
 export type { ScreenFrameProps } from './lib/primitives/ScreenFrame';
+export { MetricCard } from './lib/primitives/MetricCard';
+export type { MetricCardProps } from './lib/primitives/MetricCard';
+export { EventCard } from './lib/primitives/EventCard';
+export type { EventCardProps } from './lib/primitives/EventCard';
+export { AnnouncementCard } from './lib/primitives/AnnouncementCard';
+export type { AnnouncementCardProps } from './lib/primitives/AnnouncementCard';
 
 // Layouts
 export { SplitScreen } from './lib/layouts/SplitScreen';
 export type { SplitScreenProps } from './lib/layouts/SplitScreen';
+export { SignageContainer } from './lib/layouts/SignageContainer';
+export type {
+  SignageContainerProps,
+  GradientVariant,
+} from './lib/layouts/SignageContainer';
+export { SignageHeader } from './lib/layouts/SignageHeader';
+export type { SignageHeaderProps } from './lib/layouts/SignageHeader';
 
 // Blocks
 export { FullscreenHero } from './lib/blocks/FullscreenHero';
