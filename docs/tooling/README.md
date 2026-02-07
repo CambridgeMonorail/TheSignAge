@@ -1,25 +1,32 @@
 # Tooling & Productivity
 
-Documentation for developer tools, workflows, and productivity enhancements that make working with React Weapons of Choice more efficient.
+Documentation for developer tools, workflows, and productivity enhancements that make working with The Sign Age more efficient.
 
 ## Documents in this Section
 
 ### [GitHub Copilot Tooling](./github-copilot-tooling.md)
-Comprehensive guide to the custom GitHub Copilot agents, skills, and instructions configured for this project. Includes 8 specialized agents for component review, UI design, debugging, and more.
+
+Comprehensive guide to the custom GitHub Copilot agents, skills, and instructions configured for this project.
 
 **Key Topics**: Custom agents, skills, instructions, agent usage patterns, creating agents
 
 **Featured Agents**:
-- `@shadcnui-component-reviewer` - Component quality and standards review
+
+- `@requirements-planner` - Transform requirements into actionable implementation plans
+- `@shadcnui-component-reviewer` - End-to-end shadcn/ui component review
 - `@ui-designer` - Evidence-based UI/UX design review
-- `@webapp-debugger` - Browser-based debugging with Chrome DevTools MCP
-- `@requirements-planner` - Transform requirements into implementation plans
-- `@git-commit-helper` - Conventional commits automation
-- `@pr-description-helper` - Structured PR descriptions
+- `@signage-architect` - Signage-focused React architecture and layout guidance
+- `@instructions-detox` - Extract/organize scoped instructions for focused work
+- `@custom-agent-foundry` - Create new custom agents following repo conventions
+
+For commit + PR descriptions, use the prompts: `/commit` and `/pr-desc`.
+
+For browser debugging, use the `chrome-devtools-webapp-debug` skill.
 
 ---
 
 ### [Productivity Tooling](./productivity-tooling.md)
+
 Overview of the modern development tools and techniques that accelerate React application development, including Nx, shadcn/ui, Tailwind CSS, VS Code, GitHub Copilot, v0, and GitHub Actions.
 
 **Key Topics**: Nx Console, shadcn/ui components, Tailwind CSS utilities, VS Code extensions, AI-powered coding, automation
@@ -27,6 +34,7 @@ Overview of the modern development tools and techniques that accelerate React ap
 ---
 
 ### [Workflows](./workflows.md)
+
 Common development workflows and best practices for working in the monorepo, including development cycles, testing strategies, and CI/CD patterns.
 
 **Key Topics**: Development workflow, testing strategies, CI/CD, code review, release process

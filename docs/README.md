@@ -1,19 +1,22 @@
 # Documentation
 
-Welcome to the React Weapons of Choice documentation! This guide will help you navigate the available resources whether you're just getting started, building features, or maintaining the codebase.
+Welcome to **The Sign Age** documentation. This is a working notebook for building digital signage as software: prototypes, reusable UI building blocks, and practical tooling for frontend engineers.
 
 ## 📚 Documentation Structure
 
 ### [Getting Started](./getting-started/)
-New to the project? Start here to understand the fundamentals.
 
-- **[Why a React SPA Boilerplate?](./getting-started/why-spa-why.md)** - Project rationale and use cases
+New to the project? Start here to understand the intent, structure, and workflow.
+
+- **[Why a React SPA for Signage?](./getting-started/why-spa-why.md)** - Why a client-side app fits signage constraints
 - **[Understanding the Project Structure](./getting-started/understanding-the-project-structure.md)** - Monorepo architecture overview
-- **[Project Goals](./getting-started/project-goals.md)** - Objectives and guiding principles
+- **[Statement of Intent](./getting-started/statement-of-intent.md)** - What this repo is (and is not)
+- **[Project Goals](./getting-started/project-goals.md)** - Objectives and guiding principles for signage work
 
 ---
 
 ### [Guides](./guides/)
+
 Practical how-to guides for common development tasks.
 
 - **[Adding a New Component Page](./guides/addding-new-component-page.md)** - React Router and page setup
@@ -25,6 +28,7 @@ Practical how-to guides for common development tasks.
 ---
 
 ### [Tooling](./tooling/)
+
 Developer tools and productivity enhancements.
 
 - **[GitHub Copilot Tooling](./tooling/github-copilot-tooling.md)** - Custom agents, skills, and instructions ⭐
@@ -34,6 +38,7 @@ Developer tools and productivity enhancements.
 ---
 
 ### [Integration](./integration/)
+
 Connect external services and platforms.
 
 - **[Integrate Contentful](./integration/integrate-contentful.md)** - CMS integration guide
@@ -42,6 +47,7 @@ Connect external services and platforms.
 ---
 
 ### [Maintenance](./maintenance/)
+
 Keep the codebase healthy and up-to-date.
 
 - **[Modernization](./maintenance/modernization.md)** - Keeping the project current
@@ -52,6 +58,7 @@ Keep the codebase healthy and up-to-date.
 ---
 
 ### [Contributing](./contributing/)
+
 Join the project and make it better.
 
 - **[Contributing Guidelines](./contributing/CONTRIBUTING.md)** - Code standards and PR process
@@ -59,6 +66,7 @@ Join the project and make it better.
 ---
 
 ### [TODO](./todo/)
+
 Planned features and future work.
 
 - **[Analytics and SEO TODO](./todo/todo-analytics-and-seo.md)** - Future enhancements
@@ -111,6 +119,6 @@ Throughout this documentation:
 
 ---
 
-*Last updated: January 28, 2026*
+_Last updated: January 28, 2026_
 
 [← Back to Main README](../README.md)

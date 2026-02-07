@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import { cn } from '@tsa/shadcnui';
+import { cn } from '@tsa/shadcnui/lib/utils';
 import { getClampClass } from '../utils/clamp';
 import type { Variant } from '../types/signage.types';
 
@@ -91,7 +91,7 @@ export function FullscreenHero({
       className={cn(
         'relative flex h-full w-full flex-col items-center justify-center p-16',
         isDark ? 'bg-slate-900 text-white' : 'bg-white text-slate-900',
-        className
+        className,
       )}
       style={backgroundStyles}
       data-testid="fullscreen-hero"
@@ -102,7 +102,7 @@ export function FullscreenHero({
         <div
           className={cn(
             'absolute inset-0',
-            isDark ? 'bg-slate-900/75' : 'bg-white/75'
+            isDark ? 'bg-slate-900/75' : 'bg-white/75',
           )}
           aria-hidden="true"
         />
@@ -118,7 +118,7 @@ export function FullscreenHero({
           className={cn(
             'text-9xl font-bold',
             getClampClass(2),
-            isDark ? 'text-white' : 'text-slate-900'
+            isDark ? 'text-white' : 'text-slate-900',
           )}
           data-testid="hero-title"
         >
@@ -131,7 +131,7 @@ export function FullscreenHero({
             className={cn(
               'mt-6 text-5xl font-medium',
               getClampClass(2),
-              isDark ? 'text-slate-200' : 'text-slate-700'
+              isDark ? 'text-slate-200' : 'text-slate-700',
             )}
             data-testid="hero-subtitle"
           >
@@ -145,7 +145,7 @@ export function FullscreenHero({
             className={cn(
               'mt-8 text-3xl',
               getClampClass(4),
-              isDark ? 'text-slate-300' : 'text-slate-600'
+              isDark ? 'text-slate-300' : 'text-slate-600',
             )}
             data-testid="hero-body"
           >
@@ -155,13 +155,14 @@ export function FullscreenHero({
 
         {/* Call to action */}
         {cta && (
-          <div className="mt-12 flex flex-col items-center gap-3" data-testid="hero-cta">
+          <div
+            className="mt-12 flex flex-col items-center gap-3"
+            data-testid="hero-cta"
+          >
             <div
               className={cn(
                 'rounded-lg px-12 py-6 text-4xl font-semibold',
-                isDark
-                  ? 'bg-white text-slate-900'
-                  : 'bg-slate-900 text-white'
+                isDark ? 'bg-white text-slate-900' : 'bg-slate-900 text-white',
               )}
             >
               {cta.label}
@@ -170,7 +171,7 @@ export function FullscreenHero({
               <p
                 className={cn(
                   'text-xl',
-                  isDark ? 'text-slate-400' : 'text-slate-500'
+                  isDark ? 'text-slate-400' : 'text-slate-500',
                 )}
               >
                 {cta.hint}

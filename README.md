@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/images/logos/app-logo.svg" alt="TheSignAge Logo" width="25%" height="25%">
+    <img src="docs/images/logos/app-logo.svg" alt="The Sign Age Logo" width="25%" height="25%">
 </p>
 
-# TheSignAge
+# The Sign Age
 
 ![Project Status](https://img.shields.io/badge/status-alpha-orange?style=for-the-badge)
 ![Version](https://img.shields.io/github/package-json/v/CambridgeMonorail/TheSignAge?style=for-the-badge)
@@ -12,68 +12,70 @@
 
 **NOTE: This project is currently in alpha. In fact, it's very alpha. This means it is still under active development and may undergo significant changes. Features may be incomplete or unstable. Got suggestions on what you would like to see or how to make it better? Add an issue and let us know!**
 
-![Performance](./lighthouse-badges/lighthouse_performance.svg)
-![Accessibility](./lighthouse-badges/lighthouse_accessibility.svg)
-![Best Practices](./lighthouse-badges/lighthouse_best-practices.svg)
-![SEO](./lighthouse-badges/lighthouse_seo.svg)
-
-These badges represent the results of Lighthouse audits, which are run to ensure the application meets high standards in performance, accessibility, best practices, and SEO. Note that these audits are conducted for the desktop version of the application, as its primary use case is on desktop, although it is fully responsive.
-
-[View Detailed Lighthouse Report](https://htmlpreview.github.io/?https://github.com/CambridgeMonorail/TheSignAge/blob/main/lighthouse-badges/cambridgemonorail_github_io_react_weapons_of_choice_.html)
-
 ## Table of Contents
 
 - [Overview](#overview)
-- [Project Goals](#project-goals)
-- [Features](#features)
-- [Why This Project Was Built](#why-this-project-was-built)
-- [Technologies Used](#technologies-used)
+- [Statement of Intent](#statement-of-intent)
+- [What This Repo Contains](#what-this-repo-contains)
+- [Developer Tooling](#developer-tooling)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Run Tasks](#run-tasks)
-- [Install Nx Console](#install-nx-console)
-- [GitHub Copilot Tooling](#github-copilot-tooling)
-- [Make This Your Own](#make-this-your-own)
-- [Add new projects](#add-new-projects)
-- [Theming Your App](#theming-your-app)
+- [Common Commands](#common-commands)
+- [Documentation](#documentation)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
-- [Useful links](#useful-links)
-- [FAQs](#faqs)
+
 ## Overview
 
-An open-source boilerplate designed to simplify the development of single-page React applications (SPAs). By leveraging Nx, Tailwind CSS, and Shadcn UI, this project offers developers a seamless and efficient starting point for building modern front-end applications. It is ideal for those who prefer not to use Next.js or cannot use it but still want the benefits of this powerful toolset.
+**The Sign Age** is an exploration of digital signage as a software platform.
 
-Inspired by and based upon [joshuarobs/nx-shadcn-ui-monorepo](https://github.com/joshuarobs/nx-shadcn-ui-monorepo).
+This repository exists to document, prototype, and share practical work around building bespoke, generative, and data-driven content for digital signage players—especially **BrightSign** devices—from the perspective of experienced frontend developers.
 
-Thanks to the help from this tutorial here: <https://medium.com/readytowork-org/monorepo-setup-with-nx-nextjs-and-shadcn-ui-3b72c3599470>
+Digital signage is often treated as a solved problem: templates, slide decks, CMS tools, and marketing abstractions. That works for some use cases, but it leaves a large amount of creative and technical potential unexplored.
 
-## Project Goals
+This project starts from a different assumption: signage screens are computers bolted to walls.
 
-- **Simplified Setup**: Provide a ready-to-use boilerplate for developers looking to build SPAs using modern tools without SSR or Next.js.
-- **Seamless Integration**: Combine Nx for monorepo management, Tailwind CSS for utility-first styling, and Shadcn UI for cohesive, customizable UI components.
-- **Scalability and Modularity**: Offer a scalable architecture with reusable libraries and clear boundaries between projects.
-- **Enhanced Developer Experience**: Deliver a well-documented, intuitive, and maintainable codebase to boost productivity and reduce onboarding time.
-- **Community Collaboration**: Foster an open-source community to innovate, improve, and expand the project.
+## Statement of Intent
 
-For a detailed breakdown of the project goals, see [Project Goals](./docs/getting-started/project-goals.md).
+The intent of this repository is to:
 
-## Features
+- Treat signage players as programmable systems, not presentation tools
+- Translate signage concepts into mental models familiar to web and frontend engineers
+- Explore what is possible when modern web technologies meet always-on, unattended hardware
+- Be honest about constraints, quirks, trade-offs, and failure cases
+- Share real experiments, not polished marketing narratives
 
-- 🏗 **Nx Monorepo**: Modular and scalable workspace for managing multiple projects and libraries.
-- 🎨 **Tailwind CSS**: Utility-first CSS framework for rapid and responsive UI development.
-- 🖌 **Shadcn UI**: A customizable component library for consistent and reusable design patterns.
-- ⚡ **Vite**: Fast and efficient development server and build tool.
-- 🚀 **CI/CD Integration**: Preconfigured workflows for automated builds and testing.
+This is not a CMS. This is not official BrightSign documentation. It is a working notebook for people who already know how to build software and want to apply that skill to screens that live in physical space.
 
-## Why This Project Was Built
+If something here feels unfinished, opinionated, or slightly uncomfortable, that is intentional. The goal is to surface the edges of the platform, not to smooth them away.
 
-While tools like Nx, Tailwind CSS, and Shadcn UI are incredibly powerful and offer numerous benefits for modern front-end development, the process of configuring them can still be time-consuming, error-prone, and frustrating, even for experienced developers. This is because setting up such architectures from scratch is an infrequent task, and each setup can have its own unique challenges and nuances.
+**Signage is software. It deserves to be treated as such.**
 
-This project was built to address these challenges by providing a pre-configured, ready-to-use boilerplate that simplifies the initial setup process. By leveraging this boilerplate, developers can quickly start building their applications without worrying about the complexities of configuration, allowing them to focus on writing code and delivering features.
+## What This Repo Contains
 
-For more details on why a React SPA boilerplate may still have some value in a Next.js world, see [Why a React SPA Boilerplate in a Next.js World?](./docs/getting-started/why-spa-why.md)
+This is an **Nx + pnpm** monorepo with a focus on tooling and reusable UI building blocks for signage:
+
+- **`apps/client`**: Reference UI (docs, demos, and experiments)
+- **`libs/shadcnui-signage`**: Signage-oriented React components (fixed-aspect layouts, distance-readable typography, deterministic rendering)
+- **`libs/shadcnui` / `libs/shadcnui-blocks`**: Base component primitives and compositions
+- **Storybook**: Interactive component documentation and review
+
+## Developer Tooling
+
+This repo is designed to feel familiar to frontend engineers:
+
+- **React 19 + Vite** for fast local development
+- **TypeScript (strict)** for safe iteration
+- **Tailwind CSS v4 + shadcn/ui** for rapid UI composition
+- **Vitest + Testing Library** for unit/component tests
+- **Playwright** for E2E tests (when the UI flow is critical)
+- **Nx “affected” workflows** to keep validation fast (`lint`, `type-check`, `test`, `build`)
+
+It also includes opinionated workflow support:
+
+- **`pnpm verify`** as the “definition of done”
+- **GitHub Copilot instructions + agents** to keep AI-assisted work consistent
+- **MCP server configuration** (including BrightDeveloper) to support device/platform research
 
 ## Technologies Used
 
@@ -117,21 +119,21 @@ To install the project, follow these steps:
 
 1. Clone the repository:
 
-    ```sh
-    git clone https://github.com/CambridgeMonorail/TheSignAge.git
-    ```
+   ```sh
+   git clone https://github.com/CambridgeMonorail/TheSignAge.git
+   ```
 
 2. Navigate to the project directory:
 
-    ```sh
-    cd TheSignAge
-    ```
+   ```sh
+   cd TheSignAge
+   ```
 
 3. Install dependencies:
 
-    ```sh
-    pnpm install
-    ```
+   ```sh
+   pnpm install
+   ```
 
 ## Usage
 
@@ -157,239 +159,19 @@ These targets are either [inferred automatically](https://nx.dev/concepts/inferr
 
 [More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-## Run Tasks
-
-The following scripts are available to manage and build the project:
-
-- **Build**
-  - `pnpm run build:affected`: Build only the affected projects.
-  - `pnpm run build:all`: Build all projects.
-  - `pnpm run build:client`: Build the client application.
-  - `pnpm run build:shadcnui`: Build the shadcnui library.
-
-- **Clean**
-  - `pnpm run clean`: Clean all projects.
-
-- **Format**
-  - `pnpm run format:check`: Check the formatting of the code.
-  - `pnpm run format`: Format the code.
-
-- **Lint**
-  - `pnpm run lint:affected`: Lint only the affected projects.
-  - `pnpm run lint:all`: Lint all projects.
-  - `pnpm run lint:client`: Lint the client application.
-  - `pnpm run lint:shadcnui`: Lint the shadcnui library.
-
-- **Precommit**
-  - `pnpm run precommit`: Run lint, type-check, build, and test for all projects before committing.
-
-- **Prepare**
-  - `pnpm run prepare`: Prepare Husky for Git hooks.
-
-- **Serve**
-  - `pnpm run serve:client`: Serve the client application.
-  - `pnpm run serve:storybook`: Serve the Storybook instance.
-
-- **Test**
-  - `pnpm run test:affected`: Test only the affected projects.
-  - `pnpm run test:all`: Test all projects.
-  - `pnpm run test:client`: Test the client application.
-  - `pnpm run test:shadcnui`: Test the shadcnui library.
-
-- **Type-check**
-  - `pnpm run type-check:affected`: Type-check only the affected projects.
-  - `pnpm run type-check:all`: Type-check all projects.
-  - `pnpm run type-check:client`: Type-check the client application.
-  - `pnpm run type-check:shadcnui`: Type-check the shadcnui library.
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## GitHub Copilot Tooling
-
-This project employs an **Evolving AI Tooling Architecture** to accelerate development. Currently organized into 6 pillars, this structure is designed to adapt as AI capabilities improve and our collective experience with AI-assisted workflows matures:
-
-1.  **Copilot for Execution**: "The Constitution" (`copilot-instructions.md`)
-2.  **Agents for Roles**: Specialized personas (`@requirements-planner`, `@ui-designer`)
-3.  **Workflow Discipline**: Established by `AGENTS.md`
-4.  **Instructions for Context**: Path-specific coding rules
-5.  **Specs as Durable Intent**: Implementation Plans as Spec + Tracker
-6.  **Verification as Truth**: `pnpm verify` as the definition of done
-
-**Start Here:**
-*   👉 **[AI-Assisted Feature Workflow](./docs/getting-started/ai-assisted-feature-workflow.md)**: A step-by-step guide to shipping features using these tools.
-*   **[GitHub Copilot Tooling Guide](./docs/tooling/github-copilot-tooling.md)**: Deep dive into all agents, skills, and prompts.
-
-**Available Tools**:
-- **Agents**: `@requirements-planner`, `@ui-designer`, `@shadcnui-component-reviewer`
-- **Prompts**: `/help`, `/commit`, `/pr-desc`, `/implement-next`, `/mcp-check`
-- **Skills**: `planning`, `systematic-debugging`, `code-review-ready`
-
-> **Tip**: Type `/help` in Copilot Chat for a quick reference guide to all available tools.
-
-# Make This Your Own
-
-Follow these steps to fork and customize the boilerplate for your own project.
-
----
-
-## 1. Fork the Repository
-
-1. Navigate to the **original** repository on GitHub.  
-2. Click the **Fork** button in the upper-right corner to create a personal copy under your GitHub account.  
-3. For detailed instructions, refer to GitHub’s [Fork a repo documentation](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
-
----
-
-## 2. Clone the Forked Repository
-
-1. Locate the **forked** repository on your GitHub account.  
-2. Click the **Code** button and copy the repository’s URL.  
-3. Open your terminal and run:
-
-    ```bash
-    git clone https://github.com/<your-username>/<your-forked-repo>.git
-    ```
-
-   Replace `<your-username>` with your GitHub username and `<your-forked-repo>` with the repository name.
-
----
-
-## 3. Update Project Identifiers
-
-You can update project identifiers either **manually** or by using the **setup script** included in this boilerplate.
-
-### 3.1 Manual Update
-
-1. Perform a global **search and replace** across the codebase to update:
-   - Project name  
-   - URLs  
-   - Branding elements  
-   - Any other relevant identifiers  
-   - **Images**: Replace the following images with ones suitable for your use case:
-     - `apps\client\src\assets\images\app-logo.webp`
-     - `docs/images/logos/app-logo.svg`
-
-2. Ensure **all** instances of the original project name are replaced with your new project name.
-
-### 3.2 Using the Setup Script
-
-1. **Install project dependencies**:
-
-    ```bash
-    pnpm install
-    ```
-
-2. **Run the setup script**:
-
-    ```bash
-    pnpm run setup
-    ```
-
-   The script will prompt you to replace:
-   - **Organization**: e.g., “CambridgeMonorail” → “YourOrgName”  
-   - **Machine-Readable App Name**: e.g., “TheSignAge” → “my-awesome-app”  
-   - **Human-Readable App Name**: e.g., “TheSignAge” → “My Awesome App”  
-   - **Abbreviation**: e.g., “TSA” → “maa”  
-
-   You will also have the option to set a **new Git remote** URL.
-
----
-
-## 4. Modify Configuration Files
-
-1. Review and update configuration files—such as `package.json` and `.env`—to align them with your project’s requirements.  
-2. Adjust metadata, dependencies, environment variables, and other project-specific settings as needed.
-
----
-
-## 5. Review Documentation
-
-1. **Replace** references to the original project with your new project details.  
-2. Update any relevant documentation (e.g., README, wiki pages) to reflect your project’s context and branding.
-
----
-
-## 6. Set Up a New Remote Repository
-
-1. Create a **new repository** on GitHub for your customized project.  
-2. In your terminal, **navigate** to your project’s directory and run:
-
-    ```bash
-    git remote remove origin
-    git remote add origin https://github.com/<your-username>/<your-new-repo>.git
-    ```
-
-   Replace `<your-username>` with your GitHub username and `<your-new-repo>` with the new repository name.
-
----
-
-## 7. Push Changes to the New Repository
-
-1. Push your local changes to the new remote repository:
-
-    ```bash
-    git push -u origin main
-    ```
-
-   Make sure your local branch is named `main`. If not, replace `main` with the correct branch name.
-
----
-
-## 8. Install Dependencies and Initialize Git Hooks
-
-1. **Install** any required dependencies (if you haven’t already):
-
-    ```bash
-    pnpm install
-    ```
-
-2. **Set up Git hooks** or other initialization scripts:
-
-    ```bash
-    pnpm run prepare
-    ```
-
-   This typically configures hooks like pre-commit or lint-staged checks.
-
----
-
-By following these steps, you can fully customize the boilerplate to fit your project’s needs while maintaining a clean, organized codebase.
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/react:app client
-```
-
-To generate a new library, use:
-
-```sh
-npx nx g @nx/react:lib mylib
-```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Theming Your App
-
-To learn how to theme your app using Shadcn UI and Tailwind CSS, please refer to the detailed guide in [docs/theming-a-new-app.md](./docs/guides/theming-a-new-app.md).
-
-**Note:** The current theme was generated using the Ready.js [Shadcn UI Theme Generator](https://www.readyjs.dev/tools/shadcn-ui-theme-generator).
-
-### Adding a New Component Page to the Routing in Your React SPA
-
-To add a new component page to the routing in your React SPA, please refer to the detailed guide in [docs/adding-new-component-page.md](./docs/guides/addding-new-component-page.md).
+## Common Commands
+
+- Dev app: `pnpm run serve:client`
+- Storybook: `pnpm run serve:storybook`
+- Verify (fast, affected only): `pnpm run verify`
+- Full validation (slower): `pnpm run validate`
+
+## Documentation
+
+- Documentation index: [docs/README.md](./docs/README.md)
+- Getting started: [docs/getting-started/README.md](./docs/getting-started/README.md)
+- Signage component library: [libs/shadcnui-signage/README.md](./libs/shadcnui-signage/README.md)
+- Copilot + workflow tooling: [docs/tooling/github-copilot-tooling.md](./docs/tooling/github-copilot-tooling.md)
 
 ## Contributing
 
@@ -408,48 +190,8 @@ This project is licensed under the MIT License.
 - [unDraw](https://undraw.co/): Open-source illustrations for any idea you can imagine and create. A constantly updated design project with beautiful SVG images that you can use completely free and without attribution. Created by [Katerina Limpitsouni](https://x.com/ninaLimpi).
 - [Shadcn UI Theme Generator](https://www.readyjs.dev/tools/shadcn-ui-theme-generator): A tool for generating themes for Shadcn UI.
 
-## Useful links
+## Useful Links
 
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-**Project-Specific Guides**:
-
-- [GitHub Copilot Tooling Guide](./docs/tooling/github-copilot-tooling.md) - Custom agents, skills, and instructions
-- [Productivity Tooling](./docs/tooling/productivity-tooling.md) - Tools and techniques for acceleration
-- [Theming Your App](./docs/guides/theming-a-new-app.md) - Shadcn UI and Tailwind CSS theming
-- [Adding Component Pages](./docs/guides/addding-new-component-page.md) - React Router setup
-
-## FAQs
-
-### Why doesn't the app load?
-
-It's not finished yet.
-
-### Why is the button not working?
-
-It's not finished yet.
-
-### Why is there no dark mode?
-
-It's not finished yet.
-
-### Why does the page look weird on mobile?
-
-It's not finished yet.
-
-### Why is the documentation incomplete?
-
-It's not finished yet.
-
-### Why can't I find the feature I need?
-
-It's not finished yet.
-
-### Why is the sky blue?
-
-It's not finished yet. (Just kidding, that's actually due to Rayleigh scattering.)
+- Nx docs: https://nx.dev/
+- shadcn/ui: https://ui.shadcn.dev/
+- Tailwind CSS: https://tailwindcss.com/

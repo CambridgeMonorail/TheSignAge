@@ -1,0 +1,11 @@
+
+> TheSignAge@0.0.0 verify C:\Projects\TheSignAge
+> pnpm run format:check && pnpm run lint:affected && pnpm run type-check:affected && pnpm run test:affected && pnpm run build:affected
+
+
+> TheSignAge@0.0.0 format:check C:\Projects\TheSignAge
+> nx format:check
+
+libs/shadcnui-signage/src/lib/blocks/FullscreenHero.tsx
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.

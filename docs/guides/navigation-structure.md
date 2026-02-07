@@ -71,7 +71,7 @@ const sidebarData: SidebarConfiguration = {
   user: {
     name: 'tsa',
     email: 'm@example.com',
-    avatar: 'TheSignAge/assets/images/avatars/avatar.jpg',
+    avatar: '/assets/images/avatars/avatar.jpg',
   },
   teams: [
     {

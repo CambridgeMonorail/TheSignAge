@@ -9,9 +9,11 @@ Your goal is to verify if the environment is ready for MCP agents.
 
 ## Checklist
 
-1. **Configuration**: Check if `.vscode/mcp.json` exists and features `chrome-devtools/*`.
+1. **Configuration**: Check if `.vscode/mcp.json` exists and includes:
+   - `brightdeveloper` server (BrightDev docs MCP): `https://brightdeveloper-mcp.bsn.cloud/mcp`
+   - (Optional) `chrome-devtools/*` if you're using the Chrome DevTools MCP workflow
 2. **Node.js**: Verify `npx -v` runs successfully.
-3. **Tool Availability**: Ask the user to check if `chrome-devtools` tools are visible in the specific Chat/Agent context.
+3. **Tool Availability**: Ask the user to check if `brightdeveloper/*` (and optionally `chrome-devtools/*`) tools are visible in the specific Chat/Agent context.
 4. **Trust**: Ensure workspace is Trusted.
 
 ## Output

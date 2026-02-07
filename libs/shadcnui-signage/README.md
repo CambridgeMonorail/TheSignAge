@@ -15,7 +15,7 @@ Think PowerPoint slides with occasional interactivity, not complex web applicati
 
 ## Relationship to Other Libraries
 
-This library builds on top of TheSignAge's existing component foundations:
+This library builds on top of The Sign Age's existing component foundations:
 
 - **`@tsa/shadcnui`** - Base shadcn/ui components (Button, Card, etc.)
 - **`@tsa/shadcnui-blocks`** - Generic UI compositions
@@ -58,7 +58,7 @@ Ensures text never overflows by limiting to a maximum number of lines, maintaini
 
 ## Installation
 
-This library is part of TheSignAge monorepo. Import components using the workspace path:
+This library is part of The Sign Age monorepo. Import components using the workspace path:
 
 ```typescript
 import { ScreenFrame, SplitScreen, FullscreenHero, InfoCardGrid } from '@tsa/shadcnui-signage';

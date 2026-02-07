@@ -45,24 +45,20 @@ This library extends our existing shadcn foundation for this specific use case.
 **Tasks:**
 
 1. **Generate library with Nx** ⬜
-
    - Command: `npx nx g @nx/react:lib shadcnui-signage`
    - Options: Use default Nx React library generator
    - Verify: `libs/shadcnui-signage/` directory exists
 
 2. **Configure TypeScript path mapping** ⬜
-
    - File: `tsconfig.base.json`
    - Add: `"@tsa/shadcnui-signage": ["libs/shadcnui-signage/src/index.ts"]`
    - Verify: Import resolves in consuming app
 
 3. **Create folder structure** ⬜
-
    - Create: `src/lib/primitives/`, `src/lib/layouts/`, `src/lib/blocks/`, `src/lib/types/`, `src/lib/utils/`
    - Verify: Folders exist with correct structure
 
 4. **Add dependencies to project.json** ⬜
-
    - Add `@tsa/shadcnui`, `@tsa/shadcnui-blocks`, `common-tailwind` as dependencies
    - Verify: Dependencies resolve correctly
 
@@ -94,26 +90,22 @@ This library extends our existing shadcn foundation for this specific use case.
 **Tasks:**
 
 1. **Create resolution utility** ⬜
-
    - File: `src/lib/utils/resolution.ts`
    - Exports: `getResolution`, `getAspectRatio`
    - Types: `Resolution = "1080p" | "4k" | "portrait-1080p"`
    - Logic: Return { width, height } for each resolution
 
 2. **Test resolution utility** ⬜
-
    - File: `src/lib/utils/resolution.spec.ts`
    - Coverage: All resolution types, aspect ratio calculations
    - Verify: 100% coverage for this utility
 
 3. **Create clamp utility** ⬜
-
    - File: `src/lib/utils/clamp.ts`
    - Export: `getClampClass` for text truncation
    - Logic: Return Tailwind classes for line clamping (line-clamp-1, line-clamp-2, etc.)
 
 4. **Test clamp utility** ⬜
-
    - File: `src/lib/utils/clamp.spec.ts`
    - Coverage: All clamp values
    - Verify: 100% coverage for this utility
@@ -148,20 +140,17 @@ This library extends our existing shadcn foundation for this specific use case.
 **Tasks:**
 
 1. **Implement ScreenFrame component** ⬜
-
    - File: `src/lib/primitives/ScreenFrame.tsx`
    - Props: `resolution`, `scale`, `showSafeArea`, `children`, `className`
    - Logic: Use resolution utility, CSS transform for scaling, optional safe area overlay
    - Style: Use Tailwind v4 classes, no hardcoded sizes
 
 2. **Test ScreenFrame component** ⬜
-
    - File: `src/lib/primitives/ScreenFrame.spec.tsx`
    - Coverage: Resolution switching, scaling, safe area toggle
    - Verify: ≥80% coverage
 
 3. **Create ScreenFrame stories** ⬜
-
    - File: `src/lib/primitives/ScreenFrame.stories.tsx`
    - Stories: 1080p, 4k, portrait-1080p, with/without safe area
    - Content: Use realistic signage placeholder content
@@ -196,20 +185,17 @@ This library extends our existing shadcn foundation for this specific use case.
 **Tasks:**
 
 1. **Implement SplitScreen component** ⬜
-
    - File: `src/lib/layouts/SplitScreen.tsx`
    - Props: `direction`, `ratio`, `primary`, `secondary`, `gap`, `className`
    - Logic: CSS grid or flex with fixed ratios (50-50, 60-40, 70-30, 80-20)
    - Style: Use Tailwind v4, no overflow
 
 2. **Test SplitScreen component** ⬜
-
    - File: `src/lib/layouts/SplitScreen.spec.tsx`
    - Coverage: All ratios, directions, gap sizes
    - Verify: ≥80% coverage
 
 3. **Create SplitScreen stories** ⬜
-
    - File: `src/lib/layouts/SplitScreen.stories.tsx`
    - Stories: All ratios (4), directions (2), gap sizes (4)
    - Wrap in: ScreenFrame for consistent preview
@@ -245,27 +231,23 @@ This library extends our existing shadcn foundation for this specific use case.
 **Tasks:**
 
 1. **Implement FullscreenHero component** ⬜
-
    - File: `src/lib/blocks/FullscreenHero.tsx`
    - Props: `title`, `subtitle`, `body`, `cta`, `variant`, `backgroundImageUrl`, `logo`, `className`
    - Logic: Text clamping (title: 2 lines, subtitle: 2 lines, body: 4 lines), background overlay for contrast
    - Style: Use Tailwind v4, shadcn tokens for colors, strong typography hierarchy
 
 2. **Test FullscreenHero component** ⬜
-
    - File: `src/lib/blocks/FullscreenHero.spec.tsx`
    - Coverage: Text clamping, variants, background image overlay
    - Verify: ≥80% coverage
 
 3. **Create FullscreenHero stories** ⬜
-
    - File: `src/lib/blocks/FullscreenHero.stories.tsx`
    - Stories: Normal content, long text (clamping demo), background image, light/dark variants
    - Wrap in: ScreenFrame at 1080p
    - Verify: Stories render correctly, contrast is readable
 
 4. **Add JSDoc documentation** ⬜
-
    - Document: Props, usage examples, variant guidance
    - Verify: Documentation is clear and accurate
 
@@ -299,7 +281,6 @@ This library extends our existing shadcn foundation for this specific use case.
 **Tasks:**
 
 1. **Implement InfoCardGrid component** ⬜
-
    - File: `src/lib/blocks/InfoCardGrid.tsx`
    - Props: `items`, `columns`, `density`, `highlightIndex`, `className`
    - Types: `InfoCardItem = { title, value?, description?, meta? }`
@@ -307,13 +288,11 @@ This library extends our existing shadcn foundation for this specific use case.
    - Style: Use Tailwind v4, shadcn Card component from `@tsa/shadcnui`
 
 2. **Test InfoCardGrid component** ⬜
-
    - File: `src/lib/blocks/InfoCardGrid.spec.tsx`
    - Coverage: Item count, column logic, highlight behavior, density variants
    - Verify: ≥80% coverage
 
 3. **Create InfoCardGrid stories** ⬜
-
    - File: `src/lib/blocks/InfoCardGrid.stories.tsx`
    - Stories: 2/3/4 columns, highlight example, density variants (comfortable, compact), various content lengths
    - Wrap in: ScreenFrame at 1080p
@@ -348,7 +327,6 @@ This library extends our existing shadcn foundation for this specific use case.
 **Tasks:**
 
 1. **Update main README.md** ⬜
-
    - File: `libs/shadcnui-signage/README.md`
    - Add: Complete usage examples for all four components
    - Add: Installation instructions, testing instructions
@@ -356,32 +334,27 @@ This library extends our existing shadcn foundation for this specific use case.
    - Verify: Documentation is comprehensive and accurate
 
 2. **Verify public API exports** ⬜
-
    - File: `src/index.ts`
    - Exports: ScreenFrame, SplitScreen, FullscreenHero, InfoCardGrid, types, utilities
    - Verify: Named exports only, no default exports, no wildcard exports
 
 3. **Test in consuming app** ⬜
-
    - App: `apps/client`
    - Import: `import { ScreenFrame } from '@tsa/shadcnui-signage'`
    - Create: Test page demonstrating all components
    - Verify: Components render correctly, no import errors
 
 4. **Run full verification** ⬜
-
    - Command: `pnpm verify`
    - Checks: Format, lint, type-check, test, build (affected projects)
    - Verify: All checks pass
 
 5. **Check test coverage** ⬜
-
    - Command: `pnpm test:shadcnui-signage --coverage`
    - Verify: ≥80% coverage overall
    - Verify: Each component has ≥80% coverage
 
 6. **Verify Storybook integration** ⬜
-
    - Command: `pnpm storybook`
    - Check: All stories appear in Storybook UI
    - Verify: Stories render correctly, controls work
@@ -468,7 +441,7 @@ npx nx graph
 
 ## Notes
 
-- Follow TheSignAge conventions: named exports only, colocate tests, JSDoc comments
+- Follow The Sign Age conventions: named exports only, colocate tests, JSDoc comments
 - Use existing shadcn components from `@tsa/shadcnui` (Card, Button, etc.)
 - Use Tailwind v4 CSS-first configuration from `common-tailwind`
 - Test early and often: run `pnpm test:shadcnui-signage` after each component

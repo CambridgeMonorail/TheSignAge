@@ -1,17 +1,27 @@
 # Getting Started
 
-New to React Weapons of Choice? Start here to understand the project's purpose, structure, and philosophy.
+New to The Sign Age? Start here to understand the project's purpose, structure, and philosophy.
 
 ## Documents in this Section
 
-### [Why a React SPA Boilerplate?](./why-spa-why.md)
-Explains the rationale for building a React SPA boilerplate in a Next.js-dominated world. Covers use cases where SPAs are still the right choice and why this project provides value.
+### [Statement of Intent](./statement-of-intent.md)
 
-**Key Topics**: SPA vs SSR, Next.js alternatives, deployment flexibility, use case fit
+Sets the tone: digital signage treated as software, with a particular focus on BrightSign devices and always-on, unattended constraints.
+
+**Key Topics**: programmable signage, offline constraints, failure modes, physical context
+
+---
+
+### [Why a React SPA Boilerplate?](./why-spa-why.md)
+
+Explains why a React Single-Page Application (SPA) is a strong default for signage tooling: determinism, offline-first behavior, and fewer moving pieces than SSR.
+
+**Key Topics**: signage constraints, offline-first, deterministic layouts, SPA vs SSR
 
 ---
 
 ### [Understanding the Project Structure](./understanding-the-project-structure.md)
+
 Overview of the monorepo architecture, Nx workspace organization, and how apps and libraries are structured.
 
 **Key Topics**: Nx monorepo, apps vs libs, folder structure, dependency graph
@@ -19,13 +29,15 @@ Overview of the monorepo architecture, Nx workspace organization, and how apps a
 ---
 
 ### [Project Goals](./project-goals.md)
+
 Detailed breakdown of the project's objectives, target audience, and guiding principles.
 
-**Key Topics**: Simplified setup, seamless integration, scalability, developer experience, community collaboration
+**Key Topics**: signage-first goals, deterministic UI, developer experience, BrightSign-focused exploration
 
 ---
 
 ### [AI-Assisted Feature Workflow](./ai-assisted-feature-workflow.md)
+
 A step-by-step guide to implementing features using our "6 Pillars" AI tooling architecture. Learn how to mix Agents, Skills, and Prompts to work faster.
 
 **Key Topics**: `@requirements-planner`, `pnpm verify`, 6 Pillars, Agents vs Prompts

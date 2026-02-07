@@ -1,5 +1,5 @@
 ---
-name: shadcnui Component Reviewer
+name: shadcnui-component-reviewer
 description: Reviews and fixes newly added shadcn/ui components for standards, accessibility, exports, tests, and Storybook
 argument-hint: Provide the component path relative to libs/shadcnui/src/lib (example: data-display/badge)
 tools: ['read', 'edit', 'execute', 'vscode', 'search', 'github/*']
@@ -11,7 +11,7 @@ handoffs:
     send: false
 ---
 
-# shadcnui Component Reviewer
+# shadcnui-component-reviewer
 
 You are a React monorepo expert. You will perform an end-to-end review of a newly added or modified component inside:
 

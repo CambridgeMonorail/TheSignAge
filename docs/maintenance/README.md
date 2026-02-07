@@ -1,10 +1,11 @@
 # Maintenance
 
-Documentation for maintaining, upgrading, and securing the React Weapons of Choice codebase over time.
+Documentation for maintaining, upgrading, and securing The Sign Age codebase over time.
 
 ## Documents in this Section
 
 ### [Modernization](./modernization.md)
+
 Strategies and guidelines for keeping the project modern, including dependency updates, framework migrations, and adopting new best practices.
 
 **Key Topics**: Dependency management, framework updates, modernization strategies, technical debt
@@ -12,6 +13,7 @@ Strategies and guidelines for keeping the project modern, including dependency u
 ---
 
 ### [Upgrade Notes](./UPGRADE_NOTES.md)
+
 Detailed notes on major version upgrades, breaking changes, and migration guides. Chronicles the project's evolution and provides upgrade paths.
 
 **Key Topics**: Version migrations, breaking changes, upgrade procedures, compatibility notes
@@ -19,6 +21,7 @@ Detailed notes on major version upgrades, breaking changes, and migration guides
 ---
 
 ### [Security Audit](./SECURITY_AUDIT.md)
+
 Security audit findings, vulnerability tracking, and remediation plans. Documents security considerations and hardening recommendations.
 
 **Key Topics**: Vulnerability assessment, security best practices, dependency security, remediation
@@ -26,6 +29,7 @@ Security audit findings, vulnerability tracking, and remediation plans. Document
 ---
 
 ### [Branch Status](./BRANCH_STATUS.md)
+
 Current status of major development branches, feature work in progress, and coordination information for active development.
 
 **Key Topics**: Branch tracking, feature status, development coordination

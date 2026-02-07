@@ -35,7 +35,7 @@ These tools work together to ensure code quality, consistency, and adherence to 
 
 ## Directory Structure
 
-```
+```text
 .github/
 ├── copilot-instructions.md          # Main Copilot instructions file
 ├── instructions/                     # Scoped instruction files
@@ -44,35 +44,29 @@ These tools work together to ensure code quality, consistency, and adherence to 
 │   ├── testing-and-quality.instructions.md
 │   └── ui-and-accessibility.instructions.md
 ├── agents/                           # Custom Copilot agents
-│   ├── common-ui-component-reviewer.agent.md
+│   ├── shadcnui-component-reviewer.agent.md
 │   ├── custom-agent-foundry.agent.md
+│   ├── instructions-detox.agent.md
 │   ├── requirements-planner.agent.md
+│   ├── signage-architect.agent.md
 │   └── ui-designer.agent.md
 ├── skills/                           # Reusable skill workflows
-│   ├── shadcnui/
-│   │   ├── SKILL.md
-│   │   └── workflows/
-│   │       ├── a11y-and-focus.md
-│   │       ├── ...
+│   ├── shadcnui-component-review/
 │   ├── planning/
-│   │   ├── SKILL.md
-│   │   └── workflows/detailed-guide.md
 │   ├── systematic-debugging/
-│   │   ├── SKILL.md
-│   │   └── workflows/detailed-guide.md
 │   ├── code-review-ready/
-│   │   ├── SKILL.md
-│   │   └── workflows/detailed-guide.md
 │   ├── verification/
-│   │   ├── SKILL.md
-│   │   └── workflows/detailed-guide.md
-│   └── ...
+│   ├── chrome-devtools-webapp-debug/
+│   └── instructions-detox/
 ├── chatmodes/                        # Custom chat modes
 │   └── enhanced-gpt4.1.chatmode.md
 ├── prompts/                          # Reusable prompts
 │   ├── commit.prompt.md
+│   ├── help.prompt.md
+│   ├── implement-next.prompt.md
 │   ├── mcp-check.prompt.md
-│   └── pr-desc.prompt.md
+│   ├── pr-desc.prompt.md
+│   └── validate-client.prompt.md
 └── workflows/                        # GitHub Actions workflows
     ├── ci.yml
     ├── deploy.yml
@@ -89,7 +83,7 @@ These tools work together to ensure code quality, consistency, and adherence to 
 
 This file contains global conventions that apply to all Copilot interactions:
 
-- **Project Purpose** - Educational resource, boilerplate template, component library
+- **Project Purpose** - Working notebook, component library, tooling reference, living documentation
 - **TypeScript Conventions** - Strict types, prefer `type` over `interface`, named exports only
 - **React Conventions** - Functional components, direct hook imports, JSDoc comments
 - **Testing Expectations** - Vitest + Testing Library, 80% coverage minimum
@@ -101,18 +95,22 @@ This file contains global conventions that apply to all Copilot interactions:
 Located in `.github/instructions/`, these files apply to specific file patterns:
 
 #### 00-repo-basics.instructions.md
+
 - **Applies to**: `apps/**/*.{ts,tsx,js,jsx}`, `libs/**/*.{ts,tsx,js,jsx}`
 - **Purpose**: Fundamental monorepo conventions and contribution guidelines
 
 #### react-spa-router.instructions.md
+
 - **Applies to**: `apps/client/**/*.{ts,tsx}`
 - **Purpose**: Conventions for the React SPA client app
 
 #### testing-and-quality.instructions.md
+
 - **Applies to**: `**/*.test.{ts,tsx}`, `**/*.spec.{ts,tsx}`, `**/playwright/**/*.{ts,tsx}`
 - **Purpose**: Test frameworks, patterns, and validation workflows
 
 #### ui-and-accessibility.instructions.md
+
 - **Applies to**: `**/*.tsx`
 - **Purpose**: Tailwind v4, component conventions, and WCAG AA accessibility requirements
 
@@ -124,21 +122,24 @@ Agents are specialized AI assistants that handle specific development tasks. Inv
 
 ### shadcnui Component Reviewer
 
-**File**: `.github/agents/common-ui-component-reviewer.agent.md`
+**File**: `.github/agents/shadcnui-component-reviewer.agent.md`
 
 **Purpose**: End-to-end review of shadcn/ui components for standards, accessibility, exports, tests, and Storybook coverage
 
 **When to use**:
+
 - After adding a new shadcn/ui component to `libs/shadcnui/src/lib`
 - After modifying an existing component
 - When you need component taxonomy validation
 
 **Usage**:
-```
+
+```text
 @shadcnui-component-reviewer data-display/badge
 ```
 
 **Capabilities**:
+
 - Standards compliance review
 - Accessibility audit (ARIA, keyboard nav, focus management)
 - Export validation
@@ -147,6 +148,7 @@ Agents are specialized AI assistants that handle specific development tasks. Inv
 - Component categorization
 
 **Handoffs**:
+
 - 🔧 Implement recommended fixes
 
 ---
@@ -158,17 +160,20 @@ Agents are specialized AI assistants that handle specific development tasks. Inv
 **Purpose**: Expert UI/UX design review providing actionable, evidence-based recommendations for modern, professional enterprise interfaces
 
 **When to use**:
+
 - Reviewing page layouts or component designs
 - Identifying visual hierarchy issues
 - Improving perceived quality and clarity
 - Validating against modern B2B SaaS patterns
 
 **Usage**:
-```
-@ui-designer http://localhost:4200/TheSignAge/
+
+```text
+@ui-designer http://localhost:4200/
 ```
 
 **Capabilities**:
+
 - Evidence-based design audits using Chrome DevTools screenshots
 - Prioritized recommendations (Critical, Moderate, Minor)
 - Tailwind-first code examples
@@ -176,12 +181,12 @@ Agents are specialized AI assistants that handle specific development tasks. Inv
 - Task efficiency improvements
 
 **Requirements**:
+
 - Chrome DevTools MCP for screenshots OR user-provided screenshots
 
 **Handoffs**:
+
 - 🎨 Implement Design Changes
-
-
 
 ---
 
@@ -192,17 +197,20 @@ Agents are specialized AI assistants that handle specific development tasks. Inv
 **Purpose**: Transforms user requirements into actionable implementation plans respecting project structure and conventions
 
 **When to use**:
+
 - Starting a new feature
 - Planning complex refactors
 - Breaking down large requirements into tasks
 - Creating GitHub issues for team execution
 
 **Usage**:
-```
+
+```text
 @requirements-planner [provide requirements document or description]
 ```
 
 **Capabilities**:
+
 - Requirement clarification and gap analysis
 - Project structure research
 - Discrete task breakdown (1-5 files per task)
@@ -211,16 +219,11 @@ Agents are specialized AI assistants that handle specific development tasks. Inv
 - Complexity/sizing indicators
 
 **Output**:
+
 - Actionable implementation plan
 - Clear acceptance criteria
 - Validation commands
 - Concrete file paths and component names
-
-
-
-
-
-
 
 ---
 
@@ -231,9 +234,44 @@ Agents are specialized AI assistants that handle specific development tasks. Inv
 **Purpose**: Helps create new custom Copilot agents following project conventions
 
 **When to use**:
+
 - Creating a new custom agent
 - Learning agent file format and best practices
 - Extending Copilot capabilities for project-specific needs
+
+---
+
+### Signage Architect
+
+**File**: `.github/agents/signage-architect.agent.md`
+
+**Purpose**: Digital signage-focused React architecture guidance (deterministic layouts, multi-zone screens, 24/7 reliability)
+
+**When to use**:
+
+- Designing a new signage screen layout or zone system
+- Auditing legibility/safe areas
+- Choosing animation/performance patterns for always-on screens
+
+**Usage**:
+
+```text
+@signage-architect
+Build a 3-zone layout for 1080p with a ticker and a hero.
+```
+
+---
+
+### Instructions Detox
+
+**File**: `.github/agents/instructions-detox.agent.md`
+
+**Purpose**: Extracts and organizes scoped instructions to keep prompts focused and reduce context bloat
+
+**When to use**:
+
+- You’re about to do a complex change and want the smallest relevant ruleset
+- You suspect instruction overlap/conflicts
 
 ---
 
@@ -248,6 +286,7 @@ Skills are reusable workflows and procedures that can be referenced by agents or
 **Purpose**: End-to-end component review workflow for shadcn/ui components
 
 **When to use**:
+
 - New component added to `libs/shadcnui/src/lib`
 - Existing component modified
 - Standards review needed
@@ -256,40 +295,47 @@ Skills are reusable workflows and procedures that can be referenced by agents or
 **Workflows**:
 
 #### a11y-and-focus.md
+
 - ARIA attributes validation
 - Keyboard navigation testing
 - Focus management review
 - Screen reader compatibility
 
 #### performance-and-bundle.md
+
 - Bundle size analysis
 - Render performance checks
 - Memoization opportunities
 - Lazy loading considerations
 
 #### review-and-fix.md
+
 - General standards review
 - Code quality checks
 - Convention adherence
 - Quick fixes
 
 #### taxonomy-and-exports.md
+
 - Component categorization validation
 - Export structure review
 - Index file verification
 - Category placement
 
 #### tests-and-storybook.md
+
 - Unit test coverage
 - Component test completeness
 - Storybook story validation
 - Visual regression testing setup
 
 **Inputs required**:
+
 - Component path relative to `libs/shadcnui/src/lib` (e.g., `data-display/badge`)
 - Optional: Special concerns (accessibility, API design, variants, performance)
 
 **Output contract**:
+
 1. Actions taken
 2. Issues found and fixes applied (with file paths)
 3. Summary and next steps
@@ -304,6 +350,7 @@ Skills are reusable workflows and procedures that can be referenced by agents or
 **Purpose**: Structured debugging workflow using Chrome DevTools MCP
 
 **When to use**:
+
 - Web application runtime debugging
 - Browser-specific issues
 - Performance investigations
@@ -318,6 +365,7 @@ Skills are reusable workflows and procedures that can be referenced by agents or
 **Purpose**: Standardized workflow for planning non-trivial changes
 
 **When to use**:
+
 - Implementing new features
 - Complex refactoring
 - Changes affecting multiple files
@@ -333,6 +381,7 @@ See `docs/plans/` for plan templates and storage.
 **Purpose**: Rigorous 6-step process for root cause analysis
 
 **When to use**:
+
 - Fixing bugs
 - Investigating regressions
 - Solving complex integration issues
@@ -346,6 +395,7 @@ See `docs/plans/` for plan templates and storage.
 **Purpose**: Ensures changes are packaged effectively for review
 
 **When to use**:
+
 - Preparing a PR
 - Self-reviewing code
 - Ensuring documentation is complete
@@ -359,6 +409,7 @@ See `docs/plans/` for plan templates and storage.
 **Purpose**: Standardized verification steps ("Definition of Done")
 
 **When to use**:
+
 - Before committing
 - Before creating a PR
 - Validating a fix
@@ -378,6 +429,22 @@ See `docs/plans/` for plan templates and storage.
 ---
 
 ## Prompts
+
+### Help
+
+**File**: `.github/prompts/help.prompt.md`
+
+**Purpose**: Quick reference guide to available prompts, agents, and skills
+
+**When to use**: When you’re new to the repo tooling or need a refresher
+
+### Implement Next
+
+**File**: `.github/prompts/implement-next.prompt.md`
+
+**Purpose**: Implements the next unchecked task from the active plan
+
+**When to use**: Executing a plan incrementally, one task at a time
 
 ### Commit Helper
 
@@ -410,6 +477,7 @@ See `docs/plans/` for plan templates and storage.
 **Purpose**: Validation prompt for client application quality checks
 
 **When to use**:
+
 - Pre-commit validation
 - Quality gate checks
 - CI/CD integration
@@ -422,7 +490,7 @@ See `docs/plans/` for plan templates and storage.
 
 In GitHub Copilot Chat, use the `@` symbol followed by the agent name:
 
-```
+```text
 @shadcnui-component-reviewer data-display/badge
 ```
 
@@ -431,19 +499,19 @@ In GitHub Copilot Chat, use the `@` symbol followed by the agent name:
 Agents work best with clear, specific context:
 
 **Good**:
-```
+
+```text
 @ui-designer http://localhost:4200/dashboard
 Review the spacing and hierarchy on the dashboard page
 ```
 
 **Better**:
-```
-@webapp-debugger 
-URL: http://localhost:4200/dashboard
-Repro: 1. Click login button 2. Enter credentials 3. Click submit
-Expected: Redirect to dashboard
-Actual: Error message "Cannot read property 'user' of undefined"
-Environment: Dev server, Chrome 120
+
+```text
+@requirements-planner
+Goal: Add a ticker component to a 3-zone signage layout
+Constraints: 1080p only, must handle offline mode
+Acceptance criteria: deterministic layout, no overflow, tested
 ```
 
 ### Using Handoffs
@@ -505,7 +573,7 @@ Agent instructions and behavior specification...
 
 For help creating agents:
 
-```
+```text
 @custom-agent-foundry
 I need an agent that validates TypeScript types across the monorepo
 ```
@@ -517,12 +585,14 @@ I need an agent that validates TypeScript types across the monorepo
 ### When to Use Agents vs Regular Copilot Chat
 
 **Use Agents When**:
+
 - You need specialized domain knowledge (UI design, component review)
 - The task requires multi-step workflows
 - You want consistent, repeatable processes
 - Evidence gathering is required (debugging, audits)
 
 **Use Regular Copilot Chat When**:
+
 - Simple code generation
 - Quick questions about syntax or APIs
 - Exploratory conversations
@@ -540,7 +610,7 @@ I need an agent that validates TypeScript types across the monorepo
 
 Agents can reference skills for detailed procedures:
 
-```
+```text
 @shadcnui-component-reviewer data-display/avatar
 Focus on accessibility using the a11y-and-focus workflow
 ```
@@ -562,8 +632,25 @@ Focus on accessibility using the a11y-and-focus workflow
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
 - [Customizing GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot)
 - [Model Context Protocol (MCP)](https://modelcontextprotocol.io/)
+- [BrightDev (BrightSign) MCP](https://github.com/BrightDevelopers/BrightDev)
 - [Productivity Tooling Guide](./productivity-tooling.md)
 - [Project Contributing Guide](./CONTRIBUTING.md)
+
+---
+
+## MCP Servers (VS Code)
+
+This repo includes a workspace MCP configuration for VS Code/Cursor in `.vscode/mcp.json`.
+
+Currently configured servers:
+
+- `brightdeveloper` → `https://brightdeveloper-mcp.bsn.cloud/mcp`
+
+Notes:
+
+- You must have **workspace trust** enabled for the repo.
+- After opening the repo, confirm `brightdeveloper/*` tools appear in Copilot Chat's tool list (agent/tool picker varies by VS Code version).
+- If you update MCP settings and tools don’t appear, reload the VS Code window.
 
 ---
 
@@ -576,4 +663,4 @@ Focus on accessibility using the a11y-and-focus workflow
 
 ---
 
-*This document is maintained as part of the React Weapons of Choice project. For updates or corrections, please submit a pull request.*
+_This document is maintained as part of The Sign Age project. For updates or corrections, please submit a pull request._

@@ -1,4 +1,4 @@
-# Spec: Copilot-first Agent Workflow Improvements for `TheSignAge`
+# Spec: Copilot-first Agent Workflow Improvements for `The Sign Age`
 
 ## Table of Contents
 
@@ -134,21 +134,24 @@ The agent knows **how to write the code correctly** (from instructions), but doe
 
 ✅ **Agent Support (Fully Implemented)**
 
-- `.github/agents/` - Eight custom agents already defined:
-  - `common-ui-component-reviewer.agent.md`
-  - `custom-agent-foundry.agent.md`
-  - `git-commit-helper.agent.md`
-  - `mcp-preflight.agent.md`
-  - `pr-description-helper.agent.md`
+- `.github/agents/` - Custom agents defined:
   - `requirements-planner.agent.md`
   - `ui-designer.agent.md`
-  - `webapp-debugger.agent.md`
+  - `signage-architect.agent.md`
+  - `instructions-detox.agent.md`
+  - `custom-agent-foundry.agent.md`
+  - `shadcnui-component-reviewer.agent.md`
 
 ✅ **Skills Framework (Partially Implemented)**
 
-- `.github/skills/` - Two existing skill categories:
-  - `chrome-devtools-webapp-debug/` - Debugging workflows
-  - `shadcnui-component-review/` - Component review patterns
+- `.github/skills/` - Reusable skill categories including:
+  - `planning/` - Structured implementation planning
+  - `systematic-debugging/` - Root cause analysis workflow
+  - `code-review-ready/` - PR readiness workflow
+  - `verification/` - Definition of done checks
+  - `chrome-devtools-webapp-debug/` - Browser debugging via MCP
+  - `shadcnui-component-review/` - Component review workflows
+  - `instructions-detox/` - Instruction extraction workflows
 
 ✅ **Validation Scripts (Partially Implemented)**
 
@@ -168,11 +171,9 @@ The agent knows **how to write the code correctly** (from instructions), but doe
 
 ### What's Missing (Gaps to Address)
 
-❌ **Root AGENTS.md** - No root-level AGENTS.md file (workflow/behavioral guidance)
+✅ **Root AGENTS.md** - Root-level workflow/behavioral guidance exists
 
-- Purpose: Define how agents should approach work repo-wide
-- Content: Planning expectations, commit discipline, verification steps
-- Impact: Agents currently lack procedural guidance
+- Location: `AGENTS.md`
 
 ❌ **Nested AGENTS.md** - No app/lib-specific AGENTS.md files
 
@@ -312,7 +313,7 @@ If your guidance includes words like "first", "then", "before", "after", it prob
 
 ## Context
 
-We want to learn from the workflow ideas in `obra/superpowers` while remaining GitHub Copilot compliant, and apply them to our React SPA boilerplate `CambridgeMonorail/TheSignAge`. ([GitHub][1])
+We want to learn from the workflow ideas in `obra/superpowers` while remaining GitHub Copilot compliant, and apply them to our React SPA signage monorepo `CambridgeMonorail/TheSignAge`. ([GitHub][1])
 
 We are explicitly not adopting TDD as a required practice, but we do want the rest of the workflow structure: planning, systematic debugging, code review discipline, and verification evidence. ([GitHub][2])
 
@@ -321,7 +322,6 @@ We are explicitly not adopting TDD as a required practice, but we do want the re
 1. Improve developer experience and delivery speed by making Copilot agent work more reliable and repeatable.
 2. Reduce context bloat by scoping instructions to the right folders and workflows.
 3. Ensure every agent-driven change results in:
-
    - a clear plan
    - small, reviewable commits
    - verifiable evidence (lint, tests, build, and basic smoke checks)
@@ -370,19 +370,16 @@ Use these sources as the baseline for what Copilot supports today:
 **Tasks:**
 
 1. Review repository documentation and developer entry points:
-
    - README, contribution guide, scripts, Nx targets, CI workflows.
    - Identify the “happy path” to run, test, and build locally. ([GitHub][11])
 
 2. Audit current AI guidance:
-
    - Do we have `.github/copilot-instructions.md` today?
    - Do we have any `.github/instructions/*.instructions.md` with `applyTo`?
    - Do we have any `AGENTS.md` files?
    - If we have guidance elsewhere (docs folder), note what is duplicated or conflicting.
 
 3. Produce an “as-is” inventory doc:
-
    - `docs/ai/as-is-inventory.md`
    - Include file paths and a short description of what each thing does.
    - Include a list of current scripts and their intended usage (`pnpm` commands, `nx` targets).
@@ -394,7 +391,6 @@ Use these sources as the baseline for what Copilot supports today:
 **What We Found:**
 
 1. **Repository documentation:**
-
    - ✅ Comprehensive README with setup, goals, and usage
    - ✅ CONTRIBUTING.md in docs/contributing/
    - ✅ Well-documented scripts in package.json
@@ -402,7 +398,6 @@ Use these sources as the baseline for what Copilot supports today:
    - ✅ CI workflows (ci.yml, deploy.yml, lighthouse-audit.yml)
 
 2. **AI guidance audit:**
-
    - ✅ `.github/copilot-instructions.md` - Yes, comprehensive and well-structured
    - ✅ `.github/instructions/*.instructions.md` - Yes, 4 files with proper `applyTo` scoping
    - ❌ `AGENTS.md` files - No root or nested AGENTS.md files yet
@@ -426,7 +421,6 @@ We will adopt a three-layer model:
 
 1. **Repo-wide baseline:** `.github/copilot-instructions.md`
    Keep it short and stable. It should cover:
-
    - stack summary (Nx, Vite React SPA, Tailwind, shadcn/ui)
    - coding conventions and file organisation expectations
    - “definition of done” for agent work (plan, small PR, verification evidence)
@@ -435,14 +429,12 @@ We will adopt a three-layer model:
 
 2. **Path-specific rules:** `.github/instructions/*.instructions.md` using `applyTo`
    Examples:
-
    - `ui.instructions.md` applies to `libs/**/ui/**` and `apps/**/ui/**`
    - `testing.instructions.md` applies to test folders
    - `tooling.instructions.md` applies to Nx config, scripts, CI
      Ref: GitHub docs for path-specific instructions. ([GitHub Docs][4])
 
 3. **Agent instructions:** `AGENTS.md` near complex subprojects
-
    - Root `AGENTS.md` plus optional nested ones in `apps/` and `libs/`.
    - Keep these practical: how to build, test, validate, and what not to do.
      Ref: AGENTS.md precedence in GitHub docs. ([GitHub Docs][3])
@@ -454,7 +446,6 @@ We will adopt a three-layer model:
 **Current State:**
 
 1. **Repo-wide baseline:** `.github/copilot-instructions.md` ✅
-
    - ✅ Stack summary (Nx, Vite, React 19, Tailwind v4, shadcn/ui)
    - ✅ Coding conventions and file organization
    - ✅ Library structure documented
@@ -462,7 +453,6 @@ We will adopt a three-layer model:
    - ❌ `pnpm verify` command not yet created
 
 2. **Path-specific rules:** `.github/instructions/*.instructions.md` ✅
-
    - ✅ `00-repo-basics.instructions.md` - applies to apps & libs
    - ✅ `react-spa-router.instructions.md` - applies to apps/client
    - ✅ `testing-and-quality.instructions.md` - applies to test files
@@ -491,34 +481,27 @@ Create a folder:
 Add these skills (each a short markdown file, designed to be referenced from instructions and used by humans too):
 
 1. `planning.md`
-
    - How to produce a plan with small tasks
    - Required format for tasks:
-
      - files to change
      - command(s) to run
      - expected observable result
      - acceptance checks
 
 2. `systematic-debugging.md`
-
    - Root cause first, reproduce, minimise, fix, verify
    - Include “write down what changed” and “how do we know it is fixed”
    - Inspired by superpowers systematic debugging shape. ([GitHub][2])
 
 3. `code-review-ready.md`
-
    - “Make it easy to review” rules:
-
      - small diffs
      - no drive-by refactors
      - explain trade-offs
      - include screenshots for UI changes
 
 4. `verification.md`
-
    - What evidence we expect in PR descriptions:
-
      - lint pass
      - unit tests pass (if present)
      - build pass
@@ -568,7 +551,6 @@ If Playwright is not currently in the repo, do not add it in this phase. Instead
 Update the repo instruction files so that when Copilot is asked to implement a change, it must:
 
 1. Create or update a plan file for non-trivial changes:
-
    - `docs/plans/YYYY-MM-DD-<slug>.md`
 
 2. Make changes in small, reviewable commits.
@@ -651,7 +633,6 @@ Also ensure the repo documents how to enable instruction files in VS Code:
 When implementing, maintain clear separation:
 
 - **Instruction files** (`.github/copilot-instructions.md` and `.github/instructions/*.instructions.md`)
-
   - ✅ Code rules, patterns, constraints
   - ✅ "What the code should look like"
   - ❌ NOT for workflow steps or process
@@ -676,38 +657,15 @@ When implementing, maintain clear separation:
 2. ~~PR 2: `docs/ai/target-operating-model.md` and proposed file layout~~ - Covered in this assessment
 3. ~~PR 3: Add `.github/copilot-instructions.md`, initial `.github/instructions/*.instructions.md`~~ - Already exists (4 instruction files)
 
-### 🔄 Remaining Work
+### ✅ Remaining Work
 
-4. **PR 1 (Next):** Add root `AGENTS.md` and workflow skill docs
+1. (Optional) Add nested `AGENTS.md` files as needed (examples: `apps/client/AGENTS.md`, `libs/*/AGENTS.md`).
 
-   - **Root `AGENTS.md` file** - Workflow/behavioral guidance (NOT code rules)
-     - How to approach tasks
-     - Planning expectations
-     - Commit discipline
-     - Verification workflow
-   - **Workflow skills in `docs/ai/skills/`:**
-     - `planning.md` - Structured task planning format
-     - `systematic-debugging.md` - Root cause analysis process
-     - `code-review-ready.md` - Making changes reviewable
-     - `verification.md` - PR evidence expectations
-   - **Create `docs/plans/`** directory with README explaining format
-
-5. **PR 2:** Add `pnpm verify` command and update documentation
-
-   - Add `verify` script to package.json (lighter than `precommit`)
-   - Update README with verification steps
-   - Add VS Code setup guidance for enabling instruction files
-   - Document "definition of done" in `.github/copilot-instructions.md`
-
-6. **PR 3 (Optional):** Add nested `AGENTS.md` files as needed
-   - `apps/client/AGENTS.md` - If app-specific workflows needed
-   - `libs/shadcnui/AGENTS.md` - If component-specific validation needed
-   - `libs/*/AGENTS.md` - For any lib with unique workflows
-   - **Remember:** These are for workflows, not code patterns
+1. (Optional) Periodically refresh the inventory docs (keep agent/prompt lists in sync with `.github/agents/` and `.github/prompts/`).
 
 ## Quick Reference: When to Use What
 
-### Use Instruction Files When You're Saying:
+### Use Instruction Files When You're Saying
 
 - ✅ "Use TypeScript strict mode"
 - ✅ "Import shadcn/ui components from @tsa/shadcnui"
@@ -715,7 +673,7 @@ When implementing, maintain clear separation:
 - ✅ "Ensure ARIA labels on interactive elements"
 - ✅ "Colocate tests with implementation files"
 
-### Use AGENTS.md When You're Saying:
+### Use AGENTS.md When You're Saying
 
 - ✅ "Before starting work, create a plan in docs/plans/"
 - ✅ "Run `pnpm test:shadcnui` to validate changes in this lib"
@@ -723,7 +681,7 @@ When implementing, maintain clear separation:
 - ✅ "Make commits small and reviewable"
 - ✅ "Run `pnpm verify` before declaring work complete"
 
-### Red Flags (Probably in Wrong File):
+### Red Flags (Probably in Wrong File)
 
 - ❌ Sequential steps in instruction file ("First do X, then Y, then Z")
 - ❌ Code patterns in AGENTS.md ("Use this import style")
@@ -735,7 +693,7 @@ When implementing, maintain clear separation:
 **Key Takeaway:** The architect's proposed improvements are largely already implemented in this repository. We have:
 
 - ✅ Comprehensive Copilot instructions (repo-wide and path-scoped)
-- ✅ Custom agents defined (8 agents)
+- ✅ Custom agents defined (see `.github/agents/`)
 - ✅ Skill framework started (2 skill categories)
 - ✅ Validation scripts (`precommit`)
 - ✅ Well-documented codebase

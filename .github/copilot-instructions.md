@@ -1,15 +1,15 @@
-# React Weapons of Choice
+# The Sign Age
 
-Modern React development showcase and boilerplate. Nx + pnpm monorepo demonstrating best practices with React 19, Tailwind v4, shadcn/ui, and Vite.
+Digital signage as a software platform. Nx + pnpm monorepo using React 19, Tailwind v4, shadcn/ui, and Vite to build reusable signage-oriented UI primitives, layouts, and blocks.
 
 ## Project Purpose
 
 This repository serves as:
 
-- **Educational resource** - Demonstrating modern React development patterns
-- **Boilerplate template** - Starting point for new React projects
-- **Component library** - Reusable shadcn/ui components organized by category
-- **Living documentation** - Real-world examples of best practices
+- **Working notebook** - Practical experiments and prototypes for signage software
+- **Component library** - Reusable building blocks for signage UIs (deterministic layouts, distance readability)
+- **Tooling reference** - Modern frontend tooling patterns applied to always-on/offline constraints
+- **Living documentation** - Notes about trade-offs, constraints, and failure cases
 
 ## Global TypeScript Conventions
 

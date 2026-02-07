@@ -1,10 +1,11 @@
 # Contributing
 
-Guidelines and processes for contributing to React Weapons of Choice.
+Guidelines and processes for contributing to The Sign Age.
 
 ## Documents in this Section
 
 ### [Contributing Guidelines](./CONTRIBUTING.md)
+
 Comprehensive guide to contributing to the project, including code standards, pull request process, testing requirements, and community guidelines.
 
 **Key Topics**: Code standards, PR process, commit conventions, testing, code review
@@ -19,7 +20,7 @@ Comprehensive guide to contributing to the project, including code standards, pu
 4. **Create Feature Branch** - Use conventional branch naming
 5. **Make Changes** - Follow project conventions
 6. **Test Thoroughly** - Run `pnpm run test:all` and `pnpm run lint:all`
-7. **Submit PR** - Use `@pr-description-helper` agent for description
+7. **Submit PR** - Use `/pr-desc` prompt for the PR description
 
 ## Contribution Areas
 
