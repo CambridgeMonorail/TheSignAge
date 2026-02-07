@@ -39,12 +39,12 @@ export const LandingPage: FC = () => {
           image={logoSrc}
           imageAlt="The Sign Age logo"
           ctaPrimary={{
-            text: 'View Examples',
-            onClick: () => navigate('/gallery'),
+            text: 'Get Started',
+            onClick: () => navigate('/getting-started'),
           }}
           ctaSecondary={{
-            text: 'Read Documentation',
-            link: 'https://github.com/CambridgeMonorail/TheSignAge',
+            text: 'View Examples',
+            onClick: () => navigate('/gallery'),
           }}
           layout="left"
           data-testid="hero-section"
@@ -181,14 +181,14 @@ export const LandingPage: FC = () => {
         title="Explore The Sign Age"
         steps={[
           {
+            title: 'Get Started',
+            description:
+              'Follow the installation guide to add signage components to your React project.',
+          },
+          {
             title: 'Explore Examples',
             description:
               'Browse signage screens in the gallery—welcome screens, menus, dashboards, wayfinding, and more.',
-          },
-          {
-            title: 'Review Components',
-            description:
-              'Check out the signage component library with fixed-aspect primitives, layouts, and blocks.',
           },
           {
             title: 'Build Your Own',
@@ -196,13 +196,8 @@ export const LandingPage: FC = () => {
               'Use the components and patterns to create deterministic signage screens for your use case.',
           },
         ]}
-        buttonText="View Documentation"
-        buttonAction={() =>
-          window.open(
-            'https://github.com/CambridgeMonorail/TheSignAge',
-            '_blank',
-          )
-        }
+        buttonText="Getting Started Guide"
+        buttonAction={() => navigate('/getting-started')}
         data-testid="steps-section"
       />
       <Tagline

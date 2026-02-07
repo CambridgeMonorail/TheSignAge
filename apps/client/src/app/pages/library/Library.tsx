@@ -40,7 +40,14 @@ export function LibraryPage() {
           >
             shadcn/ui
           </button>
-          , React 19, and Tailwind v4.
+          , React 19, and Tailwind v4. See{' '}
+          <button
+            onClick={() => (window.location.href = '/getting-started')}
+            className="text-foreground hover:underline"
+          >
+            Getting Started
+          </button>{' '}
+          for installation and usage.
         </p>
       </header>
 
@@ -58,6 +65,11 @@ export function LibraryPage() {
               Core shadcn/ui components organized by category. Standard web UI
               primitives for the demo website and general use.
             </p>
+            <div className="bg-slate-900 text-slate-100 p-3 rounded font-mono text-xs mt-3">
+              <pre>
+                {`import { Button, Card, Input } from '@tsa/shadcnui';`}
+              </pre>
+            </div>
           </div>
           <div className="mb-6">
             <h3 className="text-lg font-medium text-foreground mb-2">
@@ -67,6 +79,16 @@ export function LibraryPage() {
               Signage-specific components built for distance readability,
               fixed-aspect layouts, and 24/7 operation on BrightSign devices.
             </p>
+            <div className="bg-slate-900 text-slate-100 p-3 rounded font-mono text-xs mt-3">
+              <pre>
+                {`import {
+  SignageContainer,
+  SignageHeader,
+  MetricCard,
+  EventCard
+} from '@tsa/shadcnui-signage';`}
+              </pre>
+            </div>
           </div>
           <ul className="list-disc list-inside mb-4 space-y-1 text-muted-foreground">
             <li>Distance-readable typography (10-foot rule)</li>
@@ -106,9 +128,7 @@ export function LibraryPage() {
 
       {/* ADDITIONAL RESOURCES */}
       <section className="bg-card p-6 rounded border border-border mb-12">
-        <h2 className="text-2xl font-medium text-foreground mb-4">
-          Resources
-        </h2>
+        <h2 className="text-2xl font-medium text-foreground mb-4">Resources</h2>
         <p className="mb-4 text-muted-foreground">
           Additional documentation and project information:
         </p>

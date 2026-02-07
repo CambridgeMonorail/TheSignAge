@@ -1,16 +1,12 @@
 import { createElement } from 'react';
 import { SidebarConfiguration } from '../types/sidebarTypes';
-import {
-  Swords,
-  AudioWaveform,
-  Bot,
-  Monitor,
-} from 'lucide-react';
+import { Swords, AudioWaveform, Bot, Monitor } from 'lucide-react';
 
 import { LandingPage } from '../pages/landing/Landing';
 import { ColorPalettePage } from '../pages/color-palette/ColorPalette';
 import { GalleryPage } from '../pages/gallery/Gallery';
 import { LibraryPage } from '../pages/library/Library';
+import { GettingStartedPage } from '../pages/getting-started/GettingStarted';
 import { NotFound } from '../pages/not-found/NotFound';
 import { WelcomeScreen } from '../pages/signage/WelcomeScreen';
 import { RestaurantMenu } from '../pages/signage/RestaurantMenu';
@@ -26,6 +22,7 @@ import { Layout } from '@tsa/shell';
 const paths = {
   landing: '/',
   gallery: '/gallery',
+  gettingStarted: '/getting-started',
   home: '/',
   signage: {
     welcome: '/signage/welcome',
@@ -80,11 +77,12 @@ const sidebarData: SidebarConfiguration = {
       ],
     },
     {
-      title: 'Components',
-      url: paths.components.library,
+      title: 'Documentation',
+      url: paths.gettingStarted,
       icon: Bot,
       items: [
-        { title: 'Shadcn/ui Library', url: paths.components.library },
+        { title: 'Getting Started', url: paths.gettingStarted },
+        { title: 'Component Library', url: paths.components.library },
         { title: 'Color Palette', url: paths.components.colorPalette },
       ],
     },
@@ -120,6 +118,7 @@ const createRoute = (
 const routes = [
   createRoute(paths.landing, LandingPage, false),
   createRoute(paths.gallery, GalleryPage),
+  createRoute(paths.gettingStarted, GettingStartedPage),
   createRoute(paths.signage.welcome, WelcomeScreen, false),
   createRoute(paths.signage.menu, RestaurantMenu, false),
   createRoute(paths.signage.wayfinding, OfficeDirectory, false),
