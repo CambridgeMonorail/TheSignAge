@@ -1,0 +1,135 @@
+name: Lighthouse Badges
+
+on:
+  workflow_run:
+    workflows: ['Deploy to GitHub Pages']
+    types:
+      - completed
+  workflow_dispatch: # Allow manual triggering of the workflow
+
+permissions:
+  contents: write # Needed to push changes back to the repo
+
+jobs:
+  update-badges:
+    runs-on: ubuntu-latest
+    env:
+      AUTHOR_NAME: ''
+    steps:
+      # Generate GitHub App token
+      - name: Generate GitHub App token
+        id: generate-app-token
+        uses: getsentry/action-github-app-token@v1.0.6
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      # Check out the repository
+      - name: Check out the repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ steps.generate-app-token.outputs.token }}
+
+      # Log commit author
+      - name: Log commit author
+        if: success()
+        run: |
+          AUTHOR=$(git log -1 --pretty=format:'%an')
+          echo "Commit author: $AUTHOR"
+
+      # Check commit author
+      - name: Check commit author
+        id: check-author
+        run: |
+          AUTHOR=$(git log -1 --pretty=format:'%an')
+          echo "AUTHOR_NAME=$AUTHOR" >> $GITHUB_ENV
+          if [ "$AUTHOR" = "Monorail Updater" ]; then
+            echo "Commit made by Monorail Updater, exiting..."
+            exit 0
+          fi
+
+      # Set up Node.js
+      - name: Set up Node.js
+        if: env.AUTHOR_NAME != 'Monorail Updater'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Set up pnpm
+      - name: Set up pnpm
+        if: env.AUTHOR_NAME != 'Monorail Updater'
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9.15.0
+
+      # Install dependencies
+      - name: Install dependencies
+        if: env.AUTHOR_NAME != 'Monorail Updater'
+        run: pnpm install
+
+      # Create Lighthouse configuration file
+      - name: Create Lighthouse configuration file
+        if: env.AUTHOR_NAME != 'Monorail Updater'
+        run: |
+          cat << 'EOF' > .lighthouse-config.json
+          {
+            "extends": "lighthouse:default",
+            "settings": {
+              "onlyCategories": ["performance", "accessibility", "best-practices", "seo"],
+              "formFactor": "desktop",
+              "screenEmulation": {
+                "mobile": false,
+                "width": 1350,
+                "height": 940,
+                "deviceScaleFactor": 1.75,
+                "disabled": false
+              },
+              "throttling": {
+                "rttMs": 40,
+                "throughputKbps": 10240,
+                "cpuSlowdownMultiplier": 1,
+                "requestLatencyMs": 0,
+                "downloadThroughputKbps": 0,
+                "uploadThroughputKbps": 0
+              },
+              "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 10; Pixel 4 XL) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.36",
+              "skipAudits": [
+                "uses-http2",
+                "bf-cache"
+              ]
+            }
+          }
+          EOF
+
+      # Generate Lighthouse badges
+      - name: Generate Lighthouse badges
+        if: env.AUTHOR_NAME != 'Monorail Updater'
+        env:
+          LIGHTHOUSE_BADGES_CONFIGURATION_PATH: '.lighthouse-config.json'
+        run: pnpx lighthouse-badges --url='https://cambridgemonorail.github.io/TheSignAge/' --output-path='./lighthouse-badges' -r
+
+      # Clean up Lighthouse configuration file
+      - name: Clean up
+        if: env.AUTHOR_NAME != 'Monorail Updater'
+        run: rm .lighthouse-config.json
+
+      # Configure Git
+      - name: Configure Git
+        if: env.AUTHOR_NAME != 'Monorail Updater'
+        run: |
+          git config user.name "Monorail Updater"
+          git config user.email "monorail-updater@users.noreply.github.com"
+
+      # Commit and push changes
+      - name: Commit and push changes
+        if: env.AUTHOR_NAME != 'Monorail Updater'
+        run: |
+          git add ./lighthouse-badges/*
+          if git diff-index --quiet HEAD; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update Lighthouse badges"
+            git push origin main
+          fi
+        env:
+          GITHUB_TOKEN: ${{ steps.generate-app-token.outputs.token }}

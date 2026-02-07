@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "bundler",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@rwoc/landing": ["libs/landing/src/index.ts"],
+      "@rwoc/shadcnui": ["libs/shadcnui/src/index.ts"],
+      "@rwoc/shadcnui-blocks": ["libs/shadcnui-blocks/src/index.ts"],
+      "@rwoc/shadcnui/*": ["libs/shadcnui/src/*"],
+      "@rwoc/shell": ["libs/shell/src/index.ts"],
+      "common-tailwind": ["libs/common-tailwind/src/index.ts"],
+      "storybook-host": ["libs/storybook-host/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
