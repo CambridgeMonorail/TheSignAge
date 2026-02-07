@@ -71,7 +71,7 @@ jobs:
           }
           retry pnpm install --frozen-lockfile
 
-      - name: Build project
+      - name: Build client app
         if: env.AUTHOR_NAME != 'Monorail Updater'
         run: |
           export BASE_URL='/TheSignAge/'
@@ -81,16 +81,25 @@ jobs:
       - name: Build storybook
         if: env.AUTHOR_NAME != 'Monorail Updater'
         run: |
-          export BASE_URL='/TheSignAge/'
+          export BASE_URL='/TheSignAge/storybook/'
           export DEBUG='true'
           pnpm exec nx build-storybook storybook-host
+
+      - name: Verify build outputs
+        if: env.AUTHOR_NAME != 'Monorail Updater'
+        run: |
+          echo "Client build output:"
+          ls -la dist/apps/client/
+          echo ""
+          echo "Storybook build output:"
+          ls -la dist/apps/client/storybook/
 
       # Upload artifact for deployment
       - name: Upload to GitHub Pages artifact
         if: env.AUTHOR_NAME != 'Monorail Updater'
         uses: actions/upload-pages-artifact@v1
         with:
-          path: dist/apps/client # Path to your build output
+          path: dist/apps/client # Includes both app and /storybook subdirectory
 
   # Deploy step (separate job for GitHub Pages deployment)
   deploy:
