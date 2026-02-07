@@ -6,7 +6,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@TSA/shadcnui';
+} from '@tsa/shadcnui';
 
 interface ComponentDefinition {
   name: string;

@@ -1,4 +1,4 @@
-import '@rwoc/common-tailwind/main.css';
+import '@tsa/common-tailwind/main.css';
 
 export const parameters = {
   options: {

@@ -164,7 +164,7 @@ The `--create-commits` flag creates logical commits for each migration, making i
 All production code type errors resolved:
 
 1. **Toast module imports** - Fixed import path from `feedback/toast/toast`
-2. **PricingTier type** - Fixed import from `@rwoc/shadcnui-blocks`
+2. **PricingTier type** - Fixed import from `@tsa/shadcnui-blocks`
 3. **JSX namespace** - Changed `JSX.Element` → `React.JSX.Element` in AppSidebar
 4. **Button variants** - Changed `"primary"` → `"default"` or `"destructive"` (7 instances)
 5. **lucide-react icons** - Changed `Icon` → `LucideIcon` type in Layout.stories
@@ -507,12 +507,12 @@ git push -u origin modernization-2026
 
 ### What Changed
 
-| Package               | Before  | After   | Notes                           |
-| --------------------- | ------- | ------- | ------------------------------- |
-| **tailwindcss**       | 3.4.3   | 4.1.18  | Major version with CSS-first    |
-| **@tailwindcss/vite** | N/A     | 4.1.18  | New first-party Vite plugin     |
-| **@tailwindcss/postcss** | 4.0.0 | Removed | No longer needed with Vite plugin |
-| **autoprefixer**      | 10.4.20 | Removed | Built into Vite plugin          |
+| Package                  | Before  | After   | Notes                             |
+| ------------------------ | ------- | ------- | --------------------------------- |
+| **tailwindcss**          | 3.4.3   | 4.1.18  | Major version with CSS-first      |
+| **@tailwindcss/vite**    | N/A     | 4.1.18  | New first-party Vite plugin       |
+| **@tailwindcss/postcss** | 4.0.0   | Removed | No longer needed with Vite plugin |
+| **autoprefixer**         | 10.4.20 | Removed | Built into Vite plugin            |
 
 ### Architecture Changes
 
@@ -522,7 +522,7 @@ Migrated from JavaScript config to CSS `@theme` blocks:
 
 ```css
 /* libs/common-tailwind/src/main.css */
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-border: hsl(var(--border));
@@ -538,16 +538,17 @@ Replaced PostCSS workflow with `@tailwindcss/vite`:
 
 ```typescript
 // apps/client/vite.config.ts
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [tailwindcss(), react()]
-})
+  plugins: [tailwindcss(), react()],
+});
 ```
 
 **3. Removed PostCSS Configs**
 
 Deleted 3 files:
+
 - `apps/client/postcss.config.js`
 - `libs/storybook-host/postcss.config.js`
 - `libs/common-tailwind/postcss.config.js`
@@ -575,23 +576,23 @@ color: var(--color-foreground);
 @import 'tailwindcss/utilities';
 
 /* After (v4) */
-@import "tailwindcss";
+@import 'tailwindcss';
 ```
 
 ### shadcn/ui Dependency Updates
 
 Updated all shadcn-related dependencies to latest versions:
 
-| Package                   | Before   | After    |
-| ------------------------- | -------- | -------- |
-| **@radix-ui/react-***     | Various  | Latest   |
-| **tailwind-merge**        | 2.6.0    | 3.4.0    |
-| **lucide-react**          | 0.474.0  | 0.563.0  |
-| **cmdk**                  | 1.0.4    | 1.1.1    |
-| **sonner**                | 1.7.2    | 2.0.7    |
-| **embla-carousel-react**  | 8.5.2    | 8.6.0    |
-| **react-day-picker**      | 9.5.0    | 9.13.0   |
-| **recharts**              | 2.15.0   | 3.7.0    |
+| Package                  | Before  | After   |
+| ------------------------ | ------- | ------- |
+| **@radix-ui/react-\***   | Various | Latest  |
+| **tailwind-merge**       | 2.6.0   | 3.4.0   |
+| **lucide-react**         | 0.474.0 | 0.563.0 |
+| **cmdk**                 | 1.0.4   | 1.1.1   |
+| **sonner**               | 1.7.2   | 2.0.7   |
+| **embla-carousel-react** | 8.5.2   | 8.6.0   |
+| **react-day-picker**     | 9.5.0   | 9.13.0  |
+| **recharts**             | 2.15.0  | 3.7.0   |
 
 **Component Inventory:** 48 components across 6 categories maintained and tested
 

@@ -1,12 +1,12 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
-import { ThemeProvider } from '@TSA/shadcnui';
+import { ThemeProvider } from '@tsa/shadcnui';
 
 import { App } from './app/app';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement,
 );
 
 root.render(
@@ -16,5 +16,5 @@ root.render(
         <App />
       </ThemeProvider>
     </HashRouter>
-  </StrictMode>
+  </StrictMode>,
 );

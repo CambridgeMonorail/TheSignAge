@@ -91,12 +91,12 @@ export const Default: Story = {
       },
       teams: [
         {
-          name: 'RWOC',
+          name: 'TSA',
           logo: Swords,
           plan: 'Enterprise',
         },
         {
-          name: 'RWOC Corp.',
+          name: 'TSA Corp.',
           logo: AudioWaveform,
           plan: 'Startup',
         },

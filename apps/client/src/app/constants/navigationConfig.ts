@@ -16,7 +16,7 @@ import { NotFound } from '../pages/not-found/NotFound';
 import { PricingPage } from '../pages/pricing/Pricing';
 import { StatusBoardPage } from '../pages/status-board/StatusBoard';
 import { TermsAndConditionsPage } from '../pages/terms-and-conditions/TermsAndConditions';
-import { Layout } from '@TSA/shell';
+import { Layout } from '@tsa/shell';
 
 /**
  * Object containing all the paths used in the application.
@@ -52,12 +52,12 @@ const sidebarData: SidebarConfiguration = {
   },
   teams: [
     {
-      name: 'RWOC',
+      name: 'TSA',
       logo: Swords,
       plan: 'Enterprise',
     },
     {
-      name: 'RWOC Corp.',
+      name: 'TSA Corp.',
       logo: AudioWaveform,
       plan: 'Startup',
     },
@@ -103,7 +103,7 @@ const sidebarData: SidebarConfiguration = {
 const createRoute = (
   path: string,
   component: React.ComponentType,
-  useLayout = true
+  useLayout = true,
 ) => {
   return useLayout
     ? {

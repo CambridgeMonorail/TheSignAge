@@ -1,6 +1,6 @@
 import { addons } from 'storybook/manager-api';
-import rwocTheme from './rwocTheme';
+import tsaTheme from './tsaTheme';
 
 addons.setConfig({
-  theme: rwocTheme,
+  theme: tsaTheme,
 });

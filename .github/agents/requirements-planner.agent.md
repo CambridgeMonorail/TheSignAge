@@ -27,7 +27,7 @@ You produce implementation plans that are:
    - Examine existing project structure under the relevant app or lib
    - Find similar features or components to reference as patterns
    - Identify which Nx project the feature belongs to (apps/libs)
-   - Review existing types, utilities, and shadcn/ui components in `@rwoc/shadcnui`
+   - Review existing types, utilities, and shadcn/ui components in `@tsa/shadcnui`
    - Understand dependencies and shared code
 
 3. **Create implementation plan**
@@ -279,8 +279,8 @@ pnpm -w run start:[project]  # Manual verification
 
 **Internal Dependencies:**
 
-- **DEP-002**: `@rwoc/shadcnui` - [which components]
-- **DEP-003**: `@rwoc/shell` - [which shell components]
+- **DEP-002**: `@tsa/shadcnui` - [which components]
+- **DEP-003**: `@tsa/shell` - [which shell components]
 
 **External Dependencies:**
 

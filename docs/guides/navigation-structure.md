@@ -45,7 +45,7 @@ import { NotFound } from '../pages/not-found/NotFound';
 import { PricingPage } from '../pages/pricing/Pricing';
 import { StatusBoardPage } from '../.pages/status-board/StatusBoard';
 import { TermsAndConditionsPage } from '../pages/terms-and-conditions/TermsAndConditions';
-import { Layout } from '@rwoc/shell';
+import { Layout } from '@tsa/shell';
 
 const paths = {
   landing: '/',
@@ -69,18 +69,18 @@ const paths = {
 
 const sidebarData: SidebarConfiguration = {
   user: {
-    name: 'rwoc',
+    name: 'tsa',
     email: 'm@example.com',
     avatar: 'TheSignAge/assets/images/avatars/avatar.jpg',
   },
   teams: [
     {
-      name: 'RWOC',
+      name: 'TSA',
       logo: Swords,
       plan: 'Enterprise',
     },
     {
-      name: 'RWOC Corp.',
+      name: 'TSA Corp.',
       logo: AudioWaveform,
       plan: 'Startup',
     },
@@ -117,28 +117,10 @@ const sidebarData: SidebarConfiguration = {
 };
 
 const createRoute = (path: string, component: React.ComponentType, useLayout = true) => {
-  return useLayout
-    ? { path, element: createElement(Layout, { sidebarData, children: createElement(component) }) }
-    : { path, element: createElement(component) };
+  return useLayout ? { path, element: createElement(Layout, { sidebarData, children: createElement(component) }) } : { path, element: createElement(component) };
 };
 
-const routes = [
-  createRoute(paths.landing, LandingPage, false),
-  createRoute(paths.about, AboutPage),
-  createRoute(paths.blog, BlogPage),
-  createRoute(paths.blogPost, IndividualBlogPostPage),
-  createRoute(paths.components.colorPalette, ColorPalettePage),
-  createRoute(paths.components.library, LibraryPage),
-  createRoute(paths.contact, ContactPage),
-  createRoute(paths.dashboard, DashboardPage),
-  createRoute(paths.faq, FAQPage),
-  createRoute(paths.features, FeaturesPage),
-  createRoute(paths.home, DashboardPage),
-  createRoute(paths.pricing, PricingPage),
-  createRoute(paths.statusBoard, StatusBoardPage),
-  createRoute(paths.termsAndConditions, TermsAndConditionsPage),
-  createRoute(paths.notFound, NotFound, false),
-];
+const routes = [createRoute(paths.landing, LandingPage, false), createRoute(paths.about, AboutPage), createRoute(paths.blog, BlogPage), createRoute(paths.blogPost, IndividualBlogPostPage), createRoute(paths.components.colorPalette, ColorPalettePage), createRoute(paths.components.library, LibraryPage), createRoute(paths.contact, ContactPage), createRoute(paths.dashboard, DashboardPage), createRoute(paths.faq, FAQPage), createRoute(paths.features, FeaturesPage), createRoute(paths.home, DashboardPage), createRoute(paths.pricing, PricingPage), createRoute(paths.statusBoard, StatusBoardPage), createRoute(paths.termsAndConditions, TermsAndConditionsPage), createRoute(paths.notFound, NotFound, false)];
 
 export const navigationConfig = {
   paths,

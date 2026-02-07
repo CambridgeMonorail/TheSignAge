@@ -5,6 +5,7 @@ Modern React development showcase and boilerplate. Nx + pnpm monorepo demonstrat
 ## Project Purpose
 
 This repository serves as:
+
 - **Educational resource** - Demonstrating modern React development patterns
 - **Boilerplate template** - Starting point for new React projects
 - **Component library** - Reusable shadcn/ui components organized by category
@@ -50,7 +51,7 @@ This repository serves as:
   - Commands: `pnpm run build:affected`, `pnpm run test:affected`, `pnpm run lint:affected`
 - Prefer existing pnpm scripts defined in `package.json` - do not invent new scripts
 - Avoid broad refactors unless explicitly requested
-- Use workspace imports for cross-project: `@rwoc/shadcnui`, `@rwoc/shell`, `@rwoc/landing`
+- Use workspace imports for cross-project: `@tsa/shadcnui`, `@tsa/shell`, `@tsa/landing`
 - Use relative imports within same project: `../../components/Button`
 - Apps import from libs; libs never import from apps
 - Path mappings in `tsconfig.base.json`
@@ -64,7 +65,6 @@ This repository serves as:
   - Layout (aspect-ratio, collapsible, resizable, scroll-area, separator, sheet, sidebar)
   - Navigation (accordion, breadcrumb, command, context-menu, dropdown-menu, menubar, navigation-menu, pagination, tabs)
   - Utilities (form, label, sonner)
-  
 - **shadcnui-blocks** - Higher-level composed components (action-buttons, charts, features, hero, pricing, stats, etc.)
 - **shell** - Application shell components (layouts, navigation, sidebar)
 - **landing** - Landing page sections (hero, features, CTA, footer, etc.)
@@ -88,5 +88,6 @@ This repository serves as:
 App-specific conventions, patterns, and tooling guidance are in `.github/instructions/*.instructions.md` with `applyTo` scoping.
 
 Currently available:
+
 - Testing and quality workflows (`testing-and-quality.instructions.md`)
 - UI and accessibility patterns (`ui-and-accessibility.instructions.md`)

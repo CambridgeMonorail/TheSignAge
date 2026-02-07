@@ -6,12 +6,12 @@ import {
   CardHeader,
   CardTitle,
   Tooltip,
-} from '@TSA/shadcnui';
+} from '@tsa/shadcnui';
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from '@TSA/shadcnui';
+} from '@tsa/shadcnui';
 import { BarChart, CartesianGrid, XAxis, Bar } from 'recharts';
 import {
   Rocket,
@@ -21,7 +21,7 @@ import {
   Video,
   TrendingUp,
 } from 'lucide-react';
-import { Logo } from '@TSA/shadcnui-blocks';
+import { Logo } from '@tsa/shadcnui-blocks';
 
 interface ChartData {
   label: string;

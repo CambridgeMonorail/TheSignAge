@@ -43,6 +43,6 @@ applyTo: 'apps/client/**/*.{ts,tsx}'
 
 ## Feature Module Integration
 
-- Shared components from libs: `@rwoc/shadcnui`, `@rwoc/shadcnui-blocks`, `@rwoc/shell`, `@rwoc/landing`
+- Shared components from libs: `@tsa/shadcnui`, `@tsa/shadcnui-blocks`, `@tsa/shell`, `@tsa/landing`
 - Each module exports components with consistent API
 - Use workspace imports for cross-library dependencies

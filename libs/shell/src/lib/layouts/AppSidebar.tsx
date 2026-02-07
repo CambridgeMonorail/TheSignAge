@@ -7,7 +7,7 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from '@TSA/shadcnui';
+} from '@tsa/shadcnui';
 import { useSidebarData } from './sidebarContext';
 import { TeamSwitcher } from '../nav/TeamSwitcher';
 import { NavMain } from '../nav/NavMain';

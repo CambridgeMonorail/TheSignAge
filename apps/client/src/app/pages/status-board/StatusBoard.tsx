@@ -20,9 +20,9 @@ import {
   Button,
   Input,
   Textarea,
-} from '@TSA/shadcnui';
+} from '@tsa/shadcnui';
 import { useEffect, useState } from 'react';
-import { Logo } from '@TSA/shadcnui-blocks';
+import { Logo } from '@tsa/shadcnui-blocks';
 import { navigationConfig } from '../../constants/navigationConfig';
 
 const chartConfig = {
@@ -85,7 +85,7 @@ export function StatusBoardPage() {
         prevData.map((item) => ({
           ...item,
           status: ['green', 'yellow', 'red'][Math.floor(Math.random() * 3)],
-        }))
+        })),
       );
     }, 5000);
 
@@ -148,8 +148,8 @@ export function StatusBoardPage() {
                       project.status === 'yellow'
                         ? 'bg-yellow-500'
                         : project.status === 'red'
-                        ? 'bg-red-500'
-                        : 'bg-green-500'
+                          ? 'bg-red-500'
+                          : 'bg-green-500'
                     }`}
                   />
                   <span>{project.name}</span>

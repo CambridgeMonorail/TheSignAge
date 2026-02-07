@@ -20,9 +20,9 @@ import {
   Footer,
   StepsSection,
   HeroSection,
-} from '@TSA/landing';
-import { Logo, Tagline } from '@TSA/shadcnui-blocks';
-import { LogoCarousel } from '@TSA/shadcnui-blocks'; // Pfa41
+} from '@tsa/landing';
+import { Logo, Tagline } from '@tsa/shadcnui-blocks';
+import { LogoCarousel } from '@tsa/shadcnui-blocks'; // Pfa41
 
 export const LandingPage: FC = () => {
   const navigate = useNavigate();
@@ -184,7 +184,7 @@ export const LandingPage: FC = () => {
         buttonAction={() =>
           window.open(
             'https://github.com/CambridgeMonorail/TheSignAge',
-            '_blank'
+            '_blank',
           )
         }
         data-testid="community-section"
@@ -209,7 +209,7 @@ export const LandingPage: FC = () => {
         buttonAction={() =>
           window.open(
             'https://github.com/CambridgeMonorail/TheSignAge',
-            '_blank'
+            '_blank',
           )
         }
         data-testid="steps-section"

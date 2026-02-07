@@ -8,7 +8,7 @@ import {
   Input,
   Textarea,
   Button,
-} from '@TSA/shadcnui';
+} from '@tsa/shadcnui';
 
 const ContactPage: FC = () => {
   return (

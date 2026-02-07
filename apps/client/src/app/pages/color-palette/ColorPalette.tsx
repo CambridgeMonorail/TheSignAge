@@ -8,7 +8,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@TSA/shadcnui';
+} from '@tsa/shadcnui';
 import React, { useEffect, useState } from 'react';
 
 interface ColorPair {
@@ -73,7 +73,7 @@ const singleColors: SingleColor[] = [
 const getComputedColor = (
   className: string,
   root: HTMLElement,
-  property: 'color' | 'backgroundColor'
+  property: 'color' | 'backgroundColor',
 ): string => {
   const tempDiv = document.createElement('div');
   tempDiv.className = className;
@@ -173,7 +173,7 @@ const ColorCircle = ({
         'w-16 h-16 rounded-full shadow-md',
         colorClass,
         colorClass.startsWith('border-') ? 'border-4' : '',
-        colorClass.startsWith('ring-') ? 'ring-4' : ''
+        colorClass.startsWith('ring-') ? 'ring-4' : '',
       )}
     />
     <span className="mt-2 text-sm text-center">{name}</span>
@@ -182,7 +182,7 @@ const ColorCircle = ({
 
 const ColorPalettePage: React.FC = () => {
   const [contrastRatios, setContrastRatios] = useState<Record<string, number>>(
-    {}
+    {},
   );
   const [contrastChecks, setContrastChecks] = useState<
     Record<string, ReturnType<typeof checkContrast>>

@@ -24,12 +24,14 @@ When working as an agent in this repository:
 ### 2. Assess Complexity
 
 **Trivial changes** (no plan needed):
+
 - Fixing typos or formatting
 - Updating documentation
 - Single-line bug fixes
 - Renaming variables
 
 **Non-trivial changes** (plan required):
+
 - New features or components
 - Refactoring multiple files
 - Changes affecting multiple projects
@@ -38,6 +40,7 @@ When working as an agent in this repository:
 ### 3. Create a Plan (for non-trivial work)
 
 See [Planning Skill](.github/skills/planning/workflows/detailed-guide.md) for:
+
 - When a plan is required vs. optional vs. not needed
 - Plan template with full structure
 - Good vs. bad plan examples
@@ -47,6 +50,7 @@ See [Planning Skill](.github/skills/planning/workflows/detailed-guide.md) for:
 **Plan location:** `docs/plans/YYYY-MM-DD-<slug>.md`
 
 **Quick plan structure:**
+
 - Goal/objective
 - Context and background
 - Task breakdown with acceptance criteria
@@ -73,12 +77,14 @@ pnpm verify
 ```
 
 This runs:
+
 - Format check
 - Lint (affected projects)
 - Type check (affected projects)
 - Tests (affected projects)
 
 See [Verification Skill](.github/skills/verification/workflows/detailed-guide.md) for:
+
 - Required verification checks (format, lint, type-check, tests, build)
 - The unified `pnpm verify` command
 - PR verification evidence template
@@ -110,19 +116,16 @@ These skills provide detailed process guidance for common development tasks. Ref
   - Plan template and structure
   - Good vs. bad plan examples
   - Planning process and integration with AGENTS.md
-  
 - **[Systematic Debugging](.github/skills/systematic-debugging/workflows/detailed-guide.md)** - Root cause analysis workflow
   - 6-step debugging process (understand, reproduce, find root cause, fix, verify, document)
   - Real-world debugging examples
   - Common pitfalls and how to avoid them
   - When to invest in debugging vs. workaround
-  
 - **[Code Review Ready](.github/skills/code-review-ready/workflows/detailed-guide.md)** - Making changes easy to review
   - Reviewable PR checklist (< 500 lines, one logical change, clear description)
   - PR description template
   - Visual evidence requirements for UI changes
   - Anti-patterns to avoid ("Everything PR", "Mystery PR", "Trust Me PR")
-  
 - **[Verification](.github/skills/verification/workflows/detailed-guide.md)** - PR evidence expectations
   - Required verification checks (format, lint, type-check, tests)
   - The unified `pnpm verify` command
@@ -145,6 +148,7 @@ Use [Conventional Commits](https://www.conventionalcommits.org/):
 ```
 
 **Types:**
+
 - `feat:` - New feature
 - `fix:` - Bug fix
 - `docs:` - Documentation only
@@ -154,6 +158,7 @@ Use [Conventional Commits](https://www.conventionalcommits.org/):
 - `chore:` - Maintenance tasks
 
 **Examples:**
+
 ```
 feat(shadcnui): add variant prop to Button component
 
@@ -200,6 +205,7 @@ Follow the [Systematic Debugging](.github/skills/systematic-debugging/workflows/
 6. **Document what changed and why** - In commit message and PR description
 
 See the Systematic Debugging skill for:
+
 - Detailed 6-step debugging process
 - Real-world debugging examples
 - Common pitfalls and solutions
@@ -292,6 +298,7 @@ Output:
 - Any known limitations
 
 See [Code Review Ready](.github/skills/code-review-ready/workflows/detailed-guide.md) for:
+
 - Detailed reviewable PR checklist
 - PR description template
 - Visual evidence requirements
@@ -311,6 +318,7 @@ When debugging issues, follow a systematic process:
 6. **Document** - Explain what was wrong and how you fixed it
 
 See [Systematic Debugging](.github/skills/systematic-debugging/workflows/detailed-guide.md) for:
+
 - Detailed 6-step debugging process
 - Debugging techniques and tools
 - Real-world debugging examples with step-by-step walkthroughs
@@ -342,7 +350,7 @@ pnpm run lint:affected
 
 - Apps import from libs
 - Libs never import from apps
-- Use workspace imports: `@rwoc/shadcnui`, `@rwoc/shell`
+- Use workspace imports: `@tsa/shadcnui`, `@tsa/shell`
 - Use relative imports within same project
 
 ## Getting Help

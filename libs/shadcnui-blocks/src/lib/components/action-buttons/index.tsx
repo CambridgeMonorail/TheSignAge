@@ -5,7 +5,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
   TooltipContent,
-} from '@rwoc/shadcnui';
+} from '@tsa/shadcnui';
 
 /**
  * Props for the ActionButton component.
@@ -79,7 +79,10 @@ export interface ActionButtonsProps {
  * a number of action buttons need to be rendered together. It provides a convenient way to group
  * multiple action buttons with consistent styling and optional tooltips.
  */
-export const ActionButtons: FC<ActionButtonsProps> = ({ buttons, onButtonClick }) => {
+export const ActionButtons: FC<ActionButtonsProps> = ({
+  buttons,
+  onButtonClick,
+}) => {
   return (
     <TooltipProvider>
       {buttons.map((button, index) => (

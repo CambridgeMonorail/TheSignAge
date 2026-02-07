@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@rwoc/shadcnui";
+import { FC } from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from '@tsa/shadcnui';
 
 // Define the Testimonial interface
 interface Testimonial {
@@ -15,52 +15,56 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Maxwell Overdrive",
-    role: "VP of Button Clicking",
-    company: "Clicky Solutions Inc.",
-    testimonial: "No one does work like this. No one even tries.",
-    avatar: "/placeholder.svg?height=100&width=100",
+    name: 'Maxwell Overdrive',
+    role: 'VP of Button Clicking',
+    company: 'Clicky Solutions Inc.',
+    testimonial: 'No one does work like this. No one even tries.',
+    avatar: '/placeholder.svg?height=100&width=100',
   },
   {
     id: 2,
-    name: "Sandy Beaches",
-    role: "Chief Vacation Officer",
-    company: "Relaxify Global",
-    testimonial: "It's like they read our minds, but in a slightly unsettling way.",
-    avatar: "/placeholder.svg?height=100&width=100",
+    name: 'Sandy Beaches',
+    role: 'Chief Vacation Officer',
+    company: 'Relaxify Global',
+    testimonial:
+      "It's like they read our minds, but in a slightly unsettling way.",
+    avatar: '/placeholder.svg?height=100&width=100',
   },
   {
     id: 3,
-    name: "Chuck Liddlesteps",
-    role: "Junior Senior Advisor",
-    company: "Almost Works LLC",
+    name: 'Chuck Liddlesteps',
+    role: 'Junior Senior Advisor',
+    company: 'Almost Works LLC',
     testimonial: "After using this, I can confidently say, 'Sure, why not?'",
-    avatar: "/placeholder.svg?height=100&width=100",
+    avatar: '/placeholder.svg?height=100&width=100',
   },
   {
     id: 4,
-    name: "Wanda Ringoff",
-    role: "Director of Ambiguity",
-    company: "Vague Enterprises",
-    testimonial: "I can't say enough about it, because I'm not entirely sure what it does.",
-    avatar: "/placeholder.svg?height=100&width=100",
+    name: 'Wanda Ringoff',
+    role: 'Director of Ambiguity',
+    company: 'Vague Enterprises',
+    testimonial:
+      "I can't say enough about it, because I'm not entirely sure what it does.",
+    avatar: '/placeholder.svg?height=100&width=100',
   },
   {
     id: 5,
-    name: "Stu Pendous",
-    role: "Head of Over-Exaggeration",
-    company: "Hyperbole Corp.",
-    testimonial: "This product single-handedly saved my company, my career, and possibly the planet.",
-    avatar: "/placeholder.svg?height=100&width=100",
+    name: 'Stu Pendous',
+    role: 'Head of Over-Exaggeration',
+    company: 'Hyperbole Corp.',
+    testimonial:
+      'This product single-handedly saved my company, my career, and possibly the planet.',
+    avatar: '/placeholder.svg?height=100&width=100',
   },
   {
     id: 6,
-    name: "Luke E. Pants",
-    role: "Lead Optimist",
-    company: "Hope & Co.",
-    testimonial: "It's like the lucky pants of boilerplates. Does it work? Probably not. But you feel better using it.",
-    avatar: "/placeholder.svg?height=100&width=100",
-  }
+    name: 'Luke E. Pants',
+    role: 'Lead Optimist',
+    company: 'Hope & Co.',
+    testimonial:
+      "It's like the lucky pants of boilerplates. Does it work? Probably not. But you feel better using it.",
+    avatar: '/placeholder.svg?height=100&width=100',
+  },
 ];
 
 // TestimonialsSection component
@@ -85,7 +89,9 @@ export const TestimonialsSection: FC = () => {
                 "{testimonial.testimonial}"
               </blockquote>
               <div className="mt-auto">
-                <p className="font-semibold text-gray-800 dark:text-gray-200">{testimonial.name}</p>
+                <p className="font-semibold text-gray-800 dark:text-gray-200">
+                  {testimonial.name}
+                </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   {testimonial.role}, {testimonial.company}
                 </p>
@@ -97,4 +103,3 @@ export const TestimonialsSection: FC = () => {
     </section>
   );
 };
-

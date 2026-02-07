@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button } from '@rwoc/shadcnui';
+import { Button } from '@tsa/shadcnui';
 
 /**
  * Possible color variants for the CTA section.
@@ -40,7 +40,7 @@ export const CTASection: FC<CTASectionProps> = ({
   const baseSectionClasses = 'text-center py-20 w-full';
   const baseHeadingClasses = 'text-4xl font-bold mb-6';
   const baseParagraphClasses = 'text-xl mb-8 max-w-2xl mx-auto';
-  
+
   // Default styles for the 'light' variant
   let sectionClasses = 'bg-background text-primary';
   let headingClasses = `${baseHeadingClasses} text-primary`;

@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
-import { ActionButtons, ActionButtonProps } from '@rwoc/shadcnui-blocks';
-import { cn } from '@rwoc/shadcnui';
+import { ActionButtons, ActionButtonProps } from '@tsa/shadcnui-blocks';
+import { cn } from '@tsa/shadcnui';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 // Define header variants using cva
@@ -44,7 +44,10 @@ export const Header: FC<HeaderProps> = ({
   onButtonClick,
 }) => {
   return (
-    <header className={cn(headerVariants({ variant }), className)} data-testid="header">
+    <header
+      className={cn(headerVariants({ variant }), className)}
+      data-testid="header"
+    >
       <div className="flex items-center space-x-2 flex-none" data-testid="logo">
         {logoIcon}
         {title && <div>{title}</div>}
@@ -53,7 +56,10 @@ export const Header: FC<HeaderProps> = ({
         {centerContent}
       </div>
       <div className="flex-none" data-testid="action-buttons">
-        <ActionButtons buttons={actionButtonsProps} onButtonClick={onButtonClick} />
+        <ActionButtons
+          buttons={actionButtonsProps}
+          onButtonClick={onButtonClick}
+        />
       </div>
     </header>
   );

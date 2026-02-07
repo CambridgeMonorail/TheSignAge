@@ -1,6 +1,16 @@
 import { FC } from 'react';
-import { Card, CardContent, CardHeader, CardTitle, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@rwoc/shadcnui";
-import { AlertCircle, AlertTriangle, Table } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@tsa/shadcnui';
+import { AlertCircle, AlertTriangle, Table } from 'lucide-react';
 
 interface StatePerformanceData {
   state: string;
@@ -15,7 +25,9 @@ export interface StatePerformanceTableProps {
   data: StatePerformanceData[];
 }
 
-export const StatePerformanceTable: FC<StatePerformanceTableProps> = ({ data }) => {
+export const StatePerformanceTable: FC<StatePerformanceTableProps> = ({
+  data,
+}) => {
   return (
     <Card className="bg-secondary border-0 text-foreground lg:col-span-2">
       <CardHeader>
@@ -41,12 +53,20 @@ export const StatePerformanceTable: FC<StatePerformanceTableProps> = ({ data }) 
                 <TableCell>${row.q3Adjusted}</TableCell>
                 <TableCell>${row.actual}</TableCell>
                 <TableCell>
-                  {row.risk === "high" ? (
-                    <AlertCircle className="h-4 w-4 text-red-500" aria-label="High risk" />
-                  ) : row.risk === "medium" ? (
-                    <AlertTriangle className="h-4 w-4 text-yellow-500" aria-label="Medium risk" />
+                  {row.risk === 'high' ? (
+                    <AlertCircle
+                      className="h-4 w-4 text-red-500"
+                      aria-label="High risk"
+                    />
+                  ) : row.risk === 'medium' ? (
+                    <AlertTriangle
+                      className="h-4 w-4 text-yellow-500"
+                      aria-label="Medium risk"
+                    />
                   ) : (
-                    <span className="text-green-500" aria-label="Low risk">Low</span>
+                    <span className="text-green-500" aria-label="Low risk">
+                      Low
+                    </span>
                   )}
                 </TableCell>
                 <TableCell>{row.targetAchieved}%</TableCell>

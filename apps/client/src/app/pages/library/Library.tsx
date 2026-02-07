@@ -1,4 +1,4 @@
-import { Button } from '@TSA/shadcnui';
+import { Button } from '@tsa/shadcnui';
 import imageSrc from '../../../assets/images/shad-samples.svg';
 
 /**
@@ -52,8 +52,8 @@ export function LibraryPage() {
             Why Use This Library?
           </h2>
           <p className="mb-4 leading-relaxed">
-            The <strong>TheSignAge</strong> project gives you a
-            jumpstart by integrating best-in-class{' '}
+            The <strong>TheSignAge</strong> project gives you a jumpstart by
+            integrating best-in-class{' '}
             <button
               onClick={handleShadcnClick}
               className="text-secondary-contrast  hover:underline"

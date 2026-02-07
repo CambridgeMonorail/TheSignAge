@@ -11,7 +11,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@TSA/shadcnui';
+} from '@tsa/shadcnui';
 
 import { TrendingUp, Download } from 'lucide-react';
 import {
@@ -19,7 +19,7 @@ import {
   Overview,
   RecentSales,
   NumberAndSecondaryStat,
-} from '@TSA/shadcnui-blocks';
+} from '@tsa/shadcnui-blocks';
 import { salesData } from '../../data/salesData';
 
 const ArrowUpIcon = () => (

@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
-import { Switch } from '@TSA/shadcnui';
-import { PricingTiers, FeaturesComparison } from '@TSA/shadcnui-blocks';
+import { Switch } from '@tsa/shadcnui';
+import { PricingTiers, FeaturesComparison } from '@tsa/shadcnui-blocks';
 import { pricingTiers } from '../../data/pricingTiersData';
 import { featuresComparisonData } from '../../data/featuresComparisonData';
 

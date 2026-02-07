@@ -15,7 +15,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   useMediaQuery,
-} from '@rwoc/shadcnui';
+} from '@tsa/shadcnui';
 
 type MenuItem = {
   label: string;

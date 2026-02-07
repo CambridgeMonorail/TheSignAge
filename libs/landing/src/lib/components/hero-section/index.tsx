@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { Button } from '@rwoc/shadcnui'; // Import shadcn Button component
+import { Button } from '@tsa/shadcnui'; // Import shadcn Button component
 
 /**
  * Possible color variants for the HeroSection.
@@ -122,10 +122,7 @@ export const HeroSection: FC<HeroSectionProps> = ({
             </p>
           )}
           {highlights && (
-            <ul
-              className="space-y-2"
-              data-testid="hero-highlights"
-            >
+            <ul className="space-y-2" data-testid="hero-highlights">
               {highlights.map((highlight, index) => (
                 <li
                   key={index}
@@ -142,7 +139,8 @@ export const HeroSection: FC<HeroSectionProps> = ({
             {ctaPrimary && (
               <Button
                 onClick={
-                  ctaPrimary.onClick || (() => window.location.href = ctaPrimary.link || '#')
+                  ctaPrimary.onClick ||
+                  (() => (window.location.href = ctaPrimary.link || '#'))
                 }
                 variant={buttonPrimaryVariant}
                 data-testid="cta-primary"
@@ -153,7 +151,8 @@ export const HeroSection: FC<HeroSectionProps> = ({
             {ctaSecondary && (
               <Button
                 onClick={
-                  ctaSecondary.onClick || (() => window.location.href = ctaSecondary.link || '#')
+                  ctaSecondary.onClick ||
+                  (() => (window.location.href = ctaSecondary.link || '#'))
                 }
                 variant={buttonSecondaryVariant}
                 data-testid="cta-secondary"
@@ -173,7 +172,7 @@ export const HeroSection: FC<HeroSectionProps> = ({
             src={image}
             alt={imageAlt}
             className="w-3/4 sm:w-2/3 lg:w-full max-w-md rounded-lg object-cover"
-            width="448" 
+            width="448"
             height="448"
             data-testid="hero-image"
           />

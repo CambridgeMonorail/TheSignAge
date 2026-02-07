@@ -1,6 +1,13 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@rwoc/shadcnui";
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
-import { FC } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from '@tsa/shadcnui';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
+import { FC } from 'react';
 
 interface ForecastChartProps {
   /**
@@ -27,14 +34,26 @@ const ForecastChart: FC<ForecastChartProps> = ({ data }) => {
               <XAxis dataKey="month" stroke="#888888" />
               <YAxis stroke="#888888" tickFormatter={(value) => `$${value}`} />
               <Tooltip />
-              <Line type="monotone" dataKey="forecast" stroke="#8884d8" strokeWidth={2} dot={false} />
-              <Line type="monotone" dataKey="actual" stroke="#82ca9d" strokeWidth={2} dot={false} />
+              <Line
+                type="monotone"
+                dataKey="forecast"
+                stroke="#8884d8"
+                strokeWidth={2}
+                dot={false}
+              />
+              <Line
+                type="monotone"
+                dataKey="actual"
+                stroke="#82ca9d"
+                strokeWidth={2}
+                dot={false}
+              />
             </LineChart>
           </ResponsiveContainer>
         </div>
       </CardContent>
     </Card>
   );
-}
+};
 
 export { ForecastChart, ForecastChartProps };

@@ -6,7 +6,7 @@ import {
   CardTitle,
   CardDescription,
   Button,
-} from '@rwoc/shadcnui';
+} from '@tsa/shadcnui';
 
 /**
  * Interface representing a pricing tier.

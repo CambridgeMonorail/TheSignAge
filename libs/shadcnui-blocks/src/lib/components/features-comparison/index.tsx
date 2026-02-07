@@ -1,5 +1,12 @@
 import { FC } from 'react';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@rwoc/shadcnui';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@tsa/shadcnui';
 import { Check, X } from 'lucide-react';
 
 /**
@@ -21,7 +28,7 @@ export interface FeaturesComparisonProps {
 
 /**
  * FeaturesComparison component.
- * 
+ *
  * This component renders a comparison table for different features across various tiers (Basic, Pro, Enterprise).
  */
 export const FeaturesComparison: FC<FeaturesComparisonProps> = ({ data }) => {
@@ -29,7 +36,10 @@ export const FeaturesComparison: FC<FeaturesComparisonProps> = ({ data }) => {
     <section>
       <h2 className="text-3xl font-bold mb-4 text-primary">Comparison Table</h2>
       <div className="overflow-x-auto">
-        <Table className="min-w-full bg-background text-foreground" role="table">
+        <Table
+          className="min-w-full bg-background text-foreground"
+          role="table"
+        >
           <TableHeader>
             <TableRow>
               <TableHead className="text-left">Feature</TableHead>
@@ -44,17 +54,47 @@ export const FeaturesComparison: FC<FeaturesComparisonProps> = ({ data }) => {
                 <TableCell>{item.feature}</TableCell>
                 <TableCell>
                   <div className="flex justify-center">
-                    {item.basic ? <Check className="text-green-600" aria-label="Basic includes feature" /> : <X className="text-red-500" aria-label="Basic does not include feature" />}
+                    {item.basic ? (
+                      <Check
+                        className="text-green-600"
+                        aria-label="Basic includes feature"
+                      />
+                    ) : (
+                      <X
+                        className="text-red-500"
+                        aria-label="Basic does not include feature"
+                      />
+                    )}
                   </div>
                 </TableCell>
                 <TableCell>
                   <div className="flex justify-center">
-                    {item.pro ? <Check className="text-green-600" aria-label="Pro includes feature" /> : <X className="text-red-500" aria-label="Pro does not include feature" />}
+                    {item.pro ? (
+                      <Check
+                        className="text-green-600"
+                        aria-label="Pro includes feature"
+                      />
+                    ) : (
+                      <X
+                        className="text-red-500"
+                        aria-label="Pro does not include feature"
+                      />
+                    )}
                   </div>
                 </TableCell>
                 <TableCell>
                   <div className="flex justify-center">
-                    {item.enterprise ? <Check className="text-green-600" aria-label="Enterprise includes feature" /> : <X className="text-red-500" aria-label="Enterprise does not include feature" />}
+                    {item.enterprise ? (
+                      <Check
+                        className="text-green-600"
+                        aria-label="Enterprise includes feature"
+                      />
+                    ) : (
+                      <X
+                        className="text-red-500"
+                        aria-label="Enterprise does not include feature"
+                      />
+                    )}
                   </div>
                 </TableCell>
               </TableRow>

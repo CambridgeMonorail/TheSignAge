@@ -10,7 +10,7 @@ import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from '@TSA/shadcnui';
+} from '@tsa/shadcnui';
 import { AppSidebar } from './AppSidebar';
 import { ReactNode } from 'react';
 import { Moon, Sun, Github } from 'lucide-react';
@@ -20,7 +20,7 @@ import {
   SidebarProvider as SidebarDataProvider,
   SidebarData,
 } from './sidebarContext';
-import { Logo } from '@TSA/shadcnui-blocks';
+import { Logo } from '@tsa/shadcnui-blocks';
 
 interface LayoutProps {
   /** The main content to be displayed within the layout */
