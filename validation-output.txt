@@ -1,0 +1,390 @@
+
+> TheSignAge@0.0.0 validate C:\Projects\TheSignAge
+> pnpm run format && pnpm run lint:all && pnpm run type-check:all && pnpm run test:all && pnpm run build:all
+
+
+> TheSignAge@0.0.0 format C:\Projects\TheSignAge
+> nx format:write
+
+
+> TheSignAge@0.0.0 lint:all C:\Projects\TheSignAge
+> nx run-many --target=lint --all --exclude=TheSignAge
+
+
+ NX   Running target lint for 8 projects:
+
+- common-tailwind
+- shadcnui-blocks
+- storybook-host
+- client-e2e
+- shadcnui
+- landing
+- client
+- shell
+
+
+
+> nx run shadcnui:lint  [existing outputs match the cache, left as is]
+
+[2m> [22meslint .
+
+(node:43316) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Projects/TheSignAge/libs/shadcnui/eslint.config.js?mtime=1769501981798 is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to C:\Projects\TheSignAge\libs\shadcnui\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui\src\components\ui\data-display\calendar\calendar.tsx[24m[0m
+[0m  [2m3:10[22m  [33mwarning[39m  'ChevronLeftIcon' is defined but never used   [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m3:27[22m  [33mwarning[39m  'ChevronRightIcon' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui\src\components\ui\data-display\table\table.stories.tsx[24m[0m
+[0m  [2m10:3[22m  [33mwarning[39m  'TableCaption' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui\src\components\ui\feedback\alert\alert.tsx[24m[0m
+[0m  [2m47:3[22m  [33mwarning[39m  Headings must have content and the content must be accessible by a screen reader  [2mjsx-a11y/heading-has-content[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui\src\components\ui\feedback\toast\toaster.tsx[24m[0m
+[0m  [2m16:75[22m  [33mwarning[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui\src\components\ui\input-controls\select\select.stories.tsx[24m[0m
+[0m  [2m10:3[22m  [33mwarning[39m  'SelectSeparator' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui\src\components\ui\layout\sheet\sheet.stories.tsx[24m[0m
+[0m  [2m6:3[22m  [33mwarning[39m  'SheetPortal' is defined but never used   [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m7:3[22m  [33mwarning[39m  'SheetOverlay' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui\src\components\ui\layout\sidebar\sidebar.stories.tsx[24m[0m
+[0m   [2m7:3[22m  [33mwarning[39m  'SidebarGroupAction' is defined but never used    [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m12:3[22m  [33mwarning[39m  'SidebarInset' is defined but never used          [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m14:3[22m  [33mwarning[39m  'SidebarMenuAction' is defined but never used     [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m15:3[22m  [33mwarning[39m  'SidebarMenuBadge' is defined but never used      [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m18:3[22m  [33mwarning[39m  'SidebarMenuSkeleton' is defined but never used   [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m19:3[22m  [33mwarning[39m  'SidebarMenuSub' is defined but never used        [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m20:3[22m  [33mwarning[39m  'SidebarMenuSubButton' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m21:3[22m  [33mwarning[39m  'SidebarMenuSubItem' is defined but never used    [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m23:3[22m  [33mwarning[39m  'SidebarRail' is defined but never used           [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui\src\components\ui\layout\sidebar\sidebar.tsx[24m[0m
+[0m  [2m38:7[22m  [33mwarning[39m  'SidebarContext' is already defined  [2mno-redeclare[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui\src\components\ui\navigation\context-menu\context-menu.stories.tsx[24m[0m
+[0m  [2m12:3[22m  [33mwarning[39m  'ContextMenuGroup' is defined but never used   [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m13:3[22m  [33mwarning[39m  'ContextMenuPortal' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui\src\components\ui\navigation\pagination\pagination.tsx[24m[0m
+[0m  [2m101:3[22m  [33mwarning[39m  Anchors must have content and the content must be accessible by a screen reader  [2mjsx-a11y/anchor-has-content[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui\src\components\ui\navigation\tabs\tabs.stories.tsx[24m[0m
+[0m  [2m58:11[22m  [33mwarning[39m  Emojis should be wrapped in <span>, have role="img", and have an accessible description with aria-label or aria-labelledby  [2mjsx-a11y/accessible-emoji[22m[0m
+[0m  [2m61:11[22m  [33mwarning[39m  Emojis should be wrapped in <span>, have role="img", and have an accessible description with aria-label or aria-labelledby  [2mjsx-a11y/accessible-emoji[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui\src\hooks\use-toast.ts[24m[0m
+[0m  [2m21:7[22m  [33mwarning[39m  'actionTypes' is assigned a value but only used as a type  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[33m[1m✖ 24 problems (0 errors, 24 warnings)[22m[39m[0m
+[0m[33m[1m[22m[39m[0m
+
+> nx run shadcnui-blocks:lint  [existing outputs match the cache, left as is]
+
+[2m> [22meslint .
+
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui-blocks\src\lib\components\charts\SparkLine.tsx[24m[0m
+[0m  [2m6:3[22m  [33mwarning[39m  'XAxis' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m7:3[22m  [33mwarning[39m  'YAxis' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui-blocks\src\lib\components\horizontal-nav-bar\index.tsx[24m[0m
+[0m  [2m3:10[22m  [33mwarning[39m  'ChevronDown' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui-blocks\src\lib\components\logo-carousel\index.tsx[24m[0m
+[0m  [2m17:25[22m  [33mwarning[39m  'setCarouselLogos' is assigned a value but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m24:11[22m  [33mwarning[39m  'interval' is assigned a value but never used          [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui-blocks\src\lib\components\number-and-secondary-stat\index.tsx[24m[0m
+[0m  [2m138:39[22m  [33mwarning[39m  'label' is assigned a value but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[33m[1m✖ 6 problems (0 errors, 6 warnings)[22m[39m[0m
+[0m[33m[1m[22m[39m[0m
+
+> nx run landing:lint  [existing outputs match the cache, left as is]
+
+[2m> [22meslint .
+
+
+> nx run common-tailwind:lint  [existing outputs match the cache, left as is]
+
+> eslint .
+
+
+> nx run shell:lint  [existing outputs match the cache, left as is]
+
+[2m> [22meslint .
+
+(node:105016) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Projects/TheSignAge/libs/shell/eslint.config.js?mtime=1769501981859 is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to C:\Projects\TheSignAge\libs\shell\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run client:lint  [existing outputs match the cache, left as is]
+
+[2m> [22meslint .
+
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\apps\client\src\app\pages\dashboard\Dashboard.tsx[24m[0m
+[0m  [2m25:7[22m  [33mwarning[39m  'ArrowUpIcon' is assigned a value but never used    [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m39:7[22m  [33mwarning[39m  'ArrowDownIcon' is assigned a value but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m53:7[22m  [33mwarning[39m  'Sparkline' is assigned a value but never used      [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\apps\client\src\app\pages\features\Features.tsx[24m[0m
+[0m  [2m8:3[22m  [33mwarning[39m  'Tooltip' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\apps\client\src\app\pages\landing\Landing.tsx[24m[0m
+[0m  [2m25:10[22m  [33mwarning[39m  'LogoCarousel' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\apps\client\src\app\pages\status-board\StatusBoard.tsx[24m[0m
+[0m  [2m22:3[22m  [33mwarning[39m  'Textarea' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[33m[1m✖ 6 problems (0 errors, 6 warnings)[22m[39m[0m
+[0m[33m[1m[22m[39m[0m
+
+> nx run client-e2e:lint  [existing outputs match the cache, left as is]
+
+[2m> [22meslint .
+
+
+> nx run storybook-host:lint
+
+
+Linting "storybook-host"...
+(node:3804) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Projects/TheSignAge/libs/storybook-host/eslint.config.js?mtime=1769501981866 is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to C:\Projects\TheSignAge\libs\storybook-host\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\libs\storybook-host\.storybook\main.ts[24m[0m
+[0m  [2m70:42[22m  [33mwarning[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m[0m
+[0m[33m[1m✖ 1 problem (0 errors, 1 warning)[22m[39m[0m
+[0m[33m[1m[22m[39m[0m
+✖ 1 problem (0 errors, 1 warning)
+
+
+
+
+ NX   Successfully ran target lint for 8 projects
+
+Nx read the output from the cache instead of running the command for 7 out of 8 tasks.
+
+
+> TheSignAge@0.0.0 type-check:all C:\Projects\TheSignAge
+> nx run-many --target=type-check --all
+
+
+ NX   Running target type-check for 5 projects:
+
+- shadcnui-blocks
+- shadcnui
+- landing
+- client
+- shell
+
+
+
+> nx run shadcnui:type-check
+
+> tsc --project libs/shadcnui/tsconfig.lib.json --noEmit
+
+
+> nx run shadcnui-blocks:type-check
+
+> tsc --project libs/shadcnui-blocks/tsconfig.lib.json --noEmit
+
+
+> nx run landing:type-check
+
+> tsc --project libs/landing/tsconfig.lib.json --noEmit
+
+
+> nx run shell:type-check
+
+> tsc --project libs/shell/tsconfig.lib.json --noEmit
+
+
+> nx run client:type-check
+
+> tsc --project apps/client/tsconfig.app.json --noEmit
+
+
+
+
+ NX   Successfully ran target type-check for 5 projects
+
+
+
+ NX   Nx detected a flaky task
+
+  shadcnui:type-check
+
+Flaky tasks can disrupt your CI pipeline. Automatically retry them with Nx Cloud. Learn more at https://nx.dev/ci/features/flaky-tasks
+
+
+> TheSignAge@0.0.0 test:all C:\Projects\TheSignAge
+> nx run-many --target=test --all
+
+
+ NX   Running target test for 7 projects:
+
+- common-tailwind
+- shadcnui-blocks
+- storybook-host
+- shadcnui
+- landing
+- client
+- shell
+
+
+
+> nx run shadcnui:test
+
+> vitest
+
+
+[1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/shadcnui[39m
+
+ [32m✓[39m src/lib/shadcnui.spec.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 10[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m   Start at [22m 11:24:38
+[2m   Duration [22m 696ms[2m (transform 26ms, setup 0ms, collect 164ms, tests 10ms, environment 382ms, prepare 10ms)[22m
+
+
+> nx run shell:test
+
+> vitest
+
+
+[1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/shell[39m
+
+ [32m✓[39m src/lib/shell.spec.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 9[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m   Start at [22m 11:24:40
+[2m   Duration [22m 685ms[2m (transform 27ms, setup 0ms, collect 147ms, tests 9ms, environment 390ms, prepare 10ms)[22m
+
+
+> nx run shadcnui-blocks:test
+
+> vitest
+
+
+[1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/shadcnui-blocks[39m
+
+ [32m✓[39m src/lib/components/tagline/Tagline.spec.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 40[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m5 passed[39m[22m[90m (5)[39m
+[2m   Start at [22m 11:24:38
+[2m   Duration [22m 3.16s[2m (transform 30ms, setup 0ms, collect 2.55s, tests 40ms, environment 427ms, prepare 11ms)[22m
+
+
+> nx run common-tailwind:test
+
+> vitest
+
+
+[1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/common-tailwind[39m
+
+[31mNo test files found, exiting with code 1
+[39m
+[2minclude: [22m[33msrc/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}[39m
+[2mexclude:  [22m[33m**/node_modules/**[2m, [22m**/.git/**[39m
+
+> vitest
+
+
+[1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/common-tailwind[39m
+
+[31mNo test files found, exiting with code 1
+[39m
+[2minclude: [22m[33msrc/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}[39m
+[2mexclude:  [22m[33m**/node_modules/**[2m, [22m**/.git/**[39m
+
+Warning: command "vitest" exited with non-zero status code
+> nx run storybook-host:test
+
+
+> storybook-host@1.0.0 test C:\Projects\TheSignAge\libs\storybook-host
+> echo "Error: no test specified" && exit 1
+
+"Error: no test specified" 
+[41m[30m ELIFECYCLE [39m[49m [31mTest failed. See above for more details.[39m
+[43m[30m WARN [39m[49m  Local package.json exists, but node_modules missing, did you mean to install?
+
+> nx run landing:test
+
+> vitest
+
+
+[1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/landing[39m
+
+ [32m✓[39m src/lib/landing.spec.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/components/header/Header.spec.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 73[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+[2m   Start at [22m 11:24:38
+[2m   Duration [22m 8.11s[2m (transform 560ms, setup 0ms, collect 7.66s, tests 83ms, environment 851ms, prepare 26ms)[22m
+
+
+> nx run client:test
+
+> vitest
+
+
+[1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/apps/client[39m
+
+[90mstderr[2m | src/app/pages/landing/Landing.spec.tsx[2m > [22m[2mLandingPage[2m > [22m[2mshould render successfully
+[22m[39m⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+[90mstderr[2m | src/app/pages/landing/Landing.spec.tsx[2m > [22m[2mLandingPage[2m > [22m[2mshould have a greeting as the title
+[22m[39mTo match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
+
+[90mstderr[2m | src/app/pages/landing/Landing.spec.tsx[2m > [22m[2mLandingPage[2m > [22m[2mshould render the sixth feature
+[22m[39mTo match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
+
+[90mstderr[2m | src/app/pages/landing/Landing.spec.tsx[2m > [22m[2mLandingPage[2m > [22m[2mshould revise feature titles and descriptions to emphasize user benefits
+[22m[39mTo match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
+To match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
+To match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
+
+ [32m✓[39m src/app/pages/landing/Landing.spec.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 72[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+[2m   Start at [22m 11:24:41
+[2m   Duration [22m 4.42s[2m (transform 558ms, setup 0ms, collect 3.81s, tests 72ms, environment 400ms, prepare 11ms)[22m
+
+
+
+
+ NX   Running target test for 7 projects failed
+
+Failed tasks:
+
+- common-tailwind:test
+- storybook-host:test
+
+
+ NX   Nx detected  flaky tasks
+
+  shadcnui:test
+  shadcnui-blocks:test
+  landing:test
+
+Flaky tasks can disrupt your CI pipeline. Automatically retry them with Nx Cloud. Learn more at https://nx.dev/ci/features/flaky-tasks
+
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.
