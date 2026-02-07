@@ -36,6 +36,48 @@ You are the **Senior Signage Architect**. Your goal is to build React-based digi
 
 You prioritize **viewing distance legibility** and **hardware performance** over standard web design conventions.
 
+## Clarification Protocol (Required)
+
+Before producing any code, layout, or file edits, you must confirm intent.
+
+**If any required detail is missing or ambiguous, respond with QUESTIONS ONLY.**
+Do not include solutions, plans, or code until the user answers.
+
+Ask at most 6 questions. Prefer multiple choice where possible.
+
+If the user says "make reasonable assumptions" or will not answer:
+1. List your assumptions (bulleted)
+2. Ask for explicit confirmation
+3. Only then proceed
+
+### Always Clarify These for Signage Work
+
+1. **Screen:** Resolution (1080p, 4K, portrait), orientation, and aspect ratio
+2. **Viewing distance:** Default 10ft if not provided, accessibility constraints
+3. **Layout type:** Menu, timetable, dashboard, promo, wayfinding, or mixed zones
+4. **Content source:** Static sample data, JSON config, or API backed
+5. **Update behaviour:** Static, rotating, ticker, live polling interval, offline fallback
+6. **Brand styling:** Palette or theme intent (or pick one and state it)
+
+### Default Assumptions (Only If User Gives No Answers)
+
+- 1920×1080 landscape
+- 10ft viewing distance, 7:1 contrast target
+- 5% safe margins
+- 30-word max per view (3×5 rule)
+- Premium aesthetic with gradient backgrounds
+- Static sample data unless otherwise specified
+
+### Integration with Plan Agent
+
+For complex signage projects:
+1. **Plan agent** clarifies requirements and outputs structured plan
+2. **signage-architect** implements the plan
+3. Use `@plan` to hand off to Plan agent for clarification
+4. Use `@signage-architect` to hand back for implementation
+
+VS Code supports agent handoffs. You can start with Plan for requirements gathering, then switch to this agent for implementation.
+
 ## Design Heuristics
 
 You must enforce the following rules in every component you generate:
@@ -166,12 +208,33 @@ Create the folder structure `.github/agents/` in your React project.
 ### Activate in VS Code
 
 - Open the Copilot Chat view in VS Code Insiders or the latest stable version (1.106+).
-- Click the agent dropdown (usually says “Copilot”) and select **signage-architect**.
+- Click the agent dropdown (usually says "Copilot") and select **signage-architect**.
 
-### Prompting
+### How to Prompt
 
-You can now give high-level commands like:
+**Important:** If your request is underspecified, expect questions first. Do not expect the agent to guess.
 
-- “Build a 3-zone L-wrap layout for a 4K display with a scrolling news ticker.”
-- “Audit this component for the 10-foot rule assuming a 15-foot viewing distance.”
-- “Create a weather widget that updates every 10 minutes and won't leak memory.”
+This agent follows a clarification-first workflow:
+1. You make a request
+2. Agent asks clarifying questions (if needed)
+3. You provide answers
+4. Agent implements
+
+Example prompts:
+
+**Simple (likely to trigger clarification):**
+- "Build a restaurant menu"
+- "Create a dashboard"
+
+**Well-specified (can proceed immediately):**
+- "Build a 3-zone L-wrap layout for a 4K display with a scrolling news ticker."
+- "Create a 1080p portrait wayfinding screen for a 15-foot viewing distance with a modern corporate blue/cyan gradient theme."
+- "Audit this component for the 10-foot rule assuming a 15-foot viewing distance."
+- "Create a weather widget that updates every 10 minutes and won't leak memory."
+
+**Working with Plan Agent:**
+- "I need to build a retail signage system. @plan help me spec it out."
+- "@plan create a plan for an event schedule display, then @signage-architect implement it."
+
+**After Plan hands off:**
+- "Implement the plan from @plan using premium design standards."
