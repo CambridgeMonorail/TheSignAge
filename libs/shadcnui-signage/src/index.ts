@@ -10,11 +10,14 @@ export { ScreenFrame } from './lib/primitives/ScreenFrame';
 export type { ScreenFrameProps } from './lib/primitives/ScreenFrame';
 
 // Layouts
-// export { SplitScreen } from './lib/layouts/SplitScreen';
+export { SplitScreen } from './lib/layouts/SplitScreen';
+export type { SplitScreenProps } from './lib/layouts/SplitScreen';
 
 // Blocks
-// export { FullscreenHero } from './lib/blocks/FullscreenHero';
-// export { InfoCardGrid } from './lib/blocks/InfoCardGrid';
+export { FullscreenHero } from './lib/blocks/FullscreenHero';
+export type { FullscreenHeroProps } from './lib/blocks/FullscreenHero';
+export { InfoCardGrid } from './lib/blocks/InfoCardGrid';
+export type { InfoCardGridProps } from './lib/blocks/InfoCardGrid';
 
 // Types
 export type {

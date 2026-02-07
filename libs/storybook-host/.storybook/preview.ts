@@ -1,4 +1,4 @@
-import '@tsa/common-tailwind/main.css';
+import '../../common-tailwind/src/main.css';
 
 export const parameters = {
   options: {

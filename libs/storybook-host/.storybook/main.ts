@@ -8,14 +8,12 @@ const require = createRequire(import.meta.url);
 
 const config: StorybookConfig = {
   stories: [
-    '../../**/*.mdx',
+    '../src/**/*.mdx',
     '../../**/*.stories.@(js|jsx|ts|tsx)',
-    './Introduction.mdx',
   ],
   addons: [
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-links'),
-    getAbsolutePath('storybook-dark-mode'),
     getAbsolutePath('@storybook/addon-themes'),
     {
       name: getAbsolutePath('@storybook/addon-styling-webpack'),
@@ -55,10 +53,11 @@ const config: StorybookConfig = {
   },
   staticDirs: ['./assets'],
   viteFinal: async (config, { configType }) => {
-    // Define 'process.env'
+    // Only define specific environment variables that are needed
+    // Avoid passing entire process.env to prevent security risks
     config.define = {
       ...config.define,
-      'process.env': process.env,
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     };
 
     return config;
