@@ -7,10 +7,16 @@
 ![Project Status](https://img.shields.io/badge/status-alpha-orange?style=for-the-badge)
 ![Version](https://img.shields.io/github/package-json/v/CambridgeMonorail/TheSignAge?style=for-the-badge)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/CambridgeMonorail/TheSignAge/ci.yml?style=for-the-badge)
+![Deploy Status](https://img.shields.io/github/actions/workflow/status/CambridgeMonorail/TheSignAge/deploy.yml?label=deploy&style=for-the-badge)
 ![License](https://img.shields.io/github/license/CambridgeMonorail/TheSignAge?style=for-the-badge)
 ![Last Commit](https://img.shields.io/github/last-commit/CambridgeMonorail/TheSignAge?style=for-the-badge)
 
 **NOTE: This project is currently in alpha. In fact, it's very alpha. This means it is still under active development and may undergo significant changes. Features may be incomplete or unstable. Got suggestions on what you would like to see or how to make it better? Add an issue and let us know!**
+
+## 🚀 Live Demo
+
+- **Client App:** [https://cambridgemonorail.github.io/TheSignAge/](https://cambridgemonorail.github.io/TheSignAge/)
+- **Storybook:** [https://cambridgemonorail.github.io/TheSignAge/storybook/](https://cambridgemonorail.github.io/TheSignAge/storybook/)
 
 ## Table of Contents
 
