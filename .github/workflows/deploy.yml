@@ -76,7 +76,7 @@ jobs:
 
       # Upload artifact for deployment
       - name: Upload to GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist/apps/client # Includes both app and /storybook subdirectory
 
@@ -90,4 +90,4 @@ jobs:
 
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
