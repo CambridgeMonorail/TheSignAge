@@ -21,6 +21,7 @@
       "@tsa/landing": ["libs/landing/src/index.ts"],
       "@tsa/shadcnui": ["libs/shadcnui/src/index.ts"],
       "@tsa/shadcnui-blocks": ["libs/shadcnui-blocks/src/index.ts"],
+      "@tsa/shadcnui-signage": ["libs/shadcnui-signage/src/index.ts"],
       "@tsa/shadcnui/*": ["libs/shadcnui/src/*"],
       "@tsa/shell": ["libs/shell/src/index.ts"],
       "common-tailwind": ["libs/common-tailwind/src/index.ts"],

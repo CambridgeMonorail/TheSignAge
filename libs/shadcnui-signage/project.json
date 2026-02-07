@@ -1,0 +1,17 @@
+{
+  "name": "shadcnui-signage",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shadcnui-signage/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project shadcnui-signage --web",
+  "targets": {
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --project libs/shadcnui-signage/tsconfig.lib.json --noEmit"
+      }
+    }
+  },
+  "implicitDependencies": ["shadcnui", "shadcnui-blocks", "common-tailwind"]
+}
