@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Github,
@@ -22,21 +22,9 @@ import {
   HeroSection,
 } from '@tsa/landing';
 import { Logo, Tagline } from '@tsa/shadcnui-blocks';
-import { LogoCarousel } from '@tsa/shadcnui-blocks'; // Pfa41
 
 export const LandingPage: FC = () => {
   const navigate = useNavigate();
-
-  const handleScrollToFeatures = () => {
-    const featuresElement = document.getElementById('features');
-    if (featuresElement) {
-      featuresElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  useEffect(() => {
-    // Any other side effects can be added here
-  }, []);
 
   return (
     <div
@@ -45,18 +33,18 @@ export const LandingPage: FC = () => {
     >
       <div className="bg-primary" data-testid="hero-section-container">
         <HeroSection
-          title="The Boilerplate That Speeds Up SPA Development"
-          subtitle="Combine the power of Nx, Tailwind CSS, and Shadcn UI to kickstart your next React project."
-          description="Streamline your development workflow with a comprehensive and customizable boilerplate designed for speed and scalability."
+          title="Digital Signage as a Software Platform"
+          subtitle="Build deterministic, data-driven content for always-on displays using modern web technologies."
+          description="Treat signage players as programmable systems. Create fixed-aspect layouts, distance-readable typography, and predictable rendering for BrightSign devices and beyond."
           image={logoSrc}
-          imageAlt="Logo for the boilerplate"
+          imageAlt="The Sign Age logo"
           ctaPrimary={{
-            text: 'Start Building for Free',
-            link: 'https://github.com/CambridgeMonorail/TheSignAge',
+            text: 'View Examples',
+            onClick: () => navigate('/gallery'),
           }}
           ctaSecondary={{
-            text: 'Explore Features',
-            onClick: handleScrollToFeatures,
+            text: 'Read Documentation',
+            link: 'https://github.com/CambridgeMonorail/TheSignAge',
           }}
           layout="left"
           data-testid="hero-section"
@@ -64,8 +52,8 @@ export const LandingPage: FC = () => {
         />
       </div>
       <AboutSection
-        title="Why TheSignAge?"
-        description="TheSignAge is an open-source boilerplate designed for developers who want a fast, intuitive setup for SPAs. Say goodbye to configuration headaches and hello to productivity!"
+        title="Why The Sign Age?"
+        description="The Sign Age is a working notebook for building signage software, not a CMS or marketing tool. It's a component library, tooling reference, and living documentation for treating digital signage as programmable systems."
         logos={[
           <Logo
             name="nx"
@@ -110,58 +98,58 @@ export const LandingPage: FC = () => {
             ariaLabel="Vite"
           />,
         ]}
-        header="Our Weapons of Choice"
-        subheader="Built with the best"
+        header="Modern Frontend Tools"
+        subheader="Applied to always-on displays"
         data-testid="about-section"
       />
       <FeaturesSection
-        title="What You’ll Get"
+        title="Signage-Specific Features"
         features={[
           {
-            title: 'Instant Setup – Code Without Delay',
+            title: 'Fixed-Aspect Layouts',
             description:
-              'Pre-configured Nx workspace lets you manage monorepos effortlessly, focusing on features over tooling.',
-            icon: <Rocket className="text-red-500" />,
+              'Deterministic rendering for known resolutions. No responsive breakpoints—just predictable, fixed layouts designed for specific screen sizes.',
+            icon: <BarChart className="text-blue-500" />,
             className:
               'hover:shadow-lg hover:scale-105 transition-transform duration-300',
           },
           {
-            title: 'Effortless Responsive UI Design',
+            title: 'Distance-Readable Typography',
             description:
-              'Tailwind CSS integration enables the creation of modern, responsive UIs with minimal effort.',
-            icon: <Palette className="text-blue-500" />,
-            className:
-              'hover:shadow-lg hover:scale-105 transition-transform duration-300',
-          },
-          {
-            title: 'Ready-to-Use Accessible Components',
-            description:
-              'Shadcn UI offers accessible components for a professional and consistent design experience.',
+              'Typography optimized for viewing from across the room. Large text, high contrast, clear hierarchy for quick scanning.',
             icon: <Paintbrush className="text-green-500" />,
             className:
               'hover:shadow-lg hover:scale-105 transition-transform duration-300',
           },
           {
-            title: 'Seamless Project Scalability',
+            title: 'Signage Components',
             description:
-              'Modular architecture ensures your project grows seamlessly as your application and team expand.',
-            icon: <BarChart className="text-yellow-500" />,
+              'Purpose-built React components: ScreenFrame, SplitScreen, FullscreenHero, InfoCardGrid—primitives, layouts, and blocks for signage screens.',
+            icon: <Palette className="text-purple-500" />,
             className:
               'hover:shadow-lg hover:scale-105 transition-transform duration-300',
           },
           {
-            title: 'Quick Start with Comprehensive Docs',
+            title: 'BrightSign-Focused',
             description:
-              'Detailed documentation and examples empower you to set up, customize, and deploy your project swiftly.',
-            icon: <ChartLine className="text-purple-500" />,
-            className:
-              'hover:shadow-lg hover:scale-105 transition-transform duration-300',
-          },
-          {
-            title: 'Optimized Tools for Rapid Development',
-            description:
-              'Our tools are optimized for performance, ensuring your development process is as fast as possible.',
+              'Designed with BrightSign devices in mind. Real-world constraints, hardware quirks, and platform-specific considerations baked in.',
             icon: <Video className="text-orange-500" />,
+            className:
+              'hover:shadow-lg hover:scale-105 transition-transform duration-300',
+          },
+          {
+            title: 'Offline-First',
+            description:
+              'Built for always-on, unattended operation. Signage screens run 24/7 without supervision, often offline or with limited connectivity.',
+            icon: <Rocket className="text-red-500" />,
+            className:
+              'hover:shadow-lg hover:scale-105 transition-transform duration-300',
+          },
+          {
+            title: 'Developer Experience',
+            description:
+              'React 19, Vite, TypeScript, Tailwind CSS v4. Modern frontend tooling applied to signage constraints with strict typing and fast iteration.',
+            icon: <ChartLine className="text-yellow-500" />,
             className:
               'hover:shadow-lg hover:scale-105 transition-transform duration-300',
           },
@@ -169,11 +157,11 @@ export const LandingPage: FC = () => {
         data-testid="features-section"
       />
       <CTASection
-        variant="light" //
-        title="Experience It Yourself"
-        description="Try our live demo to see how effortlessly you can set up and scale your React project with TheSignAge."
-        buttonText="Try the Demo"
-        buttonAction={() => navigate('/home')}
+        variant="light"
+        title="See Signage in Action"
+        description="Explore full-screen signage examples demonstrating distance-readable layouts, fixed-aspect designs, and deterministic rendering."
+        buttonText="View Gallery"
+        buttonAction={() => navigate('/gallery')}
         data-testid="demo-section"
       />
       <CTASection
@@ -190,22 +178,25 @@ export const LandingPage: FC = () => {
         data-testid="community-section"
       />
       <StepsSection
-        title="Get Started in Minutes"
+        title="Explore The Sign Age"
         steps={[
           {
-            title: 'Clone the repository.',
-            description: 'Clone the repository.',
+            title: 'Explore Examples',
+            description:
+              'Browse signage screens in the gallery—welcome screens, menus, dashboards, wayfinding, and more.',
           },
           {
-            title: 'Install dependencies.',
-            description: 'Install dependencies using pnpm.',
+            title: 'Review Components',
+            description:
+              'Check out the signage component library with fixed-aspect primitives, layouts, and blocks.',
           },
           {
-            title: 'Start the server.',
-            description: 'Run the development server to see your changes.',
+            title: 'Build Your Own',
+            description:
+              'Use the components and patterns to create deterministic signage screens for your use case.',
           },
         ]}
-        buttonText="Read the Documentation"
+        buttonText="View Documentation"
         buttonAction={() =>
           window.open(
             'https://github.com/CambridgeMonorail/TheSignAge',
@@ -215,7 +206,7 @@ export const LandingPage: FC = () => {
         data-testid="steps-section"
       />
       <Tagline
-        text="Accelerate Development. Scale Seamlessly. Impress Instantly."
+        text="Signage is software. It deserves to be treated as such."
         dataTestId="tagline"
       />
       <Footer

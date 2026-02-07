@@ -10,32 +10,34 @@ describe('LandingPage', () => {
     );
     expect(baseElement).toBeTruthy();
   });
-  it('should have a greeting as the title', () => {
+  it('should have the signage platform title', () => {
     const { getByText } = render(
       <BrowserRouter>
         <LandingPage />
       </BrowserRouter>,
     );
     expect(
-      getByText(/The Boilerplate That Speeds Up SPA Development/gi),
+      getByText(/Digital Signage as a Software Platform/gi),
     ).toBeTruthy();
   });
-  it('should render the sixth feature', () => {
-    const { getByText } = render(
+  it('should render signage-specific features', () => {
+    const { getAllByText } = render(
       <BrowserRouter>
         <LandingPage />
       </BrowserRouter>,
     );
-    expect(getByText(/Optimized Tools for Rapid Development/gi)).toBeTruthy();
+    expect(getAllByText(/Fixed-Aspect Layouts/gi).length).toBeGreaterThan(0);
+    expect(getAllByText(/Distance-Readable Typography/gi).length).toBeGreaterThan(0);
+    expect(getAllByText(/Signage Components/gi).length).toBeGreaterThan(0);
   });
-  it('should revise feature titles and descriptions to emphasize user benefits', () => {
+  it('should render BrightSign and offline-first features', () => {
     const { getByText } = render(
       <BrowserRouter>
         <LandingPage />
       </BrowserRouter>,
     );
-    expect(getByText(/Instant Setup – Code Without Delay/gi)).toBeTruthy();
-    expect(getByText(/Effortless Responsive UI Design/gi)).toBeTruthy();
-    expect(getByText(/Seamless Project Scalability/gi)).toBeTruthy();
+    expect(getByText(/BrightSign-Focused/gi)).toBeTruthy();
+    expect(getByText(/Offline-First/gi)).toBeTruthy();
+    expect(getByText(/Developer Experience/gi)).toBeTruthy();
   });
 });

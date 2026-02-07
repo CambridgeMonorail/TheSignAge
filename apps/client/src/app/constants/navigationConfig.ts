@@ -1,21 +1,25 @@
 import { createElement } from 'react';
 import { SidebarConfiguration } from '../types/sidebarTypes';
-import { Swords, AudioWaveform, SquareTerminal, Bot } from 'lucide-react';
+import {
+  Swords,
+  AudioWaveform,
+  SquareTerminal,
+  Bot,
+  Monitor,
+} from 'lucide-react';
 
 import { LandingPage } from '../pages/landing/Landing';
-import { AboutPage } from '../pages/about/About';
-import { BlogPage } from '../pages/blog/Blog';
-import { IndividualBlogPostPage } from '../pages/blog/IndividualBlogPost';
 import { ColorPalettePage } from '../pages/color-palette/ColorPalette';
-import { ContactPage } from '../pages/contact/Contact';
-import { DashboardPage } from '../pages/dashboard/Dashboard';
-import { FAQPage } from '../pages/faq/FAQ';
-import { FeaturesPage } from '../pages/features/Features';
+import { GalleryPage } from '../pages/gallery/Gallery';
 import { LibraryPage } from '../pages/library/Library';
 import { NotFound } from '../pages/not-found/NotFound';
-import { PricingPage } from '../pages/pricing/Pricing';
 import { StatusBoardPage } from '../pages/status-board/StatusBoard';
-import { TermsAndConditionsPage } from '../pages/terms-and-conditions/TermsAndConditions';
+import { WelcomeScreen } from '../pages/signage/WelcomeScreen';
+import { RestaurantMenu } from '../pages/signage/RestaurantMenu';
+import { OfficeDirectory } from '../pages/signage/OfficeDirectory';
+import { KPIDashboard } from '../pages/signage/KPIDashboard';
+import { AnnouncementsBoard } from '../pages/signage/AnnouncementsBoard';
+import { EventSchedule } from '../pages/signage/EventSchedule';
 import { Layout } from '@tsa/shell';
 
 /**
@@ -23,17 +27,17 @@ import { Layout } from '@tsa/shell';
  */
 const paths = {
   landing: '/',
-  about: '/about',
-  blog: '/blog',
-  blogPost: '/blog/:postId',
-  contact: '/contact',
-  dashboard: '/dashboard',
-  faq: '/faq',
-  features: '/features',
-  home: '/home',
-  pricing: '/pricing',
+  gallery: '/gallery',
+  home: '/',
   statusBoard: '/status-board',
-  termsAndConditions: '/terms-and-conditions',
+  signage: {
+    welcome: '/signage/welcome',
+    menu: '/signage/menu',
+    wayfinding: '/signage/wayfinding',
+    dashboard: '/signage/dashboard',
+    announcements: '/signage/announcements',
+    eventSchedule: '/signage/event-schedule',
+  },
   components: {
     colorPalette: '/color-palette',
     library: '/library',
@@ -64,21 +68,18 @@ const sidebarData: SidebarConfiguration = {
   ],
   navMain: [
     {
-      title: 'Sample Pages',
-      url: paths.about,
-      icon: SquareTerminal,
+      title: 'Signage Examples',
+      url: paths.gallery,
+      icon: Monitor,
       isActive: true,
       items: [
-        { title: 'Landing', url: paths.landing },
-        { title: 'Dashboard', url: paths.dashboard },
-        { title: 'About', url: paths.about },
-        { title: 'Features', url: paths.features },
-        { title: 'Pricing', url: paths.pricing },
-        { title: 'FAQ', url: paths.faq },
-        { title: 'Contact', url: paths.contact },
-        { title: 'Blog', url: paths.blog },
-        { title: 'Terms and Conditions', url: paths.termsAndConditions },
-        { title: 'StatusBoard', url: paths.statusBoard },
+        { title: 'Gallery', url: paths.gallery },
+        { title: 'Welcome Screen', url: paths.signage.welcome },
+        { title: 'Restaurant Menu', url: paths.signage.menu },
+        { title: 'Office Directory', url: paths.signage.wayfinding },
+        { title: 'KPI Dashboard', url: paths.signage.dashboard },
+        { title: 'Announcements', url: paths.signage.announcements },
+        { title: 'Event Schedule', url: paths.signage.eventSchedule },
       ],
     },
     {
@@ -86,9 +87,15 @@ const sidebarData: SidebarConfiguration = {
       url: paths.components.library,
       icon: Bot,
       items: [
-        { title: 'Shadcn/ui Components', url: paths.components.library },
+        { title: 'Shadcn/ui Library', url: paths.components.library },
         { title: 'Color Palette', url: paths.components.colorPalette },
       ],
+    },
+    {
+      title: 'Reference',
+      url: paths.statusBoard,
+      icon: SquareTerminal,
+      items: [{ title: 'Status Board', url: paths.statusBoard }],
     },
   ],
 };
@@ -121,19 +128,16 @@ const createRoute = (
  */
 const routes = [
   createRoute(paths.landing, LandingPage, false),
-  createRoute(paths.about, AboutPage),
-  createRoute(paths.blog, BlogPage),
-  createRoute(paths.blogPost, IndividualBlogPostPage),
+  createRoute(paths.gallery, GalleryPage),
+  createRoute(paths.signage.welcome, WelcomeScreen, false),
+  createRoute(paths.signage.menu, RestaurantMenu, false),
+  createRoute(paths.signage.wayfinding, OfficeDirectory, false),
+  createRoute(paths.signage.dashboard, KPIDashboard, false),
+  createRoute(paths.signage.announcements, AnnouncementsBoard, false),
+  createRoute(paths.signage.eventSchedule, EventSchedule, false),
   createRoute(paths.components.colorPalette, ColorPalettePage),
   createRoute(paths.components.library, LibraryPage),
-  createRoute(paths.contact, ContactPage),
-  createRoute(paths.dashboard, DashboardPage),
-  createRoute(paths.faq, FAQPage),
-  createRoute(paths.features, FeaturesPage),
-  createRoute(paths.home, DashboardPage),
-  createRoute(paths.pricing, PricingPage),
   createRoute(paths.statusBoard, StatusBoardPage),
-  createRoute(paths.termsAndConditions, TermsAndConditionsPage),
   createRoute(paths.notFound, NotFound, false),
 ];
 

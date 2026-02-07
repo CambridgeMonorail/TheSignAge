@@ -19,7 +19,6 @@ import {
   ChartContainer,
   Button,
   Input,
-  Textarea,
 } from '@tsa/shadcnui';
 import { useEffect, useState } from 'react';
 import { Logo } from '@tsa/shadcnui-blocks';
@@ -106,9 +105,11 @@ export function StatusBoardPage() {
         </div>
         <Button
           variant="default"
-          onClick={() => window.open(navigationConfig.paths.contact, '_blank')}
+          onClick={() =>
+            (window.location.href = navigationConfig.paths.gallery)
+          }
         >
-          Contact Support
+          View Gallery
         </Button>
       </header>
 
@@ -332,22 +333,24 @@ export function StatusBoardPage() {
               <p>
                 For assistance, please visit our{' '}
                 <a
-                  href={navigationConfig.paths.contact}
+                  href="https://github.com/CambridgeMonorail/TheSignAge"
                   className="text-primary underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Contact Page
+                  GitHub Repository
                 </a>
                 .
               </p>
               <p>
                 Check out our{' '}
                 <a
-                  href={navigationConfig.paths.faq}
+                  href={navigationConfig.paths.gallery}
                   className="text-primary underline"
                 >
-                  FAQ
+                  Signage Gallery
                 </a>{' '}
-                for common questions.
+                for examples.
               </p>
             </div>
           </CardContent>

@@ -55,10 +55,20 @@ If something here feels unfinished, opinionated, or slightly uncomfortable, that
 
 This is an **Nx + pnpm** monorepo with a focus on tooling and reusable UI building blocks for signage:
 
-- **`apps/client`**: Reference UI (docs, demos, and experiments)
+- **`apps/client`**: Demo site showcasing signage examples and components (**[View Live Demo](http://localhost:4200/TheSignAge/)** when running locally)
 - **`libs/shadcnui-signage`**: Signage-oriented React components (fixed-aspect layouts, distance-readable typography, deterministic rendering)
 - **`libs/shadcnui` / `libs/shadcnui-blocks`**: Base component primitives and compositions
 - **Storybook**: Interactive component documentation and review
+
+### Demo Site
+
+The demo site (`apps/client`) showcases digital signage concepts in action:
+
+- **Landing Page**: Explains the project purpose and approach
+- **Gallery**: Directory of full-screen signage examples
+- **Signage Examples**: Welcome screens, restaurant menus, office directories, KPI dashboards, announcements boards, and event schedules
+
+Run `pnpm run serve:client` and visit `http://localhost:4200/TheSignAge/` to explore the examples.
 
 ## Developer Tooling
 
