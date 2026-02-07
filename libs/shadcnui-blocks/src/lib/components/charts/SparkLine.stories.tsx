@@ -6,7 +6,7 @@ const meta: Meta<typeof SparkLine> = {
   component: SparkLine,
   tags: ['autodocs'],
   argTypes: {
-    data: { control: 'array' },
+    data: { control: 'object' },
     strokeColor: { control: 'color' },
     strokeWidth: { control: 'number' },
     showTooltip: { control: 'boolean' },

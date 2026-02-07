@@ -12,7 +12,7 @@ import {
 } from '@tsa/shadcnui';
 import { AlertCircle, AlertTriangle, Table } from 'lucide-react';
 
-interface StatePerformanceData {
+export interface StatePerformanceData {
   state: string;
   forecast: number;
   q3Adjusted: number;

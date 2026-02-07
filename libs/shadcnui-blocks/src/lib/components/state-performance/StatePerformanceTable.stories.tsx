@@ -24,7 +24,7 @@ const sampleData = [
     forecast: 100000,
     q3Adjusted: 95000,
     actual: 90000,
-    risk: 'high',
+    risk: 'high' as const,
     targetAchieved: 90,
   },
   {
@@ -32,7 +32,7 @@ const sampleData = [
     forecast: 80000,
     q3Adjusted: 85000,
     actual: 87000,
-    risk: 'medium',
+    risk: 'medium' as const,
     targetAchieved: 102,
   },
   {
@@ -40,7 +40,7 @@ const sampleData = [
     forecast: 75000,
     q3Adjusted: 70000,
     actual: 72000,
-    risk: 'low',
+    risk: 'low' as const,
     targetAchieved: 96,
   },
 ];

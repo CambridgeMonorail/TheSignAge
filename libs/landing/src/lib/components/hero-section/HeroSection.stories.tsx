@@ -25,7 +25,7 @@ const meta: Meta<typeof HeroSection> = {
     },
     highlights: {
       name: 'Highlights',
-      control: { type: 'array' },
+      control: { type: 'object' },
       description:
         'An optional list of highlights to display in the hero section',
     },

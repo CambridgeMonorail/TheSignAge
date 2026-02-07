@@ -12,8 +12,8 @@ const meta: Meta<typeof NumberAndSecondaryStat> = {
     reversedLayout: { control: 'boolean' },
     goal: { control: 'object' },
     comparison: { control: 'object' },
-    trendline: { control: 'array' },
-    secondaryStats: { control: 'array' },
+    trendline: { control: 'object' },
+    secondaryStats: { control: 'object' },
     className: { control: 'text' },
   },
 };

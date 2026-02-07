@@ -9,7 +9,7 @@ import {
   CartesianGrid,
 } from "recharts"
 
-interface SparkLineProps {
+export interface SparkLineProps {
   data: number[]
   strokeColor?: string
   strokeWidth?: number

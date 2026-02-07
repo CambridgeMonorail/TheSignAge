@@ -42,7 +42,7 @@ const meta: Meta<typeof AboutSection> = {
     },
     logos: {
       name: 'Logos',
-      control: 'array',
+      control: 'object',
       description:
         'An array of React elements representing logos to display in the about section',
     },

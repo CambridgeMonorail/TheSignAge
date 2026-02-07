@@ -38,9 +38,9 @@ export const Default: Story = {
   args: {
     title: 'Steps',
     steps: [
-      { stepNumber: 1, stepDescription: 'Sign up for an account' },
-      { stepNumber: 2, stepDescription: 'Verify your email address' },
-      { stepNumber: 3, stepDescription: 'Start using the application' },
+      { title: 'Step 1', description: 'Sign up for an account' },
+      { title: 'Step 2', description: 'Verify your email address' },
+      { title: 'Step 3', description: 'Start using the application' },
     ],
     buttonText: 'Steps',
     buttonAction: () => alert('Steps clicked!'),
@@ -54,9 +54,9 @@ export const WithDifferentProps: Story = {
   args: {
     title: 'Begin Your Journey',
     steps: [
-      { stepNumber: 1, stepDescription: 'Create your profile' },
-      { stepNumber: 2, stepDescription: 'Customize your settings' },
-      { stepNumber: 3, stepDescription: 'Explore the features' },
+      { title: 'Step 1', description: 'Create your profile' },
+      { title: 'Step 2', description: 'Customize your settings' },
+      { title: 'Step 3', description: 'Explore the features' },
     ],
     buttonText: 'Begin Now',
     buttonAction: () => alert('Begin Now clicked!'),

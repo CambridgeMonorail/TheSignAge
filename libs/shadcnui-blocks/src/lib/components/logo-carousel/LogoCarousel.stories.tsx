@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 
-import { LogoCarousel } from './index';
+import { LogoCarousel, LogoCarouselProps } from './index';
 import { Logo } from '../logo';
 
 const meta: Meta<typeof LogoCarousel> = {

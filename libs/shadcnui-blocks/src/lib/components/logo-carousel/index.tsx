@@ -1,6 +1,6 @@
 import { FC, ReactElement, useEffect, useState, useRef } from 'react';
 
-interface LogoCarouselProps {
+export interface LogoCarouselProps {
   logos: ReactElement[];
   header?: string;
   subheader?: string;
@@ -69,4 +69,4 @@ const LogoCarousel: FC<LogoCarouselProps> = ({ logos, header, subheader }) => {
   );
 };
 
-export { LogoCarousel, LogoCarouselProps };
+export { LogoCarousel };

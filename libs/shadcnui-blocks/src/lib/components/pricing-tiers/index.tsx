@@ -23,7 +23,7 @@ export interface PricingTier {
 /**
  * Props for the PricingTiers component.
  */
-interface PricingTiersProps {
+export interface PricingTiersProps {
   billingAnnual: boolean;
   tiers: PricingTier[];
 }

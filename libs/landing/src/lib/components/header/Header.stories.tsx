@@ -9,7 +9,7 @@ const meta: Meta<typeof Header> = {
   argTypes: {
     actionButtonsProps: {
       name: 'Action Buttons Props',
-      control: 'array',
+      control: 'object',
       description: 'An array of action buttons to display in the header',
     },
     className: {
@@ -43,7 +43,7 @@ const meta: Meta<typeof Header> = {
     },
     logoIcon: {
       name: 'Logo Icon',
-      control: 'none',
+      control: false,
       description: 'Icon to display as the logo',
     },
   },
