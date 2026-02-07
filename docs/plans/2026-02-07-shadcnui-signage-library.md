@@ -2,7 +2,7 @@
 
 **Created:** 2026-02-07  
 **Status:** ✅ Complete  
-**Requirements:** [Signage Components Library Requirements](../new%20features/Signage%20Components%20Library%20Requirements.md)
+**Requirements:** [Signage Components Library Requirements](./2026-02-07-shadcnui-signage-requirements.md)
 
 ## Goal
 
