@@ -29,56 +29,61 @@ export function LibraryPage() {
     <div className="font-sans bg-background p-8 min-h-screen">
       {/* HERO / HEADER */}
       <header className="mb-12">
-        <h1 className="text-4xl font-extrabold text-text-foreground">
-          TheSignAge
+        <h1 className="text-4xl font-medium text-foreground">
+          Component Libraries
         </h1>
-        <p className="mt-4 text-lg leading-relaxed">
-          Supercharge your React projects with a curated component library
-          powered by{' '}
+        <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+          React components for digital signage and web interfaces. Built with{' '}
           <button
             onClick={handleShadcnClick}
-            className="text-secondary-contrast  hover:underline"
+            className="text-foreground hover:underline"
           >
             shadcn/ui
           </button>
-          . Streamlined, accessible, and endlessly customizable.
+          , React 19, and Tailwind v4.
         </p>
       </header>
 
-      {/* WHY USE THIS LIBRARY */}
+      {/* LIBRARY OVERVIEW */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div className="flex flex-col justify-center">
-          <h2 className="text-2xl font-semibold text-text-foreground mb-4">
-            Why Use This Library?
+          <h2 className="text-2xl font-medium text-foreground mb-4">
+            Two Libraries
           </h2>
-          <p className="mb-4 leading-relaxed">
-            The <strong>TheSignAge</strong> project gives you a jumpstart by
-            integrating best-in-class{' '}
-            <button
-              onClick={handleShadcnClick}
-              className="text-secondary-contrast  hover:underline"
-            >
-              shadcn/ui
-            </button>{' '}
-            components, so you can focus on building great apps instead of
-            reinventing the wheel.
-          </p>
-          <ul className="list-disc list-inside mb-4 space-y-1">
-            <li>Save hours of setup with ready-to-use boilerplate.</li>
-            <li>Enjoy consistent, themeable, accessible components.</li>
-            <li>Leverage detailed Storybook examples for every component.</li>
-            <li>Maintain full control with code you can customize.</li>
+          <div className="mb-6">
+            <h3 className="text-lg font-medium text-foreground mb-2">
+              @tsa/shadcnui
+            </h3>
+            <p className="mb-2 leading-relaxed text-muted-foreground">
+              Core shadcn/ui components organized by category. Standard web UI
+              primitives for the demo website and general use.
+            </p>
+          </div>
+          <div className="mb-6">
+            <h3 className="text-lg font-medium text-foreground mb-2">
+              @tsa/shadcnui-signage
+            </h3>
+            <p className="mb-2 leading-relaxed text-muted-foreground">
+              Signage-specific components built for distance readability,
+              fixed-aspect layouts, and 24/7 operation on BrightSign devices.
+            </p>
+          </div>
+          <ul className="list-disc list-inside mb-4 space-y-1 text-muted-foreground">
+            <li>Distance-readable typography (10-foot rule)</li>
+            <li>Fixed-aspect primitives, layouts, and blocks</li>
+            <li>Deterministic rendering for known resolutions</li>
+            <li>Designed for always-on, unattended displays</li>
           </ul>
-          <Button onClick={handleGitHubClick} variant={'default'}>
+          <Button onClick={handleGitHubClick} variant={'secondary'}>
             View on GitHub
           </Button>
         </div>
 
         {/* SCREENSHOT / IMAGE SECTION */}
         <div className="flex justify-center items-center">
-          <div className="relative w-[350px] h-[200px] bg-muted flex items-center justify-center rounded shadow-lg overflow-hidden">
-            <img src={imageSrc} alt="Shadcn/UI Preview" />
-            <span className="absolute inset-0 bg-black bg-opacity-50 text-white flex items-center justify-center text-sm">
+          <div className="relative w-[350px] h-[200px] bg-muted flex items-center justify-center rounded border border-border overflow-hidden">
+            <img src={imageSrc} alt="Component library preview" />
+            <span className="absolute inset-0 bg-background/80 text-foreground flex items-center justify-center text-sm">
               Component Preview
             </span>
           </div>
@@ -86,42 +91,41 @@ export function LibraryPage() {
       </section>
 
       {/* STORYBOOK LINK */}
-      <section className="bg-bg-background p-6 rounded-md shadow-xs mb-12">
-        <h2 className="text-2xl font-semibold text-text-foreground mb-4">
-          Explore the Components
+      <section className="bg-card p-6 rounded border border-border mb-12">
+        <h2 className="text-2xl font-medium text-foreground mb-4">
+          Documentation
         </h2>
-        <p className="mb-4">
-          Dive into our Storybook to see detailed documentation, explore props,
-          and discover real-world usage examples. Quickly copy sample code to
-          integrate components into your projects.
+        <p className="mb-4 text-muted-foreground">
+          Browse Storybook for component documentation, props, and usage
+          examples. Includes both shadcnui and shadcnui-signage libraries.
         </p>
-        <Button onClick={handleStorybookClick} variant={'default'}>
+        <Button onClick={handleStorybookClick} variant={'secondary'}>
           Open Storybook
         </Button>
       </section>
 
       {/* ADDITIONAL RESOURCES */}
-      <section className="bg-bg-background p-6 rounded-md shadow-xs mb-12">
-        <h2 className="text-2xl font-semibold text-text-foreground mb-4">
-          Additional Resources
+      <section className="bg-card p-6 rounded border border-border mb-12">
+        <h2 className="text-2xl font-medium text-foreground mb-4">
+          Resources
         </h2>
-        <p className="mb-4">
-          Discover more about the project and the ecosystem that powers it:
+        <p className="mb-4 text-muted-foreground">
+          Additional documentation and project information:
         </p>
         <ul className="list-none space-y-2">
           <li>
-            <Button onClick={handleGitHubClick} variant={'link'}>
+            <Button onClick={handleGitHubClick} variant={'ghost'}>
               GitHub Repository
             </Button>
           </li>
           <li>
-            <Button onClick={handleStorybookClick} variant={'link'}>
+            <Button onClick={handleStorybookClick} variant={'ghost'}>
               Storybook Documentation
             </Button>
           </li>
           <li>
-            <Button onClick={handleShadcnClick} variant={'link'}>
-              Learn more about shadcn/ui
+            <Button onClick={handleShadcnClick} variant={'ghost'}>
+              shadcn/ui
             </Button>
           </li>
         </ul>
@@ -129,15 +133,15 @@ export function LibraryPage() {
 
       {/* CTA / FOOTER */}
       <section className="text-center">
-        <h3 className="text-xl font-medium text-text-foreground mb-2">
-          Ready to start building?
+        <h3 className="text-xl font-medium text-foreground mb-2">
+          Component reference
         </h3>
-        <p className="mb-4">
-          Explore our resources and bring your ideas to life with a strong
-          foundation.
+        <p className="mb-4 text-muted-foreground">
+          Browse Storybook for complete component documentation and usage
+          examples.
         </p>
-        <Button onClick={handleStorybookClick} variant={'default'}>
-          Get Started
+        <Button onClick={handleStorybookClick} variant={'secondary'}>
+          View Documentation
         </Button>
       </section>
     </div>
