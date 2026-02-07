@@ -15,21 +15,8 @@ const meta: Meta<typeof Select> = {
   component: Select,
   tags: ['autodocs'],
   argTypes: {
-    className: {
-      name: 'Class Name',
-      control: 'text',
-      description: 'Additional Tailwind CSS classes for the select',
-    },
-    disabled: {
-      name: 'Disabled',
-      control: 'boolean',
-      description: 'Disable the select',
-    },
-    value: {
-      name: 'Value',
-      control: 'text',
-      description: 'Value of the selected item',
-    },
+    // Select is SelectPrimitive.Root and accepts: value, defaultValue, onValueChange, etc.
+    // className, disabled are props of SelectTrigger, not Select itself
   },
 };
 
@@ -58,11 +45,6 @@ export const Default: Story = {
       </SelectContent>
     </Select>
   ),
-  args: {
-    className: '',
-    disabled: false,
-    value: '',
-  },
 };
 
 /**
@@ -86,11 +68,6 @@ export const Disabled: Story = {
       </SelectContent>
     </Select>
   ),
-  args: {
-    className: '',
-    disabled: true,
-    value: '',
-  },
 };
 
 /**
@@ -115,8 +92,6 @@ export const SelectedValue: Story = {
     </Select>
   ),
   args: {
-    className: '',
-    disabled: false,
     value: '2',
   },
 };

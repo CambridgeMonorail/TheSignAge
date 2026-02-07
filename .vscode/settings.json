@@ -4,5 +4,12 @@
     {
       "text": "Adhere to the Conventional Commits specification for all commit messages. The format is:\n\n<type>(<scope>): <description>\n\nWhere:\n- **type**: One of 'feat', 'fix', 'docs', 'style', 'refactor', 'test', or 'chore'.\n- **scope**: The affected module or feature (e.g., 'auth', 'dashboard').\n- **description**: A concise summary of the change in the imperative mood.\n\nIf the current branch name includes a GitHub issue number in the format 'issue-<number>', append 'Closes #<number>' in the commit message footer to link the commit to the issue."
     }
-  ]
+  ],
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.githubMcpServer.enabled": true,
+  "github.copilot.chat.languageContext.fix.typescript.enabled": true,
+  "github.copilot.chat.languageContext.inline.typescript.enabled": true,
+  "github.copilot.chat.languageContext.typescript.enabled": true,
+  "github.copilot.chat.languageContext.typescript.includeDocumentation": true,
+  "github.copilot.chat.newWorkspace.useContext7": true
 }

@@ -22,12 +22,7 @@ const meta: Meta<typeof Sheet> = {
       control: 'boolean',
       description: 'Whether the sheet is open by default',
     },
-    side: {
-      name: 'Side',
-      control: 'select',
-      options: ['top', 'bottom', 'left', 'right'],
-      description: 'The side of the screen where the sheet appears',
-    },
+    // side is a prop of SheetContent, not Sheet
   },
 };
 
@@ -58,7 +53,6 @@ export const Default: Story = {
   ),
   args: {
     open: false,
-    side: 'right',
   },
 };
 
@@ -84,7 +78,6 @@ export const OpenByDefault: Story = {
   ),
   args: {
     open: true,
-    side: 'right',
   },
 };
 
@@ -110,7 +103,6 @@ export const FromLeft: Story = {
   ),
   args: {
     open: false,
-    side: 'left',
   },
 };
 
@@ -136,7 +128,6 @@ export const FromTop: Story = {
   ),
   args: {
     open: false,
-    side: 'top',
   },
 };
 
@@ -162,6 +153,5 @@ export const FromBottom: Story = {
   ),
   args: {
     open: false,
-    side: 'bottom',
   },
 };

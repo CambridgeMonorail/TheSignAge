@@ -39,7 +39,7 @@ type Story = StoryObj<typeof InputOTP>;
  */
 export const Default: Story = {
   name: 'Default',
-  render: (args) => (
+  render: ({ render, ...args }) => (
     <InputOTP {...args}>
       <InputOTPGroup>
         <InputOTPSlot index={0} />
@@ -63,7 +63,7 @@ export const Default: Story = {
  */
 export const Disabled: Story = {
   name: 'Disabled',
-  render: (args) => (
+  render: ({ render, ...args }) => (
     <InputOTP {...args}>
       <InputOTPGroup>
         <InputOTPSlot index={0} />
@@ -87,7 +87,7 @@ export const Disabled: Story = {
  */
 export const WithSeparator: Story = {
   name: 'With Separator',
-  render: (args) => (
+  render: ({ render, ...args }) => (
     <InputOTP {...args}>
       <InputOTPGroup>
         <InputOTPSlot index={0} />

@@ -18,7 +18,7 @@ const meta: Meta<typeof Slider> = {
     },
     value: {
       name: 'Value',
-      control: 'array',
+      control: 'object',
       description: 'Value of the slider',
     },
     min: {

@@ -40,7 +40,7 @@ export const Default: Story = {
     <ChartContainer {...args}>
       <>
         <ChartTooltip content={<ChartTooltipContent />} />
-        <ChartLegend content={<ChartLegendContent />} />
+        <ChartLegend content={<ChartLegendContent payload={[]} />} />
       </>
     </ChartContainer>
   ),
@@ -65,7 +65,7 @@ export const CustomClassName: Story = {
     <ChartContainer {...args}>
       <>
         <ChartTooltip content={<ChartTooltipContent />} />
-        <ChartLegend content={<ChartLegendContent />} />
+        <ChartLegend content={<ChartLegendContent payload={[]} />} />
       </>
     </ChartContainer>
   ),
