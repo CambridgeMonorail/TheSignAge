@@ -178,10 +178,18 @@ These targets are either [inferred automatically](https://nx.dev/concepts/inferr
 
 ## Documentation
 
-- Documentation index: [docs/README.md](./docs/README.md)
-- Getting started: [docs/getting-started/README.md](./docs/getting-started/README.md)
+### Quick Links
+
+- **[Creating Digital Signage Content](./docs/guides/creating-signage-content.md)** ⭐ - Comprehensive guide to building premium signage screens
+- **[Getting Started](./docs/getting-started/README.md)** - Project structure and setup
+- **[Guides](./docs/guides/README.md)** - Practical how-to tutorials
+- **[Documentation Index](./docs/README.md)** - Full documentation overview
+
+### Key Resources
+
 - Signage component library: [libs/shadcnui-signage/README.md](./libs/shadcnui-signage/README.md)
 - Copilot + workflow tooling: [docs/tooling/github-copilot-tooling.md](./docs/tooling/github-copilot-tooling.md)
+- Agent workflows: [AGENTS.md](./AGENTS.md)
 
 ## Contributing
 
