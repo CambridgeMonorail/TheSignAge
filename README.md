@@ -210,6 +210,7 @@ This project is licensed under the MIT License.
 - [joshuarobs/nx-shadcn-ui-monorepo](https://github.com/joshuarobs/nx-shadcn-ui-monorepo)
 - [Shadcn UI](https://github.com/shadcn-ui/ui)
 - [Nx](https://nx.dev)
+- [BrightDev MCP Server](https://github.com/BrightDevelopers/BrightDev): Model Context Protocol server providing access to BrightSign platform documentation for AI-assisted development
 - [Placebeard](https://placebeard.it/): A fantastic service for placeholder images featuring bearded individuals, inspired by similar services like placekitten.com and placedog.com. We appreciate their free service for adding a touch of fun to our project.
 - [unDraw](https://undraw.co/): Open-source illustrations for any idea you can imagine and create. A constantly updated design project with beautiful SVG images that you can use completely free and without attribution. Created by [Katerina Limpitsouni](https://x.com/ninaLimpi).
 - [Shadcn UI Theme Generator](https://www.readyjs.dev/tools/shadcn-ui-theme-generator): A tool for generating themes for Shadcn UI.
