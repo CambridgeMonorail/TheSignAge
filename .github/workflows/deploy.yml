@@ -14,39 +14,24 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      AUTHOR_NAME: ''
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Check Commit Author
-        id: check-author
-        run: |
-          AUTHOR=$(git log -1 --pretty=format:'%an')
-          echo "AUTHOR_NAME=$AUTHOR" >> $GITHUB_ENV
-          if [ "$AUTHOR" = "Monorail Updater" ]; then
-            echo "Commit author is Monorail Updater. Exiting..."
-            exit 0
-          fi
-
       # Set up Node.js
       - name: Setup Node.js
-        if: env.AUTHOR_NAME != 'Monorail Updater'
         uses: actions/setup-node@v4
         with:
           node-version: '22'
 
       # Install pnpm
       - name: Install pnpm
-        if: env.AUTHOR_NAME != 'Monorail Updater'
         uses: pnpm/action-setup@v2
         with:
           version: 9.15.0
 
       # Cache pnpm dependencies
       - name: Cache pnpm dependencies
-        if: env.AUTHOR_NAME != 'Monorail Updater'
         uses: actions/cache@v4
         with:
           path: ~/.pnpm-store
@@ -55,11 +40,9 @@ jobs:
             ${{ runner.os }}-pnpm-
 
       - name: Prune pnpm store
-        if: env.AUTHOR_NAME != 'Monorail Updater'
         run: pnpm store prune
 
       - name: Install dependencies
-        if: env.AUTHOR_NAME != 'Monorail Updater'
         run: |
           retry() {
             for i in {1..3}; do
@@ -72,21 +55,18 @@ jobs:
           retry pnpm install --frozen-lockfile
 
       - name: Build client app
-        if: env.AUTHOR_NAME != 'Monorail Updater'
         run: |
           export BASE_URL='/TheSignAge/'
           export DEBUG='true'
           pnpm exec nx build client --configuration=production --base=$BASE_URL
 
       - name: Build storybook
-        if: env.AUTHOR_NAME != 'Monorail Updater'
         run: |
           export BASE_URL='/TheSignAge/storybook/'
           export DEBUG='true'
           pnpm exec nx build-storybook storybook-host
 
       - name: Verify build outputs
-        if: env.AUTHOR_NAME != 'Monorail Updater'
         run: |
           echo "Client build output:"
           ls -la dist/apps/client/
@@ -96,7 +76,6 @@ jobs:
 
       # Upload artifact for deployment
       - name: Upload to GitHub Pages artifact
-        if: env.AUTHOR_NAME != 'Monorail Updater'
         uses: actions/upload-pages-artifact@v1
         with:
           path: dist/apps/client # Includes both app and /storybook subdirectory
@@ -111,5 +90,4 @@ jobs:
 
     steps:
       - name: Deploy to GitHub Pages
-        if: env.AUTHOR_NAME != 'Monorail Updater'
         uses: actions/deploy-pages@v1
