@@ -4,6 +4,14 @@ Practical how-to guides for common tasks in The Sign Age. These tutorials walk t
 
 ## Documents in this Section
 
+### [Creating Digital Signage Content](./creating-signage-content.md) ⭐ NEW
+
+**Comprehensive guide to designing and building premium digital signage screens.** Learn to use the signage-architect agent, apply premium design standards, and create compelling signage for menus, dashboards, wayfinding, and more.
+
+**Key Topics**: Signage architect agent, premium design patterns, gradient backgrounds, glass morphism, typographic hierarchy, signage types (menu/dashboard/wayfinding), adding to gallery, shadcnui-signage library
+
+---
+
 ### [Adding a New Component Page](./addding-new-component-page.md)
 
 Step-by-step guide to adding new pages to your React SPA using React Router, including route configuration and navigation setup.
