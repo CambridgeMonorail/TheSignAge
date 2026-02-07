@@ -1,7 +1,5 @@
 import { FC } from 'react';
 import { SignageExample } from './components/SignageExample';
-import { Card, CardHeader, CardTitle } from '@tsa/shadcnui';
-import { Badge } from '@tsa/shadcnui';
 import { Clock, MapPin } from 'lucide-react';
 
 interface Event {
@@ -85,57 +83,70 @@ export const EventSchedule: FC = () => {
   return (
     <SignageExample>
       <div
-        className="min-h-screen bg-slate-50 p-12"
+        className="min-h-screen bg-gradient-to-br from-violet-950 via-slate-950 to-indigo-950 p-16 relative overflow-hidden"
         data-testid="event-schedule"
       >
-        <header className="text-center mb-12">
-          <h1 className="text-7xl font-bold text-slate-900 mb-4">
-            Today's Schedule
-          </h1>
-          <p className="text-3xl text-slate-600">
-            Digital Signage Summit 2026 • February 7
-          </p>
-        </header>
+        {/* Dynamic background elements */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-900/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+        
+        <div className="relative z-10">
+          <header className="text-center mb-16">
+            <div className="inline-block mb-6 px-6 py-2 bg-violet-500/10 border border-violet-500/30 rounded-full">
+              <p className="text-xl text-violet-300 tracking-widest uppercase">Conference Schedule</p>
+            </div>
+            <h1 className="text-8xl font-bold mb-6 bg-gradient-to-r from-violet-400 via-fuchsia-300 to-violet-400 bg-clip-text text-transparent">
+              Today's Schedule
+            </h1>
+            <p className="text-3xl text-slate-300">
+              Digital Signage Summit 2026 • February 7
+            </p>
+          </header>
 
-        <div className="max-w-6xl mx-auto space-y-4">
-          {events.map((event, index) => (
-            <Card key={index} className="bg-white border-2 border-slate-200">
-              <CardHeader>
-                <div className="flex items-start justify-between">
+          <div className="max-w-6xl mx-auto space-y-6">
+            {events.map((event, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-r from-slate-900/80 via-slate-800/80 to-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-2xl p-8 shadow-2xl relative overflow-hidden group"
+              >
+                {/* Accent line */}
+                <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${getTrackColor(event.track)}`} />
+                
+                <div className="flex items-start justify-between gap-8">
                   <div className="flex-1">
-                    <div className="flex items-center gap-4 mb-3">
-                      <div className="flex items-center gap-2 text-2xl font-bold text-slate-900">
-                        <Clock className="w-7 h-7" />
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="flex items-center gap-3 text-3xl font-bold text-white bg-slate-950/50 px-6 py-3 rounded-xl border border-slate-700/50">
+                        <Clock className="w-8 h-8 text-violet-400" />
                         {event.time}
                       </div>
-                      <Badge
-                        className={`${getTrackColor(event.track)} text-white text-lg px-4 py-1`}
-                      >
+                      <div className={`${getTrackColor(event.track)} text-white text-xl px-6 py-2 rounded-full font-bold shadow-lg`}>
                         {event.track}
-                      </Badge>
+                      </div>
                     </div>
-                    <CardTitle className="text-4xl font-bold text-slate-900 mb-2">
+                    <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
                       {event.title}
-                    </CardTitle>
-                    <div className="flex items-center gap-6 text-xl text-slate-600">
-                      <span className="font-semibold">{event.speaker}</span>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-5 h-5" />
+                    </h2>
+                    <div className="flex items-center gap-8 text-2xl">
+                      <span className="text-violet-300 font-semibold">{event.speaker}</span>
+                      <div className="flex items-center gap-3 text-slate-400">
+                        <MapPin className="w-6 h-6 text-fuchsia-400" />
                         <span>{event.room}</span>
                       </div>
                     </div>
                   </div>
                 </div>
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
+              </div>
+            ))}
+          </div>
 
-        <footer className="mt-12 text-center">
-          <p className="text-2xl text-slate-600">
-            Download the mobile app for personalized schedule and notifications
-          </p>
-        </footer>
+          <footer className="mt-16 text-center">
+            <div className="inline-block bg-gradient-to-r from-violet-600/20 via-fuchsia-600/20 to-violet-600/20 backdrop-blur-sm border border-violet-500/30 rounded-2xl px-12 py-6">
+              <p className="text-2xl text-violet-200">
+                Download the mobile app for personalized schedule and notifications
+              </p>
+            </div>
+          </footer>
+        </div>
       </div>
     </SignageExample>
   );
