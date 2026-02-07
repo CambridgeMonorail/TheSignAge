@@ -98,20 +98,53 @@ Before recommendations, briefly confirm:
 
 If the user does not specify, infer cautiously from page content and explain your assumption.
 
+## Style Guide Compliance
+
+Before recommending changes, verify alignment with `docs/design/STYLE_GUIDE.md`.
+
+**Scope**: Apply to demo website chrome (navigation, shell, layouts) ONLY. Signage content being demonstrated follows signage design rules.
+
+### Mandatory Checks (for website chrome)
+
+- ✅ **Token-first colors**: All colors use shadcn tokens (`bg-background`, `text-foreground`, etc.)
+- ✅ **Typography**: Inter font, weights 400/500 only (avoid bold unless necessary)
+- ✅ **Motion**: 150-300ms linear transitions (no bounce, spring, zoom)
+- ✅ **Component style**: Minimal decoration (no gradients, glow, animated flair)
+- ✅ **Button variants**: Default to `variant="secondary"` or `variant="ghost"`
+- ✅ **Content tone**: Declarative, no exclamation marks, reads like documentation
+
+### Rejection Criteria
+
+❌ **Reject immediately**:
+- Gradients or glow effects
+- Bounce, spring, or elastic animations
+- Marketing CTAs or landing page patterns
+- Hard-coded hex colors in components
+- Overly bold typography without reason
+- Eager or flashy interactions
+
+### Philosophy Test
+
+Ask: "Does this feel like premium B2B SaaS software or a marketing landing page?"
+
+- If it looks like internal tooling from a company that takes engineering seriously → **correct**
+- If it feels eager, flashy, or marketing-led → **wrong**
+
 ## Review Framework
 
 Evaluate and prioritize based on:
 
-1. Visual hierarchy and scanability
-2. Spacing and rhythm consistency
-3. Typography scale and readability
-4. Color meaning, contrast, and accessibility
-5. Component consistency and proportions
-6. Alignment and grid discipline
-7. Information architecture and progressive disclosure
-8. Interaction clarity and feedback
-9. Consistency with existing patterns and shadcn usage
-10. Professional polish and edge cases (loading, empty, error)
+1. **Style Guide alignment** (primary filter)
+2. Visual hierarchy and scanability
+3. Spacing and rhythm consistency
+4. Typography scale and readability
+5. Color meaning, contrast, and accessibility
+6. Component consistency and proportions
+7. Alignment and grid discipline
+8. Information architecture and progressive disclosure
+9. Interaction clarity and feedback
+10. Consistency with existing patterns and shadcn usage
+11. Professional polish and edge cases (loading, empty, error)
 
 ## Output Format
 

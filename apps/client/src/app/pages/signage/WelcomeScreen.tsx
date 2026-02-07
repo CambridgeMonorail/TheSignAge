@@ -16,7 +16,7 @@ export const WelcomeScreen: FC = () => {
             to The Sign Age
           </p>
           <p className="text-2xl md:text-3xl text-white/80 font-light">
-            Digital Signage as a Software Platform
+            Digital Signage as Software
           </p>
         </div>
       </div>

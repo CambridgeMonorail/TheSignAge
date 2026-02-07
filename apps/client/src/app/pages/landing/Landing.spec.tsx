@@ -17,7 +17,7 @@ describe('LandingPage', () => {
       </BrowserRouter>,
     );
     expect(
-      getByText(/Digital Signage as a Software Platform/gi),
+      getByText(/Digital Signage as Software/gi),
     ).toBeTruthy();
   });
   it('should render signage-specific features', () => {

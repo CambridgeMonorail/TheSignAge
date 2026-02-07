@@ -23,6 +23,62 @@ applyTo: '**/*.tsx'
 - Extend shadcn components rather than creating new primitives
 - Common components: Button, Card, Input, Select, Dialog, Dropdown, Table, Badge, etc.
 
+## Visual Style Philosophy
+
+For the **demo website chrome** (navigation, shell, layouts), follow the design principles in `docs/design/STYLE_GUIDE.md`.
+
+**Important**: This applies to the website framework, NOT signage content being demonstrated. Signage demos follow signage design rules (10-foot rule, high visibility).
+
+### Aesthetic Intent
+
+- **Product feel**: Premium B2B SaaS, calm and confident (not marketing-led)
+- **Reference point**: Internal tooling from a company that takes engineering seriously
+- **Anti-pattern**: If it feels eager or looks like a landing page, it's wrong
+
+### Color System
+
+- **Token-first**: Use shadcn tokens only (`bg-background`, `text-foreground`, `text-muted-foreground`, `border-border`)
+- **No hard-coded colors** in components (hex values belong in theme layer only)
+- **Locked palette**: `#1C1E21` (background), `#E6E6E6` (primary text), `#A0A4A8` (secondary text), `#6E7681` (accent)
+
+### Typography
+
+- **Font**: Inter (400, 500 weights only)
+- **Avoid bold** unless layout genuinely lacks presence
+- **Scale**: Restrained and modern SaaS
+  - Page title: `text-3xl md:text-4xl font-medium tracking-tight`
+  - Section heading: `text-xl md:text-2xl font-medium`
+  - Body: `text-base leading-relaxed`
+  - Small text: `text-sm text-muted-foreground`
+
+### Component Style
+
+- **Buttons**: Default to `variant="secondary"` or `variant="ghost"` (use `variant="default"` sparingly)
+- **Cards**: Flat surfaces, subtle borders, minimal or no shadow
+- **No decoration**: No gradients, glow effects, or animated flair
+- **Links**: Understated, underline on hover, avoid bright colors
+
+### Motion and Interaction
+
+- **Timing**: 150-300ms, consistent across app
+- **Easing**: Linear or subtle ease (no bounce, spring, or elastic)
+- **Allowed**: Fades, opacity transitions, short linear movement
+- **Avoid**: Zoom punches, scroll-driven effects, decorative animation
+
+### Content Tone
+
+- **Voice**: Calm, declarative, precise, slightly dry
+- **Avoid**: Marketing language, CTAs, exclamation marks, friendly filler
+- **Write like**: Internal product documentation
+
+### Drift Prevention
+
+Before committing changes, ask:
+- Does this feel like premium B2B SaaS software?
+- Have we used tokens rather than one-off styles?
+- Did we add anything for flair rather than clarity?
+- Would this still feel right in five years?
+
 ## Accessibility Baseline Requirements
 
 ### Labels and Inputs

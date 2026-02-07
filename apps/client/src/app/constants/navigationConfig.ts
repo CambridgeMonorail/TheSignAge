@@ -3,7 +3,6 @@ import { SidebarConfiguration } from '../types/sidebarTypes';
 import {
   Swords,
   AudioWaveform,
-  SquareTerminal,
   Bot,
   Monitor,
 } from 'lucide-react';
@@ -13,7 +12,6 @@ import { ColorPalettePage } from '../pages/color-palette/ColorPalette';
 import { GalleryPage } from '../pages/gallery/Gallery';
 import { LibraryPage } from '../pages/library/Library';
 import { NotFound } from '../pages/not-found/NotFound';
-import { StatusBoardPage } from '../pages/status-board/StatusBoard';
 import { WelcomeScreen } from '../pages/signage/WelcomeScreen';
 import { RestaurantMenu } from '../pages/signage/RestaurantMenu';
 import { OfficeDirectory } from '../pages/signage/OfficeDirectory';
@@ -29,7 +27,6 @@ const paths = {
   landing: '/',
   gallery: '/gallery',
   home: '/',
-  statusBoard: '/status-board',
   signage: {
     welcome: '/signage/welcome',
     menu: '/signage/menu',
@@ -91,12 +88,6 @@ const sidebarData: SidebarConfiguration = {
         { title: 'Color Palette', url: paths.components.colorPalette },
       ],
     },
-    {
-      title: 'Reference',
-      url: paths.statusBoard,
-      icon: SquareTerminal,
-      items: [{ title: 'Status Board', url: paths.statusBoard }],
-    },
   ],
 };
 
@@ -137,7 +128,6 @@ const routes = [
   createRoute(paths.signage.eventSchedule, EventSchedule, false),
   createRoute(paths.components.colorPalette, ColorPalettePage),
   createRoute(paths.components.library, LibraryPage),
-  createRoute(paths.statusBoard, StatusBoardPage),
   createRoute(paths.notFound, NotFound, false),
 ];
 

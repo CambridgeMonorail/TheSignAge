@@ -51,7 +51,7 @@ export const AboutSection = ({
   return (
     <section
       data-testid="about-section"
-      className="text-center pt-20 pb-12 px-5 bg-background text-primary w-full"
+      className="text-center pt-20 pb-12 px-5 bg-background text-foreground w-full"
     >
       <h2 data-testid="about-title" className="text-4xl font-bold mb-6">
         {title}

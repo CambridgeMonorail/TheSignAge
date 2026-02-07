@@ -42,8 +42,8 @@ export const CTASection: FC<CTASectionProps> = ({
   const baseParagraphClasses = 'text-xl mb-8 max-w-2xl mx-auto';
 
   // Default styles for the 'light' variant
-  let sectionClasses = 'bg-background text-primary';
-  let headingClasses = `${baseHeadingClasses} text-primary`;
+  let sectionClasses = 'bg-background text-foreground';
+  let headingClasses = `${baseHeadingClasses} text-foreground`;
   let paragraphClasses = `${baseParagraphClasses} text-muted-foreground`;
   let buttonVariant: 'default' | 'secondary' = 'default';
 

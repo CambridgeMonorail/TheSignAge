@@ -33,7 +33,7 @@ export const LandingPage: FC = () => {
     >
       <div className="bg-primary" data-testid="hero-section-container">
         <HeroSection
-          title="Digital Signage as a Software Platform"
+          title="Digital Signage as Software"
           subtitle="Build deterministic, data-driven content for always-on displays using modern web technologies."
           description="Treat signage players as programmable systems. Create fixed-aspect layouts, distance-readable typography, and predictable rendering for BrightSign devices and beyond."
           image={logoSrc}

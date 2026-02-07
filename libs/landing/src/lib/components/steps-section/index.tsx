@@ -33,7 +33,7 @@ const StepsSection: FC<StepsSectionProps> = ({
 }) => {
   return (
     <section
-      className="text-center py-20 bg-background text-primary w-full"
+      className="text-center py-20 bg-background text-foreground w-full"
       data-testid={dataTestId}
     >
       <h2 className="text-4xl font-bold mb-6">{title}</h2>

@@ -1,6 +1,6 @@
 # The Sign Age
 
-Digital signage as a software platform. Nx + pnpm monorepo using React 19, Tailwind v4, shadcn/ui, and Vite to build reusable signage-oriented UI primitives, layouts, and blocks.
+Digital signage as software. Nx + pnpm monorepo using React 19, Tailwind v4, shadcn/ui, and Vite to build reusable signage-oriented UI primitives, layouts, and blocks.
 
 ## Project Purpose
 
@@ -89,5 +89,18 @@ App-specific conventions, patterns, and tooling guidance are in `.github/instruc
 
 Currently available:
 
+- Repository basics and monorepo conventions (`00-repo-basics.instructions.md`)
+- React SPA and routing patterns (`react-spa-router.instructions.md`)
 - Testing and quality workflows (`testing-and-quality.instructions.md`)
 - UI and accessibility patterns (`ui-and-accessibility.instructions.md`)
+- Style guide compliance for demo website (`style-guide-compliance.instructions.md`)
+
+## Design Philosophy
+
+The demo website **chrome/shell** (`apps/client` navigation, layouts, UI) follows `docs/design/STYLE_GUIDE.md`:
+
+- **Aesthetic**: Premium B2B SaaS (calm, confident, not marketing-led)
+- **Reference**: Internal tooling from a company that takes engineering seriously
+- **Rule**: If it feels eager or looks like a landing page, it's wrong
+
+**Note**: Signage content being demonstrated (signage previews, showcase areas) follows signage design rules, not the website style guide.

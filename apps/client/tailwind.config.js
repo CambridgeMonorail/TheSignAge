@@ -17,7 +17,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: [
-          'Manrope',
+          'Inter',
           'system-ui',
           '-apple-system',
           'BlinkMacSystemFont',
@@ -28,18 +28,13 @@ module.exports = {
           'sans-serif',
           ...fontFamily.sans,
         ],
-        heading: [
-          'Oswald',
-          'system-ui',
-          '-apple-system',
-          'BlinkMacSystemFont',
-          'Segoe UI',
-          'Roboto',
-          'Helvetica Neue',
-          'Arial',
-          'sans-serif',
-          ...fontFamily.sans,
-        ],
+        // Remove separate heading font - use Inter for everything
+        // STYLE_GUIDE.md: Inter 400/500 weights only
+      },
+      fontWeight: {
+        // Enforce weight restrictions from STYLE_GUIDE.md
+        normal: '400',
+        medium: '500',
       },
     },
   },
