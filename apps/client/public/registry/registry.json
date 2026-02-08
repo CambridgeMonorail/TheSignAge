@@ -1,0 +1,134 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "shadcnui-signage",
+  "homepage": "https://cambridgemonorail.github.io/TheSignAge/",
+  "description": "Digital signage components optimized for distance readability and long-running displays",
+  "items": [
+    {
+      "name": "metric-card",
+      "type": "registry:component",
+      "title": "Metric Card",
+      "description": "Display KPIs and metrics with values, change indicators, and icons. Optimized for distance readability on signage displays.",
+      "registryDependencies": [],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/primitives/MetricCard.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "screen-frame",
+      "type": "registry:component",
+      "title": "Screen Frame",
+      "description": "Preview container with aspect ratio enforcement and safe area guides. Useful for development and QA testing.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/primitives/ScreenFrame.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "event-card",
+      "type": "registry:component",
+      "title": "Event Card",
+      "description": "Display event information with time, title, speaker, location, and track. Commonly used in event schedules and conference displays.",
+      "registryDependencies": [],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/primitives/EventCard.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "announcement-card",
+      "type": "registry:component",
+      "title": "Announcement Card",
+      "description": "Display announcement information with title, description, date, icon, and category. Glass morphism effects for modern look.",
+      "registryDependencies": [],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/primitives/AnnouncementCard.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "split-screen",
+      "type": "registry:component",
+      "title": "Split Screen",
+      "description": "Two-panel layout with configurable ratio and direction. Perfect for showing multiple content streams side-by-side.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/layouts/SplitScreen.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "signage-container",
+      "type": "registry:component",
+      "title": "Signage Container",
+      "description": "Full-screen container with gradient backgrounds, ambient orb effects, and optional grid overlay. 8 color variants available.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/layouts/SignageContainer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "signage-header",
+      "type": "registry:component",
+      "title": "Signage Header",
+      "description": "Standard signage header with optional tag badge, title, and subtitle. Multiple color variants and alignment options.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/layouts/SignageHeader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "fullscreen-hero",
+      "type": "registry:component",
+      "title": "Fullscreen Hero",
+      "description": "Hero section for welcome screens and main messages. Light/dark variants with optional background images and CTA.",
+      "registryDependencies": [],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/blocks/FullscreenHero.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "info-card-grid",
+      "type": "registry:component",
+      "title": "Info Card Grid",
+      "description": "Grid layout for displaying informational cards with icons, titles, and descriptions. Responsive column layout.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/blocks/InfoCardGrid.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}
