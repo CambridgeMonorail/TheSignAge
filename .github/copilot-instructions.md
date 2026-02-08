@@ -72,16 +72,20 @@ This repository serves as:
 
 ## Technology Stack
 
-- **React** 19.0.0 - Latest stable
-- **TypeScript** 5.9.3 - Strict mode
-- **Nx** 22.4.1 - Monorepo management
-- **Vite** 7.1.3 - Build tool
-- **Vitest** 4.0.0 - Unit testing
-- **Playwright** 1.55.1 - E2E testing
-- **Tailwind CSS** 4.1.18 - Utility-first CSS (v4 with CSS-first config)
-- **shadcn/ui** - Latest component library
-- **Storybook** 10.2.0 - Component documentation
-- **pnpm** 10.27.2 - Package manager
+- **React** (major version pinned in `package.json`)
+- **TypeScript** (strict mode)
+- **Nx** (monorepo tooling)
+- **Vite** (build/dev)
+- **Vitest** + **Testing Library** (unit/component tests)
+- **Playwright** (E2E tests)
+- **Tailwind CSS v4** + **shadcn/ui** (UI)
+- **Storybook** (component docs)
+- **pnpm** (package manager)
+
+Source of truth for exact versions:
+
+- `package.json`
+- `pnpm-lock.yaml`
 
 ## App-Specific Rules
 
@@ -94,6 +98,39 @@ Currently available:
 - Testing and quality workflows (`testing-and-quality.instructions.md`)
 - UI and accessibility patterns (`ui-and-accessibility.instructions.md`)
 - Style guide compliance for demo website (`style-guide-compliance.instructions.md`)
+
+## Contributing Workflow (GitHub)
+
+When contributing to this repository, follow this workflow (and guide others to do the same):
+
+1. **Start with an issue**
+  - Use the issue templates in `.github/ISSUE_TEMPLATE/`.
+  - Bugs should include repro steps + evidence; feature requests should include signage context (1080p/4K, distance readability, always-on).
+  - For vulnerabilities: do **not** open a public issue; follow `SECURITY.md`.
+
+2. **Create a branch (no direct pushes to `main`)**
+  - `main` should be protected; changes land via pull requests.
+  - Use a clear branch name like `feat/<topic>` or `fix/<topic>`.
+
+3. **Implement with repo conventions**
+  - Strict TypeScript; avoid `any`.
+  - Prefer small, focused diffs; avoid broad refactors unless requested.
+  - Keep apps → libs dependency direction (libs never import from apps).
+  - Accessibility is a baseline requirement.
+
+4. **Tests + verification are required**
+  - New features and bug fixes must include tests (Vitest + Testing Library; Playwright for critical flows in `apps/client`).
+  - Run `pnpm verify` before opening the PR.
+  - Use Nx affected scripts when available: `pnpm run lint:affected`, `pnpm run type-check:affected`, `pnpm run test:affected`, `pnpm run build:affected`.
+
+5. **Open a PR using the template**
+  - Follow `.github/PULL_REQUEST_TEMPLATE.md`.
+  - Link related issues (e.g. `Closes #123`).
+  - Include UI evidence (screenshots/recording) for visual changes.
+
+6. **Community standards**
+  - Be kind and constructive; follow `CODE_OF_CONDUCT.md`.
+  - If something is unclear, ask rather than guessing (screens are patient; reviewers less so).
 
 ## Design Philosophy
 
