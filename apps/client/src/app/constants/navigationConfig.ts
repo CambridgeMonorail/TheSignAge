@@ -62,10 +62,20 @@ const sidebarData: SidebarConfiguration = {
   ],
   navMain: [
     {
+      title: 'Documentation',
+      url: paths.gettingStarted,
+      icon: Bot,
+      isActive: true,
+      items: [
+        { title: 'Getting Started', url: paths.gettingStarted },
+        { title: 'Component Library', url: paths.components.library },
+        { title: 'Color Palette', url: paths.components.colorPalette },
+      ],
+    },
+    {
       title: 'Signage Examples',
       url: paths.gallery,
       icon: Monitor,
-      isActive: true,
       items: [
         { title: 'Gallery', url: paths.gallery },
         { title: 'Welcome Screen', url: paths.signage.welcome },
@@ -74,16 +84,6 @@ const sidebarData: SidebarConfiguration = {
         { title: 'KPI Dashboard', url: paths.signage.dashboard },
         { title: 'Announcements', url: paths.signage.announcements },
         { title: 'Event Schedule', url: paths.signage.eventSchedule },
-      ],
-    },
-    {
-      title: 'Documentation',
-      url: paths.gettingStarted,
-      icon: Bot,
-      items: [
-        { title: 'Getting Started', url: paths.gettingStarted },
-        { title: 'Component Library', url: paths.components.library },
-        { title: 'Color Palette', url: paths.components.colorPalette },
       ],
     },
   ],
