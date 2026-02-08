@@ -1,6 +1,7 @@
 import { FC, useMemo } from 'react';
 import { CodeSnippet } from '../../../components/CodeSnippet';
 import { AutoPagingList } from '@tsa/shadcnui-signage';
+import { Button } from '@tsa/shadcnui';
 
 type Item = { id: string; label: string };
 

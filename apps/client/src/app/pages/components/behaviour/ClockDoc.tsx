@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { CodeSnippet } from '../../../components/CodeSnippet';
 import { Clock } from '@tsa/shadcnui-signage';
+import { Button } from '@tsa/shadcnui';
 
 export const ClockDocPage: FC = () => {
   return (

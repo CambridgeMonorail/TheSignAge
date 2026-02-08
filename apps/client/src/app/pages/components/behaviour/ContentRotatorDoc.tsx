@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { CodeSnippet } from '../../../components/CodeSnippet';
 import { ContentRotator } from '@tsa/shadcnui-signage';
+import { Button } from '@tsa/shadcnui';
 
 export const ContentRotatorDocPage: FC = () => {
   return (

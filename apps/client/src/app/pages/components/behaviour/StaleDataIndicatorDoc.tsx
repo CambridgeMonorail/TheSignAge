@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { CodeSnippet } from '../../../components/CodeSnippet';
 import { StaleDataIndicator } from '@tsa/shadcnui-signage';
+import { Button } from '@tsa/shadcnui';
 
 export const StaleDataIndicatorDocPage: FC = () => {
   const nowMs = new Date('2026-02-09T12:00:00Z').getTime();
