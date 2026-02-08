@@ -27,17 +27,19 @@ export const GettingStartedPage: FC = () => {
 
   return (
     <div className="font-sans bg-background p-8 min-h-screen max-w-4xl mx-auto">
-      {/* HEADER */}
-      <header className="mb-12">
-        <h1 className="text-4xl font-medium text-foreground mb-4">
+      {/* DOCS HEADER */}
+      <div className="mb-10 space-y-4">
+        <p className="text-sm text-muted-foreground">Documentation</p>
+
+        <h1 className="text-3xl md:text-4xl font-medium tracking-tight">
           Getting Started
         </h1>
-        <p className="text-lg leading-relaxed text-muted-foreground">
-          Start building digital signage screens with The Sign Age component
-          libraries. This guide shows you how to install, import, and use
-          signage components in your React projects.
+
+        <p className="max-w-2xl text-base md:text-lg text-muted-foreground">
+          Build signage screens as real software. Deterministic,
+          offline-capable, and designed for displays that live on walls.
         </p>
-      </header>
+      </div>
 
       {/* WHAT YOU'LL NEED */}
       <section className="mb-12 bg-card p-6 rounded border border-border">

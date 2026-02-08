@@ -6,15 +6,20 @@ export const GalleryPage: FC = () => {
   return (
     <div className="container mx-auto px-4 py-8" data-testid="gallery-page">
       <div className="max-w-7xl mx-auto">
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">Signage Examples Gallery</h1>
-          <p className="text-lg text-muted-foreground max-w-3xl">
-            Full-screen examples demonstrating digital signage layouts and
-            components. Each example showcases fixed-aspect layouts,
-            distance-readable typography, and deterministic rendering designed
-            for always-on displays.
+        {/* DOCS HEADER */}
+        <div className="mb-10 space-y-4">
+          <p className="text-sm text-muted-foreground">Examples</p>
+
+          <h1 className="text-3xl md:text-4xl font-medium tracking-tight">
+            Signage Gallery
+          </h1>
+
+          <p className="max-w-2xl text-base md:text-lg text-muted-foreground">
+            Full-screen examples demonstrating fixed-aspect layouts,
+            distance-readable typography, and deterministic rendering for
+            always-on displays.
           </p>
-        </header>
+        </div>
 
         <div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"

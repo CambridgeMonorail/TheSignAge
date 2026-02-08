@@ -27,12 +27,15 @@ export function LibraryPage() {
 
   return (
     <div className="font-sans bg-background p-8 min-h-screen">
-      {/* HERO / HEADER */}
-      <header className="mb-12">
-        <h1 className="text-4xl font-medium text-foreground">
+      {/* DOCS HEADER */}
+      <div className="mb-10 space-y-4">
+        <p className="text-sm text-muted-foreground">Documentation</p>
+
+        <h1 className="text-3xl md:text-4xl font-medium tracking-tight">
           Component Libraries
         </h1>
-        <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+
+        <p className="max-w-2xl text-base md:text-lg text-muted-foreground">
           React components for digital signage and web interfaces. Built with{' '}
           <button
             onClick={handleShadcnClick}
@@ -47,9 +50,9 @@ export function LibraryPage() {
           >
             Getting Started
           </button>{' '}
-          for installation and usage.
+          for installation.
         </p>
-      </header>
+      </div>
 
       {/* LIBRARY OVERVIEW */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
