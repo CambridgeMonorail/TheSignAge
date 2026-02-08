@@ -1,209 +1,273 @@
 # The Sign Age: Roadmap
 
-This document outlines the planned evolution of The Sign Age project. Items are grouped by theme rather than strict timeline—priorities may shift based on real-world usage and feedback.
+This roadmap focuses on what we plan to build, organized by developer value and complexity. The priority is **shipping to real BrightSign players** with a fast, repeatable developer workflow.
 
-**Current Status:** Alpha (v0.x) - Core library functional but evolving
+**Current Status:** Alpha (v0.x) - Core UI library functional, deployment workflow needed
 
----
-
-## ✅ Completed (Q4 2025 - Q1 2026)
-
-### Foundation
-- [x] Nx + pnpm monorepo structure
-- [x] Tailwind v4 configuration and theme system
-- [x] shadcn/ui base components (`@tsa/shadcnui`)
-- [x] Vitest + Testing Library test infrastructure
-- [x] Storybook setup for component documentation
-- [x] GitHub Actions CI/CD pipeline
-- [x] GitHub Pages deployment (client + Storybook)
-
-### Core Signage Library (`@tsa/shadcnui-signage`)
-
-#### Primitives
-- [x] ScreenFrame (resolution enforcement, safe area guides)
-- [x] MetricCard (KPI display with change indicators)
-- [x] EventCard (event information layout)
-- [x] AnnouncementCard (glass morphism announcement cards)
-
-#### Layouts
-- [x] SplitScreen (two-panel deterministic layout)
-- [x] SignageContainer (gradient backgrounds, ambient orbs)
-- [x] SignageHeader (standard header with tag/title/subtitle)
-
-#### Blocks
-- [x] FullscreenHero (welcome screens, hero sections)
-- [x] InfoCardGrid (grid layout for menus/promos)
-
-#### Behaviors
-- [x] Clock (timezone-aware, minute-aligned updates)
-- [x] Countdown (target date countdown)
-- [x] ContentRotator (interval-based content cycling)
-- [x] AutoPagingList (automatic list pagination)
-- [x] ScheduleGate (weekday/time-based conditional rendering)
-- [x] StaleDataIndicator (data freshness visualization)
-- [x] SignageTransition (declarative transitions)
-- [x] OfflineFallback (graceful offline handling)
-
-#### Hooks & Utilities
-- [x] useTicker (drift-resistant interval hook)
-- [x] useOnlineStatus (connectivity detection)
-- [x] usePrefersReducedMotion (accessibility)
-- [x] Resolution utilities (1080p/4K/portrait detection)
-- [x] Text clamping utilities
-
-### Documentation & Tooling
-- [x] Component registry for `npx shadcn add` installation
-- [x] GitHub Copilot instructions and agents
-- [x] Initial documentation structure
-- [x] Project goals and statement of intent
+**Development Philosophy:** React (optionally with Node) running on the player. No BrightAuthor-style authoring. Developer-friendly deployment loop.
 
 ---
 
-## 🚧 In Progress (Q1 2026)
+## ✅ Foundation Complete (Q4 2025 - Q1 2026)
 
-### Component Enrichment
-- [ ] Add Storybook controls for all component variants
-- [ ] Document real-world usage patterns for each component
-- [ ] Add accessibility testing to all interactive components
-- [ ] Create visual regression tests (Chromatic or Percy)
+- Nx + pnpm monorepo, Tailwind v4, shadcn/ui base components
+- 23 signage components (`@tsa/shadcnui-signage`): primitives, layouts, blocks, behaviors
+- Vitest + Testing Library, Storybook, GitHub Actions CI/CD
+- Component registry for `npx shadcn add` installation
+- GitHub Copilot instructions and agents
 
-### Demo Content
-- [ ] Restaurant menu example (schedule-based)
-- [ ] Office directory example
-- [ ] KPI dashboard example
-- [ ] Event schedule example
-- [ ] Retail promo rotation example
-
-### Documentation
-- [ ] Complete component API reference
-- [x] Update shadcnui-signage README with full component list
-- [x] Create comprehensive roadmap document
-- [ ] Write "building your first signage screen" tutorial
-- [ ] Document common patterns and anti-patterns
-- [ ] Add troubleshooting guide
+[View detailed component list in libs/shadcnui-signage/README.md](./libs/shadcnui-signage/README.md)
 
 ---
 
-## 📋 Planned (Q2 2026)
+## 🎯 Priority 0: Developer Deployment Loop (Q1 2026) **DO THIS FIRST**
+
+**Why:** Without a fast deploy loop, everything feels hard. Developers need "build → ship → see on screen" in minutes.
+
+### 0.1 "Hello Player" Deploy Loop ⭐ **CRITICAL**
+
+**Goal:** Build a React app, ship it to a player, see it on screen in minutes.
+
+**Deliverables:**
+- [ ] Tiny React status page app (version + build timestamp + uptime)
+- [ ] **Local network deploy script**: Push assets to player storage via HTTP/SSH and restart
+- [ ] **Fleet deploy script**: Publish zipped package to URL, player fetches and installs
+- [ ] Tutorial: "Your first BrightSign deployment in 10 minutes"
+
+**BrightDev Leverage:** BrightDev positions "Hello BrightSign on a Single Player" as stage 1 and provides MCP server for generating correct platform code.
+
+**Success Criteria:** A developer with zero BrightSign experience can deploy a working React app to hardware in under 15 minutes.
+
+### 0.2 Player Debugging Basics
+
+**Goal:** Diagnose without guessing. Know what's happening on the player.
+
+**Deliverables:**
+- [ ] One-page debug playbook: find IP, open inspector, fetch logs, common issues
+- [ ] Helper scripts for enabling diagnostic access and querying device info
+- [ ] Debug overlay component (toggle with keyboard/touch, shows: version, network status, last API call, memory usage)
+
+**BrightSign Leverage:** BrightSign's diagnostic web server and shell/CLI for interaction.
+
+### 0.3 Packaging Pattern for React + Node on Player
+
+**Goal:** Repeatable structure for "web app plus local services".
+
+**Deliverables:**
+- [ ] Project template: React UI + optional Node sidecar (same JS context as Chromium)
+- [ ] Clear rules: what goes in Node vs browser code
+- [ ] Bundling guidance: avoid shipping 2,000-file node_modules
+- [ ] Example: Node HTTP server on player for local control endpoints
+
+**BrightSign Leverage:** BrightSign documents shared Node/Chromium execution context, local servers, storage paths.
+
+---
+
+## 📋 Priority 1: CMS-Driven Content (Q2 2026) **SIMPLE, HIGH VALUE**
+
+**Why:** Proves end-to-end value without hardware APIs. Real-world use case that's immediately shippable.
+
+### 1.1 Headless CMS Menu Board (Restaurant) ⭐
+
+**Use Case:** Small chain wants breakfast/lunch menus, "sold out" flags, instant price changes without republishing.
+
+**Deliverables:**
+- [ ] **DataFetcher** component - Periodic API polling with error handling and retry logic
+- [ ] Example: Contentful menu board integration (live demo + docs)
+- [ ] Local caching: last known good data so screen works when network fails
+- [ ] Time-of-day mode switching (leverage existing ScheduleGate)
+- [ ] Staff debug overlay (toggle locally to see data freshness, API status)
+- [ ] Tutorial: "Build a menu board in 30 minutes"
+
+**Component Additions:**
+- [ ] **PriceTag** primitive - Large price display with currency formatting
+- [ ] **MenuGrid** block - Three-column layout optimized for menu boards
+
+### 1.2 Campaign Scheduler via CMS
+
+**Use Case:** Retail campaigns with date windows and store targeting.
+
+**Deliverables:**
+- [ ] JSON campaign model with date windows and targeting rules
+- [ ] On-device rule evaluation (no server round-trip for display logic)
+- [ ] Preload next campaign assets (never blank the screen during transition)
+- [ ] Example: Retail promo rotation with Sanity CMS integration
+- [ ] **ImageCarousel** behavior - Image rotation with Ken Burns effect
+
+---
+
+## 📋 Priority 2: Live Data Signage (Q2 2026) **MODERATE COMPLEXITY**
+
+**Why:** Makes you look serious. Handles real-time data without flickering or breaking.
+
+### 2.1 "No Flicker" Data Grid
+
+**Use Case:** Fuel prices, café boards, live KPIs, train departures.
+
+**Deliverables:**
+- [ ] Polling strategy with diff-based updates (only animate changed cells)
+- [ ] Clear "last updated" indicator and stale state handling
+- [ ] **LiveDataGrid** block - Optimized for frequent updates without full rerender
+- [ ] Example: Stock ticker, fuel prices, departure board
+- [ ] Performance benchmark: < 16ms render time for 100-cell grid update
+
+**Component Additions:**
+- [ ] **AnimatedNumber** primitive - Smooth number transitions
+- [ ] **StatusBadge** primitive - Color-coded status indicators
+
+### 2.2 Queue Management "Now Serving"
+
+**Use Case:** GP surgery, council office, service desk.
+
+**Deliverables:**
+- [ ] Big typography, minimal motion, resilient polling
+- [ ] Optional chime (never required, always tasteful)
+- [ ] **QueueDisplay** block - Optimized for readability at distance
+- [ ] Example: Medical waiting room integration
+
+---
+
+## 📋 Priority 3: Offline-First & Edge Conditions (Q3 2026)
+
+**Why:** This is where real deployments die. Venues have unstable WiFi, captive portals, and Murphy's Law.
+
+### 3.1 Offline-First Content Shell ⭐
+
+**Use Case:** Venues with unstable WiFi or captive portals.
+
+**Deliverables:**
+- [ ] Enhanced OfflineFallback with file-backed cache
+- [ ] Node helper to manage cache integrity and expiry
+- [ ] Explicit stale indicators (already have StaleDataIndicator, enhance it)
+- [ ] Safe fallback: static content when network is unreachable
+- [ ] Tutorial: "Build bulletproof offline screens"
+
+**BrightSign Leverage:** Node on player for file I/O and local services.
+
+### 3.2 Emergency Override Channel
+
+**Use Case:** Schools, factories, offices needing urgent full-screen message override.
+
+**Deliverables:**
+- [ ] **EmergencyBanner** component - Priority state machine with expiry rules
+- [ ] Offline-safe behavior (persists locally, expires automatically)
+- [ ] Example: Fire alarm, lockdown notice, urgent announcement
+- [ ] Clear visual hierarchy (red alert, high contrast, unmissable)
+
+---
+
+## 📋 Priority 4: Hardware & "Only Possible on a Player" (Q3-Q4 2026) **MOST DISTINCTIVE**
+
+**Why:** These demos show what's possible when software meets physical hardware. Most complex, highest wow factor.
+
+### 4.1 GPIO-Driven Interaction
+
+**Use Case:** Museum exhibit button, retail "call staff" button, presence sensor wake.
+
+**Deliverables:**
+- [ ] Event bus from GPIO to React (roGpioControlPort wrapper)
+- [ ] Debounce and safety rules
+- [ ] **GPIOButton** component - Maps hardware button to React event
+- [ ] Demo UI that makes hardware state obvious
+- [ ] Example: Interactive kiosk with physical buttons
+
+**BrightSign Leverage:** roGpioControlPort documentation.
+
+### 4.2 Multi-Player Synchronization
+
+**Use Case:** Video wall, multi-screen art piece.
+
+**Deliverables:**
+- [ ] Leader/follower architecture (one player is source of truth)
+- [ ] Drift correction (compensate for network latency)
+- [ ] Failover behavior (what happens when leader dies)
+- [ ] Deterministic transitions (all screens change simultaneously)
+- [ ] Example: 2×2 video wall, synchronized content rotation
+
+### 4.3 On-Player Local Control Plane
+
+**Use Case:** On-site technician can hit local endpoint to change config, pull diagnostics, trigger modes.
+
+**Deliverables:**
+- [ ] Node HTTP server on player exposing safe endpoints
+- [ ] Device info reporting (uptime, temperature, storage)
+- [ ] Log export endpoint (download last 1000 lines as JSON)
+- [ ] Config endpoint (change API URLs, toggle debug mode)
+- [ ] Example: Maintenance dashboard accessible at `http://<player-ip>:8080`
+
+**BrightSign Leverage:** BrightSign Node docs include HTTP server examples.
+
+---
+
+## 🚧 Supporting Features (Ongoing)
 
 ### Component Library Expansion
 
-#### New Behaviors
-- [ ] **DataFetcher** - Periodic API polling with error handling and retry logic
-- [ ] **WeatherWidget** - Weather display with icon mapping
-- [ ] **QRCodeDisplay** - Generate and display QR codes with configurable sizes
-- [ ] **ImageCarousel** - Image rotation with Ken Burns effect
-- [ ] **VideoPlayer** - Simple video playback with loop control
+**High Priority (aligns with Priorities 1-2):**
 - [ ] **ScrollingText** - Marquee/ticker for long text content
+- [ ] **ProgressBar** - Visual progress indicator
+- [ ] **IconGrid** - Wayfinding, services grid
+- [ ] **WeatherWidget** - Weather display with icon mapping
+- [ ] **VideoPlayer** - Simple video playback with loop control
 
-#### New Primitives
-- [ ] **StatusBadge** - Color-coded status indicators
-- [ ] **ProgressBar** - Visual progress indicator (determinate/indeterminate)
-- [ ] **IconGrid** - Grid of icons with labels (wayfinding, services)
-- [ ] **PriceTag** - Large price display with currency formatting
-
-#### New Layouts
-- [ ] **ThreeColumn** - Three-zone layout for menu boards
-- [ ] **TopBottomSplit** - Header + footer with main content area
-- [ ] **GridWithSidebar** - Content grid with persistent sidebar
+**Medium Priority (supporting features):**
+- [ ] **QRCodeDisplay** - Generate and display QR codes
+- [ ] Real-time chart components (line, bar, pie)
+- [ ] Leaderboard component with sorting
 
 ### Testing & Quality
-- [ ] Playwright E2E tests for critical user flows
-- [ ] Performance benchmarks (render time, memory usage)
-- [ ] Accessibility audit (WCAG AA compliance)
-- [ ] Browser compatibility testing (BrightSign Chromium)
 
-### Developer Experience
-- [ ] Hot reload improvements for faster iteration
-- [ ] Component generator CLI (`pnpm generate:component`)
-- [ ] VS Code snippets for common signage patterns
-- [ ] Better error messages and debugging guidance
+- [ ] Playwright E2E tests for deployment workflow
+- [ ] Performance benchmarks (render time < 16ms for 1080p)
+- [ ] Browser compatibility testing (BrightSign Chromium version)
+- [ ] Accessibility audit (WCAG AA for touch interfaces)
+
+### Documentation
+
+**High Priority:**
+- [ ] Tutorial: "Building your first signage screen"
+- [ ] Tutorial: "Deploying to BrightSign in 10 minutes"
+- [ ] Common patterns and anti-patterns guide
+- [ ] Troubleshooting guide (network issues, player debugging)
+
+**Medium Priority:**
+- [ ] Component API reference (complete)
+- [ ] Storybook controls for all variants
+- [ ] Real-world usage patterns per component
 
 ---
 
-## 🔮 Future (Q3 2026+)
+## 🔮 Long-Term Vision (2027+)
 
-### Platform Integration
+### Ecosystem
+- [ ] NPM package publication (`@thesignage/signage-components`)
+- [ ] Standalone CLI for creating new signage projects (`create-signage-app`)
+- [ ] Component marketplace/gallery
+- [ ] Community-contributed components
 
-#### BrightSign Specifics
-- [ ] BrightSign device detection utilities
-- [ ] Hardware-accelerated video playback examples
-- [ ] GPIO interaction examples (button input, sensor data)
-- [ ] Local storage patterns for offline-first data
-- [ ] BrightSign MCP server enhancements (device control, diagnostics)
-
-#### Content Management
-- [ ] Contentful integration example
-- [ ] Sanity integration example
-- [ ] GraphQL API example
-- [ ] Local JSON data patterns
-
-### Advanced Features
-
-#### Interactive Components
-- [ ] Touch-enabled navigation patterns
-- [ ] Gesture support (swipe, pinch)
-- [ ] Keyboard navigation for interactive kiosks
-- [ ] Voice control experiments (if hardware supports)
-
-#### Data Visualization
-- [ ] Real-time chart components (line, bar, pie)
-- [ ] Animated number transitions
-- [ ] Leaderboard component with sorting
-- [ ] Heat map visualization
-
-#### Typography & Accessibility
-- [ ] Variable font support for better distance readability
-- [ ] High-contrast mode
-- [ ] Font size scaling presets (near/medium/far viewing)
-- [ ] Multi-language support patterns
-
-### Content Types
-
-#### Industry-Specific Templates
-- [ ] Restaurant menu templates (breakfast/lunch/dinner)
+### Industry Templates
+- [ ] Restaurant menu templates (breakfast/lunch/dinner with schedule switching)
 - [ ] Retail store templates (promotions, hours, services)
 - [ ] Office templates (directory, calendar, announcements)
 - [ ] Healthcare templates (wait times, wayfinding)
 - [ ] Education templates (class schedules, events)
 
-#### Generative Content
-- [ ] AI-assisted content generation examples
-- [ ] Dynamic layout optimization based on content length
-- [ ] Automatic color palette generation from brand colors
-- [ ] Smart image cropping and fitting
-
----
-
-## 🎯 Long-Term Vision
-
-### Ecosystem
-- [ ] NPM package publication (`@thesignage/signage-components`)
-- [ ] Standalone CLI for creating new signage projects
-- [ ] Component marketplace/gallery
-- [ ] Community-contributed components
-
-### Tooling
-- [ ] Visual editor for non-technical users
-- [ ] Preview mode with device emulation
-- [ ] Remote deployment and monitoring
+### Advanced Platform Features
+- [ ] Touch-enabled navigation patterns
+- [ ] Hardware-accelerated video playback
+- [ ] WebGL for advanced graphics
+- [ ] Remote deployment and monitoring dashboard
 - [ ] Analytics and usage tracking
-
-### Research & Exploration
-- [ ] Edge computing patterns (run React on edge workers)
-- [ ] WebRTC for live video feeds
-- [ ] WebGL for advanced graphics and animations
-- [ ] WebAssembly for performance-critical features
 
 ---
 
 ## 🤝 Contributing
 
-This roadmap is not set in stone. If you have suggestions, use cases, or want to contribute:
+This roadmap is driven by real developer needs. If you have:
 
-1. **Open an issue** to discuss new features or changes
-2. **Submit a PR** for documentation improvements or bug fixes
-3. **Share your signage screens** to inspire others
+- **Use cases we should prioritize** - Open an issue describing your signage scenario
+- **Deployment workflow feedback** - Tell us what's blocking you from shipping to players
+- **Component requests** - Describe the signage problem you're trying to solve
 
 See [CONTRIBUTING.md](./docs/contributing/CONTRIBUTING.md) for guidelines.
 
@@ -213,25 +277,41 @@ See [CONTRIBUTING.md](./docs/contributing/CONTRIBUTING.md) for guidelines.
 
 The Sign Age follows semantic versioning:
 
-- **v0.x** (Alpha): Breaking changes expected, API unstable
-- **v1.0** (Beta): Core API stable, minor breaking changes possible
-- **v2.0+** (Stable): Semantic versioning, deprecation warnings
+- **v0.x** (Current - Alpha): Breaking changes expected, API unstable, deployment workflow being established
+- **v1.0-beta** (Target Q2 2026): Deployment workflow stable, core components mature, minor breaking changes possible
+- **v1.0** (Target Q3 2026): Production-ready, semantic versioning, deprecation warnings for breaking changes
 
-**Target for v1.0:** Q3 2026 (pending component maturity and real-world validation)
+**Key Milestone:** v1.0 requires a proven "dev → player → screen" workflow that works reliably in real venues.
 
 ---
 
 ## 📅 Milestone Tracking
 
-| Milestone | Target | Status |
-|-----------|--------|--------|
-| Alpha Release (v0.1) | Q4 2025 | ✅ Complete |
-| Component Enrichment | Q1 2026 | 🚧 In Progress |
-| Documentation Complete | Q1 2026 | 🚧 In Progress |
-| Demo Content Complete | Q2 2026 | 📋 Planned |
-| Beta Release (v1.0-beta) | Q2 2026 | 📋 Planned |
-| Stable Release (v1.0) | Q3 2026 | 🔮 Future |
+| Milestone | Target | Status | Blockers |
+|-----------|--------|--------|----------|
+| Foundation (UI Library) | Q4 2025 | ✅ Complete | - |
+| **Priority 0: Deploy Loop** | **Q1 2026** | **🚧 In Progress** | Need player access for testing |
+| Priority 1: CMS Content | Q2 2026 | 📋 Planned | Blocked by Priority 0 |
+| Priority 2: Live Data | Q2 2026 | 📋 Planned | Blocked by Priority 0 |
+| Priority 3: Offline-First | Q3 2026 | 📋 Planned | - |
+| Priority 4: Hardware | Q3-Q4 2026 | 📋 Planned | Requires Priority 0-3 |
+| Beta Release (v1.0-beta) | Q2 2026 | 🔮 Future | Requires Priority 0-1 complete |
+| Stable Release (v1.0) | Q3 2026 | 🔮 Future | Requires real-world validation |
+
+---
+
+## 🎯 Success Criteria for v1.0
+
+We ship v1.0 when:
+
+1. ✅ A developer with zero BrightSign experience can deploy a React app to hardware in < 15 minutes
+2. ✅ At least 3 production deployments running in real venues (restaurant, office, retail)
+3. ✅ Deployment workflow survives network failures, player reboots, and power loss
+4. ✅ Component library covers 80% of common signage use cases without custom components
+5. ✅ Documentation includes troubleshooting for 10 most common deployment issues
 
 ---
 
 **Last Updated:** February 8, 2026
+
+**Next Review:** After Priority 0.1 ships (target: mid-Q1 2026)
