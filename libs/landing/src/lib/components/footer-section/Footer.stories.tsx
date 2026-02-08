@@ -4,7 +4,7 @@ import { Footer } from '.';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const meta: Meta<typeof Footer> = {
-  title: '4-Landing/Footer',
+  title: 'Landing/Footer',
   component: Footer,
   tags: ['autodocs'],
   argTypes: {

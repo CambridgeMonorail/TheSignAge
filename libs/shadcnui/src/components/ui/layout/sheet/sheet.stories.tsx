@@ -13,7 +13,7 @@ import {
 } from './sheet';
 
 const meta: Meta<typeof Sheet> = {
-  title: '2-Shadcnui/Layout/Sheet',
+  title: 'Shadcnui/Layout/Sheet',
   component: Sheet,
   tags: ['autodocs'],
   argTypes: {

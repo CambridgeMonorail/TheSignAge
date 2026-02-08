@@ -4,7 +4,7 @@ import { ActionButtons, ActionButtonsProps } from './index';
 import { Beer, Coffee, Apple } from 'lucide-react';
 
 const meta: Meta<typeof ActionButtons> = {
-  title: '3-Shadcnui Blocks/ActionButtons',
+  title: 'Shadcnui Blocks/ActionButtons',
   component: ActionButtons,
   tags: ['autodocs'],
   argTypes: {

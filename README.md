@@ -16,7 +16,14 @@
 ## 🚀 Live Demo
 
 - **Client App:** [https://cambridgemonorail.github.io/TheSignAge/](https://cambridgemonorail.github.io/TheSignAge/)
-- **Storybook:** [https://cambridgemonorail.github.io/TheSignAge/storybook/](https://cambridgemonorail.github.io/TheSignAge/storybook/)
+- **Storybook:** [https://cambridgemonorail.github.io/TheSignAge/storybook/](https://cambridgemonorail.github.io/TheSignAge/storybook/) - Browse signage components
+
+## ✨ Key Features
+
+- **`@tsa/shadcnui-signage`** - Purpose-built React component library for digital signage (distance-readable typography, fixed-aspect layouts, deterministic rendering)
+- **Signage Architect Agent** - AI accelerator for building premium signage screens with GitHub Copilot ([.github/agents/signage-architect.agent.md](./.github/agents/signage-architect.agent.md))
+- **Production-Ready Examples** - Restaurant menus, office directories, KPI dashboards, event schedules, and more
+- **BrightSign Platform Integration** - MCP server support for device documentation and platform research
 
 ## Table of Contents
 
@@ -61,10 +68,29 @@ If something here feels unfinished, opinionated, or slightly uncomfortable, that
 
 This is an **Nx + pnpm** monorepo with a focus on tooling and reusable UI building blocks for signage:
 
-- **`apps/client`**: Demo site showcasing signage examples and components (**[View Live Demo](http://localhost:4200/TheSignAge/)** when running locally)
-- **`libs/shadcnui-signage`**: Signage-oriented React components (fixed-aspect layouts, distance-readable typography, deterministic rendering)
-- **`libs/shadcnui` / `libs/shadcnui-blocks`**: Base component primitives and compositions
-- **Storybook**: Interactive component documentation and review
+### Component Libraries
+
+- **`libs/shadcnui-signage`** ⭐ - **Primary focus**: Signage-specific React components
+  - Distance-readable typography (10-foot rule)
+  - Fixed-aspect primitives, layouts, and blocks
+  - Deterministic rendering for 1080p/4K screens
+  - Designed for always-on, unattended displays
+  - [View in Storybook](https://cambridgemonorail.github.io/TheSignAge/storybook/?path=/docs/1-signage-primitives-screenframe--docs) | [Source](./libs/shadcnui-signage/)
+
+- **`libs/shadcnui` / `libs/shadcnui-blocks`**: Supporting component primitives (our copy of shadcn/ui) and compositions for demo website
+
+### Applications
+
+- **`apps/client`**: Demo site showcasing signage examples and components (**[View Live Demo](https://cambridgemonorail.github.io/TheSignAge/)**)
+- **Storybook**: Interactive component documentation (**[Browse Components](https://cambridgemonorail.github.io/TheSignAge/storybook/)**)
+
+### AI Accelerators
+
+- **`.github/agents/signage-architect.agent.md`** - GitHub Copilot agent for building premium signage screens
+  - Emphasizes distance readability, deterministic layouts, and 24/7 operation
+  - Enforces signage design principles (not website patterns)
+  - Integrates with BrightSign platform documentation via MCP
+  - [View agent definition](./.github/agents/signage-architect.agent.md)
 
 ### Demo Site
 

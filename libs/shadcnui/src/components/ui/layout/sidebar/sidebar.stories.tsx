@@ -26,7 +26,7 @@ import {
 } from './sidebar';
 
 const meta: Meta<typeof Sidebar> = {
-  title: '2-Shadcnui/Layout/Sidebar',
+  title: 'Shadcnui/Layout/Sidebar',
   component: Sidebar,
   tags: ['autodocs'],
   argTypes: {

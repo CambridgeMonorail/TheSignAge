@@ -4,7 +4,7 @@ import { ScreenFrame } from '../primitives/ScreenFrame';
 import type { InfoCardItem } from '../types/signage.types';
 
 const meta: Meta<typeof InfoCardGrid> = {
-  title: '1-Signage/Blocks/InfoCardGrid',
+  title: 'Signage/Blocks/InfoCardGrid',
   component: InfoCardGrid,
   tags: ['autodocs'],
   argTypes: {

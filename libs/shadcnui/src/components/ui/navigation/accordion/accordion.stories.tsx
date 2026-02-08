@@ -7,7 +7,7 @@ import {
 } from './accordion';
 
 const meta: Meta<typeof Accordion> = {
-  title: '2-Shadcnui/Navigation/Accordion',
+  title: 'Shadcnui/Navigation/Accordion',
   component: Accordion,
   tags: ['autodocs'],
 };

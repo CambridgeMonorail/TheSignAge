@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ForecastChart, ForecastChartProps } from '.';
 
 const meta: Meta<typeof ForecastChart> = {
-  title: '3-Shadcnui Blocks/ForecastChart',
+  title: 'Shadcnui Blocks/ForecastChart',
   component: ForecastChart,
   tags: ['autodocs'],
   argTypes: {

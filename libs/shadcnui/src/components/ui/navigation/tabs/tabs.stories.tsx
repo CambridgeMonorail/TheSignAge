@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from './tabs';
 
 const meta: Meta<typeof Tabs> = {
-  title: '2-Shadcnui/Navigation/Tabs',
+  title: 'Shadcnui/Navigation/Tabs',
   component: Tabs,
   tags: ['autodocs'],
 };

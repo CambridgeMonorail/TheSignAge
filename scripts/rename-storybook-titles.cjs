@@ -1,42 +1,39 @@
 #!/usr/bin/env node
 
 /**
- * Script to rename Storybook story titles to prioritize Signage components
- *
- * New structure:
- * - 1-Signage/... (primary focus)
- * - 2-Shadcnui/... (base components)
- * - 3-Shadcnui Blocks/... (composite components)
- * - 4-Landing/... (landing sections)
- * - 5-Shell/... (shell components)
+ * Script to clean up Storybook story titles by removing numeric prefixes
+ * 
+ * Removes:
+ * - 1-Signage/ → Signage/
+ * - 2-Shadcnui/ → Shadcnui/
+ * - 3-Shadcnui Blocks/ → Shadcnui Blocks/
+ * - 4-Landing/ → Landing/
+ * - 5-Shell/ → Shell/
  */
 
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-// Mapping of old prefixes to new prefixes
+// Mapping of prefixes to remove
 const replacements = [
-  { old: "title: 'Signage/", new: "title: '1-Signage/" },
-  { old: 'title: "Signage/', new: 'title: "1-Signage/' },
-  { old: "title: 'Shadcnui/", new: "title: '2-Shadcnui/" },
-  { old: 'title: "Shadcnui/', new: 'title: "2-Shadcnui/' },
-  { old: "title: 'Shadcnui Blocks/", new: "title: '3-Shadcnui Blocks/" },
-  { old: 'title: "Shadcnui Blocks/', new: 'title: "3-Shadcnui Blocks/' },
-  { old: "title: 'Landing/", new: "title: '4-Landing/" },
-  { old: 'title: "Landing/', new: 'title: "4-Landing/' },
-  { old: "title: 'Shell/", new: "title: '5-Shell/" },
-  { old: 'title: "Shell/', new: 'title: "5-Shell/' },
+  { old: "title: '1-Signage/", new: "title: 'Signage/" },
+  { old: 'title: "1-Signage/', new: 'title: "Signage/' },
+  { old: "title: '2-Shadcnui/", new: "title: 'Shadcnui/" },
+  { old: 'title: "2-Shadcnui/', new: 'title: "Shadcnui/' },
+  { old: "title: '3-Shadcnui Blocks/", new: "title: 'Shadcnui Blocks/" },
+  { old: 'title: "3-Shadcnui Blocks/', new: 'title: "Shadcnui Blocks/' },
+  { old: "title: '4-Landing/", new: "title: 'Landing/" },
+  { old: 'title: "4-Landing/', new: 'title: "Landing/' },
+  { old: "title: '5-Shell/", new: "title: 'Shell/" },
+  { old: 'title: "5-Shell/', new: 'title: "Shell/' },
 ];
 
 function findStoryFiles() {
-  const result = execSync(
-    'find libs -name "*.stories.tsx" -o -name "*.stories.ts"',
-    {
-      encoding: 'utf-8',
-      cwd: path.resolve(__dirname, '..'),
-    },
-  );
+  const result = execSync('find libs -name "*.stories.tsx" -o -name "*.stories.ts"', {
+    encoding: 'utf-8',
+    cwd: path.resolve(__dirname, '..'),
+  });
   return result.trim().split('\n').filter(Boolean);
 }
 
@@ -47,10 +44,7 @@ function updateFile(filePath) {
 
   for (const { old, new: newStr } of replacements) {
     if (content.includes(old)) {
-      content = content.replace(
-        new RegExp(old.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'),
-        newStr,
-      );
+      content = content.replace(new RegExp(old.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), newStr);
       modified = true;
     }
   }

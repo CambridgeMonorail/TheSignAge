@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { SparkLine, SparkLineProps } from './SparkLine';
 
 const meta: Meta<typeof SparkLine> = {
-  title: '3-Shadcnui Blocks/SparkLine',
+  title: 'Shadcnui Blocks/SparkLine',
   component: SparkLine,
   tags: ['autodocs'],
   argTypes: {

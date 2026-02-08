@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ToggleGroup, ToggleGroupItem } from './toggle-group';
 
 const meta: Meta<typeof ToggleGroup> = {
-  title: '2-Shadcnui/Input/ToggleGroup',
+  title: 'Shadcnui/Input/ToggleGroup',
   component: ToggleGroup,
   tags: ['autodocs'],
   argTypes: {

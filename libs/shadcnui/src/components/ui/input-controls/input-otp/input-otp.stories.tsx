@@ -7,7 +7,7 @@ import {
 } from './input-otp';
 
 const meta: Meta<typeof InputOTP> = {
-  title: '2-Shadcnui/Input/InputOTP',
+  title: 'Shadcnui/Input/InputOTP',
   component: InputOTP,
   tags: ['autodocs'],
   argTypes: {

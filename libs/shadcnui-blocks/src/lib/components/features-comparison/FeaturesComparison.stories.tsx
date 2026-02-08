@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FeaturesComparison, FeaturesComparisonProps } from './index';
 
 const meta: Meta<typeof FeaturesComparison> = {
-  title: '3-Shadcnui Blocks/FeaturesComparison',
+  title: 'Shadcnui Blocks/FeaturesComparison',
   component: FeaturesComparison,
   tags: ['autodocs'],
   argTypes: {

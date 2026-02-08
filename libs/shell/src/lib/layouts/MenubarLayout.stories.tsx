@@ -3,7 +3,7 @@ import { MenubarLayout, MenuItem } from './MenubarLayout';
 import { BrowserRouter } from 'react-router-dom';
 
 const meta: Meta<typeof MenubarLayout> = {
-  title: '5-Shell/MenubarLayout',
+  title: 'Shell/MenubarLayout',
   component: MenubarLayout,
   tags: ['autodocs'],
   parameters: {

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ScreenFrame } from './ScreenFrame';
 
 const meta: Meta<typeof ScreenFrame> = {
-  title: '1-Signage/Primitives/ScreenFrame',
+  title: 'Signage/Primitives/ScreenFrame',
   component: ScreenFrame,
   tags: ['autodocs'],
   argTypes: {

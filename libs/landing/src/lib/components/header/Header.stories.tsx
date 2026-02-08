@@ -3,7 +3,7 @@ import { Header } from './index';
 import { Home, User, Settings } from 'lucide-react';
 
 const meta: Meta<typeof Header> = {
-  title: '4-Landing/Header',
+  title: 'Landing/Header',
   component: Header,
   tags: ['autodocs'],
   argTypes: {

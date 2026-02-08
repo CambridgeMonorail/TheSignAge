@@ -3,7 +3,7 @@ import { StatePerformanceTable } from './index';
 import type { StatePerformanceTableProps } from './index';
 
 const meta: Meta<typeof StatePerformanceTable> = {
-  title: '3-Shadcnui Blocks/StatePerformanceTable',
+  title: 'Shadcnui Blocks/StatePerformanceTable',
   component: StatePerformanceTable,
   tags: ['autodocs'],
   argTypes: {

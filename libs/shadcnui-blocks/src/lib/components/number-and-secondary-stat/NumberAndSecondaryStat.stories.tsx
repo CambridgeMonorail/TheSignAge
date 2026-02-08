@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { NumberAndSecondaryStat, NumberAndSecondaryStatProps } from '.';
 
 const meta: Meta<typeof NumberAndSecondaryStat> = {
-  title: '3-Shadcnui Blocks/NumberAndSecondaryStat',
+  title: 'Shadcnui Blocks/NumberAndSecondaryStat',
   component: NumberAndSecondaryStat,
   tags: ['autodocs'],
   argTypes: {

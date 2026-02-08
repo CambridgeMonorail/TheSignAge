@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Overview } from './index';
 
 const meta: Meta<typeof Overview> = {
-  title: '3-Shadcnui Blocks/Overview',
+  title: 'Shadcnui Blocks/Overview',
   component: Overview,
   tags: ['autodocs'],
 };

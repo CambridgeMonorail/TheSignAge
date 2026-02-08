@@ -3,7 +3,7 @@ import { FullscreenHero } from './FullscreenHero';
 import { ScreenFrame } from '../primitives/ScreenFrame';
 
 const meta: Meta<typeof FullscreenHero> = {
-  title: '1-Signage/Blocks/FullscreenHero',
+  title: 'Signage/Blocks/FullscreenHero',
   component: FullscreenHero,
   tags: ['autodocs'],
   argTypes: {

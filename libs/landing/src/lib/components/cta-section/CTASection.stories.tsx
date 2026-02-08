@@ -4,7 +4,7 @@ import { action } from 'storybook/actions';
 import { CTASection } from '.';
 
 const meta: Meta<typeof CTASection> = {
-  title: '4-Landing/CTASection',
+  title: 'Landing/CTASection',
   component: CTASection,
   tags: ['autodocs'],
   argTypes: {

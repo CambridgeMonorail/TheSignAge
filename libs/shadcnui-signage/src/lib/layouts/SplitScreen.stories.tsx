@@ -3,7 +3,7 @@ import { SplitScreen } from './SplitScreen';
 import { ScreenFrame } from '../primitives/ScreenFrame';
 
 const meta: Meta<typeof SplitScreen> = {
-  title: '1-Signage/Layouts/SplitScreen',
+  title: 'Signage/Layouts/SplitScreen',
   component: SplitScreen,
   tags: ['autodocs'],
   argTypes: {

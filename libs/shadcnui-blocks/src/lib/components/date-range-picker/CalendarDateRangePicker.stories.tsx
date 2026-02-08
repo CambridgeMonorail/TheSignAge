@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CalendarDateRangePicker } from './index';
 
 const meta: Meta<typeof CalendarDateRangePicker> = {
-  title: '3-Shadcnui Blocks/Calendar Date Range Picker',
+  title: 'Shadcnui Blocks/Calendar Date Range Picker',
   component: CalendarDateRangePicker,
   tags: ['autodocs'],
   argTypes: {

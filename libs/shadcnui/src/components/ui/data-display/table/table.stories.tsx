@@ -11,7 +11,7 @@ import {
 } from './table';
 
 const meta: Meta<typeof Table> = {
-  title: '2-Shadcnui/Data Display/Table',
+  title: 'Shadcnui/Data Display/Table',
   component: Table,
   tags: ['autodocs'],
   argTypes: {

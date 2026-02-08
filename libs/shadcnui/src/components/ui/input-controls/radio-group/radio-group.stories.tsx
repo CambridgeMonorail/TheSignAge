@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { RadioGroup, RadioGroupItem } from './radio-group';
 
 const meta: Meta<typeof RadioGroup> = {
-  title: '2-Shadcnui/Input/RadioGroup',
+  title: 'Shadcnui/Input/RadioGroup',
   component: RadioGroup,
   tags: ['autodocs'],
   argTypes: {

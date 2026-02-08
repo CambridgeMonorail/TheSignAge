@@ -11,7 +11,7 @@ import {
 } from './navigation-menu';
 
 const meta: Meta<typeof NavigationMenu> = {
-  title: '2-Shadcnui/Navigation/NavigationMenu',
+  title: 'Shadcnui/Navigation/NavigationMenu',
   component: NavigationMenu,
   tags: ['autodocs'],
 };

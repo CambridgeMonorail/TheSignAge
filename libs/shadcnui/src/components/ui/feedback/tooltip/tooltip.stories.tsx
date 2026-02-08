@@ -8,7 +8,7 @@ import {
 import { Button } from '../../input-controls/button';
 
 const meta: Meta<typeof Tooltip> = {
-  title: '2-Shadcnui/Feedback/Tooltip',
+  title: 'Shadcnui/Feedback/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
 };

@@ -10,7 +10,7 @@ import {
 } from './breadcrumb';
 
 const meta: Meta<typeof Breadcrumb> = {
-  title: '2-Shadcnui/Navigation/Breadcrumb',
+  title: 'Shadcnui/Navigation/Breadcrumb',
   component: Breadcrumb,
   tags: ['autodocs'],
 };

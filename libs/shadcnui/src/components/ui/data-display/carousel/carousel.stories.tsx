@@ -8,7 +8,7 @@ import {
 } from './carousel';
 
 const meta: Meta<typeof Carousel> = {
-  title: '2-Shadcnui/Data Display/Carousel',
+  title: 'Shadcnui/Data Display/Carousel',
   component: Carousel,
   tags: ['autodocs'],
   argTypes: {

@@ -12,7 +12,7 @@ import {
 import { Button } from '../../input-controls/button';
 
 const meta: Meta<typeof Drawer> = {
-  title: '2-Shadcnui/Feedback/Drawer',
+  title: 'Shadcnui/Feedback/Drawer',
   component: Drawer,
   tags: ['autodocs'],
 };

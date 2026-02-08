@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ResponsiveNavBar } from './index';
 
 const meta: Meta<typeof ResponsiveNavBar> = {
-  title: '3-Shadcnui Blocks/ResponsiveNavBar',
+  title: 'Shadcnui Blocks/ResponsiveNavBar',
   component: ResponsiveNavBar,
   tags: ['autodocs'],
   decorators: [

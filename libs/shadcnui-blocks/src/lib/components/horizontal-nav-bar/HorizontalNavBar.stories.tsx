@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { HorizontalNavBar } from './index';
 
 const meta: Meta<typeof HorizontalNavBar> = {
-  title: '3-Shadcnui Blocks/HorizontalNavBar',
+  title: 'Shadcnui Blocks/HorizontalNavBar',
   component: HorizontalNavBar,
   tags: ['autodocs'],
   decorators: [
