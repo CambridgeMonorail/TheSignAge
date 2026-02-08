@@ -13,22 +13,6 @@ import {
 export const Home: FC = () => {
   const navigate = useNavigate();
 
-  const handleStorybookClick = () => {
-    window.open(
-      'https://cambridgemonorail.github.io/TheSignAge/storybook/',
-      '_blank',
-      'noopener,noreferrer',
-    );
-  };
-
-  const handleGitHubClick = () => {
-    window.open(
-      'https://github.com/CambridgeMonorail/TheSignAge',
-      '_blank',
-      'noopener,noreferrer',
-    );
-  };
-
   return (
     <div className="font-sans bg-background p-8 min-h-screen max-w-6xl mx-auto">
       {/* HERO */}
@@ -57,12 +41,13 @@ export const Home: FC = () => {
 
       {/* QUICK LINKS */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-        <div
-          className="bg-card p-6 rounded border border-border hover:border-foreground transition-colors cursor-pointer"
+        <button
+          className="bg-card p-6 rounded border border-border hover:border-foreground transition-colors cursor-pointer text-left w-full"
           onClick={() => navigate('/getting-started')}
+          aria-label="Navigate to Getting Started guide"
         >
           <div className="flex items-start gap-4">
-            <BookOpen className="w-8 h-8 text-foreground flex-shrink-0 mt-1" />
+            <BookOpen className="w-8 h-8 text-foreground flex-shrink-0 mt-1" aria-hidden="true" />
             <div>
               <h3 className="text-xl font-medium text-foreground mb-2">
                 Getting Started
@@ -77,14 +62,15 @@ export const Home: FC = () => {
               </span>
             </div>
           </div>
-        </div>
+        </button>
 
-        <div
-          className="bg-card p-6 rounded border border-border hover:border-foreground transition-colors cursor-pointer"
+        <button
+          className="bg-card p-6 rounded border border-border hover:border-foreground transition-colors cursor-pointer text-left w-full"
           onClick={() => navigate('/library')}
+          aria-label="Navigate to Component Library"
         >
           <div className="flex items-start gap-4">
-            <Layers className="w-8 h-8 text-foreground flex-shrink-0 mt-1" />
+            <Layers className="w-8 h-8 text-foreground flex-shrink-0 mt-1" aria-hidden="true" />
             <div>
               <h3 className="text-xl font-medium text-foreground mb-2">
                 Component Library
@@ -99,14 +85,15 @@ export const Home: FC = () => {
               </span>
             </div>
           </div>
-        </div>
+        </button>
 
-        <div
-          className="bg-card p-6 rounded border border-border hover:border-foreground transition-colors cursor-pointer"
+        <button
+          className="bg-card p-6 rounded border border-border hover:border-foreground transition-colors cursor-pointer text-left w-full"
           onClick={() => navigate('/gallery')}
+          aria-label="Navigate to Signage Gallery"
         >
           <div className="flex items-start gap-4">
-            <Layout className="w-8 h-8 text-foreground flex-shrink-0 mt-1" />
+            <Layout className="w-8 h-8 text-foreground flex-shrink-0 mt-1" aria-hidden="true" />
             <div>
               <h3 className="text-xl font-medium text-foreground mb-2">
                 Signage Gallery
@@ -121,14 +108,15 @@ export const Home: FC = () => {
               </span>
             </div>
           </div>
-        </div>
+        </button>
 
-        <div
-          className="bg-card p-6 rounded border border-border hover:border-foreground transition-colors cursor-pointer"
+        <button
+          className="bg-card p-6 rounded border border-border hover:border-foreground transition-colors cursor-pointer text-left w-full"
           onClick={() => navigate('/color-palette')}
+          aria-label="Navigate to Theme and Colors page"
         >
           <div className="flex items-start gap-4">
-            <Palette className="w-8 h-8 text-foreground flex-shrink-0 mt-1" />
+            <Palette className="w-8 h-8 text-foreground flex-shrink-0 mt-1" aria-hidden="true" />
             <div>
               <h3 className="text-xl font-medium text-foreground mb-2">
                 Theme & Colors
@@ -143,7 +131,7 @@ export const Home: FC = () => {
               </span>
             </div>
           </div>
-        </div>
+        </button>
       </section>
 
       {/* EXTERNAL RESOURCES */}
@@ -152,30 +140,34 @@ export const Home: FC = () => {
           Resources
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <button
-            onClick={handleStorybookClick}
-            className="flex items-center gap-3 p-4 bg-background rounded border border-border hover:border-foreground transition-colors text-left"
+          <a
+            href="https://cambridgemonorail.github.io/TheSignAge/storybook/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 p-4 bg-background rounded border border-border hover:border-foreground transition-colors"
           >
-            <ExternalLink className="w-5 h-5 text-muted-foreground" />
+            <ExternalLink className="w-5 h-5 text-muted-foreground" aria-hidden="true" />
             <div>
               <div className="font-medium text-foreground">Storybook</div>
               <div className="text-sm text-muted-foreground">
                 Interactive component documentation
               </div>
             </div>
-          </button>
-          <button
-            onClick={handleGitHubClick}
-            className="flex items-center gap-3 p-4 bg-background rounded border border-border hover:border-foreground transition-colors text-left"
+          </a>
+          <a
+            href="https://github.com/CambridgeMonorail/TheSignAge"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 p-4 bg-background rounded border border-border hover:border-foreground transition-colors"
           >
-            <Github className="w-5 h-5 text-muted-foreground" />
+            <Github className="w-5 h-5 text-muted-foreground" aria-hidden="true" />
             <div>
               <div className="font-medium text-foreground">GitHub</div>
               <div className="text-sm text-muted-foreground">
                 Source code and contribution guide
               </div>
             </div>
-          </button>
+          </a>
         </div>
       </section>
 
