@@ -227,6 +227,13 @@ These targets are either [inferred automatically](https://nx.dev/concepts/inferr
 
 Contributions are welcome! Please open an issue or submit a pull request for any changes. For detailed guidelines on how to contribute, see [Contributing](./docs/contributing/CONTRIBUTING.md).
 
+### Contributing / Security / Issues
+
+- Contributing guide: [docs/contributing/CONTRIBUTING.md](./docs/contributing/CONTRIBUTING.md)
+- Code of Conduct: [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
+- Security policy: [SECURITY.md](./SECURITY.md)
+- Issues: [github.com/CambridgeMonorail/TheSignAge/issues](https://github.com/CambridgeMonorail/TheSignAge/issues) (bug reports, feature requests, and docs improvements)
+
 ## License
 
 This project is licensed under the MIT License.

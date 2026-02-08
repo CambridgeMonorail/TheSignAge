@@ -1,0 +1,54 @@
+name: Feature request
+description: Propose an improvement or new capability
+title: "feat: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Feature requests are welcome.
+
+        Bonus points for signage-specific context: distance readability, fixed aspect ratios, 24/7 operation.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / Use-case
+      description: What are you trying to achieve? What’s the signage scenario?
+      placeholder: "We need a deterministic KPI grid that…"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What do you think we should build/change?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any other approaches you’ve tried or considered?
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Links, screenshots, sketches, references.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight checks
+      options:
+        - label: I searched existing issues
+          required: true
+        - label: This is not a security report (those belong in SECURITY.md)
+          required: true

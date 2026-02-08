@@ -1,111 +1,96 @@
-# Contributing to RiffRoll
+# Contributing to The Sign Age
 
-Thank you for your interest in contributing to **RiffRoll**! Your contributions help improve the project and support guitarists in their practice journey. This guide provides an overview of the contribution process.
+Thanks for your interest in contributing to **The Sign Age** — a repo that treats digital signage like what it really is: software bolted to a wall.
 
-## Table of Contents
-
-1. [Code of Conduct](#code-of-conduct)
-2. [How to Contribute](#how-to-contribute)
-3. [Setting Up the Project Locally](#setting-up-the-project-locally)
-4. [Guidelines for Issues and Pull Requests](#guidelines-for-issues-and-pull-requests)
-5. [Coding Standards](#coding-standards)
-6. [Commit Message Guidelines](#commit-message-guidelines)
-
----
+Whether you’re fixing a typo, tightening a layout, or adding a signage primitive, we appreciate it. (The screens won’t judge your code. But `pnpm verify` might.)
 
 ## Code of Conduct
 
-Please read and adhere to our [Code of Conduct](CODE_OF_CONDUCT.md). We strive to create a welcoming environment where everyone feels respected and valued.
+Be kind, be constructive, and assume good intent.
 
-## How to Contribute
+Please read and follow our [Code of Conduct](../../CODE_OF_CONDUCT.md).
 
-You can contribute in several ways:
+## Getting Oriented
 
-- **Report bugs** by opening an [issue](https://github.com/CambridgeMonorail/RiffRoll/issues).
-- **Request new features** by starting a discussion on GitHub.
-- **Submit pull requests** for bug fixes, enhancements, or documentation updates.
+- Docs index: [docs/README.md](../README.md)
+- Component library: [libs/shadcnui-signage/README.md](../../libs/shadcnui-signage/README.md)
+- Open issues: [github.com/CambridgeMonorail/TheSignAge/issues](https://github.com/CambridgeMonorail/TheSignAge/issues)
 
-## Setting Up the Project Locally
+## Issues
 
-To set up **RiffRoll** locally:
+If you’re opening an issue:
 
-1. **Fork the repository** on GitHub and clone it:
+- Search first to avoid duplicates
+- For bugs: include clear repro steps + expected vs actual behavior
+- For features: include the signage use-case and constraints (1080p/4K, distance readability, always-on)
+
+## Pull Requests
+
+- Work in a fork and open a PR (direct pushes to `main` should be blocked by branch protection)
+- Keep PRs focused and reviewable
+- Link related issues (e.g. `Closes #123`)
+- Run verification before opening the PR: `pnpm verify`
+- Include evidence for UI changes (screenshots/recording)
+
+## Local Setup
+
+1. Fork the repo and clone your fork:
 
    ```bash
-   git clone https://github.com/CambridgeMonorail/RiffRoll/riffroll.git
-   cd riffroll
-    ```
-
-Install dependencies with pnpm:
-
-   ```bash
-Copy code
-pnpm install
+   git clone https://github.com/YOUR_USERNAME/TheSignAge.git
+   cd TheSignAge
    ```
 
-Start the development server:
+2. Install dependencies:
 
    ```bash
-Copy code
-pnpm nx serve riffroll-app
+   pnpm install
    ```
 
-Ensure everything is working by running the test suite:
+3. Run the demo client:
 
    ```bash
-Copy code
-pnpm nx test
+   pnpm serve:client
    ```
 
-This will allow you to develop and test changes locally before submitting a pull request.
+4. Run Storybook:
 
-## Guidelines for Issues and Pull Requests
+   ```bash
+   pnpm serve:storybook
+   ```
 
-### Issues
+5. Verify everything:
 
-- **Search existing issues** to avoid duplicates.
-- When reporting a bug, include **clear steps to reproduce it**, along with your **environment details**.
-- Feature requests should include a **use case** and, if possible, **examples of how it would benefit users**.
+   ```bash
+   pnpm verify
+   ```
 
-### Pull Requests
+## Coding Conventions
 
-- **Work on a forked repository** and create a **new branch** for each feature or bug fix (e.g., `feature/fretboard-animation` or `fix/tempo-slider`).
-- Provide a **clear title and description** for the PR, describing the purpose and the changes.
-- **Reference related issues** in the description (e.g., `Closes #12`).
-- Ensure all **tests pass** by running `pnpm nx test`.
-- **Tag maintainers or reviewers** if you need help or clarification on your PR.
+- TypeScript strict mode (avoid `any`; prefer `unknown` + type guards)
+- Functional React components only
+- Accessibility baseline: keyboard support, semantic HTML, appropriate ARIA
+- Tests required for new features and bug fixes
 
-## Coding Standards
+Canonical references:
 
-To maintain code quality and readability, please follow these guidelines:
+- [.github/copilot-instructions.md](../../.github/copilot-instructions.md)
+- [AGENTS.md](../../AGENTS.md)
 
-- **Code Formatting**: Run `pnpm format` before submitting to ensure consistent formatting.
-- **Linting**: Fix any lint errors by running `pnpm lint`.
-- **Folder Structure**: Follow the established directory structure in the `libs` and `apps` folders.
-- **Documentation**: Document new components and functions with comments, especially if they add new functionality to the app.
+## Commit Messages
 
-## Commit Message Guidelines
+We use Conventional Commits:
 
-We follow the Conventional Commits specification for commit messages. This format allows easy tracking of changes and helps with versioning.
-
-Structure:
-
-   ```plaintext
-Copy code
+```text
 <type>(<scope>): <description>
-   ```
+```
 
 Examples:
 
-feat(fretboard): add scrolling animation for fretboard
-fix(metronome): correct timing issue at high BPM
-Types include:
+```text
+feat(shadcnui-signage): add restaurant menu layout
+fix(client): correct screen frame aspect ratio
+docs(guides): clarify signage content workflow
+```
 
-feat: A new feature.
-fix: A bug fix.
-docs: Documentation updates.
-style: Code formatting changes, no code logic change.
-refactor: Code changes that neither fix a bug nor add a feature.
-test: Adding or updating tests.
-chore: Maintenance tasks.
-Thank you for contributing to RiffRoll! Every contribution is valuable and helps make the app better for everyone. Happy coding!
+Thanks again — every improvement helps make signage less “PowerPoint in disguise” and more “reliable system”.

@@ -1,0 +1,75 @@
+name: Bug report
+description: Something isn’t behaving as expected
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this.
+
+        If you can include a repro, you’ll make `pnpm verify` very happy.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the issue and what you expected to happen instead.
+      placeholder: "When I render ScreenFrame at 4K…"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Provide minimal steps so we can reproduce reliably.
+      placeholder: |
+        1. Go to …
+        2. Click …
+        3. Observe …
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Screenshots, recordings, console logs, stack traces.
+    validations:
+      required: false
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Node version, pnpm version, browser (if applicable).
+      placeholder: "Windows 11, Node 20.x, pnpm 10.x, Chrome 121"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: affected-area
+    attributes:
+      label: Affected area
+      options:
+        - apps/client (demo site)
+        - libs/shadcnui-signage (signage components)
+        - libs/shadcnui / shadcnui-blocks
+        - tooling / CI
+        - docs
+        - not sure
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight checks
+      options:
+        - label: I searched existing issues
+          required: true
+        - label: I included repro steps
+          required: true
+        - label: I’m happy for maintainers to edit this issue for clarity
+          required: false

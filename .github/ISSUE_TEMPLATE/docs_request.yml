@@ -1,0 +1,37 @@
+name: Documentation request
+description: Suggest an improvement to docs or examples
+title: "docs: "
+labels: [documentation]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What should be improved?
+      description: Tell us what’s missing/confusing or what you’d like to see.
+    validations:
+      required: true
+
+  - type: textarea
+    id: where
+    attributes:
+      label: Where is it?
+      description: Link to the doc(s) or section(s), if known.
+      placeholder: "docs/guides/creating-signage-content.md"
+    validations:
+      required: false
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested wording or outline
+      description: Optional, but very helpful.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight checks
+      options:
+        - label: I searched existing issues
+          required: true
