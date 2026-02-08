@@ -2,15 +2,6 @@
 
 Digital signage as software. Nx + pnpm monorepo using React 19, Tailwind v4, shadcn/ui, and Vite to build reusable signage-oriented UI primitives, layouts, and blocks.
 
-## Project Purpose
-
-This repository serves as:
-
-- **Working notebook** - Practical experiments and prototypes for signage software
-- **Component library** - Reusable building blocks for signage UIs (deterministic layouts, distance readability)
-- **Tooling reference** - Modern frontend tooling patterns applied to always-on/offline constraints
-- **Living documentation** - Notes about trade-offs, constraints, and failure cases
-
 ## Global TypeScript Conventions
 
 - Use strict TypeScript with no `any` (use `unknown` with type guards)
@@ -99,45 +90,8 @@ Currently available:
 - UI and accessibility patterns (`ui-and-accessibility.instructions.md`)
 - Style guide compliance for demo website (`style-guide-compliance.instructions.md`)
 
-## Contributing Workflow (GitHub)
-
-When contributing to this repository, follow this workflow (and guide others to do the same):
-
-1. **Start with an issue**
-  - Use the issue templates in `.github/ISSUE_TEMPLATE/`.
-  - Bugs should include repro steps + evidence; feature requests should include signage context (1080p/4K, distance readability, always-on).
-  - For vulnerabilities: do **not** open a public issue; follow `SECURITY.md`.
-
-2. **Create a branch (no direct pushes to `main`)**
-  - `main` should be protected; changes land via pull requests.
-  - Use a clear branch name like `feat/<topic>` or `fix/<topic>`.
-
-3. **Implement with repo conventions**
-  - Strict TypeScript; avoid `any`.
-  - Prefer small, focused diffs; avoid broad refactors unless requested.
-  - Keep apps → libs dependency direction (libs never import from apps).
-  - Accessibility is a baseline requirement.
-
-4. **Tests + verification are required**
-  - New features and bug fixes must include tests (Vitest + Testing Library; Playwright for critical flows in `apps/client`).
-  - Run `pnpm verify` before opening the PR.
-  - Use Nx affected scripts when available: `pnpm run lint:affected`, `pnpm run type-check:affected`, `pnpm run test:affected`, `pnpm run build:affected`.
-
-5. **Open a PR using the template**
-  - Follow `.github/PULL_REQUEST_TEMPLATE.md`.
-  - Link related issues (e.g. `Closes #123`).
-  - Include UI evidence (screenshots/recording) for visual changes.
-
-6. **Community standards**
-  - Be kind and constructive; follow `CODE_OF_CONDUCT.md`.
-  - If something is unclear, ask rather than guessing (screens are patient; reviewers less so).
-
 ## Design Philosophy
 
-The demo website **chrome/shell** (`apps/client` navigation, layouts, UI) follows `docs/design/STYLE_GUIDE.md`:
+The demo website **chrome/shell** (navigation, layouts, UI in `apps/client`) follows `docs/design/STYLE_GUIDE.md`: Premium B2B SaaS aesthetic - calm, confident internal tooling, not marketing-led. If it feels eager or looks like a landing page, it's wrong.
 
-- **Aesthetic**: Premium B2B SaaS (calm, confident, not marketing-led)
-- **Reference**: Internal tooling from a company that takes engineering seriously
-- **Rule**: If it feels eager or looks like a landing page, it's wrong
-
-**Note**: Signage content being demonstrated (signage previews, showcase areas) follows signage design rules, not the website style guide.
+**Signage content** being demonstrated follows signage design rules (10-foot rule, high visibility), not the website style guide.

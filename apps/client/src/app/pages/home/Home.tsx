@@ -26,7 +26,11 @@ export const Home: FC = () => {
           technologies.
         </p>
         <div className="flex gap-4 justify-center">
-          <Button onClick={() => navigate('/getting-started')} size="lg">
+          <Button
+            onClick={() => navigate('/getting-started')}
+            variant="secondary"
+            size="lg"
+          >
             Get Started
           </Button>
           <Button

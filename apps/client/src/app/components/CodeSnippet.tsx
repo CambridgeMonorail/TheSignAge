@@ -73,15 +73,15 @@ export const CodeSnippet: FC<CodeSnippetProps> = ({
       data-testid={dataTestId}
     >
       {/* Header with filename and copy button */}
-      <div className="flex items-center justify-between bg-slate-900 px-4 py-2 border-b border-slate-700">
+      <div className="flex items-center justify-between bg-muted px-4 py-2 border-b border-border">
         {filename && (
-          <span className="text-sm font-mono text-slate-400">{filename}</span>
+          <span className="text-sm font-mono text-muted-foreground">{filename}</span>
         )}
         <Button
           variant="ghost"
           size="sm"
           onClick={handleCopy}
-          className="ml-auto text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+          className="ml-auto text-muted-foreground hover:text-foreground"
           data-testid="copy-button"
         >
           {copied ? (
@@ -99,10 +99,10 @@ export const CodeSnippet: FC<CodeSnippetProps> = ({
       </div>
 
       {/* Code content */}
-      <div className="bg-slate-950 overflow-x-auto">
+      <div className="bg-card overflow-x-auto">
         <pre
           className={cn(
-            'p-4 text-sm font-mono text-slate-100',
+            'p-4 text-sm font-mono text-foreground',
             showLineNumbers && 'pl-12',
           )}
         >
@@ -110,7 +110,7 @@ export const CodeSnippet: FC<CodeSnippetProps> = ({
             <code className="relative">
               {lines.map((line, index) => (
                 <div key={index} className="table-row">
-                  <span className="table-cell text-right pr-4 text-slate-600 select-none w-8">
+                  <span className="table-cell text-right pr-4 text-muted-foreground select-none w-8">
                     {index + 1}
                   </span>
                   <span className="table-cell">{line}</span>

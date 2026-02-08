@@ -104,7 +104,7 @@ export function StatusBoardPage() {
           <h1 className="text-4xl font-bold text-primary">Status Board</h1>
         </div>
         <Button
-          variant="default"
+          variant="secondary"
           onClick={() =>
             (window.location.href = navigationConfig.paths.gallery)
           }

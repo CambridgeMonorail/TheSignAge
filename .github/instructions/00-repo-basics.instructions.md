@@ -25,43 +25,6 @@ applyTo: 'apps/**/*.{ts,tsx,js,jsx}, libs/**/*.{ts,tsx,js,jsx}'
 - Named exports only - no default exports
 - Story files: `ComponentName.stories.tsx` colocated
 
-## Workspace Settings Security
-
-### VS Code Settings (`.vscode/settings.json`)
-
-The repository includes shared VS Code settings for all contributors. When modifying these settings, consider security implications:
-
-**Terminal Command Auto-Approval:**
-
-The `chat.tools.terminal.autoApprove` setting controls which commands Copilot Chat can run automatically without user confirmation. Use this feature judiciously:
-
-- ✅ **Safe to auto-approve**: Simple package managers with limited scope
-  - `pnpm` - Package installation and scripts
-  - `npm` - Package operations
-- ❌ **Do NOT auto-approve**: Commands that execute arbitrary workspace code
-  - `npx nx` - Can run any task defined in workspace
-  - `node` - Direct code execution
-  - Custom scripts - May contain arbitrary commands
-
-**Rationale**: Contributors may not expect commands to run automatically. Auto-approving commands that execute workspace code creates a security risk if malicious code is introduced.
-
-**Current approved commands:**
-
-```json
-{
-  "chat.tools.terminal.autoApprove": {
-    "pnpm": true
-  }
-}
-```
-
-**When adding new auto-approved commands:**
-
-1. ✅ Command must have limited, predictable scope
-2. ✅ Command must not execute arbitrary workspace code
-3. ✅ Command must not access sensitive data or credentials
-4. ✅ Consider if the convenience outweighs the security risk
-
 ## React and JSX Best Practices
 
 ### Component Structure
@@ -95,6 +58,46 @@ The `chat.tools.terminal.autoApprove` setting controls which commands Copilot Ch
 - Use `useMemo` for expensive computations only
 - Consider custom hooks for reusable stateful logic
 
+### Event Handler Patterns
+
+**Extract handlers for reused logic or external calls:**
+
+✅ **Good - Named handlers for external calls**:
+```typescript
+export function MyPage() {
+  const handleGitHubClick = () => {
+    window.open('https://github.com/...', '_blank', 'noopener,noreferrer');
+  };
+
+  const handleReadmeClick = () => {
+    window.open('https://github.com/.../README.md', '_blank', 'noopener,noreferrer');
+  };
+
+  return (
+    <>
+      <Button onClick={handleGitHubClick}>GitHub</Button>
+      <Button onClick={handleReadmeClick}>Docs</Button>
+    </>
+  );
+}
+```
+
+❌ **Avoid - Duplicated inline handlers**:
+```typescript
+{/* Repeats window.open boilerplate, harder to maintain */}
+<Button onClick={() => window.open('url1', '_blank', 'noopener,noreferrer')}>
+  Link 1
+</Button>
+<Button onClick={() => window.open('url2', '_blank', 'noopener,noreferrer')}>
+  Link 2
+</Button>
+```
+
+**When inline handlers are acceptable:**
+- Simple navigation: `onClick={() => navigate('/path')}`
+- State updates: `onClick={() => setOpen(true)}`
+- Callbacks with arguments: `onClick={() => handleSelect(item.id)}`
+
 **useCallback Usage:**
 
 ```typescript
@@ -109,56 +112,12 @@ const handleClick = useCallback(() => {
 }, [data]);
 ```
 
-**Exhaustive Dependencies Pattern:**
+**Hook Dependencies:**
 
-When using `useMemo`, `useCallback`, or `useEffect` with dependencies:
-
-- ✅ **Good**: Destructure object properties first, reference primitives in dependency array
-
-```typescript
-function MyComponent({ options }: Props) {
-  const { alignTo, enabled, intervalMs, now } = options;
-
-  const resolved = useMemo(
-    () => resolveOptions({ alignTo, enabled, intervalMs, now }),
-    [alignTo, enabled, intervalMs, now], // Primitive dependencies
-  );
-}
-```
-
-- ❌ **Bad**: Reference object properties in callback but list them individually in deps
-
-```typescript
-function MyComponent({ options }: Props) {
-  const resolved = useMemo(
-    () => resolveOptions(options), // References full object
-    [options.alignTo, options.enabled], // Lists individual properties - stale closure risk!
-  );
-}
-```
-
-**Why?** The callback closes over the full object, but dependency array tracks individual properties. If the object reference changes without property changes, the memo won't update but the closure has stale data.
-
-**When NOT to Use useMemo:**
-
-Avoid `useMemo` when:
-
-- The computation is simple/cheap (array operations, basic math, property access)
-- The component already rerenders frequently due to state/props changes
-- You're only using it to force re-evaluation (use the state change directly instead)
-
-```typescript
-// ❌ Bad: useMemo with unused dependency to force re-evaluation
-const tick = useTicker({ intervalMs: 60_000 });
-const value = useMemo(
-  () => computeValue(data),
-  [data, tick], // tick is unused but forces re-evaluation
-);
-
-// ✅ Good: Compute directly during render (useTicker already causes rerenders)
-useTicker({ intervalMs: 60_000 }); // Don't need the return value
-const value = computeValue(data); // Recomputes on every render (which is fine)
-```
+- Destructure object props first, list primitives in dependency array
+- Don't use `useMemo` to force re-evaluation (let state changes trigger renders)
+- Use `useMemo` only for expensive computations
+- Follow ESLint `exhaustive-deps` warnings
 
 ## Component Organization in shadcnui
 
@@ -171,136 +130,49 @@ Components are organized by category in subdirectories:
 - `navigation/` - Navigation elements (breadcrumb, command, dropdown-menu, tabs, etc.)
 - `utilities/` - Helper components (form, label, sonner)
 
-## Component Registry Maintenance
+## Do NOT
 
-### Registry Purpose
+- Don't copy registry entries from similar components without verifying dependencies
+- Don't document APIs that aren't exported in `index.ts`
+- Don't hardcode version numbers or component counts in marketing copy
+- Don't use default exports (use named exports only)
+- Don't commit terminal output files (`*-output.txt`, `*-complete.txt`)
 
-The shadcn-compatible registry (`apps/client/public/registry/registry.json`) enables external users to install signage components via `npx shadcn add`. Each registry entry must accurately describe component dependencies and file paths.
+## Component Registry Requirements
 
-### Registry Entry Requirements
+When updating `apps/client/public/registry/registry.json`:
 
-When adding or updating registry entries:
+- List only packages the component actually imports (check `import` statements)
+- Include all transitive files (if component uses `useTicker.ts`, include `time.types.ts` too)
+- Exclude React and workspace packages (`@tsa/*`)
+- Use `"type": "registry:component"` for components, `"registry:lib"` for utilities
+- Descriptions must match actual behavior (read the code, don't copy from similar components)
+- Installation format: `npx shadcn@latest add https://cambridgemonorail.github.io/TheSignAge/registry/registry.json component-name`
 
-- **Verify dependencies**: Only list packages the component actually imports
-  - ❌ Bad: Listing `date-fns` when component uses `Intl.DateTimeFormat`
-  - ✅ Good: Empty `dependencies: []` when using only React and native APIs
-  - ✅ Good: `dependencies: ["lucide-react"]` when importing icons
-- **Check imports**: Read the component's actual `import` statements
-- **Include transitive files**: List all files copied to user's project (hooks, utilities, types)
-- **Use correct GitHub paths**: Point to `main` branch for stable references
-- **Set proper types**: Use `"type": "registry:component"` for components, `"registry:lib"` for utilities
-- **Verify descriptions match behavior**: Read the component implementation to ensure the `description` field accurately describes what the component actually does
-  - ❌ Bad: "Shows elapsed message when time has passed" when component clamps at zero
-  - ✅ Good: "When the target is reached, the timer stops at zero"
-  - Don't copy descriptions from similar components - verify actual behavior
+### Library Documentation
 
-### Registry Validation Checklist
+When updating library README files (`libs/*/README.md`):
 
-Before committing registry changes:
+- Only document APIs exported in `index.ts`
+- Verify component props and types match actual implementation
+- Don't document internal implementation details
+- Don't copy feature lists from similar components without verification
 
-1. ✅ Open each component file listed in `files[]`
-2. ✅ Review all `import` statements at the top
-3. ✅ Extract package names from third-party imports (e.g., `import { format } from 'date-fns'` → add `"date-fns"`)
-4. ✅ Exclude internal workspace imports (e.g., `@tsa/shadcnui`)
-5. ✅ Exclude React (assumed to be available)
-6. ✅ **Check transitive imports** ⚠️ **CRITICAL**:
-   - For each included hook/utility file, verify it doesn't import missing types/files
-   - Example: `useTicker.ts` imports `time.types.ts` → **must include both**
-   - Trace through **ALL** relative imports (`../`, `./`) - missing files break installation
-   - This is the most common registry mistake
-7. ✅ **Verify description accuracy**: Read the component logic to confirm the description matches actual behavior (not aspirational or copied from similar components)
-8. ✅ Test install locally if possible: `npx shadcn add <local-registry-url>/<component-name>`
+### Marketing Copy
 
-### Common Registry Mistakes
+When updating marketing pages, landing copy, or `ROADMAP.md`:
 
-- Copying dependency list from similar component without verification
-- Listing date/time libraries when using native `Intl` APIs
-- Forgetting to include supporting files (hooks, types, utilities)
-- **Missing transitive type dependencies** (e.g., including `useTicker.ts` without `time.types.ts`)
-- Using wrong file type (`registry:component` vs. `registry:lib`)
-- **Inaccurate descriptions** that don't match actual component behavior (claiming features that aren't implemented)
+- Don't hardcode component counts (they become stale)
+- Verify example component names exist in `index.ts`
+- Use descriptive qualifiers: "comprehensive set of components", "see README for current list"
 
-### Transitive Dependency Pattern
+### Component Documentation
 
-When a hook or utility is used by multiple components, its type dependencies should be included once in each component's registry entry:
+When updating component doc pages (`apps/client/src/app/pages/components/**/*Doc.tsx`):
 
-**Example**: `useTicker` hook imports `NowProvider` from `time.types.ts`
-
-```json
-{
-  "files": [
-    { "path": ".../Component.tsx", "type": "registry:component" },
-    { "path": ".../useTicker.ts", "type": "registry:lib" },
-    { "path": ".../time.types.ts", "type": "registry:lib" }
-  ]
-}
-```
-
-**Why not a shared dependency?** Each component installation is independent - users might install only one component, so it needs all its transitive dependencies.
-
-### Component Installation Instructions
-
-When documenting how to install components (in Getting Started, component docs, etc.):
-
-**Correct pattern:**
-
-```bash
-npx shadcn@latest add https://cambridgemonorail.github.io/TheSignAge/registry/registry.json component-name
-```
-
-**Key points:**
-
-- Always include the full registry URL with `/registry.json`
-- Component name comes after the registry URL (not in the URL path)
-- Multiple components: list them space-separated after the registry URL
-- Use consistent format across all documentation pages
-
-**Examples:**
-
-```bash
-# Single component
-npx shadcn@latest add https://cambridgemonorail.github.io/TheSignAge/registry/registry.json clock
-
-# Multiple components
-npx shadcn@latest add https://cambridgemonorail.github.io/TheSignAge/registry/registry.json metric-card event-card schedule-gate
-```
-
-**Incorrect patterns to avoid:**
-
-- ❌ Two-step process (add registry, then component name alone)
-- ❌ Individual component JSON URLs (`/registry/component-name.json`)
-- ❌ Registry URL without `/registry.json` suffix
-- ❌ Multi-line backslash continuation for component lists
-
-### Component Documentation Pages
-
-When creating or updating component documentation pages (`apps/client/src/app/pages/components/**/*Doc.tsx`):
-
-**"Built On" Section Accuracy:**
-
-- Always verify dependencies and APIs by reading the actual component source code
-- Match "Built On" text to actual imports and usage in the component
-- Common patterns:
-  - Native APIs: "Built on the native Intl.DateTimeFormat API"
-  - Third-party libraries: "Built with date-fns-tz for timezone handling"
-  - shadcn components: "Built on shadcn Button, Card, and Dialog"
-  - No dependencies: "Pure React component with no external dependencies"
-
-**Verification checklist before committing doc pages:**
-
-1. ✅ Open the component source file
-2. ✅ Check `import` statements at the top
-3. ✅ Verify "Built On" text matches actual dependencies
-4. ✅ Confirm "Installation" command matches repo pattern
-5. ✅ Test code examples actually work with the component API
-6. ✅ Ensure Storybook and GitHub links are correct
-
-**Common documentation mistakes:**
-
-- Claiming date-fns dependency when component uses native `Intl` APIs
-- Copying "Built On" text from similar component without verification
-- Outdated installation commands that don't match current registry pattern
-- Code examples that don't match actual component props/API
+- Match "Built On" text to actual imports in component source
+- Verify all documented exports exist in `index.ts`
+- Don't document internal hooks that aren't exported
 
 ## What Makes a Good PR
 

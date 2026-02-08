@@ -251,31 +251,23 @@ const ColorPalettePage: React.FC = () => {
             </div>
           </div>
           <div className="mt-4 flex gap-2">
-            <button
-              onClick={() =>
-                window.open(
-                  'https://github.com/CambridgeMonorail/TheSignAge/blob/main/libs/common-tailwind/src/shadcn-theme.css',
-                  '_blank',
-                  'noopener,noreferrer',
-                )
-              }
+            <a
+              href="https://github.com/CambridgeMonorail/TheSignAge/blob/main/libs/common-tailwind/src/shadcn-theme.css"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm text-primary hover:underline"
             >
               View Theme Source →
-            </button>
+            </a>
             <span className="text-muted-foreground">|</span>
-            <button
-              onClick={() =>
-                window.open(
-                  'https://ui.shadcn.com/docs/theming',
-                  '_blank',
-                  'noopener,noreferrer',
-                )
-              }
+            <a
+              href="https://ui.shadcn.com/docs/theming"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm text-primary hover:underline"
             >
               shadcn/ui Theming Guide →
-            </button>
+            </a>
           </div>
         </CardContent>
       </Card>

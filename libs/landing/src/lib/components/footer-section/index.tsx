@@ -49,20 +49,30 @@ export const Footer: FC<FooterProps> = ({
   backgroundColor = 'bg-primary',
   textColor = 'text-primary-foreground'
 }) => {
+  // Helper to determine if URL is external
+  const isExternalUrl = (url: string) => {
+    return url.startsWith('http://') || url.startsWith('https://');
+  };
+
   return (
     <footer className={`${backgroundColor} ${textColor} text-center py-8 w-full px-4 sm:px-6 lg:px-8 ${className}`}>
       <nav className="flex flex-wrap justify-center space-x-4 mb-4" aria-label="Footer navigation">
-        {navigationLinks.map((link, index) => (
-          <a
-            key={index}
-            href={link.url}
-            className="hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {link.text}
-          </a>
-        ))}
+        {navigationLinks.map((link, index) => {
+          const isExternal = isExternalUrl(link.url);
+          return (
+            <a
+              key={index}
+              href={link.url}
+              className="hover:underline"
+              {...(isExternal && {
+                target: '_blank',
+                rel: 'noopener noreferrer'
+              })}
+            >
+              {link.text}
+            </a>
+          );
+        })}
       </nav>
       <div className="flex flex-wrap justify-center space-x-4">
         {socialMediaIcons.map((iconData, index) => (

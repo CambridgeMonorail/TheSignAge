@@ -1,7 +1,7 @@
 ---
 name: 'Style Guide Compliance'
 description: 'Visual style and interaction standards for The Sign Age demo website'
-applyTo: 'apps/client/src/(layouts|components|shell)/**/*.{ts,tsx}'
+applyTo: 'apps/client/src/**/*.{ts,tsx}'
 ---
 
 # Style Guide Compliance
@@ -82,6 +82,34 @@ Use these values ONLY in theme configuration:
 
 **Rule**: Hex values belong only in the theme layer. Premium SaaS feels consistent because everything comes from the same token system.
 
+### Code Blocks and Code Samples
+
+Code blocks must use theme tokens, not hardcoded colors.
+
+✅ **Correct code block styling**:
+```tsx
+<div className="bg-muted text-foreground p-4 rounded font-mono text-sm">
+  <pre>{code}</pre>
+</div>
+```
+
+Or for more complex code displays:
+```tsx
+<div className="bg-card text-foreground p-4 rounded font-mono text-sm">
+  <pre>{code}</pre>
+</div>
+```
+
+❌ **Avoid hardcoded colors**:
+```tsx
+// Don't do this
+<div className="bg-slate-900 text-slate-100 p-4 rounded font-mono text-sm">
+  <pre>{code}</pre>
+</div>
+```
+
+**Rationale**: Code blocks are part of the UI chrome and must respect theme tokens for consistent dark mode support and potential theme variants.
+
 ## Typography
 
 ### Typeface
@@ -145,11 +173,45 @@ White space is part of the interface.
 
 Buttons should feel like precise controls.
 
+**Always set variant explicitly** - Never rely on default variant:
+```tsx
+{/* ✅ Correct - explicit variant */}
+<Button variant="secondary">Action</Button>
+
+{/* ❌ Avoid - implicit default variant */}
+<Button>Action</Button>
+```
+
 **Default to**:
 - `variant="secondary"` (standard actions)
 - `variant="ghost"` (low-priority actions)
 
 Use `variant="default"` sparingly and deliberately.
+
+**When to use variant="default":**
+- Critical actions with significant consequences (e.g., "Delete Account", "Confirm Payment")
+- Primary CTAs in onboarding flows (rarely)
+- Use only when one action is clearly more important than all others
+
+**Common navigation actions use secondary:**
+- "View Documentation", "Open Storybook", "Browse Components"
+- "View Gallery", "View Source Code"
+- Navigation between sections of the site
+
+✅ **Correct**:
+```tsx
+<Button onClick={handleNavigate} variant="secondary">
+  Browse Components
+</Button>
+```
+
+❌ **Avoid**:
+```tsx
+{/* Don't use default for standard navigation */}
+<Button onClick={handleNavigate} variant="default">
+  Browse Components
+</Button>
+```
 
 **Rules**:
 - No gradients
@@ -274,6 +336,15 @@ During PR review, ask:
 4. Would this still feel right in five years?
 
 **If unsure, remove the flourish.**
+
+## Do NOT
+
+- Don't use hard-coded hex colors in components (use theme tokens only)
+- Don't use hard-coded slate colors (`bg-slate-900`, `text-slate-100`)
+- Don't add motion or animation for decoration (only for functional state changes)
+- Don't use Bold (700) font weight unless layout genuinely lacks presence
+- Don't use gradient effects or glow on buttons
+- Don't rely on default button variant (always specify explicitly)
 
 ## Final Rule
 
