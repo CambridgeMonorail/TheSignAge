@@ -275,50 +275,7 @@ showing 3 categories with 4 items each, 1080p landscape`}
         </div>
       </section>
 
-      {/* COMPONENT LIBRARIES */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-medium text-foreground mb-4">
-          Two Component Libraries
-        </h2>
 
-        <div className="space-y-4">
-          <div className="bg-card p-6 rounded border border-border">
-            <h3 className="text-lg font-medium text-foreground mb-2">
-              @tsa/shadcnui
-            </h3>
-            <p className="text-muted-foreground mb-3">
-              Core shadcn/ui components organized by category. Use these for
-              standard web UI needs—buttons, forms, navigation, data display.
-            </p>
-            <div className="bg-slate-900 text-slate-100 p-3 rounded font-mono text-sm">
-              <pre>
-                {`import { Button, Card, Input } from '@tsa/shadcnui';`}
-              </pre>
-            </div>
-          </div>
-
-          <div className="bg-card p-6 rounded border border-border">
-            <h3 className="text-lg font-medium text-foreground mb-2">
-              @tsa/shadcnui-signage
-            </h3>
-            <p className="text-muted-foreground mb-3">
-              Signage-specific components for distance-readable displays,
-              fixed-aspect layouts, and 24/7 operation on BrightSign devices.
-            </p>
-            <div className="bg-slate-900 text-slate-100 p-3 rounded font-mono text-sm">
-              <pre>
-                {`import {
-  SignageContainer,
-  SignageHeader,
-  MetricCard,
-  EventCard,
-  AnnouncementCard
-} from '@tsa/shadcnui-signage';`}
-              </pre>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* KEY CONCEPTS */}
       <section className="mb-12">
@@ -367,40 +324,40 @@ showing 3 categories with 4 items each, 1080p landscape`}
           <div className="flex items-start gap-3">
             <span className="text-foreground font-medium">1.</span>
             <p className="text-muted-foreground">
-              Explore the{' '}
+              Browse the{' '}
+              <button
+                onClick={() => navigate('/library')}
+                className="text-foreground hover:underline"
+              >
+                Component Library
+              </button>{' '}
+              to explore available signage components
+            </p>
+          </div>
+          <div className="flex items-start gap-3">
+            <span className="text-foreground font-medium">2.</span>
+            <p className="text-muted-foreground">
+              View the{' '}
               <button
                 onClick={() => navigate('/gallery')}
                 className="text-foreground hover:underline"
               >
                 Gallery
               </button>{' '}
-              to see full-screen examples of signage layouts
+              to see full-screen signage examples
             </p>
           </div>
           <div className="flex items-start gap-3">
-            <span className="text-foreground font-medium">2.</span>
+            <span className="text-foreground font-medium">3.</span>
             <p className="text-muted-foreground">
-              Browse{' '}
+              Review{' '}
               <button
                 onClick={handleStorybookClick}
                 className="text-foreground hover:underline"
               >
                 Storybook
               </button>{' '}
-              for complete component documentation and props
-            </p>
-          </div>
-          <div className="flex items-start gap-3">
-            <span className="text-foreground font-medium">3.</span>
-            <p className="text-muted-foreground">
-              Check the{' '}
-              <button
-                onClick={handleGitHubClick}
-                className="text-foreground hover:underline"
-              >
-                GitHub repository
-              </button>{' '}
-              for source code, examples, and contribution guidelines
+              for detailed props and API documentation
             </p>
           </div>
         </div>
@@ -409,11 +366,11 @@ showing 3 categories with 4 items each, 1080p landscape`}
       {/* CTA */}
       <section className="text-center">
         <div className="space-x-4">
-          <Button onClick={() => navigate('/gallery')} variant="default">
-            View Examples
+          <Button onClick={() => navigate('/library')} variant="default">
+            Browse Components
           </Button>
-          <Button onClick={handleStorybookClick} variant="secondary">
-            Component Docs
+          <Button onClick={() => navigate('/gallery')} variant="secondary">
+            View Gallery
           </Button>
         </div>
       </section>

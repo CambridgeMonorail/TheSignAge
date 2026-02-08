@@ -58,46 +58,29 @@ export function LibraryPage() {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div className="flex flex-col justify-center">
           <h2 className="text-2xl font-medium text-foreground mb-4">
-            Two Libraries
+            Component Inventory
           </h2>
           <div className="mb-6">
             <h3 className="text-lg font-medium text-foreground mb-2">
               @tsa/shadcnui
             </h3>
             <p className="mb-2 leading-relaxed text-muted-foreground">
-              Our copy of shadcn/ui components, organized by category and
-              packaged as a library for reuse across the monorepo. Standard web
-              UI primitives used as building blocks for the demo website and
-              other apps.
+              Our copy of shadcn/ui components, organized by category.
+              Standard web UI primitives — buttons, cards, inputs, navigation,
+              data display. Used as building blocks across the monorepo.
             </p>
-            <div className="bg-slate-900 text-slate-100 p-3 rounded font-mono text-xs mt-3">
-              <pre>
-                {`import { Button, Card, Input } from '@tsa/shadcnui';`}
-              </pre>
-            </div>
           </div>
           <div className="mb-6">
             <h3 className="text-lg font-medium text-foreground mb-2">
               @tsa/shadcnui-signage ⭐
             </h3>
             <p className="mb-2 leading-relaxed text-muted-foreground">
-              Signage-specific components built for distance readability,
-              fixed-aspect layouts, and 24/7 operation on BrightSign devices.
-              <strong className="text-foreground">
-                {' '}
-                Supports shadcn registry protocol for native installation.
-              </strong>
+              <strong className="text-foreground">23 signage components</strong>
+              {' '}built for distance readability, fixed-aspect layouts, and 24/7
+              operation on BrightSign devices. Includes primitives (Clock, Logo,
+              Status), layouts (SignageContainer, Dashboard), and blocks (MetricCard,
+              EventCard, AnnouncementCard).
             </p>
-            <div className="bg-slate-900 text-slate-100 p-3 rounded font-mono text-xs mt-3">
-              <pre>
-                {`import {
-  SignageContainer,
-  SignageHeader,
-  MetricCard,
-  EventCard
-} from '@tsa/shadcnui-signage';`}
-              </pre>
-            </div>
           </div>
           <ul className="list-disc list-inside mb-4 space-y-1 text-muted-foreground">
             <li>Distance-readable typography (10-foot rule)</li>
@@ -264,21 +247,18 @@ npx shadcn@latest add \\
       {/* CTA / FOOTER */}
       <section className="text-center">
         <h3 className="text-xl font-medium text-foreground mb-2">
-          Ready to build signage screens?
+          Explore Components in Detail
         </h3>
         <p className="mb-4 text-muted-foreground">
-          See Getting Started for installation instructions and your first
-          deployment.
+          Storybook provides interactive previews, props documentation, and
+          real-world usage examples for all components.
         </p>
         <div className="flex gap-3 justify-center">
-          <Button
-            onClick={() => (window.location.href = '/getting-started')}
-            variant={'default'}
-          >
-            Get Started
+          <Button onClick={handleStorybookClick} variant={'default'}>
+            Open Storybook
           </Button>
-          <Button onClick={handleStorybookClick} variant={'secondary'}>
-            Browse Components
+          <Button onClick={handleGitHubClick} variant={'secondary'}>
+            View Source Code
           </Button>
         </div>
       </section>
