@@ -62,14 +62,44 @@ export const GettingStartedPage: FC = () => {
           Installation
         </h2>
         <p className="text-muted-foreground mb-4">
-          The Sign Age is currently a monorepo for development and exploration.
-          To use the components:
+          The Sign Age components are part of the{' '}
+          <a
+            href="https://ui.shadcn.com/docs/installation"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground hover:underline"
+          >
+            shadcn/ui ecosystem
+          </a>
+          . Install components using the shadcn CLI with our custom registry:
         </p>
 
         <div className="space-y-4">
           <div>
             <h3 className="text-lg font-medium text-foreground mb-2">
-              Option 1: Clone and Reference Locally
+              Option 1: Using shadcn CLI (Recommended)
+            </h3>
+            <div className="bg-slate-900 text-slate-100 p-4 rounded font-mono text-sm overflow-x-auto">
+              <pre>
+                {`# Add a component from our registry
+npx shadcn@latest add https://cambridgemonorail.github.io/TheSignAge/registry/registry.json
+
+# Example: Add the AutoPagingList behaviour component
+npx shadcn@latest add auto-paging-list
+
+# Or add multiple components at once
+npx shadcn@latest add metric-card event-card schedule-gate`}
+              </pre>
+            </div>
+            <p className="text-muted-foreground mt-2 text-sm">
+              Components will be copied directly into your project with all
+              dependencies resolved.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-medium text-foreground mb-2">
+              Option 2: Clone and Reference Locally
             </h3>
             <div className="bg-slate-900 text-slate-100 p-4 rounded font-mono text-sm overflow-x-auto">
               <pre>
@@ -89,7 +119,7 @@ pnpm build:shadcnui-signage`}
 
           <div>
             <h3 className="text-lg font-medium text-foreground mb-2">
-              Option 2: Copy Components Directly
+              Option 3: Copy Components Directly
             </h3>
             <p className="text-muted-foreground mb-2">
               Browse{' '}
@@ -99,8 +129,8 @@ pnpm build:shadcnui-signage`}
               >
                 libs/shadcnui-signage
               </button>{' '}
-              and copy the components you need into your project. All components
-              are self-contained with minimal dependencies.
+              on GitHub and copy the components you need into your project. All
+              components are self-contained with minimal dependencies.
             </p>
           </div>
         </div>

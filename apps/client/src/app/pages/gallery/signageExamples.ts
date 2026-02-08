@@ -6,6 +6,7 @@ import {
   BarChart3,
   Bell,
   Calendar,
+  Building2,
 } from 'lucide-react';
 
 export type SignageCategory =
@@ -14,7 +15,8 @@ export type SignageCategory =
   | 'dashboard'
   | 'menu'
   | 'announcements'
-  | 'schedule';
+  | 'schedule'
+  | 'lobby';
 
 export type Resolution = '1080p' | '4k' | 'portrait-1080p';
 
@@ -97,5 +99,27 @@ export const signageExamples: SignageExample[] = [
     path: '/signage/event-schedule',
     thumbnailIcon: Calendar,
     category: 'schedule',
+  },
+  {
+    id: 'office-lobby-loop',
+    title: 'Office Lobby Loop',
+    description:
+      'Rotating lobby content showing time, meeting list paging, freshness indicators, and offline fallback boundaries.',
+    aspectRatio: '16:9',
+    resolution: '1080p',
+    path: '/signage/office-lobby-loop',
+    thumbnailIcon: Building2,
+    category: 'lobby',
+  },
+  {
+    id: 'daypart-menu',
+    title: 'Daypart Menu',
+    description:
+      'Timezone-aware daypart switching using ScheduleGate (breakfast / lunch / evening).',
+    aspectRatio: '16:9',
+    resolution: '1080p',
+    path: '/signage/daypart-menu',
+    thumbnailIcon: UtensilsCrossed,
+    category: 'menu',
   },
 ];

@@ -73,32 +73,30 @@ export const CodeSnippet: FC<CodeSnippetProps> = ({
       data-testid={dataTestId}
     >
       {/* Header with filename and copy button */}
-      {(filename || true) && (
-        <div className="flex items-center justify-between bg-slate-900 px-4 py-2 border-b border-slate-700">
-          {filename && (
-            <span className="text-sm font-mono text-slate-400">{filename}</span>
+      <div className="flex items-center justify-between bg-slate-900 px-4 py-2 border-b border-slate-700">
+        {filename && (
+          <span className="text-sm font-mono text-slate-400">{filename}</span>
+        )}
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={handleCopy}
+          className="ml-auto text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+          data-testid="copy-button"
+        >
+          {copied ? (
+            <>
+              <Check className="w-4 h-4 mr-2" />
+              Copied
+            </>
+          ) : (
+            <>
+              <Copy className="w-4 h-4 mr-2" />
+              Copy
+            </>
           )}
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={handleCopy}
-            className="ml-auto text-slate-400 hover:text-slate-200 hover:bg-slate-800"
-            data-testid="copy-button"
-          >
-            {copied ? (
-              <>
-                <Check className="w-4 h-4 mr-2" />
-                Copied
-              </>
-            ) : (
-              <>
-                <Copy className="w-4 h-4 mr-2" />
-                Copy
-              </>
-            )}
-          </Button>
-        </div>
-      )}
+        </Button>
+      </div>
 
       {/* Code content */}
       <div className="bg-slate-950 overflow-x-auto">
