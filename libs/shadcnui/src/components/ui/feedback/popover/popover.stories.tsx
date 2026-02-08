@@ -3,7 +3,7 @@ import { Popover, PopoverTrigger, PopoverContent } from './popover';
 import { Button } from '../../input-controls/button';
 
 const meta: Meta<typeof Popover> = {
-  title: 'Shadcnui/Feedback/Popover',
+  title: '2-Shadcnui/Feedback/Popover',
   component: Popover,
   tags: ['autodocs'],
 };

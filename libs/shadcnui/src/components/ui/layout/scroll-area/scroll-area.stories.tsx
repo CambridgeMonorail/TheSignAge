@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ScrollArea, ScrollBar } from './scroll-area';
 
 const meta: Meta<typeof ScrollArea> = {
-  title: 'Shadcnui/Layout/ScrollArea',
+  title: '2-Shadcnui/Layout/ScrollArea',
   component: ScrollArea,
   tags: ['autodocs'],
   argTypes: {

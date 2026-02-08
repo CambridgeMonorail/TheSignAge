@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Toggle } from './toggle';
 
 const meta: Meta<typeof Toggle> = {
-  title: 'Shadcnui/Input/Toggle',
+  title: '2-Shadcnui/Input/Toggle',
   component: Toggle,
   tags: ['autodocs'],
   argTypes: {

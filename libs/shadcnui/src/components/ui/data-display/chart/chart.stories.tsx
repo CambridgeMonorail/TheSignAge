@@ -8,7 +8,7 @@ import {
 } from './chart';
 
 const meta: Meta<typeof ChartContainer> = {
-  title: 'Shadcnui/Data Display/Chart',
+  title: '2-Shadcnui/Data Display/Chart',
   component: ChartContainer,
   tags: ['autodocs'],
   argTypes: {

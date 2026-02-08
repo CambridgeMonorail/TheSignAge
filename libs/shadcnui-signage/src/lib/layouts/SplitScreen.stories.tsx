@@ -3,7 +3,7 @@ import { SplitScreen } from './SplitScreen';
 import { ScreenFrame } from '../primitives/ScreenFrame';
 
 const meta: Meta<typeof SplitScreen> = {
-  title: 'Signage/Layouts/SplitScreen',
+  title: '1-Signage/Layouts/SplitScreen',
   component: SplitScreen,
   tags: ['autodocs'],
   argTypes: {
@@ -267,7 +267,9 @@ export const RealisticExample: Story = {
         <main className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <div className="text-9xl font-bold text-blue-600">2:00 PM</div>
-            <div className="mt-4 text-3xl text-slate-700">Conference Room A</div>
+            <div className="mt-4 text-3xl text-slate-700">
+              Conference Room A
+            </div>
           </div>
         </main>
       </div>

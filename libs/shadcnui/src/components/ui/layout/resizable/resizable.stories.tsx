@@ -6,7 +6,7 @@ import {
 } from './resizable';
 
 const meta: Meta<typeof ResizablePanelGroup> = {
-  title: 'Shadcnui/Layout/Resizable',
+  title: '2-Shadcnui/Layout/Resizable',
   component: ResizablePanelGroup,
   tags: ['autodocs'],
   argTypes: {

@@ -3,7 +3,7 @@ import { RecentSales } from '.';
 import type { RecentSalesProps } from './index';
 
 const meta: Meta<typeof RecentSales> = {
-  title: 'Shadcnui Blocks/RecentSales',
+  title: '3-Shadcnui Blocks/RecentSales',
   component: RecentSales,
   tags: ['autodocs'],
   argTypes: {

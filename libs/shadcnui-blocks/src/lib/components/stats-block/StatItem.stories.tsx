@@ -3,7 +3,7 @@ import { StatItem, StatItemProps } from './StatItem';
 import { User, TrendingUp, DollarSign } from 'lucide-react';
 
 const meta: Meta<typeof StatItem> = {
-  title: 'Shadcnui Blocks/StatItem',
+  title: '3-Shadcnui Blocks/StatItem',
   component: StatItem,
   tags: ['autodocs'],
   argTypes: {

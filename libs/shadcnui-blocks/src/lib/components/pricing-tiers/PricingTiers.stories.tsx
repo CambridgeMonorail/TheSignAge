@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { PricingTiers, PricingTiersProps } from './index';
 
 const meta: Meta<typeof PricingTiers> = {
-  title: 'Shadcnui Blocks/PricingTiers',
+  title: '3-Shadcnui Blocks/PricingTiers',
   component: PricingTiers,
   tags: ['autodocs'],
   argTypes: {

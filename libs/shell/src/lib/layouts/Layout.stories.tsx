@@ -56,7 +56,7 @@ const paths = {
 };
 
 const meta: Meta<typeof Layout> = {
-  title: 'Shell/Layout',
+  title: '5-Shell/Layout',
   component: Layout,
   tags: ['autodocs'],
   parameters: {

@@ -3,7 +3,7 @@ import { HoverCard, HoverCardTrigger, HoverCardContent } from './hover-card';
 import { Button } from '../../input-controls/button';
 
 const meta: Meta<typeof HoverCard> = {
-  title: 'Shadcnui/Feedback/HoverCard',
+  title: '2-Shadcnui/Feedback/HoverCard',
   component: HoverCard,
   tags: ['autodocs'],
 };

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Steps, StepsProps } from '.';
 
 const meta: Meta<typeof Steps> = {
-  title: 'Shadcnui Blocks/Steps',
+  title: '3-Shadcnui Blocks/Steps',
   component: Steps,
   tags: ['autodocs'],
   argTypes: {

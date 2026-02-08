@@ -15,7 +15,7 @@ import {
 } from './dropdown-menu';
 
 const meta: Meta<typeof DropdownMenu> = {
-  title: 'Shadcnui/Navigation/DropdownMenu',
+  title: '2-Shadcnui/Navigation/DropdownMenu',
   component: DropdownMenu,
   tags: ['autodocs'],
 };

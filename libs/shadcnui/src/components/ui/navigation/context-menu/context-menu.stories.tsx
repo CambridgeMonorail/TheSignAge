@@ -18,7 +18,7 @@ import {
 } from './context-menu';
 
 const meta: Meta<typeof ContextMenu> = {
-  title: 'Shadcnui/Navigation/ContextMenu',
+  title: '2-Shadcnui/Navigation/ContextMenu',
   component: ContextMenu,
   tags: ['autodocs'],
 };

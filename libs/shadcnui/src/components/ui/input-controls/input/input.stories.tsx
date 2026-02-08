@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Input } from './input';
 
 const meta: Meta<typeof Input> = {
-  title: 'Shadcnui/Input/Input',
+  title: '2-Shadcnui/Input/Input',
   component: Input,
   tags: ['autodocs'],
   argTypes: {

@@ -11,7 +11,7 @@ import {
 import { Button } from '../../input-controls/button';
 
 const meta: Meta<typeof Toast> = {
-  title: 'Shadcnui/Feedback/Toast',
+  title: '2-Shadcnui/Feedback/Toast',
   component: Toast,
   tags: ['autodocs'],
 };

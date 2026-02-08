@@ -26,7 +26,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { AboutSection } from '.';
 
 const meta: Meta<typeof AboutSection> = {
-  title: 'Landing/About Section',
+  title: '4-Landing/About Section',
   component: AboutSection,
   tags: ['autodocs'],
   argTypes: {

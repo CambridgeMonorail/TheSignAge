@@ -10,7 +10,7 @@ import {
 } from './pagination';
 
 const meta: Meta<typeof Pagination> = {
-  title: 'Shadcnui/Navigation/Pagination',
+  title: '2-Shadcnui/Navigation/Pagination',
   component: Pagination,
   tags: ['autodocs'],
 };

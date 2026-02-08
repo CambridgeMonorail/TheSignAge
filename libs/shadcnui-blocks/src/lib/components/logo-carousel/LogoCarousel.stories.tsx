@@ -4,7 +4,7 @@ import { LogoCarousel, LogoCarouselProps } from './index';
 import { Logo } from '../logo';
 
 const meta: Meta<typeof LogoCarousel> = {
-  title: 'Shadcnui Blocks/LogoCarousel',
+  title: '3-Shadcnui Blocks/LogoCarousel',
   tags: ['autodocs'],
   component: LogoCarousel,
 };

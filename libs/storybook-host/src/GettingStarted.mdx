@@ -2,6 +2,159 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Getting Started" />
 
+# Getting Started
+
+## Installation
+
+The Sign Age component libraries are organized in an Nx monorepo. To use them in your project:
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/CambridgeMonorail/TheSignAge.git
+cd TheSignAge
+```
+
+### 2. Install Dependencies
+
+```bash
+pnpm install
+```
+
+### 3. Run Storybook Locally
+
+```bash
+pnpm storybook
+```
+
+This will start Storybook at `http://localhost:4400` where you can explore all components interactively.
+
+### 4. Build the Client App
+
+```bash
+pnpm serve:client
+```
+
+This starts the demo website at `http://localhost:4173`.
+
+## Using Signage Components
+
+### Import from @tsa/shadcnui-signage
+
+```typescript
+import {
+  ScreenFrame,
+  SignageContainer,
+  FullscreenHero,
+  InfoCardGrid,
+  SplitScreen,
+} from '@tsa/shadcnui-signage';
+```
+
+### Basic Example: Fullscreen Hero
+
+```tsx
+import { ScreenFrame, FullscreenHero } from '@tsa/shadcnui-signage';
+
+export function MySignage() {
+  return (
+    <ScreenFrame resolution="1080p" scale={0.5}>
+      <FullscreenHero
+        title="Welcome to Our Lobby"
+        subtitle="Modern workspace for modern teams"
+        variant="dark"
+      />
+    </ScreenFrame>
+  );
+}
+```
+
+### Example: Split Screen Layout
+
+```tsx
+import { ScreenFrame, SplitScreen } from '@tsa/shadcnui-signage';
+
+export function DashboardSignage() {
+  return (
+    <ScreenFrame resolution="1080p">
+      <SplitScreen direction="row" ratio="60-40">
+        {/* Left zone: Main content */}
+        <div className="p-8">
+          <h1 className="text-6xl font-bold">Dashboard</h1>
+        </div>
+
+        {/* Right zone: Sidebar */}
+        <div className="p-8 bg-slate-900">
+          <h2 className="text-4xl">Stats</h2>
+        </div>
+      </SplitScreen>
+    </ScreenFrame>
+  );
+}
+```
+
+### Example: Info Card Grid
+
+```tsx
+import { ScreenFrame, InfoCardGrid } from '@tsa/shadcnui-signage';
+
+const cards = [
+  {
+    title: 'Revenue',
+    value: '$1.2M',
+    subtitle: '+12% from last month',
+    status: 'positive' as const,
+  },
+  {
+    title: 'Active Users',
+    value: '12,345',
+    subtitle: '+234 this week',
+    status: 'positive' as const,
+  },
+  // ... more cards
+];
+
+export function MetricsSignage() {
+  return (
+    <ScreenFrame resolution="1080p">
+      <InfoCardGrid items={cards} columns={3} density="comfortable" />
+    </ScreenFrame>
+  );
+}
+```
+
+## Understanding ScreenFrame
+
+`ScreenFrame` is a foundational primitive that ensures your signage layouts are deterministic and preview correctly:
+
+- **resolution**: Target screen resolution (`'1080p'`, `'4k'`, `'portrait-1080p'`)
+- **scale**: Preview scale factor (0.1 to 1.0) for development
+- **showSafeArea**: Toggle safe area overlay for QA
+
+Always wrap your signage content in a `ScreenFrame` to ensure correct aspect ratios and responsive behavior.
+
+## Project Structure
+
+```
+libs/
+  shadcnui-signage/          # Signage components (primary focus)
+    primitives/              # Core building blocks
+    layouts/                 # Fixed-aspect layouts
+    blocks/                  # Composed components
+
+  shadcnui/                  # shadcn/ui base components
+  shadcnui-blocks/           # Composite web components
+  landing/                   # Landing page sections
+  shell/                     # App shell components
+```
+
+## Next Steps
+
+- Explore **1-Signage** components in the sidebar
+- Review the **Best Practices** guide
+- Check out the [demo website](https://cambridgemonorail.github.io/TheSignAge/)
+- Browse the [GitHub repository](https://github.com/CambridgeMonorail/TheSignAge)
+
 ## Introduction
 
 Welcome to the TheSignAge (TSA) monorepo. This document provides an overview of the various libraries available within the monorepo, each designed to help you build a consistent, maintainable, and cohesive application.

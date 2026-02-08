@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Logo, LogoProps } from './index';
 
 const meta: Meta<typeof Logo> = {
-  title: 'Shadcnui Blocks/Logo',
+  title: '3-Shadcnui Blocks/Logo',
   component: Logo,
   tags: ['autodocs'],
   argTypes: {

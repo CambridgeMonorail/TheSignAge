@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { TestimonialsSection } from './index';
 
 const meta: Meta<typeof TestimonialsSection> = {
-  title: 'Shadcnui Blocks/Testimonials',
+  title: '3-Shadcnui Blocks/Testimonials',
   component: TestimonialsSection,
   tags: ['autodocs'],
 };

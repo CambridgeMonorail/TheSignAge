@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ScreenFrame } from './ScreenFrame';
 
 const meta: Meta<typeof ScreenFrame> = {
-  title: 'Signage/Primitives/ScreenFrame',
+  title: '1-Signage/Primitives/ScreenFrame',
   component: ScreenFrame,
   tags: ['autodocs'],
   argTypes: {
@@ -96,10 +96,14 @@ export const WithSafeArea: Story = {
       <div className="flex h-full flex-col items-center justify-between bg-slate-900 p-16 text-white">
         <div className="text-center">
           <h1 className="text-7xl font-bold">Safe Area Preview</h1>
-          <p className="mt-4 text-2xl">Red dashed line shows 5% safe area margin</p>
+          <p className="mt-4 text-2xl">
+            Red dashed line shows 5% safe area margin
+          </p>
         </div>
         <div className="text-center">
-          <p className="text-xl text-slate-400">Keep important content within the safe area</p>
+          <p className="text-xl text-slate-400">
+            Keep important content within the safe area
+          </p>
         </div>
       </div>
     ),
@@ -117,13 +121,19 @@ export const RealisticContent: Story = {
     children: (
       <div className="flex h-full flex-col bg-white">
         <header className="flex items-center justify-between border-b border-slate-200 bg-slate-50 p-8">
-          <div className="text-4xl font-bold text-slate-900">Digital Signage Demo</div>
-          <div className="text-2xl text-slate-600">Friday, Feb 7, 2026 • 11:35 AM</div>
+          <div className="text-4xl font-bold text-slate-900">
+            Digital Signage Demo
+          </div>
+          <div className="text-2xl text-slate-600">
+            Friday, Feb 7, 2026 • 11:35 AM
+          </div>
         </header>
         <main className="flex flex-1 items-center justify-center">
           <div className="text-center">
             <h1 className="text-9xl font-bold text-slate-900">Welcome</h1>
-            <p className="mt-6 text-4xl text-slate-600">To our digital experience</p>
+            <p className="mt-6 text-4xl text-slate-600">
+              To our digital experience
+            </p>
           </div>
         </main>
         <footer className="border-t border-slate-200 bg-slate-50 p-6 text-center text-xl text-slate-500">

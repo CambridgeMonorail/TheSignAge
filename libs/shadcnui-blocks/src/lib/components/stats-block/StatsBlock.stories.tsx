@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 const meta: Meta<typeof StatsBlock> = {
-  title: 'Shadcnui Blocks/StatsBlock',
+  title: '3-Shadcnui Blocks/StatsBlock',
   component: StatsBlock,
   tags: ['autodocs'],
 };

@@ -12,7 +12,7 @@ import {
 import { Button } from '../../input-controls/button';
 
 const meta: Meta<typeof Dialog> = {
-  title: 'Shadcnui/Feedback/Dialog',
+  title: '2-Shadcnui/Feedback/Dialog',
   component: Dialog,
   tags: ['autodocs'],
 };

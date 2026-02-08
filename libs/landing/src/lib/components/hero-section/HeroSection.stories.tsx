@@ -4,7 +4,7 @@ import { action } from 'storybook/actions';
 import { HeroSection } from '.';
 
 const meta: Meta<typeof HeroSection> = {
-  title: 'Landing/HeroSection',
+  title: '4-Landing/HeroSection',
   component: HeroSection,
   tags: ['autodocs'],
   argTypes: {

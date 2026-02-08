@@ -4,7 +4,7 @@ import { ScreenFrame } from '../primitives/ScreenFrame';
 import type { InfoCardItem } from '../types/signage.types';
 
 const meta: Meta<typeof InfoCardGrid> = {
-  title: 'Signage/Blocks/InfoCardGrid',
+  title: '1-Signage/Blocks/InfoCardGrid',
   component: InfoCardGrid,
   tags: ['autodocs'],
   argTypes: {
@@ -182,7 +182,8 @@ export const LongTextClamping: Story = {
   args: {
     items: [
       {
-        title: 'This is an extremely long title that will be clamped to two lines',
+        title:
+          'This is an extremely long title that will be clamped to two lines',
         value: '$999.9M',
         description:
           'This is a very long description that demonstrates the three-line clamping behavior to ensure content remains readable and maintains layout integrity even with verbose text',

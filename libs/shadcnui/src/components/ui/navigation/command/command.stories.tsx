@@ -12,7 +12,7 @@ import {
 } from './command';
 
 const meta: Meta<typeof Command> = {
-  title: 'Shadcnui/Navigation/Command',
+  title: '2-Shadcnui/Navigation/Command',
   component: Command,
   tags: ['autodocs'],
 };

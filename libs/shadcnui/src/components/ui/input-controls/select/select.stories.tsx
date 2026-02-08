@@ -11,7 +11,7 @@ import {
 } from './select';
 
 const meta: Meta<typeof Select> = {
-  title: 'Shadcnui/Input/Select',
+  title: '2-Shadcnui/Input/Select',
   component: Select,
   tags: ['autodocs'],
   argTypes: {

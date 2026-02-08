@@ -3,7 +3,7 @@ import { FullscreenHero } from './FullscreenHero';
 import { ScreenFrame } from '../primitives/ScreenFrame';
 
 const meta: Meta<typeof FullscreenHero> = {
-  title: 'Signage/Blocks/FullscreenHero',
+  title: '1-Signage/Blocks/FullscreenHero',
   component: FullscreenHero,
   tags: ['autodocs'],
   argTypes: {
@@ -83,8 +83,10 @@ export const DarkVariant: Story = {
  */
 export const LongTextClamping: Story = {
   args: {
-    title: 'This is an extremely long title that should be clamped to a maximum of two lines to prevent overflow and maintain layout integrity',
-    subtitle: 'This is also a very long subtitle that demonstrates the two-line clamping behavior to ensure the content remains visible and readable',
+    title:
+      'This is an extremely long title that should be clamped to a maximum of two lines to prevent overflow and maintain layout integrity',
+    subtitle:
+      'This is also a very long subtitle that demonstrates the two-line clamping behavior to ensure the content remains visible and readable',
     body: 'This is a much longer body text that will demonstrate the four-line clamping feature. It contains multiple sentences to show how the text truncation works when content exceeds the maximum allowed lines. The clamping ensures that the layout remains predictable and visually balanced, even when dealing with verbose content. This is essential for signage applications where space is at a premium.',
     variant: 'light',
   },
@@ -99,7 +101,8 @@ export const WithBackgroundImage: Story = {
     subtitle: 'Innovation Meets Design',
     body: 'Transform your space with cutting-edge digital signage solutions.',
     variant: 'light',
-    backgroundImageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop',
+    backgroundImageUrl:
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop',
   },
 };
 
@@ -116,7 +119,8 @@ export const DarkWithBackground: Story = {
       hint: 'Discover our solutions',
     },
     variant: 'dark',
-    backgroundImageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop',
+    backgroundImageUrl:
+      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop',
   },
 };
 
@@ -177,7 +181,8 @@ export const EventPromotion: Story = {
       hint: 'Scan QR code to purchase',
     },
     variant: 'dark',
-    backgroundImageUrl: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&h=1080&fit=crop',
+    backgroundImageUrl:
+      'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&h=1080&fit=crop',
   },
 };
 

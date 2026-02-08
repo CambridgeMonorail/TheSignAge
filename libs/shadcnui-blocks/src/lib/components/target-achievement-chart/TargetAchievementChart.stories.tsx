@@ -4,7 +4,7 @@ import type { TargetAchievementChartProps } from './index';
 import { TooltipProvider } from '@radix-ui/react-tooltip';
 
 const meta: Meta<typeof TargetAchievementChart> = {
-  title: 'Shadcnui Blocks/TargetAchievementChart',
+  title: '3-Shadcnui Blocks/TargetAchievementChart',
   component: TargetAchievementChart,
   tags: ['autodocs'],
   argTypes: {

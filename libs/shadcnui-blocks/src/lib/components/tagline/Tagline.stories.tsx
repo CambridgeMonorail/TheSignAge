@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tagline } from '.';
 
 const meta: Meta<typeof Tagline> = {
-  title: 'Shadcnui Blocks/Tagline',
+  title: '3-Shadcnui Blocks/Tagline',
   component: Tagline,
   tags: ['autodocs'],
   argTypes: {

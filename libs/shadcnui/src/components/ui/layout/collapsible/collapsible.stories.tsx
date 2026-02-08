@@ -6,7 +6,7 @@ import {
 } from './collapsible';
 
 const meta: Meta<typeof Collapsible> = {
-  title: 'Shadcnui/Layout/Collapsible',
+  title: '2-Shadcnui/Layout/Collapsible',
   component: Collapsible,
   tags: ['autodocs'],
   argTypes: {

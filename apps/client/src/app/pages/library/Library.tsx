@@ -65,8 +65,10 @@ export function LibraryPage() {
               @tsa/shadcnui
             </h3>
             <p className="mb-2 leading-relaxed text-muted-foreground">
-              Core shadcn/ui components organized by category. Standard web UI
-              primitives for the demo website and general use.
+              Our copy of shadcn/ui components, organized by category and
+              packaged as a library for reuse across the monorepo. Standard web
+              UI primitives used as building blocks for the demo website and
+              other apps.
             </p>
             <div className="bg-slate-900 text-slate-100 p-3 rounded font-mono text-xs mt-3">
               <pre>
