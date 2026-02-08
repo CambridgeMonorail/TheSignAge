@@ -109,6 +109,62 @@ Before committing changes, ask:
 - Set `aria-hidden="true"` on decorative elements
 - Manage `aria-expanded`, `aria-selected` states correctly
 
+### Semantic HTML: Buttons vs Links
+
+**Critical distinction**: Use the correct element for the correct purpose.
+
+**Use `<a>` (anchor) for navigation:**
+- External links (GitHub, documentation, other sites)
+- Internal SPA routes (with href)
+- Downloads
+- Any action that changes location or opens a URL
+
+✅ **Correct - External link with anchor**:
+```tsx
+<a
+  href="https://github.com/..."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-primary hover:underline"
+>
+  View on GitHub
+</a>
+```
+
+❌ **Avoid - Button with window.open for links**:
+```tsx
+{/* Wrong: Breaks accessibility, right-click, link preview, etc. */}
+<button onClick={() => window.open('https://...', '_blank')}>
+  View on GitHub
+</button>
+```
+
+**Use `<button>` for actions:**
+- Triggering UI changes (open modal, toggle visibility)
+- Form submissions
+- Triggering operations (save, delete, refresh)
+- Any action that doesn't navigate
+
+✅ **Correct - Button for action**:
+```tsx
+<Button onClick={() => setOpen(true)}>Open Dialog</Button>
+```
+
+**Why this matters:**
+- Screen readers announce links and buttons differently
+- Keyboard users expect different behaviors (Enter vs Space)
+- Links provide browser features (right-click, copy link, open in new tab)
+- Search engines and accessibility tools understand semantic HTML
+
+## Do NOT
+
+- Don't use `<button>` for navigation (use `<a>` for links)
+- Don't use `window.open()` for links (use `<a href target="_blank">`)
+- Don't wrap file names or links in backticks when mentioning them
+- Don't skip ARIA labels on form inputs
+- Don't rely on color alone to convey state
+- Don't override browser keyboard shortcuts without good reason
+
 ### Color and Contrast
 
 - Ensure WCAG AA contrast ratios (4.5:1 for normal text, 3:1 for large text)

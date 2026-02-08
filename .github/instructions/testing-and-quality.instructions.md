@@ -28,34 +28,27 @@ applyTo: '**/*.test.{ts,tsx}, **/*.spec.{ts,tsx}, **/playwright/**/*.{ts,tsx}'
 - Mock external dependencies (APIs, services)
 - Keep tests fast and focused
 
-## Running Smallest Useful Checks First
+## Validation Commands
 
-**For a single file change:**
-
-1. Run TypeScript check: `pnpm -w run typecheck:<project>`
-2. Run linter: `pnpm -w run lint:<project>`
-3. Run tests: `pnpm -w run test:<project>`
-type-check:<project>`
-2. Run linter: `pnpm lint:<project>`
-3. Run tests: `pnpm test:<project>`
-
-**For multiple project changes:**
-
-1. Use Nx affected: `pnpm type-check:affected`
-2. Then: `pnpm lint:affected`
-3. Then: `pnpm test:affected`
-
-**Before commit:**
+Before commit, run:
 
 ```bash
-pnpm run validate  # Runs format, lint, type-check, test, build
+pnpm verify  # Runs format, lint, type-check, test, build
 ```
 
-## Existing package.json Scripts
+For faster feedback on single project:
+- `pnpm type-check:<project>`
+- `pnpm lint:<project>`
+- `pnpm test:<project>`
 
-Use existing scripts - do not invent new ones:
+For multiple affected projects:
+- `pnpm type-check:affected`
+- `pnpm lint:affected`
+- `pnpm test:affected`
 
-- `pnpm run validate` - Full validation pipeline (format, lint, type-check, test, build)
-- `pnpm validate:client` - Validate client app only
-- Individual project scripts: `type-check:<project>`, `lint:<project>`, `test:<project>`
-- Affected scripts: `build:affected`, `test:affected`, `lint:affected`, `type-
+## Do NOT
+
+- Don't invent new scripts (use existing `pnpm` commands from `package.json`)
+- Don't skip tests for new features or bug fixes
+- Don't commit code that fails validation
+- Don't guess which projects are affected (use `pnpm run <command>:affected`)

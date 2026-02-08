@@ -79,7 +79,7 @@ export const GettingStartedPage: FC = () => {
             <h3 className="text-lg font-medium text-foreground mb-2">
               Option 1: Using shadcn CLI (Recommended)
             </h3>
-            <div className="bg-slate-900 text-slate-100 p-4 rounded font-mono text-sm overflow-x-auto">
+            <div className="bg-muted text-foreground p-4 rounded font-mono text-sm overflow-x-auto">
               <pre>
                 {`# Add a single component from The Sign Age registry
 npx shadcn@latest add https://cambridgemonorail.github.io/TheSignAge/registry/registry.json auto-paging-list
@@ -99,7 +99,7 @@ npx shadcn@latest add https://cambridgemonorail.github.io/TheSignAge/registry/re
             <h3 className="text-lg font-medium text-foreground mb-2">
               Option 2: Clone and Reference Locally
             </h3>
-            <div className="bg-slate-900 text-slate-100 p-4 rounded font-mono text-sm overflow-x-auto">
+            <div className="bg-muted text-foreground p-4 rounded font-mono text-sm overflow-x-auto">
               <pre>
                 {`# Clone the repository
 git clone https://github.com/CambridgeMonorail/TheSignAge.git
@@ -179,7 +179,7 @@ pnpm build:shadcnui-signage`}
             <p className="text-sm text-muted-foreground mb-2">
               In VS Code with GitHub Copilot Chat, invoke the agent:
             </p>
-            <div className="bg-slate-900 text-slate-100 p-3 rounded font-mono text-xs">
+            <div className="bg-muted text-foreground p-3 rounded font-mono text-xs">
               <pre>
                 {`@signage-architect build a restaurant menu board
 showing 3 categories with 4 items each, 1080p landscape`}
@@ -214,7 +214,7 @@ showing 3 categories with 4 items each, 1080p landscape`}
             <h3 className="text-lg font-medium text-foreground mb-2">
               Step 1: Import Signage Components
             </h3>
-            <div className="bg-slate-900 text-slate-100 p-4 rounded font-mono text-sm overflow-x-auto">
+            <div className="bg-muted text-foreground p-4 rounded font-mono text-sm overflow-x-auto">
               <pre>
                 {`import {
   SignageContainer,
@@ -229,7 +229,7 @@ showing 3 categories with 4 items each, 1080p landscape`}
             <h3 className="text-lg font-medium text-foreground mb-2">
               Step 2: Create a Dashboard Screen
             </h3>
-            <div className="bg-slate-900 text-slate-100 p-4 rounded font-mono text-sm overflow-x-auto">
+            <div className="bg-muted text-foreground p-4 rounded font-mono text-sm overflow-x-auto">
               <pre>
                 {`export const MyDashboard = () => {
   return (
@@ -366,7 +366,7 @@ showing 3 categories with 4 items each, 1080p landscape`}
       {/* CTA */}
       <section className="text-center">
         <div className="space-x-4">
-          <Button onClick={() => navigate('/library')} variant="default">
+          <Button onClick={() => navigate('/library')} variant="secondary">
             Browse Components
           </Button>
           <Button onClick={() => navigate('/gallery')} variant="secondary">

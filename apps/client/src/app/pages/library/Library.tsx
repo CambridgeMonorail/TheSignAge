@@ -25,6 +25,22 @@ export function LibraryPage() {
     window.open('https://ui.shadcn.com', '_blank', 'noopener,noreferrer');
   };
 
+  const handleReadmeClick = () => {
+    window.open(
+      'https://github.com/CambridgeMonorail/TheSignAge/blob/main/libs/shadcnui-signage/README.md',
+      '_blank',
+      'noopener,noreferrer',
+    );
+  };
+
+  const handleRoadmapClick = () => {
+    window.open(
+      'https://github.com/CambridgeMonorail/TheSignAge/blob/main/ROADMAP.md',
+      '_blank',
+      'noopener,noreferrer',
+    );
+  };
+
   return (
     <div className="font-sans bg-background p-8 min-h-screen">
       {/* DOCS HEADER */}
@@ -75,11 +91,11 @@ export function LibraryPage() {
               @tsa/shadcnui-signage ⭐
             </h3>
             <p className="mb-2 leading-relaxed text-muted-foreground">
-              <strong className="text-foreground">23 signage components</strong>
-              {' '}built for distance readability, fixed-aspect layouts, and 24/7
-              operation on BrightSign devices. Includes primitives (Clock, Logo,
-              Status), layouts (SignageContainer, Dashboard), and blocks (MetricCard,
-              EventCard, AnnouncementCard).
+              Signage-oriented components built for distance readability,
+              fixed-aspect layouts, and 24/7 operation on BrightSign devices.
+              Includes primitives (ScreenFrame, MetricCard, EventCard),
+              layouts (SignageContainer, SplitScreen), and behaviour components
+              (Clock, Countdown, ContentRotator).
             </p>
           </div>
           <ul className="list-disc list-inside mb-4 space-y-1 text-muted-foreground">
@@ -126,7 +142,7 @@ export function LibraryPage() {
             a versioned dependency. You own the code. You can modify it. No
             lock-in.
           </p>
-          <div className="bg-slate-900 text-slate-100 p-4 rounded font-mono text-sm">
+          <div className="bg-muted text-foreground p-4 rounded font-mono text-sm">
             <pre>
               {`# Install a single signage component
 npx shadcn@latest add \\
@@ -204,30 +220,12 @@ npx shadcn@latest add \\
         </p>
         <ul className="list-none space-y-2">
           <li>
-            <Button
-              onClick={() =>
-                window.open(
-                  'https://github.com/CambridgeMonorail/TheSignAge/blob/main/libs/shadcnui-signage/README.md',
-                  '_blank',
-                  'noopener,noreferrer',
-                )
-              }
-              variant={'ghost'}
-            >
+            <Button onClick={handleReadmeClick} variant={'ghost'}>
               Component Library README
             </Button>
           </li>
           <li>
-            <Button
-              onClick={() =>
-                window.open(
-                  'https://github.com/CambridgeMonorail/TheSignAge/blob/main/ROADMAP.md',
-                  '_blank',
-                  'noopener,noreferrer',
-                )
-              }
-              variant={'ghost'}
-            >
+            <Button onClick={handleRoadmapClick} variant={'ghost'}>
               Project Roadmap
             </Button>
           </li>
@@ -254,7 +252,7 @@ npx shadcn@latest add \\
           real-world usage examples for all components.
         </p>
         <div className="flex gap-3 justify-center">
-          <Button onClick={handleStorybookClick} variant={'default'}>
+          <Button onClick={handleStorybookClick} variant={'secondary'}>
             Open Storybook
           </Button>
           <Button onClick={handleGitHubClick} variant={'secondary'}>

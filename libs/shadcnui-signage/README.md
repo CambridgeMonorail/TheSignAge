@@ -59,7 +59,7 @@ Components that add time-based logic, transitions, and interactivity:
 - **AutoPagingList** - Renders long lists as pages with automatic advancement
 - **ScheduleGate** - Conditionally renders content based on weekday and time windows
 - **StaleDataIndicator** - Visual indicator for data freshness with configurable thresholds
-- **SignageTransition** - Declarative transitions (crossfade, slide, zoom, fade) for content changes
+- **SignageTransition** - Declarative transitions (none, crossfade, slide-left, slide-up) for content changes
 - **OfflineFallback** - Gracefully handles offline state with configurable UI
 
 ## Key Features
@@ -73,7 +73,7 @@ Components that add time-based logic, transitions, and interactivity:
 
 ### Transitions and Motion
 
-- **SignageTransition** - Declarative transition effects (crossfade, slide-left, slide-right, slide-up, slide-down, zoom-in, zoom-out, fade)
+- **SignageTransition** - Declarative transition effects (none, crossfade, slide-left, slide-up)
 - Automatic `prefers-reduced-motion` detection via `usePrefersReducedMotion` hook
 - Configurable durations with sensible defaults
 
@@ -86,7 +86,7 @@ Components that add time-based logic, transitions, and interactivity:
 ### Offline Support
 
 - **OfflineFallback** - Graceful degradation when network is unavailable
-- `useOnlineStatus` hook for detecting connectivity changes
+- Built-in connectivity detection managed internally by OfflineFallback
 - Configurable fallback UI with message and retry actions
 
 ## Concepts
