@@ -48,6 +48,11 @@ Thumbs.db
 .nx/cache
 .nx/workspace-data
 
+# Terminal output logs (should not be committed)
+*-output.txt
+*-complete.txt
+verification*.txt
+validation*.txt
 
 storybook-static
 vite.config.*.timestamp*

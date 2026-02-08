@@ -1,4 +1,4 @@
-import { type ReactNode, useMemo } from 'react';
+import { type ReactNode } from 'react';
 import { cn } from '@tsa/shadcnui';
 import { toZonedTime } from 'date-fns-tz';
 import type { NowProvider } from '../types/time.types';
@@ -100,13 +100,12 @@ export function ScheduleGate({
   className,
   children,
 }: ScheduleGateProps) {
-  const tick = useTicker({ intervalMs: 60_000, alignTo: 'minute', now });
+  // useTicker causes component rerenders at minute boundaries
+  // tick value isn't used, but the hook triggers rerenders
+  useTicker({ intervalMs: 60_000, alignTo: 'minute', now });
 
-  const isAllowed = useMemo(() => {
-    const epochMs = (now ?? (() => Date.now()))();
-    return windows.some((w) => matchesWindow(epochMs, w));
-    // tick forces re-evaluation over time
-  }, [now, tick, windows]);
+  const epochMs = (now ?? (() => Date.now()))();
+  const isAllowed = windows.some((w) => matchesWindow(epochMs, w));
 
   return (
     <div className={cn('w-full', className)} data-testid="schedule-gate">

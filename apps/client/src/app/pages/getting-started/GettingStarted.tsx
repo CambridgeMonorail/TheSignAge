@@ -81,19 +81,17 @@ export const GettingStartedPage: FC = () => {
             </h3>
             <div className="bg-slate-900 text-slate-100 p-4 rounded font-mono text-sm overflow-x-auto">
               <pre>
-                {`# Add a component from our registry
-npx shadcn@latest add https://cambridgemonorail.github.io/TheSignAge/registry/registry.json
+                {`# Add a single component from The Sign Age registry
+npx shadcn@latest add https://cambridgemonorail.github.io/TheSignAge/registry/registry.json auto-paging-list
 
-# Example: Add the AutoPagingList behaviour component
-npx shadcn@latest add auto-paging-list
-
-# Or add multiple components at once
-npx shadcn@latest add metric-card event-card schedule-gate`}
+# Add multiple components
+npx shadcn@latest add https://cambridgemonorail.github.io/TheSignAge/registry/registry.json metric-card event-card schedule-gate`}
               </pre>
             </div>
             <p className="text-muted-foreground mt-2 text-sm">
               Components will be copied directly into your project with all
-              dependencies resolved.
+              dependencies resolved. Browse available components in the
+              Components section.
             </p>
           </div>
 
