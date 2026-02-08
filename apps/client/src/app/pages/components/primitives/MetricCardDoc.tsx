@@ -79,6 +79,21 @@ export const MetricCardDocPage: FC = () => {
           Copy the source code into your project. This component is designed to
           be copied and customized to your needs.
         </p>
+        
+        <div className="mb-6">
+          <h3 className="text-lg font-medium mb-3">Using the CLI (Recommended)</h3>
+          <CodeSnippet
+            language="bash"
+            code="npx shadcn add https://cambridgemonorail.github.io/TheSignAge/registry metric-card"
+          />
+          <p className="text-sm text-muted-foreground mt-2">
+            This will copy the component and install dependencies automatically.
+          </p>
+        </div>
+
+        <div className="mb-4">
+          <h3 className="text-lg font-medium mb-3">Manual Installation</h3>
+        </div>
         <div className="space-y-4">
           <div>
             <h3 className="text-lg font-medium mb-2">1. Copy the component</h3>

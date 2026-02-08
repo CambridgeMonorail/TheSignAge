@@ -57,6 +57,18 @@ export const InfoCardGridDocPage: FC = () => {
         <p className="text-muted-foreground mb-4">
           Copy the source code into your project.
         </p>
+        
+        <div className="mb-6">
+          <h3 className="text-lg font-medium mb-3">Using the CLI (Recommended)</h3>
+          <CodeSnippet
+            language="bash"
+            code="npx shadcn add https://cambridgemonorail.github.io/TheSignAge/registry info-card-grid"
+          />
+        </div>
+
+        <div className="mb-4">
+          <h3 className="text-lg font-medium mb-3">Manual Installation</h3>
+        </div>
         <div className="space-y-4">
           <div>
             <h3 className="text-lg font-medium mb-2">1. Copy the component</h3>
