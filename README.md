@@ -34,6 +34,7 @@
 - [Installation](#installation)
 - [Common Commands](#common-commands)
 - [Documentation](#documentation)
+- [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
@@ -222,6 +223,17 @@ These targets are either [inferred automatically](https://nx.dev/concepts/inferr
 - Signage component library: [libs/shadcnui-signage/README.md](./libs/shadcnui-signage/README.md)
 - Copilot + workflow tooling: [docs/tooling/github-copilot-tooling.md](./docs/tooling/github-copilot-tooling.md)
 - Agent workflows: [AGENTS.md](./AGENTS.md)
+
+## Roadmap
+
+See [ROADMAP.md](./ROADMAP.md) for the project's development plan, including:
+
+- ✅ Completed features (Q4 2025 - Q1 2026)
+- 🚧 In-progress work (Component enrichment, documentation)
+- 📋 Planned features (Q2 2026: DataFetcher, WeatherWidget, QRCodeDisplay, etc.)
+- 🔮 Future vision (Platform integration, content management, industry templates)
+
+**Target for v1.0:** Q3 2026
 
 ## Contributing
 
