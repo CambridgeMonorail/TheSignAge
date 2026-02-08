@@ -14,6 +14,8 @@ import { OfficeDirectory } from '../pages/signage/OfficeDirectory';
 import { KPIDashboard } from '../pages/signage/KPIDashboard';
 import { AnnouncementsBoard } from '../pages/signage/AnnouncementsBoard';
 import { EventSchedule } from '../pages/signage/EventSchedule';
+import { OfficeLobbyLoop } from '../pages/signage/OfficeLobbyLoop';
+import { DaypartMenu } from '../pages/signage/DaypartMenu';
 import { ComponentIndexPage } from '../pages/components/ComponentIndex';
 import { MetricCardDocPage } from '../pages/components/primitives/MetricCardDoc';
 import { ScreenFrameDocPage } from '../pages/components/primitives/ScreenFrameDoc';
@@ -24,6 +26,14 @@ import { SignageContainerDocPage } from '../pages/components/layouts/SignageCont
 import { SignageHeaderDocPage } from '../pages/components/layouts/SignageHeaderDoc';
 import { FullscreenHeroDocPage } from '../pages/components/blocks/FullscreenHeroDoc';
 import { InfoCardGridDocPage } from '../pages/components/blocks/InfoCardGridDoc';
+import { ContentRotatorDocPage } from '../pages/components/behaviour/ContentRotatorDoc';
+import { ScheduleGateDocPage } from '../pages/components/behaviour/ScheduleGateDoc';
+import { AutoPagingListDocPage } from '../pages/components/behaviour/AutoPagingListDoc';
+import { SignageTransitionDocPage } from '../pages/components/behaviour/SignageTransitionDoc';
+import { ClockDocPage } from '../pages/components/behaviour/ClockDoc';
+import { CountdownDocPage } from '../pages/components/behaviour/CountdownDoc';
+import { OfflineFallbackDocPage } from '../pages/components/behaviour/OfflineFallbackDoc';
+import { StaleDataIndicatorDocPage } from '../pages/components/behaviour/StaleDataIndicatorDoc';
 import { Layout } from '@tsa/shell';
 
 /**
@@ -41,6 +51,8 @@ const paths = {
     dashboard: '/signage/dashboard',
     announcements: '/signage/announcements',
     eventSchedule: '/signage/event-schedule',
+    officeLobbyLoop: '/signage/office-lobby-loop',
+    daypartMenu: '/signage/daypart-menu',
   },
   components: {
     colorPalette: '/color-palette',
@@ -60,6 +72,16 @@ const paths = {
     blocks: {
       fullscreenHero: '/components/blocks/fullscreen-hero',
       infoCardGrid: '/components/blocks/info-card-grid',
+    },
+    behaviour: {
+      contentRotator: '/components/behaviour/content-rotator',
+      scheduleGate: '/components/behaviour/schedule-gate',
+      autoPagingList: '/components/behaviour/auto-paging-list',
+      signageTransition: '/components/behaviour/signage-transition',
+      clock: '/components/behaviour/clock',
+      countdown: '/components/behaviour/countdown',
+      offlineFallback: '/components/behaviour/offline-fallback',
+      staleDataIndicator: '/components/behaviour/stale-data-indicator',
     },
   },
   notFound: '*',
@@ -107,12 +129,44 @@ const sidebarData: SidebarConfiguration = {
         { title: 'MetricCard', url: paths.components.primitives.metricCard },
         { title: 'ScreenFrame', url: paths.components.primitives.screenFrame },
         { title: 'EventCard', url: paths.components.primitives.eventCard },
-        { title: 'AnnouncementCard', url: paths.components.primitives.announcementCard },
+        {
+          title: 'AnnouncementCard',
+          url: paths.components.primitives.announcementCard,
+        },
         { title: 'SplitScreen', url: paths.components.layouts.splitScreen },
-        { title: 'SignageContainer', url: paths.components.layouts.signageContainer },
+        {
+          title: 'SignageContainer',
+          url: paths.components.layouts.signageContainer,
+        },
         { title: 'SignageHeader', url: paths.components.layouts.signageHeader },
-        { title: 'FullscreenHero', url: paths.components.blocks.fullscreenHero },
+        {
+          title: 'FullscreenHero',
+          url: paths.components.blocks.fullscreenHero,
+        },
         { title: 'InfoCardGrid', url: paths.components.blocks.infoCardGrid },
+        {
+          title: 'ContentRotator',
+          url: paths.components.behaviour.contentRotator,
+        },
+        { title: 'ScheduleGate', url: paths.components.behaviour.scheduleGate },
+        {
+          title: 'AutoPagingList',
+          url: paths.components.behaviour.autoPagingList,
+        },
+        {
+          title: 'SignageTransition',
+          url: paths.components.behaviour.signageTransition,
+        },
+        { title: 'Clock', url: paths.components.behaviour.clock },
+        { title: 'Countdown', url: paths.components.behaviour.countdown },
+        {
+          title: 'OfflineFallback',
+          url: paths.components.behaviour.offlineFallback,
+        },
+        {
+          title: 'StaleDataIndicator',
+          url: paths.components.behaviour.staleDataIndicator,
+        },
       ],
     },
     {
@@ -127,6 +181,8 @@ const sidebarData: SidebarConfiguration = {
         { title: 'KPI Dashboard', url: paths.signage.dashboard },
         { title: 'Announcements', url: paths.signage.announcements },
         { title: 'Event Schedule', url: paths.signage.eventSchedule },
+        { title: 'Office Lobby Loop', url: paths.signage.officeLobbyLoop },
+        { title: 'Daypart Menu', url: paths.signage.daypartMenu },
       ],
     },
   ],
@@ -168,6 +224,8 @@ const routes = [
   createRoute(paths.signage.dashboard, KPIDashboard, false),
   createRoute(paths.signage.announcements, AnnouncementsBoard, false),
   createRoute(paths.signage.eventSchedule, EventSchedule, false),
+  createRoute(paths.signage.officeLobbyLoop, OfficeLobbyLoop, false),
+  createRoute(paths.signage.daypartMenu, DaypartMenu, false),
   createRoute(paths.components.colorPalette, ColorPalettePage),
   createRoute(paths.components.library, LibraryPage),
   // Component documentation routes
@@ -175,12 +233,35 @@ const routes = [
   createRoute(paths.components.primitives.metricCard, MetricCardDocPage),
   createRoute(paths.components.primitives.screenFrame, ScreenFrameDocPage),
   createRoute(paths.components.primitives.eventCard, EventCardDocPage),
-  createRoute(paths.components.primitives.announcementCard, AnnouncementCardDocPage),
+  createRoute(
+    paths.components.primitives.announcementCard,
+    AnnouncementCardDocPage,
+  ),
   createRoute(paths.components.layouts.splitScreen, SplitScreenDocPage),
-  createRoute(paths.components.layouts.signageContainer, SignageContainerDocPage),
+  createRoute(
+    paths.components.layouts.signageContainer,
+    SignageContainerDocPage,
+  ),
   createRoute(paths.components.layouts.signageHeader, SignageHeaderDocPage),
   createRoute(paths.components.blocks.fullscreenHero, FullscreenHeroDocPage),
   createRoute(paths.components.blocks.infoCardGrid, InfoCardGridDocPage),
+  createRoute(paths.components.behaviour.contentRotator, ContentRotatorDocPage),
+  createRoute(paths.components.behaviour.scheduleGate, ScheduleGateDocPage),
+  createRoute(paths.components.behaviour.autoPagingList, AutoPagingListDocPage),
+  createRoute(
+    paths.components.behaviour.signageTransition,
+    SignageTransitionDocPage,
+  ),
+  createRoute(paths.components.behaviour.clock, ClockDocPage),
+  createRoute(paths.components.behaviour.countdown, CountdownDocPage),
+  createRoute(
+    paths.components.behaviour.offlineFallback,
+    OfflineFallbackDocPage,
+  ),
+  createRoute(
+    paths.components.behaviour.staleDataIndicator,
+    StaleDataIndicatorDocPage,
+  ),
   createRoute(paths.notFound, NotFound, false),
 ];
 

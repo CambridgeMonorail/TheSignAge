@@ -129,6 +129,154 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "auto-paging-list",
+      "type": "registry:component",
+      "title": "Auto Paging List",
+      "description": "Renders long lists as pages with automatic advancement. Perfect for scrolling-free displays with configurable dwell time per page.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/behaviour/AutoPagingList.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/useTicker.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/usePrefersReducedMotion.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "content-rotator",
+      "type": "registry:component",
+      "title": "Content Rotator",
+      "description": "Cycles through children at fixed intervals with transitions. Supports pause/resume and dynamic content updates.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/behaviour/ContentRotator.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/useTicker.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/usePrefersReducedMotion.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "schedule-gate",
+      "type": "registry:component",
+      "title": "Schedule Gate",
+      "description": "Conditionally renders content based on weekday and time windows. Supports timezone-aware scheduling for daypart menus and time-based content.",
+      "registryDependencies": [],
+      "dependencies": ["date-fns-tz"],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/behaviour/ScheduleGate.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/useTicker.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "signage-transition",
+      "type": "registry:component",
+      "title": "Signage Transition",
+      "description": "Wraps a single child with signage-appropriate transitions (crossfade, slide). Respects prefers-reduced-motion.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/behaviour/SignageTransition.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/usePrefersReducedMotion.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "clock",
+      "type": "registry:component",
+      "title": "Clock",
+      "description": "Displays current time with configurable format and timezone. Updates at minute boundaries for efficiency.",
+      "registryDependencies": [],
+      "dependencies": ["date-fns", "date-fns-tz"],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/behaviour/Clock.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/useTicker.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "countdown",
+      "type": "registry:component",
+      "title": "Countdown",
+      "description": "Counts down to a target date/time with configurable format. Shows elapsed message when time has passed.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/behaviour/Countdown.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/useTicker.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "offline-fallback",
+      "type": "registry:component",
+      "title": "Offline Fallback",
+      "description": "Shows fallback UI when content is offline or unhealthy. Manual recovery control for graceful degradation.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/behaviour/OfflineFallback.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stale-data-indicator",
+      "type": "registry:component",
+      "title": "Stale Data Indicator",
+      "description": "Shows visual indicator when data exceeds a freshness threshold. Useful for monitoring real-time data feeds.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/behaviour/StaleDataIndicator.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/useTicker.ts",
+          "type": "registry:lib"
+        }
+      ]
     }
   ]
 }

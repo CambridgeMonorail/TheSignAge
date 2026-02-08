@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge } from '@tsa/shadcnui';
-import { Box, Layout, Layers } from 'lucide-react';
+import { Activity, Box, Layout, Layers } from 'lucide-react';
 
 interface ComponentInfo {
   name: string;
   path: string;
   description: string;
-  category: 'Primitives' | 'Layouts' | 'Blocks';
+  category: 'Primitives' | 'Layouts' | 'Blocks' | 'Behaviour';
 }
 
 const components: ComponentInfo[] = [
@@ -21,7 +21,8 @@ const components: ComponentInfo[] = [
   {
     name: 'MetricCard',
     path: '/components/primitives/metric-card',
-    description: 'Display KPIs and metrics with value, change indicators, and icons',
+    description:
+      'Display KPIs and metrics with value, change indicators, and icons',
     category: 'Primitives',
   },
   {
@@ -46,7 +47,8 @@ const components: ComponentInfo[] = [
   {
     name: 'SignageContainer',
     path: '/components/layouts/signage-container',
-    description: 'Full-screen container with ambient effects and gradient backgrounds',
+    description:
+      'Full-screen container with ambient effects and gradient backgrounds',
     category: 'Layouts',
   },
   {
@@ -68,24 +70,81 @@ const components: ComponentInfo[] = [
     description: 'Grid layouts for displaying multiple information cards',
     category: 'Blocks',
   },
+  // Behaviour
+  {
+    name: 'ContentRotator',
+    path: '/components/behaviour/content-rotator',
+    description:
+      'Rotate content on a fixed cadence with signage-safe transitions',
+    category: 'Behaviour',
+  },
+  {
+    name: 'ScheduleGate',
+    path: '/components/behaviour/schedule-gate',
+    description:
+      'Time/day gating (optionally timezone-aware) for daypart content',
+    category: 'Behaviour',
+  },
+  {
+    name: 'AutoPagingList',
+    path: '/components/behaviour/auto-paging-list',
+    description: 'Paged lists (no scrolling) with dwell time per page',
+    category: 'Behaviour',
+  },
+  {
+    name: 'SignageTransition',
+    path: '/components/behaviour/signage-transition',
+    description:
+      'Predictable transitions (crossfade/slide) with reduced-motion support',
+    category: 'Behaviour',
+  },
+  {
+    name: 'Clock',
+    path: '/components/behaviour/clock',
+    description: 'Signage-friendly clock with optional timezone and seconds',
+    category: 'Behaviour',
+  },
+  {
+    name: 'Countdown',
+    path: '/components/behaviour/countdown',
+    description:
+      'Countdown to an epoch time with clamping and completion callback',
+    category: 'Behaviour',
+  },
+  {
+    name: 'OfflineFallback',
+    path: '/components/behaviour/offline-fallback',
+    description:
+      'Stable fallback boundary for offline/unhealthy networked content',
+    category: 'Behaviour',
+  },
+  {
+    name: 'StaleDataIndicator',
+    path: '/components/behaviour/stale-data-indicator',
+    description: 'Compact freshness indicator for always-on screens',
+    category: 'Behaviour',
+  },
 ];
 
 const categoryIcons = {
   Primitives: Box,
   Layouts: Layout,
   Blocks: Layers,
+  Behaviour: Activity,
 };
 
 const categoryColors = {
   Primitives: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
   Layouts: 'bg-green-500/10 text-green-500 border-green-500/20',
   Blocks: 'bg-purple-500/10 text-purple-500 border-purple-500/20',
+  Behaviour: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
 };
 
 export const ComponentIndexPage: FC = () => {
   const primitives = components.filter((c) => c.category === 'Primitives');
   const layouts = components.filter((c) => c.category === 'Layouts');
   const blocks = components.filter((c) => c.category === 'Blocks');
+  const behaviour = components.filter((c) => c.category === 'Behaviour');
 
   return (
     <div className="container mx-auto px-4 py-8" data-testid="component-index">
@@ -157,10 +216,7 @@ export const ComponentIndexPage: FC = () => {
           <div className="flex items-center gap-3 mb-6">
             <Box className="w-6 h-6 text-blue-500" />
             <h2 className="text-2xl font-medium">Primitives</h2>
-            <Badge
-              variant="outline"
-              className={categoryColors.Primitives}
-            >
+            <Badge variant="outline" className={categoryColors.Primitives}>
               {primitives.length} components
             </Badge>
           </div>
@@ -214,6 +270,26 @@ export const ComponentIndexPage: FC = () => {
             ))}
           </div>
         </div>
+
+        {/* Behaviour */}
+        <div>
+          <div className="flex items-center gap-3 mb-6">
+            <Activity className="w-6 h-6 text-amber-500" />
+            <h2 className="text-2xl font-medium">Behaviour</h2>
+            <Badge variant="outline" className={categoryColors.Behaviour}>
+              {behaviour.length} components
+            </Badge>
+          </div>
+          <p className="text-muted-foreground mb-6">
+            Time, rotation, transitions, and screen-safe runtime behaviour for
+            always-on signage.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {behaviour.map((component) => (
+              <ComponentCard key={component.name} component={component} />
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Footer */}
@@ -229,7 +305,10 @@ export const ComponentIndexPage: FC = () => {
           </p>
           <p>
             See{' '}
-            <Link to="/getting-started" className="text-foreground hover:underline">
+            <Link
+              to="/getting-started"
+              className="text-foreground hover:underline"
+            >
               Getting Started
             </Link>{' '}
             for installation instructions and{' '}

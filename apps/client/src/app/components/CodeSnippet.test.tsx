@@ -68,16 +68,14 @@ export const App = () => <Button>Click me</Button>;`;
 
   it('sets language attribute on code element', () => {
     render(<CodeSnippet code={sampleCode} language="typescript" />);
-    const codeElement = screen
-      .getByText(/import { Button }/i)
-      .closest('code');
+    const codeElement = screen.getByText(/import { Button }/i).closest('code');
     expect(codeElement).toHaveAttribute('data-language', 'typescript');
   });
 
   it('handles copy failure gracefully', async () => {
     const consoleErrorSpy = vi
       .spyOn(console, 'error')
-      .mockImplementation(() => {});
+      .mockImplementation(() => undefined);
     const mockError = new Error('Copy failed');
 
     Object.assign(navigator, {
@@ -103,9 +101,7 @@ export const App = () => <Button>Click me</Button>;`;
 
   it('uses default language "tsx" when not specified', () => {
     render(<CodeSnippet code={sampleCode} />);
-    const codeElement = screen
-      .getByText(/import { Button }/i)
-      .closest('code');
+    const codeElement = screen.getByText(/import { Button }/i).closest('code');
     expect(codeElement).toHaveAttribute('data-language', 'tsx');
   });
 });

@@ -13,6 +13,7 @@
   "github.copilot.chat.languageContext.typescript.includeDocumentation": true,
   "github.copilot.chat.newWorkspace.useContext7": true,
   "chat.tools.terminal.autoApprove": {
-    "pnpm": true
+    "pnpm": true,
+    "npx nx": true
   }
 }

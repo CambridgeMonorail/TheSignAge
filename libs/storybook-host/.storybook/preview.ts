@@ -10,7 +10,7 @@ export const parameters = {
         'Best Practices',
         'Resources',
         'Signage',
-        ['Primitives', 'Layouts', 'Blocks'],
+        ['Primitives', 'Layouts', 'Behaviour', 'Blocks'],
         'Shadcnui',
         'Shadcnui Blocks',
         'Landing',

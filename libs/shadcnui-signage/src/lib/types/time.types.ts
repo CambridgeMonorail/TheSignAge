@@ -1,0 +1,1 @@
+export type NowProvider = () => number;

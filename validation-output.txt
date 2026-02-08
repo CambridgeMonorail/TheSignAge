@@ -1,26 +1,31 @@
 
-> TheSignAge@0.0.0 validate C:\Projects\TheSignAge
-> pnpm run format && pnpm run lint:all && pnpm run type-check:all && pnpm run test:all && pnpm run build:all
+> TheSignAge@0.0.0 verify C:\Projects\TheSignAge
+> pnpm run format:check && pnpm run lint:affected && pnpm run type-check:affected && pnpm run test:affected && pnpm run build:affected
 
 
-> TheSignAge@0.0.0 format C:\Projects\TheSignAge
-> nx format:write
+> TheSignAge@0.0.0 format:check C:\Projects\TheSignAge
+> nx format:check
 
 
-> TheSignAge@0.0.0 lint:all C:\Projects\TheSignAge
-> nx run-many --target=lint --all --exclude=TheSignAge
+> TheSignAge@0.0.0 lint:affected C:\Projects\TheSignAge
+> nx affected --target=lint
 
 
- NX   Running target lint for 8 projects:
+ NX   Affected criteria defaulted to --base=main --head=HEAD
 
-- common-tailwind
-- shadcnui-blocks
+
+ NX   Running target lint for 10 projects:
+
+- TheSignAge
+- client
 - storybook-host
 - client-e2e
-- shadcnui
+- common-tailwind
+- shadcnui-signage
+- shadcnui-blocks
 - landing
-- client
 - shell
+- shadcnui
 
 
 
@@ -28,7 +33,7 @@
 
 [2m> [22meslint .
 
-(node:43316) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Projects/TheSignAge/libs/shadcnui/eslint.config.js?mtime=1769501981798 is not specified and it doesn't parse as CommonJS.
+(node:9768) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Projects/TheSignAge/libs/shadcnui/eslint.config.js?mtime=1770463724392 is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to C:\Projects\TheSignAge\libs\shadcnui\package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
@@ -111,82 +116,92 @@ To eliminate this warning, add "type": "module" to C:\Projects\TheSignAge\libs\s
 [2m> [22meslint .
 
 
-> nx run common-tailwind:lint  [existing outputs match the cache, left as is]
-
-> eslint .
-
-
 > nx run shell:lint  [existing outputs match the cache, left as is]
 
 [2m> [22meslint .
 
-(node:105016) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Projects/TheSignAge/libs/shell/eslint.config.js?mtime=1769501981859 is not specified and it doesn't parse as CommonJS.
+(node:98840) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Projects/TheSignAge/libs/shell/eslint.config.js?mtime=1770463724392 is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to C:\Projects\TheSignAge\libs\shell\package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
 
-> nx run client:lint  [existing outputs match the cache, left as is]
+> nx run common-tailwind:lint
 
-[2m> [22meslint .
+> eslint .
+
+
+> nx run shadcnui-signage:lint
+
+> eslint .
 
 [0m[0m
-[0m[4mC:\Projects\TheSignAge\apps\client\src\app\pages\dashboard\Dashboard.tsx[24m[0m
-[0m  [2m25:7[22m  [33mwarning[39m  'ArrowUpIcon' is assigned a value but never used    [2m@typescript-eslint/no-unused-vars[22m[0m
-[0m  [2m39:7[22m  [33mwarning[39m  'ArrowDownIcon' is assigned a value but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
-[0m  [2m53:7[22m  [33mwarning[39m  'Sparkline' is assigned a value but never used      [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui-signage\src\lib\behaviour\ContentRotator.tsx[24m[0m
+[0m  [2m98:9[22m  [33mwarning[39m  Fragments should contain more than one child - otherwise, there’s no need for a Fragment at all  [2mreact/jsx-no-useless-fragment[22m[0m
 [0m[0m
-[0m[4mC:\Projects\TheSignAge\apps\client\src\app\pages\features\Features.tsx[24m[0m
-[0m  [2m8:3[22m  [33mwarning[39m  'Tooltip' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui-signage\src\lib\behaviour\ScheduleGate.tsx[24m[0m
+[0m  [2m109:6[22m  [33mwarning[39m  React Hook useMemo has an unnecessary dependency: 'tick'. Either exclude it or remove the dependency array  [2mreact-hooks/exhaustive-deps[22m[0m
 [0m[0m
-[0m[4mC:\Projects\TheSignAge\apps\client\src\app\pages\landing\Landing.tsx[24m[0m
-[0m  [2m25:10[22m  [33mwarning[39m  'LogoCarousel' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[4mC:\Projects\TheSignAge\libs\shadcnui-signage\src\lib\hooks\useTicker.ts[24m[0m
+[0m  [2m52:5[22m  [33mwarning[39m  React Hook useMemo has a missing dependency: 'options'. Either include it or remove the dependency array  [2mreact-hooks/exhaustive-deps[22m[0m
 [0m[0m
-[0m[4mC:\Projects\TheSignAge\apps\client\src\app\pages\status-board\StatusBoard.tsx[24m[0m
-[0m  [2m22:3[22m  [33mwarning[39m  'Textarea' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
-[0m[0m
-[0m[33m[1m✖ 6 problems (0 errors, 6 warnings)[22m[39m[0m
+[0m[33m[1m✖ 3 problems (0 errors, 3 warnings)[22m[39m[0m
 [0m[33m[1m[22m[39m[0m
 
-> nx run client-e2e:lint  [existing outputs match the cache, left as is]
+> nx run client:lint
 
-[2m> [22meslint .
+> eslint .
+
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\apps\client\src\app\pages\components\primitives\AnnouncementCardDoc.tsx[24m[0m
+[0m  [2m5:33[22m  [33mwarning[39m  'Wrench' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4mC:\Projects\TheSignAge\apps\client\src\app\pages\components\primitives\MetricCardDoc.tsx[24m[0m
+[0m  [2m5:29[22m  [33mwarning[39m  'TrendingUp' is defined but never used    [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m5:41[22m  [33mwarning[39m  'ShoppingCart' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[33m[1m✖ 3 problems (0 errors, 3 warnings)[22m[39m[0m
+[0m[33m[1m[22m[39m[0m
+
+> nx run TheSignAge:lint  [existing outputs match the cache, left as is]
+
+> eslint ./src
+
+
+> nx run client-e2e:lint
+
+> eslint .
 
 
 > nx run storybook-host:lint
 
 
 Linting "storybook-host"...
-(node:3804) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Projects/TheSignAge/libs/storybook-host/eslint.config.js?mtime=1769501981866 is not specified and it doesn't parse as CommonJS.
-Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
-To eliminate this warning, add "type": "module" to C:\Projects\TheSignAge\libs\storybook-host\package.json.
-(Use `node --trace-warnings ...` to show where the warning was created)
-[0m[0m
-[0m[4mC:\Projects\TheSignAge\libs\storybook-host\.storybook\main.ts[24m[0m
-[0m  [2m70:42[22m  [33mwarning[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
-[0m[0m
-[0m[33m[1m✖ 1 problem (0 errors, 1 warning)[22m[39m[0m
-[0m[33m[1m[22m[39m[0m
-✖ 1 problem (0 errors, 1 warning)
+
+✔ All files pass linting
 
 
 
 
- NX   Successfully ran target lint for 8 projects
+ NX   Successfully ran target lint for 10 projects
 
-Nx read the output from the cache instead of running the command for 7 out of 8 tasks.
-
-
-> TheSignAge@0.0.0 type-check:all C:\Projects\TheSignAge
-> nx run-many --target=type-check --all
+Nx read the output from the cache instead of running the command for 5 out of 10 tasks.
 
 
- NX   Running target type-check for 5 projects:
+> TheSignAge@0.0.0 type-check:affected C:\Projects\TheSignAge
+> nx affected --target=type-check
 
-- shadcnui-blocks
-- shadcnui
-- landing
+
+ NX   Affected criteria defaulted to --base=main --head=HEAD
+
+
+ NX   Running target type-check for 6 projects:
+
 - client
+- shadcnui-signage
+- shadcnui-blocks
+- landing
 - shell
+- shadcnui
 
 
 
@@ -195,14 +210,19 @@ Nx read the output from the cache instead of running the command for 7 out of 8 
 > tsc --project libs/shadcnui/tsconfig.lib.json --noEmit
 
 
+> nx run landing:type-check
+
+> tsc --project libs/landing/tsconfig.lib.json --noEmit
+
+
 > nx run shadcnui-blocks:type-check
 
 > tsc --project libs/shadcnui-blocks/tsconfig.lib.json --noEmit
 
 
-> nx run landing:type-check
+> nx run shadcnui-signage:type-check
 
-> tsc --project libs/landing/tsconfig.lib.json --noEmit
+> tsc --project libs/shadcnui-signage/tsconfig.lib.json --noEmit
 
 
 > nx run shell:type-check
@@ -217,34 +237,31 @@ Nx read the output from the cache instead of running the command for 7 out of 8 
 
 
 
- NX   Successfully ran target type-check for 5 projects
+ NX   Successfully ran target type-check for 6 projects
 
 
 
- NX   Nx detected a flaky task
-
-  shadcnui:type-check
-
-Flaky tasks can disrupt your CI pipeline. Automatically retry them with Nx Cloud. Learn more at https://nx.dev/ci/features/flaky-tasks
+> TheSignAge@0.0.0 test:affected C:\Projects\TheSignAge
+> nx affected --target=test
 
 
-> TheSignAge@0.0.0 test:all C:\Projects\TheSignAge
-> nx run-many --target=test --all
+ NX   Affected criteria defaulted to --base=main --head=HEAD
 
 
- NX   Running target test for 7 projects:
+ NX   Running target test for 8 projects:
 
-- common-tailwind
-- shadcnui-blocks
-- storybook-host
-- shadcnui
-- landing
 - client
+- storybook-host
+- common-tailwind
+- shadcnui-signage
+- shadcnui-blocks
+- landing
 - shell
+- shadcnui
 
 
 
-> nx run shadcnui:test
+> nx run shadcnui:test  [existing outputs match the cache, left as is]
 
 > vitest
 
@@ -255,87 +272,76 @@ Flaky tasks can disrupt your CI pipeline. Automatically retry them with Nx Cloud
 
 [2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
 [2m      Tests [22m [1m[32m1 passed[39m[22m[90m (1)[39m
-[2m   Start at [22m 11:24:38
-[2m   Duration [22m 696ms[2m (transform 26ms, setup 0ms, collect 164ms, tests 10ms, environment 382ms, prepare 10ms)[22m
+[2m   Start at [22m 12:47:41
+[2m   Duration [22m 823ms[2m (transform 31ms, setup 0ms, collect 191ms, tests 10ms, environment 447ms, prepare 12ms)[22m
 
 
-> nx run shell:test
-
-> vitest
-
-
-[1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/shell[39m
-
- [32m✓[39m src/lib/shell.spec.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 9[2mms[22m[39m
-
-[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
-[2m      Tests [22m [1m[32m1 passed[39m[22m[90m (1)[39m
-[2m   Start at [22m 11:24:40
-[2m   Duration [22m 685ms[2m (transform 27ms, setup 0ms, collect 147ms, tests 9ms, environment 390ms, prepare 10ms)[22m
-
-
-> nx run shadcnui-blocks:test
+> nx run shadcnui-blocks:test  [existing outputs match the cache, left as is]
 
 > vitest
 
 
 [1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/shadcnui-blocks[39m
 
- [32m✓[39m src/lib/components/tagline/Tagline.spec.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 40[2mms[22m[39m
+ [32m✓[39m src/lib/components/tagline/Tagline.spec.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 42[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
 [2m      Tests [22m [1m[32m5 passed[39m[22m[90m (5)[39m
-[2m   Start at [22m 11:24:38
-[2m   Duration [22m 3.16s[2m (transform 30ms, setup 0ms, collect 2.55s, tests 40ms, environment 427ms, prepare 11ms)[22m
+[2m   Start at [22m 12:47:41
+[2m   Duration [22m 985ms[2m (transform 33ms, setup 0ms, collect 353ms, tests 42ms, environment 442ms, prepare 11ms)[22m
 
 
-> nx run common-tailwind:test
-
-> vitest
-
-
-[1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/common-tailwind[39m
-
-[31mNo test files found, exiting with code 1
-[39m
-[2minclude: [22m[33msrc/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}[39m
-[2mexclude:  [22m[33m**/node_modules/**[2m, [22m**/.git/**[39m
-
-> vitest
-
-
-[1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/common-tailwind[39m
-
-[31mNo test files found, exiting with code 1
-[39m
-[2minclude: [22m[33msrc/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}[39m
-[2mexclude:  [22m[33m**/node_modules/**[2m, [22m**/.git/**[39m
-
-Warning: command "vitest" exited with non-zero status code
-> nx run storybook-host:test
-
-
-> storybook-host@1.0.0 test C:\Projects\TheSignAge\libs\storybook-host
-> echo "Error: no test specified" && exit 1
-
-"Error: no test specified" 
-[41m[30m ELIFECYCLE [39m[49m [31mTest failed. See above for more details.[39m
-[43m[30m WARN [39m[49m  Local package.json exists, but node_modules missing, did you mean to install?
-
-> nx run landing:test
+> nx run landing:test  [existing outputs match the cache, left as is]
 
 > vitest
 
 
 [1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/landing[39m
 
- [32m✓[39m src/lib/landing.spec.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/components/header/Header.spec.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 73[2mms[22m[39m
+ [32m✓[39m src/lib/landing.spec.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/components/header/Header.spec.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 188[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
 [2m      Tests [22m [1m[32m4 passed[39m[22m[90m (4)[39m
-[2m   Start at [22m 11:24:38
-[2m   Duration [22m 8.11s[2m (transform 560ms, setup 0ms, collect 7.66s, tests 83ms, environment 851ms, prepare 26ms)[22m
+[2m   Start at [22m 12:47:41
+[2m   Duration [22m 6.97s[2m (transform 1.24s, setup 0ms, collect 6.36s, tests 201ms, environment 905ms, prepare 37ms)[22m
+
+
+> nx run common-tailwind:test
+
+> echo No tests defined for common-tailwind
+
+No tests defined for common-tailwind
+
+> nx run shell:test  [existing outputs match the cache, left as is]
+
+> vitest
+
+
+[1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/shell[39m
+
+ [32m✓[39m src/lib/shell.spec.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 10[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m   Start at [22m 12:47:43
+[2m   Duration [22m 1.04s[2m (transform 39ms, setup 0ms, collect 293ms, tests 10ms, environment 584ms, prepare 11ms)[22m
+
+
+> nx run storybook-host:test
+
+> vitest
+
+[1m[43m DEPRECATED [49m[22m [33m"cache.dir" is deprecated, use Vite's "cacheDir" instead if you want to change the cache director. Note caches will be written to "cacheDir/vitest"[39m
+
+[1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/storybook-host[39m
+
+ [32m✓[39m src/storybook-host.spec.ts [2m([22m[2m1 test[22m[2m)[22m[32m 1[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m   Start at [22m 12:49:19
+[2m   Duration [22m 945ms[2m (transform 25ms, setup 0ms, collect 41ms, tests 1ms, environment 674ms, prepare 18ms)[22m
 
 
 > nx run client:test
@@ -345,46 +351,164 @@ Warning: command "vitest" exited with non-zero status code
 
 [1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/apps/client[39m
 
+ [32m✓[39m src/app/components/CodeSnippet.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[32m 116[2mms[22m[39m
 [90mstderr[2m | src/app/pages/landing/Landing.spec.tsx[2m > [22m[2mLandingPage[2m > [22m[2mshould render successfully
 [22m[39m⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 
-[90mstderr[2m | src/app/pages/landing/Landing.spec.tsx[2m > [22m[2mLandingPage[2m > [22m[2mshould have a greeting as the title
+[90mstderr[2m | src/app/pages/landing/Landing.spec.tsx[2m > [22m[2mLandingPage[2m > [22m[2mshould have the signage platform title
 [22m[39mTo match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
 
-[90mstderr[2m | src/app/pages/landing/Landing.spec.tsx[2m > [22m[2mLandingPage[2m > [22m[2mshould render the sixth feature
+[90mstderr[2m | src/app/pages/landing/Landing.spec.tsx[2m > [22m[2mLandingPage[2m > [22m[2mshould render signage-specific features
 [22m[39mTo match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
+To match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
+To match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
+To match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
+To match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
+To match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
 
-[90mstderr[2m | src/app/pages/landing/Landing.spec.tsx[2m > [22m[2mLandingPage[2m > [22m[2mshould revise feature titles and descriptions to emphasize user benefits
+[90mstderr[2m | src/app/pages/landing/Landing.spec.tsx[2m > [22m[2mLandingPage[2m > [22m[2mshould render BrightSign and offline-first features
 [22m[39mTo match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
 To match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
 To match all elements we had to reset the lastIndex of the RegExp because the global flag is enabled. We encourage to remove the global flag from the RegExp.
 
- [32m✓[39m src/app/pages/landing/Landing.spec.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 72[2mms[22m[39m
+ [32m✓[39m src/app/pages/landing/Landing.spec.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 77[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
-[2m      Tests [22m [1m[32m4 passed[39m[22m[90m (4)[39m
-[2m   Start at [22m 11:24:41
-[2m   Duration [22m 4.42s[2m (transform 558ms, setup 0ms, collect 3.81s, tests 72ms, environment 400ms, prepare 11ms)[22m
-
-
+[2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[32m13 passed[39m[22m[90m (13)[39m
+[2m   Start at [22m 12:49:18
+[2m   Duration [22m 4.81s[2m (transform 1.10s, setup 0ms, collect 7.94s, tests 194ms, environment 890ms, prepare 22ms)[22m
 
 
- NX   Running target test for 7 projects failed
+> nx run shadcnui-signage:test
 
-Failed tasks:
-
-- common-tailwind:test
-- storybook-host:test
+> vitest
 
 
- NX   Nx detected  flaky tasks
+[1m[46m RUN [49m[22m [36mv4.0.0 [39m[90mC:/Projects/TheSignAge/libs/shadcnui-signage[39m
 
-  shadcnui:test
-  shadcnui-blocks:test
-  landing:test
+ [32m✓[39m src/lib/utils/resolution.spec.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/lib/utils/clamp.spec.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/primitives/ScreenFrame.spec.tsx [2m([22m[2m9 tests[22m[2m)[22m[32m 70[2mms[22m[39m
+ [32m✓[39m src/lib/layouts/SplitScreen.spec.tsx [2m([22m[2m14 tests[22m[2m)[22m[32m 58[2mms[22m[39m
+ [32m✓[39m src/lib/blocks/FullscreenHero.spec.tsx [2m([22m[2m18 tests[22m[2m)[22m[32m 64[2mms[22m[39m
+ [32m✓[39m src/lib/behaviour/ScheduleGate.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/behaviour/Countdown.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/behaviour/AutoPagingList.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/lib/blocks/InfoCardGrid.spec.tsx [2m([22m[2m17 tests[22m[2m)[22m[32m 45[2mms[22m[39m
 
-Flaky tasks can disrupt your CI pipeline. Automatically retry them with Nx Cloud. Learn more at https://nx.dev/ci/features/flaky-tasks
+[2m Test Files [22m [1m[32m9 passed[39m[22m[90m (9)[39m
+[2m      Tests [22m [1m[32m75 passed[39m[22m[90m (75)[39m
+[2m   Start at [22m 12:49:19
+[2m   Duration [22m 4.29s[2m (transform 1.33s, setup 1.87s, collect 13.18s, tests 311ms, environment 6.63s, prepare 203ms)[22m
 
- ELIFECYCLE  Command failed with exit code 1.
- ELIFECYCLE  Command failed with exit code 1.
+
+
+
+ NX   Successfully ran target test for 8 projects
+
+Nx read the output from the cache instead of running the command for 4 out of 8 tasks.
+
+
+> TheSignAge@0.0.0 build:affected C:\Projects\TheSignAge
+> nx affected --target=build
+
+
+ NX   Affected criteria defaulted to --base=main --head=HEAD
+
+
+ NX   Running target build for 5 projects:
+
+- client
+- storybook-host
+- common-tailwind
+- shadcnui-signage
+- shadcnui
+
+
+
+> nx run shadcnui:build  [existing outputs match the cache, left as is]
+
+[2m> [22mvite build
+
+[36mvite v7.1.3 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 1763 modules transformed.
+rendering chunks...
+
+[vite:dts] Start generate declaration files...
+computing gzip size...
+[vite:dts] Declaration files built in 4684ms.
+
+[2m../../dist/shadcnui/[22m[36mindex.mjs  [39m[1m[33m1,118.18 kB[39m[22m[2m │ gzip: 278.58 kB[22m
+[2m../../dist/shadcnui/[22m[36mindex.js  [39m[1m[33m763.64 kB[39m[22m[2m │ gzip: 229.55 kB[22m
+[32m✓ built in 11.95s[39m
+
+> nx run common-tailwind:build
+
+> tsc -p tsconfig.lib.json --noEmit
+
+
+> nx run shadcnui-signage:build
+
+> vite build
+
+[36mvite v7.1.3 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 3478 modules transformed.
+rendering chunks...
+
+[vite:dts] Start generate declaration files...
+computing gzip size...
+[vite:dts] Declaration files built in 3336ms.
+
+[2m../../dist/shadcnui-signage/[22m[36mindex.js  [39m[1m[33m634.45 kB[39m[22m[2m │ gzip: 153.40 kB[22m
+[2m../../dist/shadcnui-signage/[22m[36mindex.cjs  [39m[1m[2m421.97 kB[22m[1m[22m[2m │ gzip: 126.14 kB[22m
+[32m✓ built in 7.05s[39m
+
+> nx run client:build
+
+> vite build
+
+[36mvite v7.1.3 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 3587 modules transformed.
+rendering chunks...
+computing gzip size...
+[2m../../dist/apps/client/[22m[32mindex.html                        [39m[1m[2m  2.43 kB[22m[1m[22m[2m │ gzip:   0.81 kB[22m
+[2m../../dist/apps/client/[22m[32massets/app-logo-BEibg91Z.webp     [39m[1m[2m 25.84 kB[22m[1m[22m
+[2m../../dist/apps/client/[22m[32massets/shad-samples-D89wFrTU.svg  [39m[1m[2m481.98 kB[22m[1m[22m[2m │ gzip: 162.88 kB[22m
+[2m../../dist/apps/client/[22m[35massets/index-CDeC_M19.css         [39m[1m[2m135.34 kB[22m[1m[22m[2m │ gzip:  19.27 kB[22m
+[2m../../dist/apps/client/[22m[36massets/index-DEIapko4.js          [39m[1m[33m817.95 kB[39m[22m[2m │ gzip: 234.29 kB[22m
+[33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[32m✓ built in 5.46s[39m
+
+> nx run storybook-host:build
+
+> vite build
+
+[36mvite v7.1.3 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 1 modules transformed.
+[33mGenerated an empty chunk: "index".[39m
+rendering chunks...
+
+[vite:dts] Start generate declaration files...
+computing gzip size...
+[2mdist/[22m[36mindex.js  [39m[1m[2m0.00 kB[22m[1m[22m[2m │ gzip: 0.02 kB[22m
+[vite:dts] Declaration files built in 531ms.
+
+[33mGenerated an empty chunk: "index".[39m
+[2mdist/[22m[36mindex.cjs  [39m[1m[2m0.01 kB[22m[1m[22m[2m │ gzip: 0.03 kB[22m
+[32m✓ built in 566ms[39m
+
+
+
+ NX   Successfully ran target build for 5 projects
+
+Nx read the output from the cache instead of running the command for 1 out of 5 tasks.
+
