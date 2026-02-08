@@ -47,9 +47,17 @@ function getNextAlignedAtMs(nowMs: number, baseMs: number) {
  * - `alignTo: 'none'` schedules using a correction loop so drift does not accumulate.
  */
 export function useTicker(options: UseTickerOptions) {
+  const { alignTo, enabled, intervalMs, now } = options;
+
   const resolved = useMemo(
-    () => resolveOptions(options),
-    [options.alignTo, options.enabled, options.intervalMs, options.now],
+    () =>
+      resolveOptions({
+        alignTo,
+        enabled,
+        intervalMs,
+        now,
+      }),
+    [alignTo, enabled, intervalMs, now],
   );
 
   const [tick, setTick] = useState(0);

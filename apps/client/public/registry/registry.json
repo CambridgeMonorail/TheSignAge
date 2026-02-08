@@ -149,6 +149,10 @@
         {
           "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/usePrefersReducedMotion.ts",
           "type": "registry:lib"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/types/time.types.ts",
+          "type": "registry:lib"
         }
       ]
     },
@@ -171,6 +175,10 @@
         {
           "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/usePrefersReducedMotion.ts",
           "type": "registry:lib"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/types/time.types.ts",
+          "type": "registry:lib"
         }
       ]
     },
@@ -188,6 +196,10 @@
         },
         {
           "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/useTicker.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/types/time.types.ts",
           "type": "registry:lib"
         }
       ]
@@ -216,7 +228,7 @@
       "title": "Clock",
       "description": "Displays current time with configurable format and timezone. Updates at minute boundaries for efficiency.",
       "registryDependencies": [],
-      "dependencies": ["date-fns", "date-fns-tz"],
+      "dependencies": [],
       "files": [
         {
           "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/behaviour/Clock.tsx",
@@ -225,6 +237,10 @@
         {
           "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/useTicker.ts",
           "type": "registry:lib"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/types/time.types.ts",
+          "type": "registry:lib"
         }
       ]
     },
@@ -232,7 +248,7 @@
       "name": "countdown",
       "type": "registry:component",
       "title": "Countdown",
-      "description": "Counts down to a target date/time with configurable format. Shows elapsed message when time has passed.",
+      "description": "Counts down to a target date/time with configurable format. When the target is reached, the timer stops at zero.",
       "registryDependencies": [],
       "dependencies": [],
       "files": [
@@ -242,6 +258,10 @@
         },
         {
           "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/useTicker.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/types/time.types.ts",
           "type": "registry:lib"
         }
       ]
@@ -274,6 +294,10 @@
         },
         {
           "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/hooks/useTicker.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "https://raw.githubusercontent.com/CambridgeMonorail/TheSignAge/main/libs/shadcnui-signage/src/lib/types/time.types.ts",
           "type": "registry:lib"
         }
       ]

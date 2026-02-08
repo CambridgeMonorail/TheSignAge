@@ -21,12 +21,12 @@ export const ClockDocPage: FC = () => {
         <h2 className="text-2xl font-medium mb-4">Built On</h2>
         <div className="bg-muted p-6 rounded-lg">
           <p className="mb-4">
-            <strong>No shadcn primitives</strong> - Built with date-fns for
-            formatting.
+            <strong>No shadcn primitives</strong> - Built on the native
+            Intl.DateTimeFormat API for formatting.
           </p>
           <ul className="list-disc list-inside space-y-2 text-muted-foreground">
             <li>Uses useTicker hook for minute-aligned updates</li>
-            <li>Timezone-aware via date-fns-tz</li>
+            <li>Timezone-aware via Intl.DateTimeFormat timeZone option</li>
             <li>Efficient re-renders only on time change</li>
             <li>Supports custom format strings and locales</li>
           </ul>

@@ -95,7 +95,7 @@ export function ContentRotator({
   return (
     <div className={cn('w-full', className)} data-testid="content-rotator">
       {transition === 'none' ? (
-        <>{activeChild}</>
+        activeChild
       ) : (
         <SignageTransition
           type={transitionType}
