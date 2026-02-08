@@ -28,6 +28,22 @@ export const AutoPagingListDocPage: FC = () => {
       </div>
 
       <section className="mb-12">
+        <h2 className="text-2xl font-medium mb-4">Built On</h2>
+        <div className="bg-muted p-6 rounded-lg">
+          <p className="mb-4">
+            <strong>No shadcn primitives</strong> - Built with React hooks and
+            native HTML.
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+            <li>Uses useTicker hook for drift-resistant timing</li>
+            <li>Respects prefers-reduced-motion for accessibility</li>
+            <li>Automatically pages through large lists without scrolling</li>
+            <li>Handles dynamic item updates mid-cycle</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="mb-12">
         <h2 className="text-2xl font-medium mb-4">Installation</h2>
         <CodeSnippet
           language="bash"
@@ -86,6 +102,56 @@ export function Departures({ rows }: { rows: Array<{ id: string; label: string }
   );
 }`}
         />
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-medium mb-4">Signage Considerations</h2>
+        <div className="space-y-4 text-muted-foreground">
+          <div>
+            <strong className="text-foreground">Dwell Time:</strong> Choose
+            dwell times appropriate for viewing distance and content density.
+            Typical range: 3-8 seconds per page.
+          </div>
+          <div>
+            <strong className="text-foreground">Page Size:</strong> Limit items
+            per page based on screen resolution. 4-6 items for 1080p, 8-12 for
+            4K displays.
+          </div>
+          <div>
+            <strong className="text-foreground">No Scrolling:</strong> Designed
+            for fixed-position displays where scrolling is jarring or
+            inaccessible.
+          </div>
+          <div>
+            <strong className="text-foreground">Dynamic Updates:</strong>{' '}
+            Handles item additions/removals gracefully without resetting the
+            paging cycle.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-medium mb-4">Links</h2>
+        <div className="flex flex-wrap gap-4">
+          <Button asChild variant="outline">
+            <a
+              href="https://cambridgemonorail.github.io/TheSignAge/storybook/?path=/docs/signage-behaviour-autopaginglist--docs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View in Storybook
+            </a>
+          </Button>
+          <Button asChild variant="outline">
+            <a
+              href="https://github.com/CambridgeMonorail/TheSignAge/blob/main/libs/shadcnui-signage/src/lib/behaviour/AutoPagingList.tsx"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Source
+            </a>
+          </Button>
+        </div>
       </section>
     </div>
   );

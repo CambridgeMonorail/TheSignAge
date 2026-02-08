@@ -28,6 +28,22 @@ export const ScheduleGateDocPage: FC = () => {
       </div>
 
       <section className="mb-12">
+        <h2 className="text-2xl font-medium mb-4">Built On</h2>
+        <div className="bg-muted p-6 rounded-lg">
+          <p className="mb-4">
+            <strong>No shadcn primitives</strong> - Built with date-fns-tz for
+            timezone handling.
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+            <li>Timezone-aware scheduling using date-fns-tz</li>
+            <li>Supports weekday-specific windows (mon-sun shorthand)</li>
+            <li>Minute-aligned updates via useTicker hook</li>
+            <li>Efficient re-evaluation only when window boundaries crossed</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="mb-12">
         <h2 className="text-2xl font-medium mb-4">Installation</h2>
         <CodeSnippet
           language="bash"
@@ -93,6 +109,54 @@ export function DaypartMenu() {
   );
 }`}
         />
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-medium mb-4">Signage Considerations</h2>
+        <div className="space-y-4 text-muted-foreground">
+          <div>
+            <strong className="text-foreground">Daypart Menus:</strong> Show
+            breakfast/lunch/dinner menus based on time windows.
+          </div>
+          <div>
+            <strong className="text-foreground">Business Hours:</strong> Display
+            different content during open/closed hours.
+          </div>
+          <div>
+            <strong className="text-foreground">Timezone Handling:</strong>{' '}
+            Critical for multi-location deployments; ensure timezone matches
+            display location.
+          </div>
+          <div>
+            <strong className="text-foreground">Fallback Design:</strong>{' '}
+            Fallback content should clearly indicate "closed" or "unavailable"
+            state.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-medium mb-4">Links</h2>
+        <div className="flex flex-wrap gap-4">
+          <Button asChild variant="outline">
+            <a
+              href="https://cambridgemonorail.github.io/TheSignAge/storybook/?path=/docs/signage-behaviour-schedulegate--docs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View in Storybook
+            </a>
+          </Button>
+          <Button asChild variant="outline">
+            <a
+              href="https://github.com/CambridgeMonorail/TheSignAge/blob/main/libs/shadcnui-signage/src/lib/behaviour/ScheduleGate.tsx"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Source
+            </a>
+          </Button>
+        </div>
       </section>
     </div>
   );

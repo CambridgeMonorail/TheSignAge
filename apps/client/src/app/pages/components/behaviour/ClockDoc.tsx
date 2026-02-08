@@ -17,7 +17,22 @@ export const ClockDocPage: FC = () => {
       </div>
 
       <section className="mb-12">
-        {' '}
+        <h2 className="text-2xl font-medium mb-4">Built On</h2>
+        <div className="bg-muted p-6 rounded-lg">
+          <p className="mb-4">
+            <strong>No shadcn primitives</strong> - Built with date-fns for
+            formatting.
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+            <li>Uses useTicker hook for minute-aligned updates</li>
+            <li>Timezone-aware via date-fns-tz</li>
+            <li>Efficient re-renders only on time change</li>
+            <li>Supports custom format strings and locales</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="mb-12">
         <h2 className="text-2xl font-medium mb-4">Installation</h2>
         <CodeSnippet
           language="bash"
@@ -69,6 +84,54 @@ export function Header() {
   return <Clock format="HH:mm" className="text-6xl tabular-nums" />;
 }`}
         />
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-medium mb-4">Signage Considerations</h2>
+        <div className="space-y-4 text-muted-foreground">
+          <div>
+            <strong className="text-foreground">Typography:</strong> Use
+            tabular-nums class for monospace digits to prevent layout shift.
+          </div>
+          <div>
+            <strong className="text-foreground">Update Frequency:</strong>{' '}
+            Updates at minute boundaries by default for efficiency. Add seconds
+            for high-precision displays.
+          </div>
+          <div>
+            <strong className="text-foreground">Timezone Awareness:</strong>{' '}
+            Specify timezone for multi-location displays or daylight saving
+            handling.
+          </div>
+          <div>
+            <strong className="text-foreground">Readability:</strong> Use large
+            font sizes (4xl-8xl) for distance viewing.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-medium mb-4">Links</h2>
+        <div className="flex flex-wrap gap-4">
+          <Button asChild variant="outline">
+            <a
+              href="https://cambridgemonorail.github.io/TheSignAge/storybook/?path=/docs/signage-behaviour-clock--docs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View in Storybook
+            </a>
+          </Button>
+          <Button asChild variant="outline">
+            <a
+              href="https://github.com/CambridgeMonorail/TheSignAge/blob/main/libs/shadcnui-signage/src/lib/behaviour/Clock.tsx"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Source
+            </a>
+          </Button>
+        </div>
       </section>
     </div>
   );

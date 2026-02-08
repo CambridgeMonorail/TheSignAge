@@ -17,6 +17,22 @@ export const ContentRotatorDocPage: FC = () => {
       </div>
 
       <section className="mb-12">
+        <h2 className="text-2xl font-medium mb-4">Built On</h2>
+        <div className="bg-muted p-6 rounded-lg">
+          <p className="mb-4">
+            <strong>No shadcn primitives</strong> - Built with React state and
+            hooks.
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+            <li>Uses useTicker hook for deterministic rotation timing</li>
+            <li>Supports fade, slide, and no-transition modes</li>
+            <li>Respects prefers-reduced-motion accessibility preference</li>
+            <li>Handles dynamic children updates without restarting cycle</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="mb-12">
         {' '}
         <h2 className="text-2xl font-medium mb-4">Installation</h2>
         <CodeSnippet
@@ -75,6 +91,55 @@ export function LobbyLoop() {
   );
 }`}
         />
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-medium mb-4">Signage Considerations</h2>
+        <div className="space-y-4 text-muted-foreground">
+          <div>
+            <strong className="text-foreground">Rotation Speed:</strong> 5-10
+            seconds per item is typical for signage. Slower for dense content,
+            faster for simple messages.
+          </div>
+          <div>
+            <strong className="text-foreground">Transitions:</strong> Slide
+            transitions work well for sequential content; fade for unrelated
+            items.
+          </div>
+          <div>
+            <strong className="text-foreground">Pause Control:</strong> Useful
+            for interactive kiosks or when integrated with presence sensors.
+          </div>
+          <div>
+            <strong className="text-foreground">Dynamic Content:</strong>{' '}
+            Handles children changes (add/remove items) without disrupting the
+            rotation.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-medium mb-4">Links</h2>
+        <div className="flex flex-wrap gap-4">
+          <Button asChild variant="outline">
+            <a
+              href="https://cambridgemonorail.github.io/TheSignAge/storybook/?path=/docs/signage-behaviour-contentrotator--docs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View in Storybook
+            </a>
+          </Button>
+          <Button asChild variant="outline">
+            <a
+              href="https://github.com/CambridgeMonorail/TheSignAge/blob/main/libs/shadcnui-signage/src/lib/behaviour/ContentRotator.tsx"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Source
+            </a>
+          </Button>
+        </div>
       </section>
     </div>
   );

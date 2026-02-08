@@ -20,6 +20,22 @@ export const StaleDataIndicatorDocPage: FC = () => {
       </div>
 
       <section className="mb-12">
+        <h2 className="text-2xl font-medium mb-4">Built On</h2>
+        <div className="bg-muted p-6 rounded-lg">
+          <p className="mb-4">
+            <strong>No shadcn primitives</strong> - Built with conditional CSS
+            classes.
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+            <li>Uses useTicker hook for periodic freshness checks</li>
+            <li>Three states: fresh (green), warning (yellow), stale (red)</li>
+            <li>Configurable thresholds for warning and stale states</li>
+            <li>Compact visual indicator (dot + label)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="mb-12">
         {' '}
         <h2 className="text-2xl font-medium mb-4">Installation</h2>
         <CodeSnippet
@@ -82,6 +98,55 @@ export function Status({ lastUpdatedEpochMs }: { lastUpdatedEpochMs: number }) {
   );
 }`}
         />
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-medium mb-4">Signage Considerations</h2>
+        <div className="space-y-4 text-muted-foreground">
+          <div>
+            <strong className="text-foreground">Freshness Thresholds:</strong>{' '}
+            Set thresholds based on update frequency expectations. 5-15 minutes
+            typical for dashboards.
+          </div>
+          <div>
+            <strong className="text-foreground">Visual Hierarchy:</strong> Place
+            indicator where viewers naturally look (top-right, near timestamps).
+          </div>
+          <div>
+            <strong className="text-foreground">Color Coding:</strong>{' '}
+            Green/yellow/red standard for status; ensure sufficient contrast for
+            distance viewing.
+          </div>
+          <div>
+            <strong className="text-foreground">Real-time Monitoring:</strong>{' '}
+            Essential for dashboards showing live data feeds, preventing stale
+            data from misleading viewers.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-medium mb-4">Links</h2>
+        <div className="flex flex-wrap gap-4">
+          <Button asChild variant="outline">
+            <a
+              href="https://cambridgemonorail.github.io/TheSignAge/storybook/?path=/docs/signage-behaviour-staledataindicator--docs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View in Storybook
+            </a>
+          </Button>
+          <Button asChild variant="outline">
+            <a
+              href="https://github.com/CambridgeMonorail/TheSignAge/blob/main/libs/shadcnui-signage/src/lib/behaviour/StaleDataIndicator.tsx"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Source
+            </a>
+          </Button>
+        </div>
       </section>
     </div>
   );
