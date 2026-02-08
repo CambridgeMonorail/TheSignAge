@@ -19,6 +19,21 @@ export const CountdownDocPage: FC = () => {
       </div>
 
       <section className="mb-12">
+        <h2 className="text-2xl font-medium mb-4">Built On</h2>
+        <div className="bg-muted p-6 rounded-lg">
+          <p className="mb-4">
+            <strong>No shadcn primitives</strong> - Built with React state.
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+            <li>Uses useTicker hook for second-resolution updates</li>
+            <li>Clamps at 0 when target time is reached</li>
+            <li>Optional completion callback for triggering actions</li>
+            <li>Customizable format string (mm:ss, HH:mm:ss, etc.)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="mb-12">
         <h2 className="text-2xl font-medium mb-4">Installation</h2>
         <CodeSnippet
           language="bash"
@@ -69,6 +84,54 @@ export function Timer({ targetEpochMs }: { targetEpochMs: number }) {
   );
 }`}
         />
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-medium mb-4">Signage Considerations</h2>
+        <div className="space-y-4 text-muted-foreground">
+          <div>
+            <strong className="text-foreground">Typography:</strong> Use
+            tabular-nums to prevent width changes as digits countdown.
+          </div>
+          <div>
+            <strong className="text-foreground">Zero State:</strong> Display
+            meaningful message when countdown completes (e.g. "Event starting").
+          </div>
+          <div>
+            <strong className="text-foreground">Format Choice:</strong> Show
+            hours for long countdowns (days away), minutes/seconds for imminent
+            events.
+          </div>
+          <div>
+            <strong className="text-foreground">Completion Callback:</strong>{' '}
+            Useful for triggering transitions or content changes when time
+            expires.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-medium mb-4">Links</h2>
+        <div className="flex flex-wrap gap-4">
+          <Button asChild variant="outline">
+            <a
+              href="https://cambridgemonorail.github.io/TheSignAge/storybook/?path=/docs/signage-behaviour-countdown--docs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View in Storybook
+            </a>
+          </Button>
+          <Button asChild variant="outline">
+            <a
+              href="https://github.com/CambridgeMonorail/TheSignAge/blob/main/libs/shadcnui-signage/src/lib/behaviour/Countdown.tsx"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Source
+            </a>
+          </Button>
+        </div>
       </section>
     </div>
   );

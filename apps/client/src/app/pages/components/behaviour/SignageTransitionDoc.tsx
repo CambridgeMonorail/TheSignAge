@@ -20,6 +20,21 @@ export const SignageTransitionDocPage: FC = () => {
       </div>
 
       <section className="mb-12">
+        <h2 className="text-2xl font-medium mb-4">Built On</h2>
+        <div className="bg-muted p-6 rounded-lg">
+          <p className="mb-4">
+            <strong>No shadcn primitives</strong> - Built with CSS transitions.
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+            <li>CSS-based transitions (crossfade, slide-left, slide-up)</li>
+            <li>Respects prefers-reduced-motion accessibility preference</li>
+            <li>Configurable duration and reduced-motion behavior</li>
+            <li>Wraps single child with transition effects</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="mb-12">
         <h2 className="text-2xl font-medium mb-4">Installation</h2>
         <CodeSnippet
           language="bash"
@@ -74,6 +89,56 @@ export function RotatingPanel({ children }: { children: React.ReactNode }) {
   );
 }`}
         />
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-medium mb-4">Signage Considerations</h2>
+        <div className="space-y-4 text-muted-foreground">
+          <div>
+            <strong className="text-foreground">Transition Types:</strong>{' '}
+            Crossfade for unrelated content; slide for sequential or directional
+            flow.
+          </div>
+          <div>
+            <strong className="text-foreground">Duration:</strong> Keep
+            transitions brief (250-400ms). Longer durations feel sluggish on
+            large displays.
+          </div>
+          <div>
+            <strong className="text-foreground">Accessibility:</strong>{' '}
+            Reduced-motion preferences are respected automatically; choose
+            "shorten" or "disable" behavior.
+          </div>
+          <div>
+            <strong className="text-foreground">Performance:</strong> CSS
+            transitions are GPU-accelerated and performant for always-on
+            displays.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-medium mb-4">Links</h2>
+        <div className="flex flex-wrap gap-4">
+          <Button asChild variant="outline">
+            <a
+              href="https://cambridgemonorail.github.io/TheSignAge/storybook/?path=/docs/signage-behaviour-signagetransition--docs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View in Storybook
+            </a>
+          </Button>
+          <Button asChild variant="outline">
+            <a
+              href="https://github.com/CambridgeMonorail/TheSignAge/blob/main/libs/shadcnui-signage/src/lib/behaviour/SignageTransition.tsx"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Source
+            </a>
+          </Button>
+        </div>
       </section>
     </div>
   );
