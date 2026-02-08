@@ -207,15 +207,12 @@ export const LandingPage: FC = () => {
       <Footer
         className="w-full px-4 sm:px-6 lg:px-8"
         navigationLinks={[
-          { text: 'Home', url: '#' },
-          { text: 'Features', url: '#features' },
+          { text: 'Getting Started', url: '/getting-started' },
+          { text: 'Component Library', url: '/library' },
+          { text: 'Gallery', url: '/gallery' },
           {
-            text: 'Documentation',
-            url: 'https://github.com/CambridgeMonorail/TheSignAge',
-          },
-          {
-            text: 'Community',
-            url: 'https://discord.com/invite/your-discord-invite',
+            text: 'Storybook',
+            url: 'https://cambridgemonorail.github.io/TheSignAge/storybook/',
           },
           {
             text: 'GitHub',
