@@ -106,6 +106,74 @@ pnpm build:shadcnui-signage`}
         </div>
       </section>
 
+      {/* AI-ASSISTED DEVELOPMENT */}
+      <section className="mb-12 bg-card p-6 rounded border border-border">
+        <h2 className="text-2xl font-medium text-foreground mb-4 flex items-center gap-2">
+          <Code className="w-6 h-6" />
+          AI-Assisted Development
+        </h2>
+        <p className="text-muted-foreground mb-4">
+          The Sign Age includes a custom GitHub Copilot agent optimized for
+          building signage content. The{' '}
+          <code className="text-sm bg-muted px-1.5 py-0.5 rounded">
+            signage-architect
+          </code>{' '}
+          agent understands signage-specific constraints and can generate
+          production-ready components.
+        </p>
+        <div className="space-y-3">
+          <div>
+            <h3 className="font-medium text-foreground mb-2">What It Does</h3>
+            <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+              <li>
+                Builds signage components following the 10-foot legibility rule
+              </li>
+              <li>
+                Enforces premium design standards (focal points, hierarchy,
+                restraint)
+              </li>
+              <li>
+                Generates layouts for menus, dashboards, wayfinding, and
+                timetables
+              </li>
+              <li>
+                Ensures 24/7 reliability (no memory leaks, handles
+                offline/errors)
+              </li>
+              <li>
+                Applies signage-specific heuristics (brevity, safe zones,
+                viewing distance)
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-medium text-foreground mb-2">How to Use It</h3>
+            <p className="text-sm text-muted-foreground mb-2">
+              In VS Code with GitHub Copilot Chat, invoke the agent:
+            </p>
+            <div className="bg-slate-900 text-slate-100 p-3 rounded font-mono text-xs">
+              <pre>
+                {`@signage-architect build a restaurant menu board
+showing 3 categories with 4 items each, 1080p landscape`}
+              </pre>
+            </div>
+          </div>
+          <div>
+            <p className="text-sm text-muted-foreground">
+              The agent follows a clarification-first workflow and enforces
+              design quality before generating code. See{' '}
+              <button
+                onClick={handleGitHubClick}
+                className="text-foreground hover:underline"
+              >
+                .github/agents/signage-architect.agent.md
+              </button>{' '}
+              for full documentation.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* QUICK START */}
       <section className="mb-12">
         <h2 className="text-2xl font-medium text-foreground mb-4 flex items-center gap-2">
