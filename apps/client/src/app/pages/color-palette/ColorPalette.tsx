@@ -224,6 +224,61 @@ const ColorPalettePage: React.FC = () => {
   return (
     <div className="container mx-auto py-8 px-4">
       <h1 className="text-4xl font-bold mb-8">Theme Color Demonstration</h1>
+      
+      {/* THEME RESOURCES */}
+      <Card className="mb-8">
+        <CardHeader>
+          <CardTitle>Theme Configuration</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="mb-4 text-muted-foreground">
+            The Sign Age uses a custom shadcn/ui theme optimized for digital signage.
+            The theme follows STYLE_GUIDE.md specifications with locked colors and
+            accessibility-first design.
+          </p>
+          <div className="flex flex-col gap-2">
+            <div>
+              <strong className="text-sm">Theme Definition:</strong>
+              <code className="ml-2 text-sm bg-muted px-2 py-1 rounded">
+                libs/common-tailwind/src/shadcn-theme.css
+              </code>
+            </div>
+            <div>
+              <strong className="text-sm">Client Config:</strong>
+              <code className="ml-2 text-sm bg-muted px-2 py-1 rounded">
+                apps/client/tailwind.config.js
+              </code>
+            </div>
+          </div>
+          <div className="mt-4 flex gap-2">
+            <button
+              onClick={() =>
+                window.open(
+                  'https://github.com/CambridgeMonorail/TheSignAge/blob/main/libs/common-tailwind/src/shadcn-theme.css',
+                  '_blank',
+                  'noopener,noreferrer',
+                )
+              }
+              className="text-sm text-primary hover:underline"
+            >
+              View Theme Source →
+            </button>
+            <span className="text-muted-foreground">|</span>
+            <button
+              onClick={() =>
+                window.open(
+                  'https://ui.shadcn.com/docs/theming',
+                  '_blank',
+                  'noopener,noreferrer',
+                )
+              }
+              className="text-sm text-primary hover:underline"
+            >
+              shadcn/ui Theming Guide →
+            </button>
+          </div>
+        </CardContent>
+      </Card>
 
       <Tabs defaultValue="pairs" className="w-full">
         <TabsList className="grid w-full grid-cols-2 mb-8">
@@ -235,7 +290,7 @@ const ColorPalettePage: React.FC = () => {
           <div className="mb-4">
             Choosing the right color combinations is crucial for ensuring your
             application is accessible to all users. This demonstration evaluates
-            ShadCN UI theme colors against WCAG contrast standards, helping you
+            shadcn/ui theme colors against WCAG contrast standards, helping you
             identify areas that might need adjustments for better readability.
           </div>
           <h2 className="text-2xl font-semibold mb-4">
