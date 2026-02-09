@@ -29,7 +29,7 @@ Digital signage as software. Nx + pnpm monorepo using React 19, Tailwind v4, sha
    git push -u origin feat/your-feature-name
    ```
 
-4. **Never** use `git push` when on main branch - always check `git branch` first
+4. **Never push commits directly to `main`** - always check `git branch` before pushing
 
 ### Branch Naming Convention
 
