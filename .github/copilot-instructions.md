@@ -2,6 +2,38 @@
 
 Digital signage as software. Nx + pnpm monorepo using React 19, Tailwind v4, shadcn/ui, and Vite to build reusable signage-oriented UI primitives, layouts, and blocks.
 
+## Git Workflow - ALWAYS USE BRANCHES
+
+**CRITICAL: Never commit directly to `main`** - Main is a protected branch that requires pull requests.
+
+### Branch Workflow
+
+1. **Before starting work**, create a feature branch:
+   ```bash
+   git checkout -b feat/your-feature-name
+   # or: git checkout -b fix/bug-description
+   # or: git checkout -b chore/task-description
+   ```
+
+2. **Work in your branch** - commit regularly with conventional commit messages:
+   ```bash
+   git add -A
+   git commit -m "feat(scope): description"
+   git push -u origin feat/your-feature-name
+   ```
+
+3. **Create pull request** - push to your branch and open PR to main
+
+4. **Never** use `git push` when on main branch - always check `git branch` first
+
+### Branch Naming Convention
+
+- `feat/` - New features (e.g., `feat/brightsign-deploy`)
+- `fix/` - Bug fixes (e.g., `fix/router-state-loss`)
+- `chore/` - Maintenance tasks (e.g., `chore/update-deps`)
+- `docs/` - Documentation updates (e.g., `docs/deployment-guide`)
+- `refactor/` - Code refactoring (e.g., `refactor/optimize-bundle`)
+
 ## Global TypeScript Conventions
 
 - Use strict TypeScript with no `any` (use `unknown` with type guards)
