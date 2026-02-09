@@ -21,10 +21,13 @@ Digital signage as software. Nx + pnpm monorepo using React 19, Tailwind v4, sha
    ```bash
    git add -A
    git commit -m "feat(scope): description"
-   git push -u origin feat/your-feature-name
+   # repeat as you work; keep commits small and focused
    ```
 
-3. **Create pull request** - push to your branch and open PR to main
+3. **Create pull request** - push to your branch and open PR to main:
+   ```bash
+   git push -u origin feat/your-feature-name
+   ```
 
 4. **Never** use `git push` when on main branch - always check `git branch` first
 
