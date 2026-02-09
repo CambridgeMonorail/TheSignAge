@@ -8,8 +8,10 @@ Digital signage as software. Nx + pnpm monorepo using React 19, Tailwind v4, sha
 
 ### Branch Workflow
 
-1. **Before starting work**, create a feature branch:
+1. **Before starting work**, create a feature branch from up-to-date main:
    ```bash
+   git checkout main
+   git pull
    git checkout -b feat/your-feature-name
    # or: git checkout -b fix/bug-description
    # or: git checkout -b chore/task-description
