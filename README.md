@@ -13,6 +13,31 @@
 
 **NOTE: This project is currently in alpha. In fact, it's very alpha. This means it is still under active development and may undergo significant changes. Features may be incomplete or unstable. Got suggestions on what you would like to see or how to make it better? Add an issue and let us know!**
 
+## What This Is (and Why It Exists)
+
+**The Sign Age** is a developer-first workspace for building **real digital signage** with modern web tooling — especially targeting **BrightSign OS 9.x players**.
+
+If you've ever thought “this should just be a React app,” this repo is the missing glue:
+
+- A **signage-oriented component library** (`@tsa/shadcnui-signage`) built for distance readability and fixed-aspect layouts
+- A **packaging + deploy workflow** for BrightSign players (no manual ZIP rituals)
+- **Git-safe player management** (no IPs or credentials committed)
+- **Player discovery tooling** to find devices on your local network
+
+### Designed for VS Code + GitHub Copilot
+
+This repo is intentionally set up to work well in **VS Code** with **GitHub Copilot**:
+
+- Opinionated Copilot instructions to keep AI output consistent
+- Built-in agent(s) for signage screen construction and platform-aware guidance
+- MCP support for BrightSign platform docs research
+
+### What this is not
+
+- Not a CMS
+- Not official BrightSign documentation
+- Not a replacement for BSN.cloud
+
 ## 🚀 Live Demo
 
 - **Client App:** [https://cambridgemonorail.github.io/TheSignAge/](https://cambridgemonorail.github.io/TheSignAge/)
@@ -21,12 +46,48 @@
 ## ✨ Key Features
 
 - **`@tsa/shadcnui-signage`** - Purpose-built React component library for digital signage (distance-readable typography, fixed-aspect layouts, deterministic rendering)
+- **BrightSign Deployment Workflow** - Production-ready scripts for packaging and deploying to BrightSign OS 9.x players ([guide](./docs/guides/brightsign-deployment.md))
 - **Signage Architect Agent** - AI accelerator for building premium signage screens with GitHub Copilot ([.github/agents/signage-architect.agent.md](./.github/agents/signage-architect.agent.md))
 - **Production-Ready Examples** - Restaurant menus, office directories, KPI dashboards, event schedules, and more
 - **BrightSign Platform Integration** - MCP server support for device documentation and platform research
 
+## 🚀 Quick Start: BrightSign Development
+
+If you're a web developer new to BrightSign, this repo is designed to get you to:
+
+- A working React “player app” you can run locally
+- A repeatable packaging + deploy workflow for BrightSign OS 9.x
+- A dev-friendly way to manage players (and discover them) without committing IPs
+
+Get started with BrightSign player development in 3 commands (after `pnpm install`):
+
+```bash
+# 1. Initialize configuration files
+pnpm setup:dev
+
+# 2. Add your BrightSign player
+pnpm player add dev-player 192.168.1.50 --default
+
+# 3. Build and deploy
+pnpm deploy:player
+```
+
+Optional (recommended for first-time setup): discover players on your LAN
+
+```bash
+pnpm discover
+```
+
+The setup script creates:
+- `.env` for environment variables (optional)
+- `.brightsign/players.json` for player registry (git-ignored)
+
+See [BrightSign Player Configuration](./docs/guides/brightsign-player-config.md) and the [BrightSign Deployment Guide](./docs/guides/brightsign-deployment.md) for full details.
+
 ## Table of Contents
 
+- [What This Is (and Why It Exists)](#what-this-is-and-why-it-exists)
+- [Quick Start: BrightSign Development](#-quick-start-brightsign-development)
 - [Overview](#overview)
 - [Statement of Intent](#statement-of-intent)
 - [What This Repo Contains](#what-this-repo-contains)
@@ -83,7 +144,14 @@ This is an **Nx + pnpm** monorepo with a focus on tooling and reusable UI buildi
 ### Applications
 
 - **`apps/client`**: Demo site showcasing signage examples and components (**[View Live Demo](https://cambridgemonorail.github.io/TheSignAge/)**)
+- **`apps/player-minimal`**: BrightSign deployment target with status monitoring (**[Deployment Guide](./docs/guides/brightsign-deployment.md)**)
 - **Storybook**: Interactive component documentation (**[Browse Components](https://cambridgemonorail.github.io/TheSignAge/storybook/)**)
+
+### Deployment Tools
+
+- **`scripts/package-player.mjs`** - Package React apps for BrightSign OS 9.x with autorun.brs bootstrap
+- **`scripts/deploy-local.mjs`** - Deploy to local BrightSign players via HTTP API (port 8008)
+- **`.github/skills/brightsign-*` / `.github/skills/player-discovery-*`** - Copilot Agent Skills for BrightSign workflows and LAN discovery ([docs](./docs/tooling/github-copilot-tooling.md#skills))
 
 ### AI Accelerators
 
@@ -180,16 +248,22 @@ To install the project, follow these steps:
 
 ## Usage
 
-To run the dev server for your app, use:
+To run the demo site locally:
 
 ```sh
-npx nx serve client
+pnpm run serve:client
+```
+
+To run the BrightSign player app locally:
+
+```sh
+pnpm run serve:player
 ```
 
 To create a production bundle:
 
 ```sh
-npx nx build client
+pnpm run build:affected
 ```
 
 To see all available targets to run for a project, run:
@@ -208,15 +282,22 @@ These targets are either [inferred automatically](https://nx.dev/concepts/inferr
 - Storybook: `pnpm run serve:storybook`
 - Verify (fast, affected only): `pnpm run verify`
 - Full validation (slower): `pnpm run validate`
+- **Deploy to BrightSign**: `pnpm run deploy:player` (see [deployment guide](./docs/guides/brightsign-deployment.md))
+- **Discover BrightSign players on your LAN**: `pnpm run discover`
+- **Manage player configs (git-safe)**: `pnpm run player list|add|remove|default|get`
 
 ## Documentation
 
 ### Quick Links
 
-- **[Creating Digital Signage Content](./docs/guides/creating-signage-content.md)** ⭐ - Comprehensive guide to building premium signage screens
-- **[Getting Started](./docs/getting-started/README.md)** - Project structure and setup
+- **[BrightSign Deployment Guide](./docs/guides/brightsign-deployment.md)** ⭐ - Package + deploy to BrightSign OS 9.x
+- **[BrightSign Player Configuration](./docs/guides/brightsign-player-config.md)** ⭐ - Player registry + git-safe config
+- **[Player Discovery Tool](./tools/player-discovery/README.md)** ⭐ - Discover players on your LAN
+- **[Creating Digital Signage Content](./docs/guides/creating-signage-content.md)** - Guide to building premium signage screens
 - **[Guides](./docs/guides/README.md)** - Practical how-to tutorials
+- **[Getting Started](./docs/getting-started/README.md)** - Project structure and setup
 - **[Documentation Index](./docs/README.md)** - Full documentation overview
+- **[BrightSign Testing Checklist](./TESTING_BRIGHTSIGN.md)** - End-to-end validation steps
 
 ### Key Resources
 

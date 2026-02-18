@@ -41,6 +41,9 @@ testem.log
 *.key
 *.pem
 
+# BrightSign player configurations (keep .example files only)
+.brightsign/players.json
+
 # System Files
 .DS_Store
 Thumbs.db
@@ -57,3 +60,8 @@ validation*.txt
 storybook-static
 vite.config.*.timestamp*
 vitest.config.*.timestamp*
+
+# Player discovery outputs (contain internal IPs and device info)
+dist/players.json
+dist/players.csv
+dist/player-discovery/
